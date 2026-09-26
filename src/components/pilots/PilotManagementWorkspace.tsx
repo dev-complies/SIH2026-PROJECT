@@ -16,6 +16,7 @@ import {
 import { MilestoneManagementWorkspace } from "@/components/milestones/MilestoneManagementWorkspace";
 import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
 import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManagementWorkspace";
+import { RiskIssueManagementWorkspace } from "@/components/risks/RiskIssueManagementWorkspace";
 import {
   Building2,
   CheckCircle2,
@@ -512,63 +513,7 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {activeTab === "issues" && (
         <div className="space-y-4 animate-in fade-in duration-150">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-gov-primary">
-                Operational Field Issues & Resolutions
-              </h2>
-              <p className="text-[11px] text-gov-muted">
-                Tracked hardware hiccups, network dropouts, and maintenance tickets in municipal wards
-              </p>
-            </div>
-            <Button
-              size="sm"
-              onClick={() => setShowNewIssueModal(true)}
-              className="bg-gov-primary text-xs h-7 font-semibold"
-            >
-              <Plus className="w-3.5 h-3.5 mr-1" /> Report New Field Issue
-            </Button>
-          </div>
-
-          <div className="space-y-3">
-            {issues.map((iss) => (
-              <div key={iss.id} className="bg-white p-3.5 rounded-card border border-slate-200 shadow-2xs space-y-2 text-xs">
-                <div className="flex items-start justify-between gap-2 border-b border-slate-100 pb-2">
-                  <div className="space-y-0.5">
-                    <div className="flex items-center space-x-2">
-                      <span className="font-mono font-bold text-gov-accent text-[11px]">{iss.id}</span>
-                      <span className="font-bold text-slate-900 text-xs">{iss.title}</span>
-                    </div>
-                    <span className="text-[10px] text-gov-muted font-mono">
-                      Reported by {iss.reportedBy} • {iss.date}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center space-x-2 shrink-0">
-                    <Badge
-                      variant={iss.severity === "HIGH" ? "destructive" : iss.severity === "MEDIUM" ? "warning" : "outline"}
-                      className="font-mono text-[9px]"
-                    >
-                      {iss.severity} SEVERITY
-                    </Badge>
-                    <Badge
-                      variant={iss.status === "RESOLVED" ? "success" : "warning"}
-                      className="font-mono text-[9px]"
-                    >
-                      {iss.status}
-                    </Badge>
-                  </div>
-                </div>
-
-                <div className="bg-slate-50 p-2.5 rounded border border-slate-200/80">
-                  <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
-                    RESOLUTION AUDIT
-                  </span>
-                  <p className="text-slate-700 text-[11.5px] leading-relaxed mt-0.5">{iss.resolution}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <RiskIssueManagementWorkspace initialTab="issues" pilotId="PILOT-UP-UAQ-01" />
         </div>
       )}
 
@@ -577,75 +522,7 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {activeTab === "risks" && (
         <div className="space-y-4 animate-in fade-in duration-150">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-gov-primary">
-                Statutory Pilot Risk Register
-              </h2>
-              <p className="text-[11px] text-gov-muted">
-                Pre-identified technical, environmental, and contractual risks with binding mitigations
-              </p>
-            </div>
-            <Badge variant="success" className="font-mono text-xs">
-              All Mitigations Active
-            </Badge>
-          </div>
-
-          <div className="space-y-3">
-            {[
-              {
-                id: "RISK-01",
-                category: "TECHNICAL / HARDWARE",
-                title: "Optical Sensor Ingress & Soot Fouling",
-                impact: "HIGH",
-                probability: "LOW",
-                mitigation: "Automated positive-pressure cyclonic purge runs every 2 hours. Spare filter assemblies prepositioned at Lucknow ICCC store.",
-              },
-              {
-                id: "RISK-02",
-                category: "ENVIRONMENTAL / CLIMATIC",
-                title: "Monsoon High Ambient Humidity Saturation",
-                impact: "MEDIUM",
-                probability: "MEDIUM",
-                mitigation: "Edge micro-heater element in laser inlet tube activates automatically when relative humidity exceeds 85% to prevent water droplet scattering.",
-              },
-              {
-                id: "RISK-03",
-                category: "CIVIC INFRASTRUCTURE",
-                title: "Streetlight Pole Power Feed Interruption",
-                impact: "MEDIUM",
-                probability: "MEDIUM",
-                mitigation: "All 40 units equipped with high-density monocrystalline solar panels and 48-hour LiFePO4 battery reserve. Certified zero data loss.",
-              },
-            ].map((rk) => (
-              <div key={rk.id} className="bg-white p-3.5 rounded-card border border-slate-200 shadow-2xs space-y-2 text-xs">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <div className="flex items-center space-x-2">
-                    <AlertTriangle className="w-4 h-4 text-amber-600" />
-                    <span className="font-mono font-bold text-gov-primary">{rk.id}</span>
-                    <span className="text-slate-300">•</span>
-                    <span className="font-bold text-slate-900">{rk.title}</span>
-                  </div>
-
-                  <div className="flex items-center space-x-1.5 font-mono text-[10px]">
-                    <Badge variant="outline" className="text-slate-700 bg-slate-50">
-                      Impact: {rk.impact}
-                    </Badge>
-                    <Badge variant="outline" className="text-slate-700 bg-slate-50">
-                      Prob: {rk.probability}
-                    </Badge>
-                  </div>
-                </div>
-
-                <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                  <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
-                    STATUTORY MITIGATION COVENANT
-                  </span>
-                  <p className="text-slate-700 text-[11.5px] leading-relaxed mt-0.5">{rk.mitigation}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <RiskIssueManagementWorkspace initialTab="risks" pilotId="PILOT-UP-UAQ-01" />
         </div>
       )}
 

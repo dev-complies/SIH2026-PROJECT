@@ -14,6 +14,7 @@ import { GovernmentShortlistingWorkspace } from "@/components/gov/GovernmentShor
 import { PilotManagementWorkspace } from "@/components/pilots/PilotManagementWorkspace";
 import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
 import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManagementWorkspace";
+import { RiskIssueManagementWorkspace } from "@/components/risks/RiskIssueManagementWorkspace";
 import {
   Building2,
   AlertCircle,
@@ -238,6 +239,36 @@ function GovernmentDashboardContent() {
             <span className="text-slate-800 font-semibold">Empirical Evidence & Telemetry Vault</span>
           </div>
           <EvidenceManagementWorkspace />
+        </div>
+      );
+    }
+
+    if (tab === "risks") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/gov/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Statutory Risk Register</span>
+          </div>
+          <RiskIssueManagementWorkspace initialTab="risks" />
+        </div>
+      );
+    }
+
+    if (tab === "issues") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/gov/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Operational Field Issue Tracker</span>
+          </div>
+          <RiskIssueManagementWorkspace initialTab="issues" />
         </div>
       );
     }
