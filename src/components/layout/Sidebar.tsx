@@ -71,7 +71,7 @@ function SidebarInternal({
           { id: "overview", label: "Overview", icon: LayoutDashboard, href: "/gov/dashboard?tab=overview" },
           { id: "challenges", label: "Challenges", icon: Compass, href: "/gov/dashboard?tab=challenges", badge: "4 Active" },
           { id: "applications", label: "Applications", icon: FileText, href: "/gov/dashboard?tab=applications", badge: "12 New" },
-          { id: "evaluations", label: "Evaluations", icon: Award, href: "/gov/dashboard?tab=evaluations" },
+          { id: "shortlisting", label: "Shortlisting", icon: Award, href: "/gov/dashboard?tab=shortlisting", badge: "5 Candidates" },
           { id: "pilots", label: "Pilots", icon: Activity, href: "/gov/dashboard?tab=pilots", badge: "1 Live" },
           { id: "payments", label: "Payments", icon: CreditCard, href: "/gov/dashboard?tab=payments" },
           { id: "validation", label: "Validation", icon: ShieldCheck, href: "/gov/dashboard?tab=validation" },
