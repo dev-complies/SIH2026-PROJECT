@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { MOCK_CHALLENGES } from "@/database/mockData";
 import { ShellModulePlaceholder } from "@/components/layout/ShellModulePlaceholder";
+import { ExpertEvaluationWorkspace } from "@/components/expert/ExpertEvaluationWorkspace";
 import { ShieldCheck, EyeOff, FileText, CheckCircle2, Lock, AlertTriangle } from "lucide-react";
 
 function ExpertDashboardContent() {
@@ -19,6 +20,21 @@ function ExpertDashboardContent() {
   const [coiSigned, setCoiSigned] = useState(true);
 
   if (tab !== "overview" && tab !== "assignments") {
+    if (tab === "evaluations") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/expert/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Technical Evaluation</span>
+          </div>
+          <ExpertEvaluationWorkspace />
+        </div>
+      );
+    }
+
     const tabConfigs: Record<string, { title: string; desc: string; count?: string; action?: string }> = {
       evaluations: {
         title: "Proposal Technical Scoring Rubrics",
@@ -138,9 +154,11 @@ function ExpertDashboardContent() {
                 </Badge>
               </TableCell>
               <TableCell className="text-right">
-                <Button size="sm" variant="outline" className="text-xs h-8">
-                  <FileText className="w-3.5 h-3.5 mr-1" /> View Scorecard
-                </Button>
+                <Link href="?tab=evaluations">
+                  <Button size="sm" variant="default" className="text-xs h-8 bg-purple-800 hover:bg-purple-900 text-white font-semibold">
+                    <FileText className="w-3.5 h-3.5 mr-1" /> Open Evaluation
+                  </Button>
+                </Link>
               </TableCell>
             </TableRow>
           </TableBody>
