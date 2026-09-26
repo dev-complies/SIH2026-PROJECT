@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { InnovationPipeline, PilotMap } from "@/components/3d";
 import { ShellModulePlaceholder } from "@/components/layout/ShellModulePlaceholder";
+import { EligibilityReviewWorkspace } from "@/components/gov/EligibilityReviewWorkspace";
 import {
   Building2,
   AlertCircle,
@@ -160,8 +161,23 @@ function GovernmentDashboardContent() {
   const searchParams = useSearchParams();
   const tab = searchParams?.get("tab") || "overview";
 
-  // Sub-tab module placeholders when non-overview tabs are clicked from sidebar
+  // Sub-tab module handlers
   if (tab !== "overview") {
+    if (tab === "applications") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/gov/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Eligibility Review</span>
+          </div>
+          <EligibilityReviewWorkspace />
+        </div>
+      );
+    }
+
     const tabConfigs: Record<string, { title: string; desc: string; count?: string; action?: string }> = {
       challenges: {
         title: "State & Municipal Problem Challenges",
