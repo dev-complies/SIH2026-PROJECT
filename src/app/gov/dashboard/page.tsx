@@ -11,6 +11,7 @@ import { InnovationPipeline, PilotMap } from "@/components/3d";
 import { ShellModulePlaceholder } from "@/components/layout/ShellModulePlaceholder";
 import { EligibilityReviewWorkspace } from "@/components/gov/EligibilityReviewWorkspace";
 import { GovernmentShortlistingWorkspace } from "@/components/gov/GovernmentShortlistingWorkspace";
+import { PilotManagementWorkspace } from "@/components/pilots/PilotManagementWorkspace";
 import {
   Building2,
   AlertCircle,
@@ -190,6 +191,21 @@ function GovernmentDashboardContent() {
             <span className="text-slate-800 font-semibold">Shortlisting Workspace</span>
           </div>
           <GovernmentShortlistingWorkspace />
+        </div>
+      );
+    }
+
+    if (tab === "pilots") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/gov/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Pilot Management</span>
+          </div>
+          <PilotManagementWorkspace />
         </div>
       );
     }
