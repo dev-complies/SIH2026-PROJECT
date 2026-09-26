@@ -13,6 +13,7 @@ import { formatCurrency } from "@/utils";
 import { ShellModulePlaceholder } from "@/components/layout/ShellModulePlaceholder";
 import { StartupCapabilityProfile } from "@/components/startup/StartupCapabilityProfile";
 import { StartupApplicationWizard } from "@/components/startup/StartupApplicationWizard";
+import { MilestoneManagementWorkspace } from "@/components/milestones/MilestoneManagementWorkspace";
 import { Building, UploadCloud, Shield, CheckCircle2, Clock, Lock, Plus } from "lucide-react";
 
 function StartupDashboardContent() {
@@ -49,6 +50,21 @@ function StartupDashboardContent() {
           initialStatus="UNDER_EVALUATION"
           applicationId="APP-2026-UP-UAQ-041"
         />
+      </div>
+    );
+  }
+
+  if (tab === "milestones") {
+    return (
+      <div className="space-y-4">
+        <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+          <Link href="/startup/dashboard" className="hover:text-gov-primary flex items-center">
+            Dashboard
+          </Link>
+          <span>/</span>
+          <span className="text-slate-800 font-semibold">Milestones</span>
+        </div>
+        <MilestoneManagementWorkspace />
       </div>
     );
   }

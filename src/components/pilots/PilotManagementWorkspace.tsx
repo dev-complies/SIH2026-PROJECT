@@ -13,6 +13,7 @@ import {
   LUCKNOW_PILOT_NODES,
   PilotDataNode,
 } from "./ContextualCityPilot3D";
+import { MilestoneManagementWorkspace } from "@/components/milestones/MilestoneManagementWorkspace";
 import {
   Building2,
   CheckCircle2,
@@ -481,110 +482,8 @@ export function PilotManagementWorkspace() {
       {/* 4. TAB 2: MILESTONES                                     */}
       {/* ======================================================== */}
       {activeTab === "milestones" && (
-        <div className="space-y-4 animate-in fade-in duration-150">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-gov-primary">
-                Contractual Pilot Milestones & Deliverables
-              </h2>
-              <p className="text-[11px] text-gov-muted">
-                Statutory GFR Rule 149 milestone deliverables tied to treasury disbursement releases
-              </p>
-            </div>
-            <Badge variant="outline" className="font-mono text-xs">
-              3 of 4 Milestones Verified
-            </Badge>
-          </div>
-
-          <div className="space-y-3">
-            {milestones.map((m, idx) => (
-              <div
-                key={m.id}
-                className={`p-4 rounded-card border transition-all ${
-                  m.status === "COMPLETED"
-                    ? "bg-white border-slate-200"
-                    : m.status === "UNDER_REVIEW"
-                    ? "bg-amber-50/70 border-amber-300"
-                    : "bg-slate-50/60 border-slate-200 opacity-80"
-                }`}
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5 mb-2.5">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-6 h-6 rounded-full bg-gov-primary text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
-                      {idx + 1}
-                    </span>
-                    <div>
-                      <h3 className="font-bold text-slate-900 text-xs sm:text-sm">{m.title}</h3>
-                      <span className="text-[10.5px] text-gov-muted font-mono">
-                        Target: {m.targetDate} {m.completedDate && `• Completed: ${m.completedDate}`}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <span className="font-mono font-bold text-slate-900 text-xs">{m.tranche}</span>
-                    <Badge
-                      variant={
-                        m.status === "COMPLETED"
-                          ? "success"
-                          : m.status === "UNDER_REVIEW"
-                          ? "warning"
-                          : "secondary"
-                      }
-                      className="font-mono text-[9.5px]"
-                    >
-                      {m.status.replace(/_/g, " ")}
-                    </Badge>
-                  </div>
-                </div>
-
-                <p className="text-slate-700 text-xs leading-relaxed mb-3">{m.description}</p>
-
-                <div className="bg-slate-50 p-2.5 rounded border border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-                  <div className="flex items-center space-x-2">
-                    <FileText className="w-4 h-4 text-gov-primary shrink-0" />
-                    <div>
-                      <span className="font-semibold text-slate-900 text-[11.5px] block truncate">
-                        {m.deliverable}
-                      </span>
-                      <span className="text-[10px] text-gov-muted font-mono">
-                        SHA-256: {m.sha256}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-2 shrink-0">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() =>
-                        setPreviewEvidence({
-                          title: m.deliverable,
-                          category: "Contractual Milestone Deliverable",
-                          size: "4.8 MB",
-                          sha256: m.sha256,
-                          summary: m.description,
-                        })
-                      }
-                      className="text-[10.5px] h-7 px-2.5 border-slate-300"
-                    >
-                      <Eye className="w-3 h-3 mr-1" /> Inspect Deliverable
-                    </Button>
-
-                    {m.status === "UNDER_REVIEW" && (
-                      <Button
-                        size="sm"
-                        onClick={handleApproveMilestone3}
-                        className="bg-emerald-700 hover:bg-emerald-800 text-white text-[10.5px] font-semibold h-7"
-                      >
-                        <Check className="w-3 h-3 mr-1" /> Approve & Sign Off
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="animate-in fade-in duration-150">
+          <MilestoneManagementWorkspace />
         </div>
       )}
 
