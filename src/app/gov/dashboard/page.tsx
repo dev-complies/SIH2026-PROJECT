@@ -12,6 +12,7 @@ import { ShellModulePlaceholder } from "@/components/layout/ShellModulePlacehold
 import { EligibilityReviewWorkspace } from "@/components/gov/EligibilityReviewWorkspace";
 import { GovernmentShortlistingWorkspace } from "@/components/gov/GovernmentShortlistingWorkspace";
 import { PilotManagementWorkspace } from "@/components/pilots/PilotManagementWorkspace";
+import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
 import {
   Building2,
   AlertCircle,
@@ -206,6 +207,21 @@ function GovernmentDashboardContent() {
             <span className="text-slate-800 font-semibold">Pilot Management</span>
           </div>
           <PilotManagementWorkspace />
+        </div>
+      );
+    }
+
+    if (tab === "kpis" || tab === "analytics") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/gov/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Real-Time KPI Tracking System</span>
+          </div>
+          <KpiTrackingWorkspace />
         </div>
       );
     }

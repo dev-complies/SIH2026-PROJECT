@@ -14,6 +14,7 @@ import {
   PilotDataNode,
 } from "./ContextualCityPilot3D";
 import { MilestoneManagementWorkspace } from "@/components/milestones/MilestoneManagementWorkspace";
+import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
 import {
   Building2,
   CheckCircle2,
@@ -492,83 +493,7 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {activeTab === "kpis" && (
         <div className="space-y-4 animate-in fade-in duration-150">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-gov-primary">
-                Contractual KPI Benchmark Tracking
-              </h2>
-              <p className="text-[11px] text-gov-muted">
-                Target vs verified actual telemetry audited against CPCB standards
-              </p>
-            </div>
-            <span className="text-xs text-emerald-700 font-mono font-bold">
-              All 5 KPIs Satisfying Contractual Thresholds
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-            {[
-              {
-                label: "CPCB BAM-1020 Linear Correlation (R²)",
-                target: "≥ 0.92",
-                current: "0.95",
-                status: "EXCEEDING",
-                desc: "Regression slope across 60 days of collocated hourly telemetry at Lalbagh station.",
-              },
-              {
-                label: "Ward Geographic Sensor Coverage",
-                target: "≥ 85.0%",
-                current: "88.5%",
-                status: "ON_TRACK",
-                desc: "Effective sensor mesh radius across Wards 14, 18, 22, and 29.",
-              },
-              {
-                label: "Hourly Hardware Telemetry Uptime",
-                target: "≥ 95.0%",
-                current: "97.2%",
-                status: "ON_TRACK",
-                desc: "Percentage of expected hourly MQTT sensor packets received without loss at ICCC.",
-              },
-              {
-                label: "Automated Misting Trigger Dispatch Latency",
-                target: "≤ 10.0 min",
-                current: "6.8 min",
-                status: "EXCEEDING",
-                desc: "Time elapsed from hotspot threshold detection to municipal vehicle dispatch order.",
-              },
-              {
-                label: "Zero Calibration Sensor Accuracy Drift",
-                target: "≤ ±5.0%",
-                current: "±2.8%",
-                status: "ON_TRACK",
-                desc: "Optical particulate chamber baseline drift after 60 continuous operational days.",
-              },
-            ].map((kpi, idx) => (
-              <div key={idx} className="bg-white p-3.5 rounded-card border border-slate-200 shadow-2xs space-y-2">
-                <div className="flex items-start justify-between">
-                  <h3 className="font-bold text-slate-900 text-xs">{kpi.label}</h3>
-                  <Badge variant="success" className="font-mono text-[9px]">
-                    {kpi.status}
-                  </Badge>
-                </div>
-
-                <div className="flex items-baseline space-x-4 font-mono">
-                  <div>
-                    <span className="text-[9px] text-gov-muted uppercase block">ACTUAL VERIFIED</span>
-                    <span className="text-base font-extrabold text-emerald-700">{kpi.current}</span>
-                  </div>
-                  <div>
-                    <span className="text-[9px] text-gov-muted uppercase block">CONTRACT TARGET</span>
-                    <span className="text-sm font-semibold text-slate-600">{kpi.target}</span>
-                  </div>
-                </div>
-
-                <p className="text-[11px] text-slate-600 leading-tight pt-1 border-t border-slate-100">
-                  {kpi.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          <KpiTrackingWorkspace />
         </div>
       )}
 
