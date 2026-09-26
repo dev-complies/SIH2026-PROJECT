@@ -15,6 +15,7 @@ import {
 } from "./ContextualCityPilot3D";
 import { MilestoneManagementWorkspace } from "@/components/milestones/MilestoneManagementWorkspace";
 import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
+import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManagementWorkspace";
 import {
   Building2,
   CheckCircle2,
@@ -502,83 +503,7 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {activeTab === "evidence" && (
         <div className="space-y-4 animate-in fade-in duration-150">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-gov-primary">
-                Empirical Telemetry Proof & Cryptographic Evidence
-              </h2>
-              <p className="text-[11px] text-gov-muted">
-                Verifiable field artifacts submitted by startup and accredited testbeds
-              </p>
-            </div>
-            <span className="text-xs font-mono text-emerald-800 font-semibold">
-              100% Chained to Statutory Ledger
-            </span>
-          </div>
-
-          <div className="space-y-2.5">
-            {[
-              {
-                title: "60_Day_Hourly_Sensor_Telemetry_Lucknow.parquet",
-                category: "Time-Series Telemetry Dataset",
-                size: "42.8 MB",
-                sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-                date: "26 Sep 2026",
-                summary: "Raw and humidity-compensated particulate readings (PM1, PM2.5, PM10) from 40 nodes with GPS coordinates and temperature/RH logs.",
-              },
-              {
-                title: "CPCB_BAM1020_Regression_Collocation_Analysis.pdf",
-                category: "Third-Party Calibration Report",
-                size: "6.4 MB",
-                sha256: "9a81e263fa7b1209bca74e2843054f102837bcde20541178491028471bade029",
-                date: "25 Sep 2026",
-                summary: "Certified collocation regression audit by TERI Environmental Systems showing R² = 0.95 across 1,440 continuous hourly data points.",
-              },
-              {
-                title: "Lucknow_Wards_Spatial_GIS_Shapefiles.zip",
-                category: "Geospatial Boundary & Pole Layer",
-                size: "14.2 MB",
-                sha256: "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-                date: "20 Jun 2026",
-                summary: "GIS vector polygons demarcating Ward 14, 18, 22, 29 sensor coordinates, micro-hotspots, and misting vehicle routes.",
-              },
-              {
-                title: "Automated_Misting_Dispatch_Audit_Logs.csv",
-                category: "Municipal Intervention Dispatch Log",
-                size: "2.1 MB",
-                sha256: "c819a08912e73645019284758129034910284561029348571029384756102938",
-                date: "26 Sep 2026",
-                summary: "Chronological records of 84 automated misting vehicle dispatch triggers with GPS route confirmation and PM attenuation curves.",
-              },
-            ].map((ev, idx) => (
-              <div key={idx} className="bg-white p-3.5 rounded-control border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-2xs">
-                <div className="space-y-1 min-w-0 pr-2">
-                  <div className="flex items-center space-x-2">
-                    <FileText className="w-4 h-4 text-gov-primary shrink-0" />
-                    <span className="font-bold text-slate-900 truncate">{ev.title}</span>
-                  </div>
-                  <p className="text-[11px] text-slate-600 leading-tight">{ev.summary}</p>
-                  <div className="text-[10px] font-mono text-gov-muted truncate">
-                    {ev.category} • {ev.size} • Uploaded {ev.date}
-                  </div>
-                  <div className="text-[9.5px] font-mono text-slate-400 truncate">
-                    SHA-256: {ev.sha256}
-                  </div>
-                </div>
-
-                <div className="shrink-0 flex items-center space-x-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => setPreviewEvidence(ev)}
-                    className="text-xs h-7 border-slate-300"
-                  >
-                    <Eye className="w-3 h-3 mr-1" /> Inspect
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
+          <EvidenceManagementWorkspace />
         </div>
       )}
 

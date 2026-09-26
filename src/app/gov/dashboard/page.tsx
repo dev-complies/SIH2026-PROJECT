@@ -13,6 +13,7 @@ import { EligibilityReviewWorkspace } from "@/components/gov/EligibilityReviewWo
 import { GovernmentShortlistingWorkspace } from "@/components/gov/GovernmentShortlistingWorkspace";
 import { PilotManagementWorkspace } from "@/components/pilots/PilotManagementWorkspace";
 import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
+import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManagementWorkspace";
 import {
   Building2,
   AlertCircle,
@@ -222,6 +223,21 @@ function GovernmentDashboardContent() {
             <span className="text-slate-800 font-semibold">Real-Time KPI Tracking System</span>
           </div>
           <KpiTrackingWorkspace />
+        </div>
+      );
+    }
+
+    if (tab === "evidence") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/gov/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Empirical Evidence & Telemetry Vault</span>
+          </div>
+          <EvidenceManagementWorkspace />
         </div>
       );
     }

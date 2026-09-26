@@ -188,6 +188,47 @@ assert(canAccessValidationStudio(validatorUser) === true, "Validator CAN access 
 assert(canAccessValidationStudio(govUser) === true, "Government Officer CAN review validator reports");
 assert(canAccessValidationStudio(airSenseUser) === false, "Startup CANNOT access validator workspace to tamper with reports");
 
+// 4. Secure Evidence Access Control Tests
+console.log("\n--- 4. Testing Secure Evidence Access Control & Confidentiality ---");
+
+function canAccessEvidence(user, evidence) {
+  if (evidence.confidentialityLevel === "PUBLIC") return true;
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  if (role === "ADMIN" || role === "GOVERNMENT_OFFICER" || role === "PROCUREMENT_OFFICER") return true;
+  if (role === "VALIDATOR") {
+    return evidence.confidentialityLevel !== "CONFIDENTIAL_GOV_ONLY";
+  }
+  if (role === "EXPERT") {
+    return evidence.confidentialityLevel !== "CONFIDENTIAL_GOV_ONLY";
+  }
+  if (role === "STARTUP") {
+    if (evidence.confidentialityLevel === "CONFIDENTIAL_GOV_ONLY") return false;
+    if (evidence.confidentialityLevel === "PROPRIETARY_STARTUP") {
+      return user.organizationId === evidence.uploaderOrgId;
+    }
+    return true;
+  }
+  return false;
+}
+
+const publicEvidence = { id: "evi-1", confidentialityLevel: "PUBLIC", uploaderOrgId: "org-airsense-001" };
+const proprietaryEvidence = { id: "evi-2", confidentialityLevel: "PROPRIETARY_STARTUP", uploaderOrgId: "org-airsense-001" };
+const govOnlyEvidence = { id: "evi-3", confidentialityLevel: "CONFIDENTIAL_GOV_ONLY", uploaderOrgId: "dept-urban-001" };
+
+assert(canAccessEvidence(null, publicEvidence) === true, "Unauthenticated user CAN view PUBLIC evidence");
+assert(canAccessEvidence(null, proprietaryEvidence) === false, "Unauthenticated user CANNOT view PROPRIETARY evidence");
+assert(canAccessEvidence(null, govOnlyEvidence) === false, "Unauthenticated user CANNOT view CONFIDENTIAL_GOV_ONLY evidence");
+
+assert(canAccessEvidence(airSenseUser, proprietaryEvidence) === true, "Owning startup CAN access own PROPRIETARY evidence");
+assert(canAccessEvidence(competitorStartupUser, proprietaryEvidence) === false, "Competitor startup CANNOT access AirSense PROPRIETARY evidence");
+assert(canAccessEvidence(govUser, proprietaryEvidence) === true, "Government Officer CAN access startup PROPRIETARY evidence for audit");
+assert(canAccessEvidence(adminUser, proprietaryEvidence) === true, "Admin CAN access startup PROPRIETARY evidence");
+
+assert(canAccessEvidence(govUser, govOnlyEvidence) === true, "Government Officer CAN access CONFIDENTIAL_GOV_ONLY evidence");
+assert(canAccessEvidence(airSenseUser, govOnlyEvidence) === false, "Startup CANNOT access CONFIDENTIAL_GOV_ONLY evidence");
+assert(canAccessEvidence(validatorUser, govOnlyEvidence) === false, "Validator CANNOT access CONFIDENTIAL_GOV_ONLY internal evidence");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");
