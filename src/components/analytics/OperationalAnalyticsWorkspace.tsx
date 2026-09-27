@@ -487,8 +487,9 @@ export function OperationalAnalyticsWorkspace() {
               </div>
 
               {/* Clean SVG Trend Chart */}
-              <div className="h-64 relative bg-slate-50/70 border border-slate-200 rounded-control p-3 overflow-hidden">
-                <svg viewBox="0 0 700 220" className="w-full h-full overflow-visible" preserveAspectRatio="none">
+              <div className="h-64 relative bg-slate-50/70 border border-slate-200 rounded-control p-3 overflow-x-auto">
+                <div className="min-w-[540px] h-full">
+                  <svg viewBox="0 0 700 220" className="w-full h-full overflow-visible" preserveAspectRatio="none">
                   {/* Grid Lines */}
                   {[0, 50, 100, 150, 200].map((y, i) => (
                     <line
@@ -548,6 +549,7 @@ export function OperationalAnalyticsWorkspace() {
                     );
                   })}
                 </svg>
+                </div>
               </div>
 
               <div className="flex items-center justify-between text-[11px] text-gov-muted pt-1">

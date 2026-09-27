@@ -338,12 +338,12 @@ export default function StartupChallengeDiscoveryPage() {
               <option value="duration">Pilot Duration: Shortest</option>
             </select>
 
-            {/* Mobile Filter Toggle */}
+            {/* Mobile / Tablet Filter Toggle */}
             <Button
               size="sm"
               variant="outline"
               onClick={() => setShowFiltersMobile(!showFiltersMobile)}
-              className="md:hidden text-xs h-9"
+              className="lg:hidden text-xs h-9"
             >
               <Filter className="w-3.5 h-3.5 mr-1" />
               Filters ({activeFilterCount})
