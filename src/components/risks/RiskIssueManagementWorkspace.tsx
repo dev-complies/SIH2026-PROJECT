@@ -43,10 +43,12 @@ import {
   List,
   Flame,
   ArrowRight,
+  Sparkles,
 } from "lucide-react";
+import { AIRiskAnalysisWorkspace } from "./AIRiskAnalysisWorkspace";
 
 interface RiskIssueManagementWorkspaceProps {
-  initialTab?: "risks" | "issues";
+  initialTab?: "risks" | "issues" | "ai-risks";
   pilotId?: string;
 }
 
@@ -57,7 +59,7 @@ export function RiskIssueManagementWorkspace({
   const { currentUser } = useAuth();
   const { showToast } = useToast();
 
-  const [activeTab, setActiveTab] = useState<"risks" | "issues">(initialTab);
+  const [activeTab, setActiveTab] = useState<"risks" | "issues" | "ai-risks">(initialTab);
 
   // Data lists
   const [risks, setRisks] = useState<RiskRecord[]>([]);
@@ -634,6 +636,19 @@ export function RiskIssueManagementWorkspace({
             <AlertTriangle className="w-4 h-4 text-amber-600" />
             <span>Issue Tracker ({issues.length})</span>
           </button>
+
+          <button
+            onClick={() => setActiveTab("ai-risks")}
+            className={`flex items-center space-x-2 py-2.5 px-4 font-semibold text-xs border-b-2 transition-all ${
+              activeTab === "ai-risks"
+                ? "border-purple-600 text-purple-900 font-bold bg-purple-50/60"
+                : "border-transparent text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-purple-600" />
+            <span>AI Risk Suggestions</span>
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 font-medium">Advisory</span>
+          </button>
         </div>
 
         {/* Operational Statistics Ribbon */}
@@ -660,7 +675,7 @@ export function RiskIssueManagementWorkspace({
               <span className="text-lg font-bold text-blue-900 font-mono">{riskStats.mitigating}</span>
             </div>
           </div>
-        ) : (
+        ) : activeTab === "issues" ? (
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
             <div className="p-2.5 rounded bg-slate-50 border border-slate-200">
               <span className="text-[10px] text-gov-muted uppercase font-mono block">TOTAL ISSUES</span>
@@ -684,6 +699,22 @@ export function RiskIssueManagementWorkspace({
                 {issueStats.resolved + issueStats.closed}
               </span>
             </div>
+          </div>
+        ) : (
+          <div className="p-3 bg-purple-50/60 border border-purple-200/80 rounded flex items-center justify-between text-xs text-purple-900">
+            <div className="flex items-center space-x-2">
+              <Sparkles className="w-4 h-4 text-purple-600 flex-shrink-0" />
+              <span>
+                <strong>AI-Assisted Risk Analysis Active:</strong> Identifies potential Technical, Operational, Data, Cybersecurity, Financial, and Timeline risks grounded in pilot evidence. Non-decisional advisory only.
+              </span>
+            </div>
+            <Link
+              href="/risks-issues/ai-analysis"
+              className="text-[11px] font-semibold text-purple-700 hover:underline flex items-center space-x-1"
+            >
+              <span>Full Screen View</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
         )}
       </div>
@@ -1122,6 +1153,13 @@ export function RiskIssueManagementWorkspace({
             )}
           </div>
         </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* 3. TAB C: AI RISK ANALYSIS ADVISORY WORKSPACE            */}
+      {/* ======================================================== */}
+      {activeTab === "ai-risks" && (
+        <AIRiskAnalysisWorkspace pilotId={pilotId} />
       )}
 
       {/* ======================================================== */}

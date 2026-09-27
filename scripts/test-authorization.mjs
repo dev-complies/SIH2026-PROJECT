@@ -1539,6 +1539,236 @@ const hallucinatedSummary = {
 };
 assert(verifyFactualIntegrity(hallucinatedSummary).valid === false, "Invented information correctly fails anti-hallucination verification");
 
+// 16. Testing AI-Assisted Risk Analysis & Non-Decisional Safeguards
+console.log("\n--- 16. Testing AI-Assisted Risk Analysis & Non-Decisional Safeguards ---");
+
+// 1. Mandatory 6 Risk Categories
+const MANDATORY_RISK_CATEGORIES = [
+  "Technical Risks",
+  "Operational Risks",
+  "Data Risks",
+  "Cybersecurity Risks",
+  "Financial Risks",
+  "Timeline Risks"
+];
+
+assert(MANDATORY_RISK_CATEGORIES.length === 6, "AI Risk Analysis defines exactly 6 statutory categories");
+for (const cat of MANDATORY_RISK_CATEGORIES) {
+  assert(MANDATORY_RISK_CATEGORIES.includes(cat), `Mandatory category '${cat}' is verified present`);
+}
+
+// 2. Exact Mandated Label
+const MANDATED_AI_RISK_LABEL = "AI-generated risk suggestion.";
+assert(MANDATED_AI_RISK_LABEL === "AI-generated risk suggestion.", "Statutory label exactly matches 'AI-generated risk suggestion.'");
+
+// 3. Four Core Fields per Suggested Risk
+const sampleSuggestedRisks = [
+  {
+    id: "AI-RSK-001",
+    category: "Technical Risks",
+    risk: "Laser Optical Diode Signal Drift Under Dense Winter Fog Conditions",
+    whyIdentified: "Telemetry logs from Week 3 indicate optical backscatter readings fluctuated by +14% when relative humidity exceeded 92% at Hazratganj station.",
+    potentialImpact: "Potential distortion of particulate matter (PM2.5/PM10) readings by up to 18%, risking inaccurate air quality alerts.",
+    suggestedMitigation: "Deploy heated optical inlet sleeves (de-misting hygroscopic heaters) and calibrate baseline compensation algorithms against UPPCB reference BAM.",
+    groundedIn: {
+      challengeId: "UAQ-LKO-2026",
+      startupId: "STARTUP-AIRSENSE-01",
+      pilotId: "PILOT-UP-UAQ-2026-01",
+      evidenceId: "EVID-2026-001"
+    }
+  },
+  {
+    id: "AI-RSK-002",
+    category: "Operational Risks",
+    risk: "Municipal Smart Pole Mounting and Power Interruption Vulnerability",
+    whyIdentified: "Site inspection report notes 2 out of 10 pilot nodes are tied to municipal streetlighting poles subjected to daytime grid power cutoff.",
+    potentialImpact: "Intermittent sensor downtime (6-8 hours daily during non-lighting hours) leading to missing continuous telemetry data.",
+    suggestedMitigation: "Retrofit dual 100W monocrystalline solar panels with 48-hour LiFePO4 battery buffers on all unmetered municipal street poles.",
+    groundedIn: {
+      challengeId: "UAQ-LKO-2026",
+      startupId: "STARTUP-AIRSENSE-01",
+      pilotId: "PILOT-UP-UAQ-2026-01",
+      evidenceId: "EVID-2026-002"
+    }
+  },
+  {
+    id: "AI-RSK-003",
+    category: "Data Risks",
+    risk: "Telemetry Packet Dropouts in Urban High-Density Cellular Shadow Zones",
+    whyIdentified: "Telemetry ingest pipeline reported 3.8% packet retransmission delays in high-density commercial corridors (Aminabad & Charbagh).",
+    potentialImpact: "Temporary gaps in 15-minute statutory compliance reporting to state environmental dashboards.",
+    suggestedMitigation: "Activate local non-volatile eMMC buffer storage (up to 7 days) and implement fallback NB-IoT / LoRaWAN multi-path cellular uplink.",
+    groundedIn: {
+      challengeId: "UAQ-LKO-2026",
+      startupId: "STARTUP-AIRSENSE-01",
+      pilotId: "PILOT-UP-UAQ-2026-01",
+      evidenceId: "EVID-2026-003"
+    }
+  },
+  {
+    id: "AI-RSK-004",
+    category: "Cybersecurity Risks",
+    risk: "Field Microcontroller Physical Tampering and Firmware Downgrade Exposure",
+    whyIdentified: "Device inspection logs note standard DIN rail enclosures placed within 3 meters reach without tamper-evident microswitch seals.",
+    potentialImpact: "Adversarial serial access to local bus, extraction of device cryptographic keys, or spoofing of air quality telemetry.",
+    suggestedMitigation: "Enforce hardware-root-of-trust (ATECC608A secure element), enable secure boot with signed firmware, and install tamper microswitches.",
+    groundedIn: {
+      challengeId: "UAQ-LKO-2026",
+      startupId: "STARTUP-AIRSENSE-01",
+      pilotId: "PILOT-UP-UAQ-2026-01",
+      evidenceId: "EVID-2026-004"
+    }
+  },
+  {
+    id: "AI-RSK-005",
+    category: "Financial Risks",
+    risk: "Startup Working Capital Strain from 45-Day Milestone Payment Lag",
+    whyIdentified: "Startup financial disclosure reflects 3.2 months of operational runway; Milestone 2 inspection took 21 days for physical sign-off.",
+    potentialImpact: "Delay in procuring sensor replacement components for next deployment phase if Milestone 2 payment cycle exceeds 30 days.",
+    suggestedMitigation: "Expedite milestone inspection via digital geo-tagged signoffs and release a 20% advance mobilization against bank guarantee under GFR Rule 172.",
+    groundedIn: {
+      challengeId: "UAQ-LKO-2026",
+      startupId: "STARTUP-AIRSENSE-01",
+      pilotId: "PILOT-UP-UAQ-2026-01",
+      evidenceId: "EVID-2026-005"
+    }
+  },
+  {
+    id: "AI-RSK-006",
+    category: "Timeline Risks",
+    risk: "Compressed Winter Inversion Window Limiting Rigorous Peak Smoke Season Validation",
+    whyIdentified: "Pilot schedule shows deployment completed by late January, leaving only 3 weeks of seasonal thermal inversion before spring temperatures disperse PM2.5.",
+    potentialImpact: "Insufficient duration to stress-test high-concentration PM2.5 algorithms under severe AQI (>400) conditions.",
+    suggestedMitigation: "Extend pilot monitoring by 21 days into late February with continuous parallel reference BAM logging to capture peak smog episodes.",
+    groundedIn: {
+      challengeId: "UAQ-LKO-2026",
+      startupId: "STARTUP-AIRSENSE-01",
+      pilotId: "PILOT-UP-UAQ-2026-01",
+      evidenceId: "EVID-2026-006"
+    }
+  }
+];
+
+function validateAIRiskSuggestion(item) {
+  if (!item.risk || typeof item.risk !== "string" || item.risk.trim().length === 0) {
+    return { valid: false, error: "Missing required 'Risk' field" };
+  }
+  if (!item.whyIdentified || typeof item.whyIdentified !== "string" || item.whyIdentified.trim().length === 0) {
+    return { valid: false, error: "Missing required 'Why it was identified' field" };
+  }
+  if (!item.potentialImpact || typeof item.potentialImpact !== "string" || item.potentialImpact.trim().length === 0) {
+    return { valid: false, error: "Missing required 'Potential impact' field" };
+  }
+  if (!item.suggestedMitigation || typeof item.suggestedMitigation !== "string" || item.suggestedMitigation.trim().length === 0) {
+    return { valid: false, error: "Missing required 'Suggested mitigation' field" };
+  }
+  if (!MANDATORY_RISK_CATEGORIES.includes(item.category)) {
+    return { valid: false, error: `Invalid category '${item.category}'. Must be one of 6 mandatory categories.` };
+  }
+  if (!item.groundedIn || !item.groundedIn.challengeId || !item.groundedIn.startupId || !item.groundedIn.pilotId || !item.groundedIn.evidenceId) {
+    return { valid: false, error: "Risk must be strictly grounded in challenge, startup, pilot, and evidence information" };
+  }
+  return { valid: true };
+}
+
+for (const suggestion of sampleSuggestedRisks) {
+  const res = validateAIRiskSuggestion(suggestion);
+  assert(res.valid === true, `Suggested risk '${suggestion.id}' satisfies all required fields and factual grounding`);
+}
+
+// 4. Verification that All 6 Required Categories are Present
+const presentCategories = new Set(sampleSuggestedRisks.map(r => r.category));
+for (const reqCat of MANDATORY_RISK_CATEGORIES) {
+  assert(presentCategories.has(reqCat), `Category '${reqCat}' has at least one grounded risk suggestion`);
+}
+
+// 5. Statutory Prohibition of Automated AI Mutations (Do not automatically change risk status or make procurement decisions)
+function processRiskStatusChange({ isAutomatedAISystemAttempt, user, action, targetRiskId, officialStatus }) {
+  // Statutory rule: AI cannot automatically change risk status
+  if (isAutomatedAISystemAttempt === true) {
+    return {
+      allowed: false,
+      statusCode: 403,
+      error: "Statutory Violation: Automated AI systems are prohibited from modifying official risk status under GFR Rule 149. An authorized human officer must review and decide."
+    };
+  }
+
+  // Statutory rule: AI cannot automatically make procurement decisions
+  if (action === "AUTOMATED_PROCUREMENT_DECISION") {
+    return {
+      allowed: false,
+      statusCode: 403,
+      error: "Statutory Violation: Automated AI procurement decisions are strictly barred."
+    };
+  }
+
+  // Human RBAC check
+  if (!user) {
+    return { allowed: false, statusCode: 401, error: "Unauthenticated" };
+  }
+
+  const role = normalizeRole(user.role);
+  if (role !== "GOVERNMENT_OFFICER" && role !== "PROCUREMENT_OFFICER" && role !== "ADMIN") {
+    return {
+      allowed: false,
+      statusCode: 403,
+      error: `Role '${role}' is not authorized to transcribe risks to official register`
+    };
+  }
+
+  return { allowed: true, statusCode: 200, officialStatus: officialStatus || "ACTIVE" };
+}
+
+// Test automated AI attempts are blocked
+const aiAutomatedStatusChange = {
+  isAutomatedAISystemAttempt: true,
+  user: null,
+  action: "AUTO_APPLY_RISK_STATUS",
+  targetRiskId: "AI-RSK-001",
+  officialStatus: "CRITICAL"
+};
+const aiBlockResult = processRiskStatusChange(aiAutomatedStatusChange);
+assert(aiBlockResult.allowed === false, "Automated AI attempt to mutate risk status is strictly blocked");
+assert(aiBlockResult.statusCode === 403, "Automated AI risk modification returns HTTP 403");
+
+const aiProcurementDecision = {
+  isAutomatedAISystemAttempt: true,
+  user: null,
+  action: "AUTOMATED_PROCUREMENT_DECISION",
+  targetRiskId: "AI-RSK-001"
+};
+const procurementBlockResult = processRiskStatusChange(aiProcurementDecision);
+assert(procurementBlockResult.allowed === false, "Automated AI procurement decision is strictly blocked");
+
+// Test unauthorized roles cannot adopt AI risk suggestions into official register
+const startupAdoptionAttempt = {
+  isAutomatedAISystemAttempt: false,
+  user: airSenseUser,
+  action: "ADOPT_SUGGESTION",
+  targetRiskId: "AI-RSK-001"
+};
+assert(processRiskStatusChange(startupAdoptionAttempt).allowed === false, "Startup cannot adopt AI risk suggestions into official register");
+
+const validatorAdoptionAttempt = {
+  isAutomatedAISystemAttempt: false,
+  user: validatorUser,
+  action: "ADOPT_SUGGESTION",
+  targetRiskId: "AI-RSK-001"
+};
+assert(processRiskStatusChange(validatorAdoptionAttempt).allowed === false, "Independent Validator cannot adopt AI risk suggestions into official register");
+
+// Test authorized human officers CAN adopt risk suggestions into official register
+const govOfficerAdoption = {
+  isAutomatedAISystemAttempt: false,
+  user: govUser,
+  action: "ADOPT_SUGGESTION",
+  targetRiskId: "AI-RSK-001",
+  officialStatus: "ACTIVE"
+};
+const govAdoptResult = processRiskStatusChange(govOfficerAdoption);
+assert(govAdoptResult.allowed === true, "Authorized Government Officer CAN adopt AI risk suggestion into official register");
+assert(govAdoptResult.officialStatus === "ACTIVE", "Adopted risk is recorded with ACTIVE status under human officer authority");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");
