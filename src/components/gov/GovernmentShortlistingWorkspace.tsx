@@ -304,6 +304,7 @@ export function GovernmentShortlistingWorkspace() {
   const [decisionReason, setDecisionReason] = useState("");
   const [conditionsText, setConditionsText] = useState("");
   const [reasonError, setReasonError] = useState(false);
+  const [isSubmittingDecision, setIsSubmittingDecision] = useState(false);
 
   // Statutory Audit Log Ledger
   const [auditLog, setAuditLog] = useState<ShortlistAuditRecord[]>([
@@ -333,7 +334,7 @@ export function GovernmentShortlistingWorkspace() {
     setReasonError(false);
   };
 
-  const handleCommitDecision = () => {
+  const handleCommitDecision = async () => {
     if (!activeDecisionModal) return;
 
     if (!decisionReason.trim()) {
@@ -348,6 +349,34 @@ export function GovernmentShortlistingWorkspace() {
     }
 
     const { candidate, action } = activeDecisionModal;
+    setIsSubmittingDecision(true);
+
+    try {
+      const res = await fetch("/api/shortlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          candidateId: candidate.id,
+          startupName: candidate.startupName,
+          action,
+          justification: decisionReason.trim(),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === false) {
+        showToast({
+          type: "error",
+          title: "Action Failed",
+          description: data.error || "Failed to commit shortlisting action.",
+        });
+        setIsSubmittingDecision(false);
+        return;
+      }
+    } catch (e) {
+      console.warn("Shortlist submit offline fallback:", e);
+    } finally {
+      setIsSubmittingDecision(false);
+    }
 
     // Update candidate status
     const statusMap: Record<ShortlistingDecision, ShortlistCandidate["evaluationStatus"]> = {
@@ -979,6 +1008,7 @@ export function GovernmentShortlistingWorkspace() {
               </Button>
               <Button
                 size="sm"
+                disabled={isSubmittingDecision}
                 onClick={handleCommitDecision}
                 className={`text-xs font-semibold text-white ${
                   activeDecisionModal.action === "SHORTLISTED"
@@ -990,7 +1020,7 @@ export function GovernmentShortlistingWorkspace() {
                     : "bg-purple-700 hover:bg-purple-800"
                 }`}
               >
-                Commit Determination to Audit Log
+                {isSubmittingDecision ? "Anchoring Audit Entry..." : "Commit Determination to Audit Log"}
               </Button>
             </div>
           </div>

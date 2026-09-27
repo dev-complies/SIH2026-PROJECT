@@ -160,9 +160,47 @@ export async function POST(request: NextRequest) {
       metadata: metadata || {},
     });
 
+    // 1. Record Cryptographic Audit Ledger Entry
+    const { auditDb } = await import("@/database/auditDatabase");
+    const { notificationDb } = await import("@/database/notificationDatabase");
+
+    const auditEntry = auditDb.recordAction({
+      user: { id: user.id, name: `${user.firstName} ${user.lastName}`.trim(), email: user.email, department: user.organizationId || "Startup" },
+      role: user.role,
+      action: "Evidence Uploaded",
+      entity: "Evidence",
+      entityId: newEvidence.id,
+      entityName: newEvidence.title,
+      previousState: { verificationStatus: "Unsubmitted" },
+      newState: {
+        verificationStatus: "Unverified",
+        fileFormat: newEvidence.fileFormat,
+        sha256Hash: newEvidence.sha256Hash,
+        relatedMilestoneId: newEvidence.relatedMilestoneId,
+        uploadedAt: new Date().toISOString(),
+      },
+      statutoryRuleRef: "GFR Rule 149 (Empirical Deliverable Submissions)",
+    });
+
+    // 2. Dispatch Notification to Government & Validator
+    notificationDb.dispatchNotification({
+      type: "Validation Required",
+      title: `New Milestone Evidence Uploaded: ${newEvidence.title}`,
+      message: `${user.firstName} ${user.lastName} uploaded empirical deliverable '${newEvidence.title}' for milestone '${newEvidence.relatedMilestoneName}'.`,
+      category: "VALIDATION",
+      severity: "MEDIUM",
+      recipientRoles: ["GOVERNMENT_OFFICER", "VALIDATOR", "ADMIN"],
+      entityType: "Evidence",
+      entityId: newEvidence.id,
+      actionUrl: `/evidence`,
+      actionLabel: "Verify Evidence",
+    });
+
     return NextResponse.json({
       success: true,
       evidence: newEvidence,
+      auditLogSequence: auditEntry.sequenceNumber,
+      auditHash: auditEntry.currentHash,
       message: "Evidence successfully submitted and queued for verification.",
     });
   } catch (err: any) {

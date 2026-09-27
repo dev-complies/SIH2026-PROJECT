@@ -83,10 +83,49 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // 1. Record in Statutory Cryptographic Audit Ledger
+    const { auditDb } = await import("@/database/auditDatabase");
+    const { notificationDb } = await import("@/database/notificationDatabase");
+
+    const auditEntry = auditDb.recordAction({
+      user: { id: user.id, name: actorName, email: user.email, department: actorOrg },
+      role: "VALIDATOR",
+      action: "Validation Submitted",
+      entity: "ValidationReport",
+      entityId: result.record?.id || "VAL-TERI-2026-01",
+      entityName: `Independent Collocation Audit (${pilotId})`,
+      previousState: { status: "AUDIT_IN_PROGRESS", validationVerdict: "PENDING" },
+      newState: {
+        status: "VALIDATED",
+        outcome,
+        findings,
+        evidenceReferences,
+        digitalSignatureDigest: result.record?.digitalSignatureDigest,
+        submittedAt: new Date().toISOString(),
+      },
+      statutoryRuleRef: "CPCB Guidelines for Low-Cost Ambient Air Quality Sensors & Section 14",
+    });
+
+    // 2. Dispatch Contextual Notification to Government Officers
+    notificationDb.dispatchNotification({
+      type: "Validation Required",
+      title: "Independent Validation Completed",
+      message: `${actorName} (${actorOrg}) has submitted the official validation determination for pilot ${pilotId}. Certified as '${outcome}'. Ready for Scale-Up review.`,
+      category: "VALIDATION",
+      severity: "HIGH",
+      recipientRoles: ["GOVERNMENT_OFFICER", "ADMIN"],
+      entityType: "ValidationReport",
+      entityId: result.record?.id || "VAL-TERI-2026-01",
+      actionUrl: `/gov/pilots/${pilotId}/scale-up`,
+      actionLabel: "Review Scale-Up Dossier",
+    });
+
     return NextResponse.json({
       success: true,
       message: `Validation successfully submitted with outcome: '${outcome}'`,
       record: result.record,
+      auditLogSequence: auditEntry.sequenceNumber,
+      auditHash: auditEntry.currentHash,
       submittedAt: new Date().toISOString(),
     });
   } catch (error: any) {

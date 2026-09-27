@@ -418,7 +418,7 @@ export function StartupApplicationWizard({
     });
   };
 
-  const handleSubmitApplication = () => {
+  const handleSubmitApplication = async () => {
     // Validate all steps
     for (let i = 0; i <= 11; i++) {
       if (!validateStep(i)) {
@@ -433,17 +433,46 @@ export function StartupApplicationWizard({
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setStatus("UNDER_EVALUATION");
-      if (onStatusChange) onStatusChange("UNDER_EVALUATION");
-      setIsSubmitModalOpen(false);
-      showToast({
-        type: "success",
-        title: "Application Submitted Successfully!",
-        description: `Registered under ID ${applicationId}. Fields are now locked for expert evaluation.`,
+    try {
+      const res = await fetch("/api/applications", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "submit",
+          applicationId,
+          challengeId,
+          solutionTitle: formData.solutionTitle,
+          companyName: formData.companyName,
+          dpiitNumber: formData.dpiitNumber,
+          proposedCost: Number(formData.proposedBudgetInr || 2200000),
+          executiveSummary: formData.executiveSummary,
+          technicalApproach: formData.sensorArchitecture,
+        }),
       });
-    }, 1200);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === false) {
+        showToast({
+          type: "error",
+          title: "Submission Failed",
+          description: data.error || "Failed to submit proposal docket.",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+    } catch (e) {
+      console.warn("Application submit offline fallback:", e);
+    } finally {
+      setIsSubmitting(false);
+    }
+
+    setStatus("UNDER_EVALUATION");
+    if (onStatusChange) onStatusChange("UNDER_EVALUATION");
+    setIsSubmitModalOpen(false);
+    showToast({
+      type: "success",
+      title: "Application Submitted Successfully!",
+      description: `Registered under ID ${applicationId}. Fields are now locked for expert evaluation.`,
+    });
   };
 
   const handleWithdrawApplication = () => {

@@ -102,10 +102,49 @@ export async function POST(
       );
     }
 
+    // 1. Record Cryptographic Audit Ledger Entry
+    const { auditDb } = await import("@/database/auditDatabase");
+    const { notificationDb } = await import("@/database/notificationDatabase");
+
+    const auditEntry = auditDb.recordAction({
+      user: { id: user.id, name: userName, email: user.email, department: userDept },
+      role: "GOVERNMENT_OFFICER",
+      action: "Scale-Up Decision Made",
+      entity: "ScaleUpDossier",
+      entityId: id,
+      entityName: `Multi-City Scale-Up Dossier (${id})`,
+      previousState: { stage: "PILOT_COMPLETED", scaleUpStatus: "UNDER_REVIEW" },
+      newState: {
+        action,
+        sanctionedBudgetInr,
+        targetGeographyScope,
+        isHumanConfirmed,
+        justification,
+        decidedAt: new Date().toISOString(),
+      },
+      statutoryRuleRef: "GFR Rule 149(v) (Commercial Scale-Up Direct Award)",
+    });
+
+    // 2. Dispatch Notifications to Stakeholders
+    notificationDb.dispatchNotification({
+      type: "Milestone Due",
+      title: `Statutory Scale-Up Sanction: ${action}`,
+      message: `${userName} (${userDesignation}) has approved scale-up decision '${action}' for pilot ${id}. Transitioning to statewide multi-city expansion.`,
+      category: "MILESTONE",
+      severity: "HIGH",
+      recipientRoles: ["STARTUP", "PROCUREMENT_OFFICER", "GOVERNMENT_OFFICER", "ADMIN"],
+      entityType: "ScaleUpDossier",
+      entityId: id,
+      actionUrl: `/gov/pilots/${id}/scale-up`,
+      actionLabel: "View Scale-Up Dossier",
+    });
+
     return NextResponse.json({
       success: true,
       message: `Scale-up action '${action}' recorded successfully. Lifecycle updated.`,
       dossier: result.dossier,
+      auditLogSequence: auditEntry.sequenceNumber,
+      auditHash: auditEntry.currentHash,
       updatedAt: new Date().toISOString(),
     });
   } catch (error: any) {

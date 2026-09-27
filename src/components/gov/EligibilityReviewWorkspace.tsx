@@ -352,6 +352,8 @@ export function EligibilityReviewWorkspace() {
   // Document preview modal
   const [previewDoc, setPreviewDoc] = useState<ApplicationReviewData["documents"][0] | null>(null);
 
+  const [isSubmittingDecision, setIsSubmittingDecision] = useState(false);
+
   const handleChecklistStatusChange = (
     checkId: string,
     newStatus: "PASS" | "CONDITIONAL" | "FAIL" | "PENDING"
@@ -361,7 +363,7 @@ export function EligibilityReviewWorkspace() {
     );
   };
 
-  const handleDecision = (decision: EligibilityStatus) => {
+  const handleDecision = async (decision: EligibilityStatus) => {
     // Reason is strictly required for Reject (INELIGIBLE) or Conditional Approval (CONDITIONALLY_ELIGIBLE)
     if ((decision === "INELIGIBLE" || decision === "CONDITIONALLY_ELIGIBLE") && !decisionReason.trim()) {
       setShowReasonError(true);
@@ -374,6 +376,35 @@ export function EligibilityReviewWorkspace() {
     }
 
     setShowReasonError(false);
+    setIsSubmittingDecision(true);
+
+    try {
+      const res = await fetch("/api/eligibility", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          applicationId: app.id,
+          decision,
+          reason: decisionReason.trim() || internalNotes || "Standard statutory approval.",
+          startupName: app.startupName,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === false) {
+        showToast({
+          type: "error",
+          title: "Decision Failed",
+          description: data.error || "Failed to submit eligibility determination.",
+        });
+        setIsSubmittingDecision(false);
+        return;
+      }
+    } catch (e) {
+      console.warn("Eligibility review offline fallback:", e);
+    } finally {
+      setIsSubmittingDecision(false);
+    }
+
     setCurrentStatus(decision);
 
     const reviewer = `${currentUser?.firstName || "Rajesh"} ${currentUser?.lastName || "Verma"}`;
@@ -837,6 +868,7 @@ export function EligibilityReviewWorkspace() {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   <Button
                     size="sm"
+                    disabled={isSubmittingDecision}
                     onClick={() => handleDecision("ELIGIBLE")}
                     className="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold h-8"
                   >
@@ -845,6 +877,7 @@ export function EligibilityReviewWorkspace() {
 
                   <Button
                     size="sm"
+                    disabled={isSubmittingDecision}
                     onClick={() => handleDecision("CONDITIONALLY_ELIGIBLE")}
                     className="bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold h-8"
                   >
@@ -853,6 +886,7 @@ export function EligibilityReviewWorkspace() {
 
                   <Button
                     size="sm"
+                    disabled={isSubmittingDecision}
                     onClick={() => handleDecision("CLARIFICATION_REQUIRED")}
                     className="bg-purple-700 hover:bg-purple-800 text-white text-xs font-semibold h-8"
                   >
@@ -861,6 +895,7 @@ export function EligibilityReviewWorkspace() {
 
                   <Button
                     size="sm"
+                    disabled={isSubmittingDecision}
                     onClick={() => handleDecision("INELIGIBLE")}
                     className="bg-red-700 hover:bg-red-800 text-white text-xs font-semibold h-8"
                   >

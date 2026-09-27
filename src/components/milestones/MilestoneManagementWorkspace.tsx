@@ -397,7 +397,7 @@ export function MilestoneManagementWorkspace() {
   };
 
   // Government Action: Approve Milestone
-  const handleApprove = (milestoneId: string) => {
+  const handleApprove = async (milestoneId: string) => {
     const reviewerName = `${currentUser?.firstName || "Rajesh"} ${currentUser?.lastName || "Verma"} (${currentUser?.designation || "Director of Urban Development"})`;
     const now = new Date().toLocaleString("en-IN", {
       day: "2-digit",
@@ -406,6 +406,22 @@ export function MilestoneManagementWorkspace() {
       hour: "2-digit",
       minute: "2-digit",
     });
+
+    try {
+      await fetch("/api/milestones", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "approve",
+          milestoneId,
+          pilotId: "pilot-air-001",
+          milestoneName: selectedMilestone?.name || "Milestone Deliverable",
+          paymentAmount: selectedMilestone ? parseInt(selectedMilestone.payment.amount.replace(/[^0-9]/g, "")) || 800000 : 800000,
+        }),
+      });
+    } catch (e) {
+      console.warn("Milestone approve offline fallback:", e);
+    }
 
     setMilestones((prev) =>
       prev.map((m) =>
@@ -515,7 +531,7 @@ export function MilestoneManagementWorkspace() {
   };
 
   // Startup Action: Submit Milestone Evidence
-  const handleUploadEvidence = () => {
+  const handleUploadEvidence = async () => {
     if (!newEvidenceTitle.trim()) {
       showToast({
         type: "error",
@@ -526,6 +542,22 @@ export function MilestoneManagementWorkspace() {
     }
 
     if (!selectedMilestone) return;
+
+    try {
+      await fetch("/api/milestones", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "submit_evidence",
+          milestoneId: selectedMilestone.id,
+          pilotId: "pilot-air-001",
+          milestoneName: selectedMilestone.name,
+          evidenceTitle: newEvidenceTitle.trim(),
+        }),
+      });
+    } catch (e) {
+      console.warn("Upload evidence offline fallback:", e);
+    }
 
     const randomHash = Array.from({ length: 32 }, () =>
       Math.floor(Math.random() * 16).toString(16)

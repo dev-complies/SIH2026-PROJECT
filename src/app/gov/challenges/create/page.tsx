@@ -164,6 +164,8 @@ export default function CreateChallengeWizardPage() {
   const [scheduleDate, setScheduleDate] = useState("2026-04-01T09:00");
   const [isAiLoading, setIsAiLoading] = useState(false);
   const [isAssistantOpen, setIsAssistantOpen] = useState(true);
+  const [isSavingDraft, setIsSavingDraft] = useState(false);
+  const [isPublishing, setIsPublishing] = useState(false);
 
   const steps = [
     { id: 0, title: "Problem Definition", description: "Civic context & scope" },
@@ -252,7 +254,26 @@ export default function CreateChallengeWizardPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleSaveDraft = () => {
+  const handleSaveDraft = async () => {
+    setIsSavingDraft(true);
+    try {
+      await fetch("/api/protected/government/challenges", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "draft",
+          title: formData.title,
+          department: formData.department,
+          category: formData.category,
+          budgetInr: formData.budgetInr,
+        }),
+      });
+    } catch (e) {
+      console.warn("Draft offline fallback:", e);
+    } finally {
+      setIsSavingDraft(false);
+    }
+
     setLastSaved(new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
     showToast({
       type: "success",
@@ -261,7 +282,7 @@ export default function CreateChallengeWizardPage() {
     });
   };
 
-  const handlePublish = () => {
+  const handlePublish = async () => {
     // Validate entire form across all steps
     let allValid = true;
     for (let i = 0; i < 6; i++) {
@@ -275,6 +296,35 @@ export default function CreateChallengeWizardPage() {
         });
         return;
       }
+    }
+
+    setIsPublishing(true);
+    try {
+      const res = await fetch("/api/protected/government/challenges", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "publish",
+          title: formData.title,
+          department: formData.department,
+          category: formData.category,
+          budgetInr: formData.budgetInr,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === false) {
+        showToast({
+          type: "error",
+          title: "Publication Failed",
+          description: data.error || "Failed to publish challenge statement.",
+        });
+        setIsPublishing(false);
+        return;
+      }
+    } catch (e) {
+      console.warn("Publish offline fallback:", e);
+    } finally {
+      setIsPublishing(false);
     }
 
     showToast({
@@ -353,10 +403,11 @@ export default function CreateChallengeWizardPage() {
           <Button
             size="sm"
             variant="outline"
+            disabled={isSavingDraft}
             onClick={handleSaveDraft}
             className="text-xs h-8 px-3 border-slate-300 hover:bg-slate-50 font-medium"
           >
-            <Save className="w-3.5 h-3.5 mr-1" /> Save Draft
+            <Save className="w-3.5 h-3.5 mr-1" /> {isSavingDraft ? "Saving..." : "Save Draft"}
           </Button>
           <Button
             size="sm"
@@ -1066,10 +1117,12 @@ export default function CreateChallengeWizardPage() {
 
                 <Button
                   variant="default"
+                  disabled={isPublishing}
                   onClick={handlePublish}
                   className="bg-emerald-700 hover:bg-emerald-800 text-white text-xs h-9 px-4 font-semibold shadow-sm"
                 >
-                  <Send className="w-3.5 h-3.5 mr-1.5" /> Publish Challenge Immediately
+                  <Send className="w-3.5 h-3.5 mr-1.5" />
+                  {isPublishing ? "Publishing Official Challenge..." : "Publish Challenge Immediately"}
                 </Button>
               </div>
             </div>

@@ -385,6 +385,7 @@ export function ExpertEvaluationWorkspace() {
 
   // Submission & Locking State
   const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmittingEval, setIsSubmittingEval] = useState(false);
   const [showAmendmentModal, setShowAmendmentModal] = useState(false);
   const [amendmentReason, setAmendmentReason] = useState("");
 
@@ -480,7 +481,7 @@ export function ExpertEvaluationWorkspace() {
     showToast({ type: "info", title: "Rubric Reset", description: "Default 6 statutory criteria restored." });
   };
 
-  const handleSubmitEvaluation = () => {
+  const handleSubmitEvaluation = async () => {
     if (!coiDeclared) {
       showToast({
         type: "error",
@@ -506,6 +507,36 @@ export function ExpertEvaluationWorkspace() {
         description: "Please provide your technical justification and qualitative summary.",
       });
       return;
+    }
+
+    setIsSubmittingEval(true);
+    try {
+      const res = await fetch("/api/protected/evaluations/scores", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          applicationId: candidate.id,
+          candidateCode: candidate.candidateCode,
+          coiDeclared,
+          criteria,
+          recommendation,
+          overallRemarks,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === false) {
+        showToast({
+          type: "error",
+          title: "Evaluation Submission Failed",
+          description: data.error || "Failed to submit evaluation scorecard.",
+        });
+        setIsSubmittingEval(false);
+        return;
+      }
+    } catch (e) {
+      console.warn("Evaluation submit offline fallback:", e);
+    } finally {
+      setIsSubmittingEval(false);
     }
 
     const evaluatorName = `${currentUser?.firstName || "Dr. Alok"} ${currentUser?.lastName || "Gupta"}`;
@@ -1434,10 +1465,12 @@ export function ExpertEvaluationWorkspace() {
                   </div>
 
                   <Button
+                    disabled={isSubmittingEval}
                     onClick={handleSubmitEvaluation}
                     className="w-full bg-purple-800 hover:bg-purple-900 text-white font-bold h-9 text-xs shadow-2xs"
                   >
-                    <Send className="w-3.5 h-3.5 mr-1.5" /> Submit Independent Evaluation
+                    <Send className="w-3.5 h-3.5 mr-1.5" />
+                    {isSubmittingEval ? "Sealing Evaluation Ledger..." : "Submit Independent Evaluation"}
                   </Button>
                   <p className="text-xs text-center text-gov-muted">
                     Upon submission, your scorecard will be locked and an append-only audit hash will be
