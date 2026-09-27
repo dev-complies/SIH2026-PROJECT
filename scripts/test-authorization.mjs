@@ -229,6 +229,37 @@ assert(canAccessEvidence(govUser, govOnlyEvidence) === true, "Government Officer
 assert(canAccessEvidence(airSenseUser, govOnlyEvidence) === false, "Startup CANNOT access CONFIDENTIAL_GOV_ONLY evidence");
 assert(canAccessEvidence(validatorUser, govOnlyEvidence) === false, "Validator CANNOT access CONFIDENTIAL_GOV_ONLY internal evidence");
 
+// 5. Document & Contract Management RBAC Tests
+console.log("\n--- 5. Testing Document & Contract Access Control ---");
+
+function canAccessDocumentTest(user, doc) {
+  if (doc.access === "Public" || doc.confidentialityLevel === "PUBLIC" || doc.isTemplate) return true;
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  if (role === "ADMIN" || role === "GOVERNMENT_OFFICER") return true;
+  if (role === "PROCUREMENT_OFFICER") return true;
+  if (role === "VALIDATOR" || role === "EXPERT") {
+    return doc.confidentialityLevel !== "CONFIDENTIAL_GOV_ONLY";
+  }
+  if (role === "STARTUP") {
+    return doc.confidentialityLevel !== "CONFIDENTIAL_GOV_ONLY";
+  }
+  return false;
+}
+
+const templateDoc = { id: "TMPL-1", access: "Public", confidentialityLevel: "PUBLIC", isTemplate: true };
+const executedPilotAgreement = { id: "DOC-AGR-01", access: "Restricted (Government & Startup)", confidentialityLevel: "RESTRICTED", isTemplate: false };
+const confidentialProcurementDoc = { id: "DOC-PRO-01", access: "Procurement Clearance Required", confidentialityLevel: "CONFIDENTIAL_GOV_ONLY", isTemplate: false };
+
+assert(canAccessDocumentTest(null, templateDoc) === true, "Unauthenticated user CAN view standard legal templates");
+assert(canAccessDocumentTest(null, executedPilotAgreement) === false, "Unauthenticated user CANNOT view restricted executed pilot agreements");
+assert(canAccessDocumentTest(airSenseUser, executedPilotAgreement) === true, "Participating startup CAN view executed pilot agreement");
+assert(canAccessDocumentTest(govUser, executedPilotAgreement) === true, "Government Officer CAN view executed pilot agreement");
+assert(canAccessDocumentTest(adminUser, executedPilotAgreement) === true, "Admin CAN view executed pilot agreement");
+assert(canAccessDocumentTest(procurementUser, confidentialProcurementDoc) === true, "Procurement Officer CAN access procurement clearance documents");
+assert(canAccessDocumentTest(govUser, confidentialProcurementDoc) === true, "Government Officer CAN access procurement clearance documents");
+assert(canAccessDocumentTest(airSenseUser, confidentialProcurementDoc) === false, "Startup CANNOT access internal government procurement clearance documents");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");

@@ -17,6 +17,7 @@ import { MilestoneManagementWorkspace } from "@/components/milestones/MilestoneM
 import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
 import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManagementWorkspace";
 import { RiskIssueManagementWorkspace } from "@/components/risks/RiskIssueManagementWorkspace";
+import { DocumentContractManagementWorkspace } from "@/components/documents/DocumentContractManagementWorkspace";
 import {
   Building2,
   CheckCircle2,
@@ -531,94 +532,7 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {activeTab === "documents" && (
         <div className="space-y-4 animate-in fade-in duration-150">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-gov-primary">
-                Executed Pilot Agreements & Covenants
-              </h2>
-              <p className="text-[11px] text-gov-muted">
-                Statutory contracts, data access NDAs, and laboratory certifications
-              </p>
-            </div>
-            <span className="text-xs font-mono text-gov-muted">5 Executed Deeds</span>
-          </div>
-
-          <div className="space-y-2.5">
-            {[
-              {
-                title: "Tripartite_Pilot_Execution_Agreement_LKO_UAQ.pdf",
-                type: "Statutory Agreement",
-                parties: "Dept of Urban Dev + Lucknow Municipal Corp + AirSense Tech",
-                size: "8.4 MB",
-                sha256: "b38a11029384...7561",
-                date: "14 May 2026",
-              },
-              {
-                title: "ICCC_Realtime_Data_Sharing_Protocol_NDA.pdf",
-                type: "Data Governance Covenant",
-                parties: "Lucknow Smart City SPV + AirSense Tech",
-                size: "3.2 MB",
-                sha256: "9a81e263fa7b...471b",
-                date: "15 May 2026",
-              },
-              {
-                title: "Background_IP_Retention_Deed_GFR149.pdf",
-                type: "Intellectual Property Deed",
-                parties: "Govt of Uttar Pradesh + AirSense Tech",
-                size: "2.1 MB",
-                sha256: "c819a08912e7...9384",
-                date: "15 May 2026",
-              },
-              {
-                title: "Municipal_Pole_Mounting_Right_Of_Way_Clearance.pdf",
-                type: "Municipal Permitting",
-                parties: "Lucknow Municipal Traffic Police & Electrical Dept",
-                size: "1.8 MB",
-                sha256: "e3b0c44298fc...b855",
-                date: "20 May 2026",
-              },
-              {
-                title: "NABL_IP65_RoHS_Laboratory_Audit_Report.pdf",
-                type: "Hardware Quality Standard",
-                parties: "NABL Accredited Testing Facility",
-                size: "3.8 MB",
-                sha256: "b1093ef4c8d1...4e5f",
-                date: "18 Feb 2026",
-              },
-            ].map((doc, idx) => (
-              <div key={idx} className="bg-white p-3.5 rounded-control border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-2xs">
-                <div className="space-y-0.5 min-w-0 pr-2">
-                  <div className="flex items-center space-x-2">
-                    <FileText className="w-4 h-4 text-gov-primary shrink-0" />
-                    <span className="font-bold text-slate-900 truncate">{doc.title}</span>
-                  </div>
-                  <span className="text-[10px] text-gov-muted font-mono block">
-                    {doc.type} • {doc.size} • Signed {doc.date}
-                  </span>
-                  <span className="text-[11px] text-slate-600 block">Parties: {doc.parties}</span>
-                </div>
-
-                <div className="shrink-0 flex items-center space-x-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() =>
-                      setPreviewEvidence({
-                        title: doc.title,
-                        category: doc.type,
-                        size: doc.size,
-                        sha256: doc.sha256,
-                        summary: `Executed contract between ${doc.parties}. Fully compliant under GFR Rule 149.`,
-                      })
-                    }
-                    className="text-xs h-7 border-slate-300"
-                  >
-                    <Eye className="w-3 h-3 mr-1" /> View Deed
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
+          <DocumentContractManagementWorkspace pilotId="PILOT-UP-UAQ-01" />
         </div>
       )}
 

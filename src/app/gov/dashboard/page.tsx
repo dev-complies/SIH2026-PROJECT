@@ -15,6 +15,7 @@ import { PilotManagementWorkspace } from "@/components/pilots/PilotManagementWor
 import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
 import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManagementWorkspace";
 import { RiskIssueManagementWorkspace } from "@/components/risks/RiskIssueManagementWorkspace";
+import { DocumentContractManagementWorkspace } from "@/components/documents/DocumentContractManagementWorkspace";
 import {
   Building2,
   AlertCircle,
@@ -269,6 +270,21 @@ function GovernmentDashboardContent() {
             <span className="text-slate-800 font-semibold">Operational Field Issue Tracker</span>
           </div>
           <RiskIssueManagementWorkspace initialTab="issues" />
+        </div>
+      );
+    }
+
+    if (tab === "documents") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/gov/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Document & Contract Management</span>
+          </div>
+          <DocumentContractManagementWorkspace />
         </div>
       );
     }
