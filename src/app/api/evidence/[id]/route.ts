@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAuthenticatedUser, unauthorizedResponse, forbiddenResponse } from "@/auth/serverAuth";
+import { normalizeRole } from "@/auth/permissions";
+import { sanitizeString } from "@/lib/security";
 import {
   getEvidenceById,
   updateEvidenceVerification,
@@ -8,10 +10,10 @@ import {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const user = getAuthenticatedUser(request);
-  const evidenceId = params.id;
+  const { id: evidenceId } = await params;
 
   const result = getEvidenceById(
     evidenceId,
@@ -39,13 +41,19 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const user = getAuthenticatedUser(request);
-  const evidenceId = params.id;
+  const { id: evidenceId } = await params;
+
+  if (!user) {
+    return unauthorizedResponse("Authentication required to adjudicate evidence verification status.");
+  }
+
+  const role = normalizeRole(user.role);
 
   // Verification actions are restricted to Government Officers, Validators, and Admins
-  if (user && user.role !== "GOVERNMENT_OFFICER" && user.role !== "VALIDATOR" && user.role !== "ADMIN") {
+  if (role !== "GOVERNMENT_OFFICER" && role !== "VALIDATOR" && role !== "ADMIN") {
     return forbiddenResponse(
       "Only Government Officers, Independent Validators, and System Administrators can adjudicate evidence verification status."
     );
@@ -77,15 +85,17 @@ export async function PATCH(
     }
 
     const verifier = {
-      name: user ? `${user.firstName} ${user.lastName}` : (body.verifierName || "Government Reviewer"),
-      role: user ? user.role : (body.verifierRole || "GOVERNMENT_OFFICER"),
+      name: `${user.firstName} ${user.lastName}`.trim(),
+      role: user.role,
     };
+
+    const sanitizedReason = rejectionReason ? sanitizeString(rejectionReason, 1000) : undefined;
 
     const updateResult = updateEvidenceVerification(
       evidenceId,
       status,
       verifier,
-      rejectionReason
+      sanitizedReason
     );
 
     if (!updateResult.success) {

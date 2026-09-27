@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAuthenticatedUser } from "@/auth/serverAuth";
+import { getAuthenticatedUser, unauthorizedResponse, forbiddenResponse } from "@/auth/serverAuth";
+import { normalizeRole } from "@/auth/permissions";
+import { sanitizeString } from "@/lib/security";
 import {
   matchingEngine,
   CANONICAL_CHALLENGE,
@@ -70,23 +72,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 2. Validate Authenticated Officer
-    const officerUser = user || body.mockOfficer;
-    if (!officerUser) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Authentication Required: Official government credentials needed.",
-        },
-        { status: 401 }
-      );
+    // 2. Validate Authenticated Officer & Enforce RBAC
+    if (!user) {
+      return unauthorizedResponse("Authentication Required: Official government credentials needed.");
     }
 
+    const role = normalizeRole(user.role);
+    if (role !== "GOVERNMENT_OFFICER" && role !== "ADMIN") {
+      return forbiddenResponse("Forbidden: Only authorized Government Officers or Platform Administrators can make shortlisting decisions.");
+    }
+
+    const sanitizedJustification = justification ? sanitizeString(justification, 2000) : "";
+
     const result = matchingEngine.submitHumanDecision({
-      matchId,
+      matchId: sanitizeString(matchId, 50),
       decision,
-      officerUser,
-      justification,
+      officerUser: user,
+      justification: sanitizedJustification,
       gfrRule149Confirmed: Boolean(gfrRule149Confirmed),
       isAutomatedAISystemAttempt: Boolean(isAutomatedAISystemAttempt),
     });

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAuthenticatedUser } from "@/auth/serverAuth";
+import { getAuthenticatedUser, unauthorizedResponse, forbiddenResponse } from "@/auth/serverAuth";
+import { normalizeRole } from "@/auth/permissions";
+import { sanitizeString } from "@/lib/security";
 import {
   aiRiskEngine,
   MANDATORY_AI_RISK_CATEGORIES,
@@ -43,7 +45,6 @@ export async function POST(request: NextRequest) {
       customDueDate,
       dismissalReason,
       isAutomatedAISystemAttempt,
-      mockOfficer,
     } = body;
 
     // 1. Strictly Block Automated AI Status Mutation
@@ -58,21 +59,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const humanOfficerUser = user || mockOfficer;
-    if (!humanOfficerUser) {
-      return NextResponse.json(
-        { success: false, error: "Authentication required for statutory risk adoption." },
-        { status: 401 }
-      );
+    if (!user) {
+      return unauthorizedResponse("Authentication required for statutory risk adoption.");
+    }
+
+    const role = normalizeRole(user.role);
+    if (role !== "GOVERNMENT_OFFICER" && role !== "ADMIN") {
+      return forbiddenResponse("Forbidden: Only authorized Government Officers or Platform Administrators can adopt AI risk suggestions.");
     }
 
     if (action === "adopt") {
+      const sanitizedMitigation = mitigationAction ? sanitizeString(mitigationAction, 2000) : "";
+      const sanitizedOwner = assignedOwner ? sanitizeString(assignedOwner, 100) : `${user.firstName} ${user.lastName}`;
+      const sanitizedDueDate = customDueDate ? sanitizeString(customDueDate, 50) : undefined;
+
       const result = aiRiskEngine.adoptSuggestionIntoOfficialRegister({
-        suggestionId,
-        humanOfficerUser,
-        mitigationAction,
-        assignedOwner,
-        customDueDate,
+        suggestionId: sanitizeString(suggestionId, 50),
+        humanOfficerUser: user,
+        mitigationAction: sanitizedMitigation,
+        assignedOwner: sanitizedOwner,
+        customDueDate: sanitizedDueDate,
         isAutomatedAISystemAttempt: Boolean(isAutomatedAISystemAttempt),
       });
 
@@ -92,10 +98,12 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "dismiss") {
+      const sanitizedReason = dismissalReason ? sanitizeString(dismissalReason, 1000) : "Dismissed by human officer review.";
+
       const result = aiRiskEngine.dismissSuggestion({
-        suggestionId,
-        humanOfficerUser,
-        dismissalReason: dismissalReason || "Dismissed by human officer review.",
+        suggestionId: sanitizeString(suggestionId, 50),
+        humanOfficerUser: user,
+        dismissalReason: sanitizedReason,
         isAutomatedAISystemAttempt: Boolean(isAutomatedAISystemAttempt),
       });
 

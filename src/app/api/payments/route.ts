@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAuthenticatedUser } from "@/auth/serverAuth";
+import { getAuthenticatedUser, unauthorizedResponse, forbiddenResponse } from "@/auth/serverAuth";
+import { normalizeRole, canAuthorizeProcurementDisbursement } from "@/auth/permissions";
+import { sanitizeString } from "@/lib/security";
 import {
   paymentDb,
   PaymentStatus,
@@ -51,7 +53,12 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const user = getAuthenticatedUser(request);
-    const userName = user ? `${user.firstName} ${user.lastName}`.trim() : undefined;
+    if (!user) {
+      return unauthorizedResponse("Authentication required to execute payment lifecycle actions.");
+    }
+
+    const role = normalizeRole(user.role);
+    const userName = `${user.firstName} ${user.lastName}`.trim();
     const body = await request.json();
     const { action, paymentId, invoice, approver, remarks, utrNumber, reason, revisedDueDate } = body;
 
@@ -66,42 +73,65 @@ export async function POST(request: NextRequest) {
 
     switch (action) {
       case "SUBMIT_INVOICE": {
+        if (role !== "STARTUP" && role !== "PROCUREMENT_OFFICER" && role !== "ADMIN") {
+          return forbiddenResponse("Forbidden: Only startups and procurement officers can submit milestone invoices.");
+        }
         if (!invoice || !invoice.invoiceNumber || !invoice.amount) {
           return NextResponse.json(
             { success: false, error: "Invoice number and amount are required." },
             { status: 400 }
           );
         }
+        const sanitizedInvoice = {
+          ...invoice,
+          invoiceNumber: sanitizeString(invoice.invoiceNumber, 100),
+          notes: invoice.notes ? sanitizeString(invoice.notes, 500) : undefined,
+          amount: Number(invoice.amount),
+        };
         const submitter = userName || "AirSense Technologies (Finance)";
-        updatedPayment = paymentDb.submitInvoice(paymentId, invoice, submitter);
+        updatedPayment = paymentDb.submitInvoice(paymentId, sanitizedInvoice, submitter);
         break;
       }
 
       case "REVIEW": {
-        const reviewer = userName || "Sunita Deshmukh (Procurement Officer)";
-        updatedPayment = paymentDb.reviewPayment(paymentId, reviewer, remarks);
+        if (role !== "PROCUREMENT_OFFICER" && role !== "GOVERNMENT_OFFICER" && role !== "ADMIN") {
+          return forbiddenResponse("Forbidden: Only procurement officers, government officers, or admins can review milestone payments.");
+        }
+        const reviewer = userName || "Procurement Officer";
+        updatedPayment = paymentDb.reviewPayment(paymentId, reviewer, remarks ? sanitizeString(remarks, 500) : undefined);
         break;
       }
 
       case "APPROVE": {
-        const officer = approver || userName || "Rajesh Verma (Director of Urban Development)";
+        if (role !== "PROCUREMENT_OFFICER" && role !== "GOVERNMENT_OFFICER" && role !== "ADMIN") {
+          return forbiddenResponse("Forbidden: Only procurement officers, government officers, or admins can approve milestone payments.");
+        }
         if (!remarks) {
           return NextResponse.json(
             { success: false, error: "Approval justification or review remarks are required." },
             { status: 400 }
           );
         }
-        updatedPayment = paymentDb.approvePayment(paymentId, officer, remarks);
+        const officer = userName || approver || "Director of Urban Development";
+        updatedPayment = paymentDb.approvePayment(paymentId, officer, sanitizeString(remarks, 1000));
         break;
       }
 
       case "DISBURSE": {
+        // Segregation of Duties: Under GFR rules, disbursement is strictly restricted to procurement/treasury officers and admins
+        if (!canAuthorizeProcurementDisbursement(user)) {
+          return forbiddenResponse("Statutory Access Denied: Only authorized Procurement Officers or Platform Administrators can disburse statutory treasury funds.");
+        }
         const nodalOfficer = userName || "UP State Treasury Nodal Officer";
-        updatedPayment = paymentDb.disbursePayment(paymentId, nodalOfficer, utrNumber);
+        const sanitizedUtr = utrNumber ? sanitizeString(utrNumber, 50) : undefined;
+        updatedPayment = paymentDb.disbursePayment(paymentId, nodalOfficer, sanitizedUtr);
         break;
       }
 
       case "REJECT": {
+        if (role !== "PROCUREMENT_OFFICER" && role !== "GOVERNMENT_OFFICER" && role !== "ADMIN") {
+          return forbiddenResponse("Forbidden: Only procurement officers, government officers, or admins can reject milestone payments.");
+        }
         if (!reason) {
           return NextResponse.json(
             { success: false, error: "Rejection reason is required." },
@@ -109,11 +139,14 @@ export async function POST(request: NextRequest) {
           );
         }
         const officer = userName || "Procurement Officer";
-        updatedPayment = paymentDb.rejectPayment(paymentId, officer, reason);
+        updatedPayment = paymentDb.rejectPayment(paymentId, officer, sanitizeString(reason, 1000));
         break;
       }
 
       case "DELAY": {
+        if (role !== "PROCUREMENT_OFFICER" && role !== "GOVERNMENT_OFFICER" && role !== "ADMIN") {
+          return forbiddenResponse("Forbidden: Only procurement officers, government officers, or admins can defer milestone payments.");
+        }
         if (!reason) {
           return NextResponse.json(
             { success: false, error: "Delay reason is required." },
@@ -121,7 +154,7 @@ export async function POST(request: NextRequest) {
           );
         }
         const officer = userName || "Procurement Officer";
-        updatedPayment = paymentDb.delayPayment(paymentId, officer, reason, revisedDueDate);
+        updatedPayment = paymentDb.delayPayment(paymentId, officer, sanitizeString(reason, 1000), revisedDueDate ? sanitizeString(revisedDueDate, 50) : undefined);
         break;
       }
 

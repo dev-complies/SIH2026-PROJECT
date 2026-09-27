@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getAuthenticatedUser, unauthorizedResponse, forbiddenResponse } from "@/auth/serverAuth";
+import { normalizeRole } from "@/auth/permissions";
+import { sanitizeString } from "@/lib/security";
 import {
   queryAllKPIs,
   queryKPIById,
@@ -37,29 +40,47 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to submit KPI telemetry.");
+    }
+
+    const role = normalizeRole(user.role);
+    if (role !== "ADMIN" && role !== "GOVERNMENT_OFFICER" && role !== "STARTUP" && role !== "VALIDATOR") {
+      return forbiddenResponse("Forbidden: You do not possess clearance to record KPI telemetry.");
+    }
+
     const body = await request.json();
     const { kpiId, value, notes, sourceNode, verifiedBy } = body;
 
-    if (!kpiId || value === undefined || isNaN(Number(value))) {
+    const numValue = Number(value);
+    if (!kpiId || value === undefined || isNaN(numValue) || !isFinite(numValue)) {
       return NextResponse.json(
-        { success: false, error: "Valid kpiId and numeric value are required" },
+        { success: false, error: "Valid kpiId and finite numeric value are required" },
         { status: 400 }
       );
     }
 
+    const sanitizedKpiId = sanitizeString(kpiId, 50);
+    const sanitizedNotes = notes ? sanitizeString(notes, 1000) : "";
+    const sanitizedSourceNode = sourceNode ? sanitizeString(sourceNode, 100) : undefined;
+    const verifier = verifiedBy
+      ? sanitizeString(verifiedBy, 100)
+      : `${user.firstName} ${user.lastName} (${user.role})`;
+
     const result = insertKPIMeasurement(
-      kpiId,
-      Number(value),
-      notes || "",
-      sourceNode,
-      verifiedBy
+      sanitizedKpiId,
+      numValue,
+      sanitizedNotes,
+      sanitizedSourceNode,
+      verifier
     );
 
     if (!result.success) {
       return NextResponse.json({ success: false, error: "Failed to insert measurement" }, { status: 400 });
     }
 
-    const updatedMeasurements = queryHistoricalMeasurements(kpiId);
+    const updatedMeasurements = queryHistoricalMeasurements(sanitizedKpiId);
 
     return NextResponse.json({
       success: true,

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAuthenticatedUser } from "@/auth/serverAuth";
+import { getAuthenticatedUser, unauthorizedResponse } from "@/auth/serverAuth";
+import { sanitizeString } from "@/lib/security";
 import {
   proposalSummarizerDb,
   CANONICAL_PROPOSAL,
@@ -8,8 +9,14 @@ import {
 
 export async function GET(request: NextRequest) {
   try {
+    const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to access proposal summaries.");
+    }
+
     const searchParams = request.nextUrl.searchParams;
-    const proposalId = searchParams.get("proposalId") || CANONICAL_PROPOSAL.id;
+    const rawProposalId = searchParams.get("proposalId") || CANONICAL_PROPOSAL.id;
+    const proposalId = sanitizeString(rawProposalId, 50);
 
     const proposal = proposalSummarizerDb.getProposalById(proposalId) || CANONICAL_PROPOSAL;
     const summary = proposalSummarizerDb.getSummaryForProposal(proposalId);
@@ -35,11 +42,17 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to generate proposal summaries.");
+    }
+
     const body = await request.json();
     const { proposalId } = body;
+    const sanitizedId = proposalId ? sanitizeString(proposalId, 50) : CANONICAL_PROPOSAL.id;
 
     const proposal =
-      proposalSummarizerDb.getProposalById(proposalId) || CANONICAL_PROPOSAL;
+      proposalSummarizerDb.getProposalById(sanitizedId) || CANONICAL_PROPOSAL;
     const summary = proposalSummarizerDb.getSummaryForProposal(proposal.id);
 
     return NextResponse.json({

@@ -3,42 +3,53 @@ import { User } from "@/types";
 import { SESSION_COOKIE_NAME } from "./session";
 import { normalizeRole, NormalizedRole } from "./permissions";
 
+import { verifyAndSanitizeUser } from "@/lib/security";
+
 /**
  * Extracts and validates the authenticated user from cookies or Authorization header
  */
 export function getAuthenticatedUser(request: NextRequest): User | null {
+  let candidate: any = null;
+
   // 1. Try session cookie
   const sessionCookie = request.cookies.get(SESSION_COOKIE_NAME);
   if (sessionCookie?.value) {
     try {
-      return JSON.parse(decodeURIComponent(sessionCookie.value)) as User;
+      candidate = JSON.parse(decodeURIComponent(sessionCookie.value));
     } catch {
       // Ignore
     }
   }
 
   // 2. Try Authorization header (Bearer JSON string or token)
-  const authHeader = request.headers.get("authorization");
-  if (authHeader && authHeader.startsWith("Bearer ")) {
-    const raw = authHeader.slice(7);
-    try {
-      return JSON.parse(raw) as User;
-    } catch {
-      // Ignore
+  if (!candidate) {
+    const authHeader = request.headers.get("authorization");
+    if (authHeader && authHeader.startsWith("Bearer ")) {
+      const raw = authHeader.slice(7);
+      try {
+        candidate = JSON.parse(raw);
+      } catch {
+        // Ignore
+      }
     }
   }
 
   // 3. Fallback header for simulated API tests
-  const simulatedUserHeader = request.headers.get("x-simulated-user");
-  if (simulatedUserHeader) {
-    try {
-      return JSON.parse(simulatedUserHeader) as User;
-    } catch {
-      // Ignore
+  if (!candidate) {
+    const simulatedUserHeader = request.headers.get("x-simulated-user");
+    if (simulatedUserHeader) {
+      try {
+        candidate = JSON.parse(simulatedUserHeader);
+      } catch {
+        // Ignore
+      }
     }
   }
 
-  return null;
+  if (!candidate) return null;
+
+  // Defensively verify user authenticity and prevent unauthorized role elevation
+  return verifyAndSanitizeUser(candidate);
 }
 
 /**

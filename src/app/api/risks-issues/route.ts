@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAuthenticatedUser } from "@/auth/serverAuth";
+import { getAuthenticatedUser, unauthorizedResponse, forbiddenResponse } from "@/auth/serverAuth";
+import { normalizeRole } from "@/auth/permissions";
+import { sanitizeString } from "@/lib/security";
 import {
   queryRisks,
   queryIssues,
@@ -72,8 +74,24 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to register risks or issues.");
+    }
+
+    const role = normalizeRole(user.role);
+    if (
+      role !== "ADMIN" &&
+      role !== "GOVERNMENT_OFFICER" &&
+      role !== "STARTUP" &&
+      role !== "VALIDATOR" &&
+      role !== "PROCUREMENT_OFFICER"
+    ) {
+      return forbiddenResponse("Forbidden: You do not possess clearance to record risks or field issues.");
+    }
+
     const body = await request.json();
     const { itemType } = body;
+    const authorName = `${user.firstName} ${user.lastName}`.trim();
 
     if (itemType === "risk") {
       const {
@@ -96,17 +114,20 @@ export async function POST(request: NextRequest) {
         );
       }
 
+      const probNum = Math.max(1, Math.min(5, Number(probability) || 3));
+      const impactNum = Math.max(1, Math.min(5, Number(impact) || 3));
+
       const newRisk = insertRisk({
-        title,
-        description,
+        title: sanitizeString(title, 200),
+        description: sanitizeString(description, 2000),
         category: category as RiskCategory,
-        probability: Number(probability) || 3,
-        impact: Number(impact) || 3,
-        owner: owner || (user ? `${user.firstName} ${user.lastName}` : "Pilot Coordinator"),
-        mitigation,
+        probability: probNum,
+        impact: impactNum,
+        owner: owner ? sanitizeString(owner, 100) : authorName,
+        mitigation: sanitizeString(mitigation, 2000),
         status: (status as RiskStatus) || "Identified",
-        dueDate: dueDate || "2026-09-30",
-        pilotId: pilotId || "PILOT-UP-UAQ-01",
+        dueDate: dueDate ? sanitizeString(dueDate, 50) : "2026-09-30",
+        pilotId: pilotId ? sanitizeString(pilotId, 50) : "PILOT-UP-UAQ-01",
       });
 
       return NextResponse.json({ success: true, risk: newRisk, message: "Risk registered successfully." });
@@ -131,15 +152,15 @@ export async function POST(request: NextRequest) {
       }
 
       const newIssue = insertIssue({
-        title,
-        description,
+        title: sanitizeString(title, 200),
+        description: sanitizeString(description, 2000),
         severity: severity as IssueSeverity,
-        owner: owner || (user ? `${user.firstName} ${user.lastName}` : "Field Response Lead"),
-        deadline: deadline || "2026-08-15",
+        owner: owner ? sanitizeString(owner, 100) : authorName,
+        deadline: deadline ? sanitizeString(deadline, 50) : "2026-08-15",
         status: (status as IssueStatus) || "Open",
-        resolution: resolution || "",
-        relatedRiskId,
-        pilotId: pilotId || "PILOT-UP-UAQ-01",
+        resolution: resolution ? sanitizeString(resolution, 2000) : "",
+        relatedRiskId: relatedRiskId ? sanitizeString(relatedRiskId, 50) : undefined,
+        pilotId: pilotId ? sanitizeString(pilotId, 50) : "PILOT-UP-UAQ-01",
       });
 
       return NextResponse.json({ success: true, issue: newIssue, message: "Issue logged successfully." });

@@ -4,10 +4,10 @@ import { getEvidenceById, canUserAccessEvidence } from "@/database/evidenceDatab
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const user = getAuthenticatedUser(request);
-  const evidenceId = params.id;
+  const { id: evidenceId } = await params;
 
   // Retrieve evidence record without user context first to check existence and confidentiality level
   const baseResult = getEvidenceById(evidenceId);

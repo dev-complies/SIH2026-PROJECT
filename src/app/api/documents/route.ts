@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAuthenticatedUser } from "@/auth/serverAuth";
+import { getAuthenticatedUser, unauthorizedResponse, forbiddenResponse } from "@/auth/serverAuth";
+import { normalizeRole } from "@/auth/permissions";
+import { validateFileFormat, sanitizeString } from "@/lib/security";
 import {
   queryDocuments,
   insertDocument,
@@ -54,6 +56,15 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to create official contract documents.");
+    }
+
+    const role = normalizeRole(user.role);
+    if (role !== "ADMIN" && role !== "GOVERNMENT_OFFICER" && role !== "PROCUREMENT_OFFICER" && role !== "STARTUP") {
+      return forbiddenResponse("Forbidden: You do not possess clearance to create statutory pilot documents.");
+    }
+
     const body = await request.json();
 
     const {
@@ -81,23 +92,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const formatCheck = validateFileFormat(fileFormat || "PDF");
+    if (!formatCheck.isValid) {
+      return NextResponse.json({ success: false, error: formatCheck.error }, { status: 400 });
+    }
+
+    const safeName = sanitizeString(name, 150);
+
     const newDoc = insertDocument({
-      name,
+      name: safeName,
       type,
-      version: version || "v1.0",
-      owner: owner || (user ? `${user.firstName} ${user.lastName}` : "Directorate of Urban Dev"),
-      expiryDate: expiryDate || "2027-12-31",
+      version: version ? sanitizeString(version, 20) : "v1.0",
+      owner: owner ? sanitizeString(owner, 100) : `${user.firstName} ${user.lastName}`,
+      expiryDate: expiryDate ? sanitizeString(expiryDate, 20) : "2027-12-31",
       status: (status as DocumentStatus) || "Draft",
       access: (access as DocumentAccessLevel) || "Restricted (Government & Startup)",
       isTemplate: Boolean(isTemplate),
-      description: description || "Statutory pilot legal instrument and covenants.",
-      fileSize: fileSize || "3.8 MB",
-      fileFormat: fileFormat || "PDF",
-      sha256Hash: sha256Hash || `sha256:${Math.random().toString(36).substring(2, 12)}...`,
-      pilotId: pilotId || "PILOT-UP-UAQ-01",
+      description: sanitizeString(description || "Statutory pilot legal instrument and covenants.", 2000),
+      fileSize: fileSize ? sanitizeString(fileSize, 20) : "3.8 MB",
+      fileFormat: formatCheck.normalizedFormat,
+      sha256Hash: sha256Hash ? sanitizeString(sha256Hash, 64) : `sha256:${Math.random().toString(36).substring(2, 12)}...`,
+      pilotId: sanitizeString(pilotId || "PILOT-UP-UAQ-01", 64),
       signatories: signatories || [],
       confidentialityLevel: confidentialityLevel || "RESTRICTED",
-      downloadUrl: `/secure-vault/docs/${encodeURIComponent(name.toLowerCase().replace(/\s+/g, "_"))}.pdf`,
+      downloadUrl: `/secure-vault/docs/${encodeURIComponent(safeName.toLowerCase().replace(/\s+/g, "_"))}.pdf`,
     });
 
     return NextResponse.json({

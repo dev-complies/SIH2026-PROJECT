@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAuthenticatedUser, unauthorizedResponse, forbiddenResponse } from "@/auth/serverAuth";
+import { normalizeRole } from "@/auth/permissions";
+import { validateFileFormat, sanitizeString } from "@/lib/security";
 import {
   queryEvidence,
   insertEvidenceRecord,
@@ -79,6 +81,15 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to submit empirical pilot evidence.");
+    }
+
+    const role = normalizeRole(user.role);
+    if (role !== "STARTUP" && role !== "GOVERNMENT_OFFICER" && role !== "VALIDATOR" && role !== "ADMIN") {
+      return forbiddenResponse("Forbidden: You do not have clearance to upload evidence for this pilot.");
+    }
+
     const body = await request.json();
 
     const {
@@ -109,30 +120,43 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Validate File Format against security allowlist
+    const formatValidation = validateFileFormat(fileFormat || "PDF");
+    if (!formatValidation.isValid) {
+      return NextResponse.json(
+        { success: false, error: formatValidation.error },
+        { status: 400 }
+      );
+    }
+
+    // Sanitize title and description against XSS and path traversal
+    const safeTitle = sanitizeString(title, 200);
+    const safeDesc = sanitizeString(description, 2000);
+
     const uploader = {
-      id: user?.id || "u-anon",
-      name: user ? `${user.firstName} ${user.lastName}` : (body.uploaderName || "System Submitter"),
-      role: (user?.role as any) || (body.uploaderRole || "STARTUP"),
-      organization: user?.organizationId || (body.uploaderOrg || "AirSense Technologies Pvt Ltd"),
+      id: user.id,
+      name: `${user.firstName} ${user.lastName}`.trim(),
+      role: user.role as any,
+      organization: user.organizationId || "Government Oversight Directorate",
     };
 
     const newEvidence = insertEvidenceRecord({
-      title,
+      title: safeTitle,
       type,
       uploader,
-      relatedKpiId,
-      relatedKpiName: relatedKpiName || "Air Quality Benchmark",
-      relatedMeasurementId: relatedMeasurementId || "meas-latest",
-      relatedMeasurementLabel: relatedMeasurementLabel || "Latest Field Reading",
-      relatedMilestoneId,
-      relatedMilestoneName: relatedMilestoneName || "Milestone Deliverable",
-      description,
+      relatedKpiId: sanitizeString(relatedKpiId, 64),
+      relatedKpiName: sanitizeString(relatedKpiName || "Air Quality Benchmark", 128),
+      relatedMeasurementId: sanitizeString(relatedMeasurementId || "meas-latest", 64),
+      relatedMeasurementLabel: sanitizeString(relatedMeasurementLabel || "Latest Field Reading", 128),
+      relatedMilestoneId: sanitizeString(relatedMilestoneId, 32),
+      relatedMilestoneName: sanitizeString(relatedMilestoneName || "Milestone Deliverable", 128),
+      description: safeDesc,
       verificationStatus: "Unverified",
-      fileSize: fileSize || "5.2 MB",
-      fileFormat: fileFormat || "PDF",
-      sha256Hash: sha256Hash || `sha256:${Math.random().toString(36).substring(2, 12)}...`,
+      fileSize: fileSize ? sanitizeString(fileSize, 20) : "5.2 MB",
+      fileFormat: formatValidation.normalizedFormat,
+      sha256Hash: sha256Hash ? sanitizeString(sha256Hash, 64) : `sha256:${Math.random().toString(36).substring(2, 12)}...`,
       confidentialityLevel: confidentialityLevel || "RESTRICTED",
-      pilotId: pilotId || "PILOT-UP-UAQ-01",
+      pilotId: sanitizeString(pilotId || "PILOT-UP-UAQ-01", 64),
       metadata: metadata || {},
     });
 

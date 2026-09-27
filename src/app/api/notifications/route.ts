@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAuthenticatedUser } from "@/auth/serverAuth";
+import { getAuthenticatedUser, unauthorizedResponse } from "@/auth/serverAuth";
+import { sanitizeString } from "@/lib/security";
 import {
   notificationDb,
   NotificationType,
@@ -65,6 +66,10 @@ export async function GET(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   try {
     const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to update notification status.");
+    }
+
     const body = await request.json();
     const { action, notificationId } = body;
 
@@ -108,8 +113,19 @@ export async function PATCH(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to dispatch system notifications.");
+    }
+
     const body = await request.json();
-    const result = notificationDb.dispatchNotification(body);
+    const sanitizedBody = {
+      ...body,
+      title: body.title ? sanitizeString(body.title, 200) : "System Notification",
+      message: body.message ? sanitizeString(body.message, 2000) : "",
+    };
+
+    const result = notificationDb.dispatchNotification(sanitizedBody);
 
     return NextResponse.json({
       success: result.success,

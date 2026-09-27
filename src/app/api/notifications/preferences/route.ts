@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAuthenticatedUser } from "@/auth/serverAuth";
+import { getAuthenticatedUser, unauthorizedResponse } from "@/auth/serverAuth";
 import {
   notificationDb,
   NotificationPreferences,
@@ -30,6 +30,10 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const user = getAuthenticatedUser(request);
+    if (!user) {
+      return unauthorizedResponse("Authentication required to configure notification preferences.");
+    }
+
     const body: NotificationPreferences = await request.json();
 
     if (!body || !body.types) {
@@ -39,7 +43,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const saved = notificationDb.savePreferences(body);
+    // Bind preferences strictly to the authenticated user context to prevent spoofing
+    const securedPreferences: NotificationPreferences = {
+      userId: user.id,
+      role: user.role,
+      types: body.types,
+      antiSpam: body.antiSpam || {
+        consolidateDigest: true,
+        muteLowPriority: false,
+        quietHoursEnabled: false,
+        minIntervalMinutes: 30,
+      },
+    };
+
+    const saved = notificationDb.savePreferences(securedPreferences);
 
     return NextResponse.json({
       success: true,
