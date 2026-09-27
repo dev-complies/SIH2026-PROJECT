@@ -8,6 +8,7 @@ import { UserRole } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, LogOut, UserCircle2, ArrowRightLeft, LayoutDashboard, Search } from "lucide-react";
+import { NotificationCenter } from "./NotificationCenter";
 
 export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => void } = {}) {
   const { currentUser, switchRole, logout } = useAuth();
@@ -173,6 +174,9 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
               {currentUser.role}
             </Badge>
           )}
+
+          {/* Contextual Notification Center */}
+          <NotificationCenter />
 
           {/* User Profile Info */}
           {currentUser ? (
