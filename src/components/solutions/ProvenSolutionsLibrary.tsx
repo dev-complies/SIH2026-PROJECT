@@ -46,6 +46,7 @@ import {
   Radio,
   SlidersHorizontal,
 } from "lucide-react";
+import { ProvenSolutionsSpatialMesh } from "@/components/3d";
 
 export function ProvenSolutionsLibrary() {
   const { currentUser } = useAuth();
@@ -58,7 +59,7 @@ export function ProvenSolutionsLibrary() {
   const [selectedDepartment, setSelectedDepartment] = useState<string>("ALL");
   const [selectedLocation, setSelectedLocation] = useState<string>("ALL");
   const [sortBy, setSortBy] = useState<"kpi" | "savings" | "duration" | "cost">("kpi");
-  const [viewMode, setViewMode] = useState<"hybrid" | "ledger">("hybrid");
+  const [viewMode, setViewMode] = useState<"hybrid" | "ledger" | "spatial">("hybrid");
 
   // Selected solution for full dossier drawer
   const [dossierSolution, setDossierSolution] = useState<ProvenSolution | null>(null);
@@ -323,6 +324,19 @@ export function ProvenSolutionsLibrary() {
                 <ListFilter className="w-3.5 h-3.5" />
                 <span className="ml-1 text-[11px] hidden sm:inline">Ledger</span>
               </button>
+              <button
+                onClick={() => setViewMode("spatial")}
+                title="Spatial Deployment Mesh (3D)"
+                className={cn(
+                  "p-1.5 rounded-2xs text-xs font-semibold flex items-center transition-all",
+                  viewMode === "spatial"
+                    ? "bg-white text-purple-700 shadow-xs font-bold"
+                    : "text-slate-500 hover:text-slate-900"
+                )}
+              >
+                <Layers className="w-3.5 h-3.5 text-purple-600" />
+                <span className="ml-1 text-[11px] hidden sm:inline">3D Mesh</span>
+              </button>
             </div>
           </div>
         </div>
@@ -461,9 +475,18 @@ export function ProvenSolutionsLibrary() {
       </div>
 
       {/* ======================================================== */}
-      {/* 3. VIEW MODE A: VISUAL CARD / LIST HYBRID GRID           */}
+      {/* 3. VIEW MODES: SPATIAL 3D | VISUAL CARD | LEDGER TABLE   */}
       {/* ======================================================== */}
-      {viewMode === "hybrid" ? (
+      {viewMode === "spatial" && (
+        <ProvenSolutionsSpatialMesh
+          solutions={filteredSolutions}
+          selectedSolution={dossierSolution}
+          onSelectSolution={(sol) => setDossierSolution(sol)}
+          height="h-[440px]"
+        />
+      )}
+
+      {viewMode === "hybrid" && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredSolutions.map((sol) => (
             <div
@@ -625,7 +648,9 @@ export function ProvenSolutionsLibrary() {
             </div>
           ))}
         </div>
-      ) : (
+      )}
+
+      {viewMode === "ledger" && (
         /* ======================================================== */
         /* VIEW MODE B: COMPACT PROCUREMENT LEDGER VIEW            */
         /* ======================================================== */

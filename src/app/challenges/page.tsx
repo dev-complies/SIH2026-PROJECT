@@ -638,7 +638,7 @@ export default function StartupChallengeDiscoveryPage() {
                   </Badge>
                 </div>
                 {/* 3D Map Component */}
-                <PilotMap height="400px" />
+                <PilotMap height="h-[420px]" />
               </div>
             </div>
           )}

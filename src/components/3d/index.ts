@@ -7,3 +7,4 @@ export * from "./InnovationPipeline";
 export * from "./SceneWrapper";
 export * from "./FallbackCitySchematic";
 export * from "./ArchitecturalCityScene";
+export * from "./ProvenSolutionsSpatialMesh";

@@ -282,6 +282,75 @@ function CityGridGround() {
   );
 }
 
+// Accessible 2D Vector & Schematic Fallback for Contextual City Pilot
+function FallbackPilotCitySchematic({
+  selectedNode,
+  onSelectNode,
+}: {
+  selectedNode: PilotDataNode;
+  onSelectNode: (node: PilotDataNode) => void;
+}) {
+  return (
+    <div className="w-full min-h-[260px] bg-slate-950 border border-slate-800 rounded-card p-4 flex flex-col justify-between text-left">
+      <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+        <div className="flex items-center space-x-2">
+          <span className="w-2 h-2 rounded-full bg-cyan-400" />
+          <span className="font-mono text-xs font-bold text-slate-200 uppercase">
+            Lucknow Ward Testbed Schematic (2D Accessible Grid)
+          </span>
+        </div>
+        <span className="text-[10px] font-mono text-slate-400">
+          5 Monitored Telemetry Nodes
+        </span>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 my-auto">
+        {LUCKNOW_PILOT_NODES.map((node) => {
+          const isSelected = selectedNode.id === node.id;
+          return (
+            <button
+              key={node.id}
+              onClick={() => onSelectNode(node)}
+              className={cn(
+                "p-3 rounded-control border text-left transition-all",
+                isSelected
+                  ? "bg-slate-900 border-cyan-400 shadow-sm shadow-cyan-500/20"
+                  : "bg-slate-900/60 border-slate-800 hover:border-slate-700"
+              )}
+            >
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-mono font-semibold text-slate-400">
+                  {node.ward}
+                </span>
+                <span
+                  className={cn(
+                    "text-[9px] font-mono px-1.5 py-0.2 rounded font-bold",
+                    node.status === "ALERT"
+                      ? "bg-rose-950 text-rose-300 border border-rose-800"
+                      : "bg-emerald-950 text-emerald-300 border border-emerald-800"
+                  )}
+                >
+                  {node.status}
+                </span>
+              </div>
+              <p className="text-xs font-bold text-white truncate">{node.name}</p>
+              <div className="mt-2 flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-slate-800/80 pt-1.5">
+                <span>PM2.5: {node.pm25 !== undefined ? `${node.pm25} µg/m³` : "Ref BAM"}</span>
+                <span className="text-cyan-400">{node.uptime}</span>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400">
+        <span>Click any node card to load live telemetry into the inspector below</span>
+        <span className="text-emerald-400">● 40 Municipal Streetlight Poles Linked</span>
+      </div>
+    </div>
+  );
+}
+
 export function ContextualCityPilot3D({
   selectedNode,
   onSelectNode,
@@ -290,76 +359,74 @@ export function ContextualCityPilot3D({
   onSelectNode: (node: PilotDataNode) => void;
 }) {
   return (
-    <div className="bg-slate-950 border border-gov-border rounded-card overflow-hidden shadow-sm space-y-0">
-      {/* 3D Visualizer Top Bar */}
-      <div className="bg-slate-900/90 border-b border-slate-800 px-3.5 py-2 flex items-center justify-between text-xs">
-        <div className="flex items-center space-x-2">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-          <span className="font-mono text-[11px] font-bold text-slate-200 uppercase tracking-wider">
-            3D Spatial Testbed: Lucknow Wards (40 Nodes Active)
-          </span>
-        </div>
-
-        <div className="flex items-center space-x-2 text-[10px] font-mono text-slate-400">
-          <span className="hidden sm:inline">Click node to inspect telemetry</span>
-          <Badge variant="outline" className="text-[9px] border-slate-700 bg-slate-800 text-cyan-300">
-            4 Locations • 2 Devices • ICCC Node
-          </Badge>
-        </div>
-      </div>
-
-      {/* 3D Canvas (Restrained Height: 240px to ensure operational UI remains dominant) */}
-      <div className="relative h-60 w-full bg-slate-950">
-        <Canvas
-          camera={{ position: [5.5, 6.0, 7.5], fov: 42 }}
-          className="w-full h-full cursor-grab active:cursor-grabbing"
-          gl={{ antialias: true, alpha: true }}
-        >
-          <ambientLight intensity={0.65} />
-          <directionalLight position={[10, 15, 8]} intensity={1.2} color="#FFFFFF" />
-          <pointLight position={[-6, 5, -6]} intensity={0.6} color="#38BDF8" />
-          <pointLight position={[6, 4, 6]} intensity={0.4} color="#A78BFA" />
-
-          <CityGridGround />
-
-          {LUCKNOW_PILOT_NODES.map((node) => (
-            <InteractiveCityNode
-              key={node.id}
-              node={node}
-              isSelected={selectedNode.id === node.id}
-              onSelect={onSelectNode}
-            />
-          ))}
-
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            autoRotate={false}
-            maxPolarAngle={Math.PI / 2.3}
-            minPolarAngle={Math.PI / 5}
-            dampingFactor={0.05}
+    <div className="bg-slate-950 border border-gov-border rounded-card overflow-hidden shadow-sm space-y-0 text-left">
+      <SceneWrapper
+        title="3D Spatial Testbed: Lucknow Wards"
+        subtitle="40 Nodes Active • Real-time PM2.5 / PM10 telemetry mesh"
+        badgeText="SPATIAL TESTBED 3D"
+        height="h-[280px]"
+        fallback={
+          <FallbackPilotCitySchematic
+            selectedNode={selectedNode}
+            onSelectNode={onSelectNode}
           />
-        </Canvas>
+        }
+      >
+        {({ resetKey }) => (
+          <div className="relative w-full h-full bg-slate-950">
+            <Canvas
+              key={resetKey}
+              camera={{ position: [5.5, 6.0, 7.5], fov: 42 }}
+              className="w-full h-full cursor-grab active:cursor-grabbing"
+              gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+            >
+              <ambientLight intensity={0.65} />
+              <directionalLight position={[10, 15, 8]} intensity={1.2} color="#FFFFFF" />
+              <pointLight position={[-6, 5, -6]} intensity={0.6} color="#38BDF8" />
+              <pointLight position={[6, 4, 6]} intensity={0.4} color="#A78BFA" />
 
-        {/* Legend Overlay Strip */}
-        <div className="absolute bottom-2 left-2 right-2 pointer-events-none flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono px-2 py-1 bg-slate-900/80 backdrop-blur-xs border border-slate-800 rounded">
-          <div className="flex items-center space-x-3 text-slate-300">
-            <span className="flex items-center">
-              <span className="w-2 h-2 rounded-full bg-sky-500 mr-1" /> Locations
-            </span>
-            <span className="flex items-center">
-              <span className="w-2 h-2 rounded-full bg-amber-500 mr-1" /> Mobile Misting
-            </span>
-            <span className="flex items-center">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 mr-1" /> CPCB Reference
-            </span>
-            <span className="flex items-center">
-              <span className="w-2 h-2 rounded-full bg-purple-500 mr-1" /> ICCC Hub
-            </span>
+              <CityGridGround />
+
+              {LUCKNOW_PILOT_NODES.map((node) => (
+                <InteractiveCityNode
+                  key={node.id}
+                  node={node}
+                  isSelected={selectedNode.id === node.id}
+                  onSelect={onSelectNode}
+                />
+              ))}
+
+              <OrbitControls
+                enableZoom={false}
+                enablePan={false}
+                autoRotate={false}
+                maxPolarAngle={Math.PI / 2.3}
+                minPolarAngle={Math.PI / 5}
+                dampingFactor={0.05}
+              />
+            </Canvas>
+
+            {/* Legend Overlay Strip */}
+            <div className="absolute bottom-2 left-2 right-2 pointer-events-none flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono px-2 py-1 bg-slate-900/80 backdrop-blur-xs border border-slate-800 rounded">
+              <div className="flex items-center space-x-3 text-slate-300">
+                <span className="flex items-center">
+                  <span className="w-2 h-2 rounded-full bg-sky-500 mr-1" /> Locations
+                </span>
+                <span className="flex items-center">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 mr-1" /> Mobile Misting
+                </span>
+                <span className="flex items-center">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 mr-1" /> CPCB Reference
+                </span>
+                <span className="flex items-center">
+                  <span className="w-2 h-2 rounded-full bg-purple-500 mr-1" /> ICCC Hub
+                </span>
+              </div>
+              <span className="text-slate-400 hidden sm:inline">Orbit: Drag to rotate view</span>
+            </div>
           </div>
-          <span className="text-slate-400 hidden sm:inline">Orbit: Drag to rotate view</span>
-        </div>
-      </div>
+        )}
+      </SceneWrapper>
 
       {/* Selected Node Real-time Telemetry Drawer */}
       <div className="bg-slate-900 border-t border-slate-800 p-3 text-xs text-left">
