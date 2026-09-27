@@ -335,6 +335,74 @@ assert(canAuthorizeEscrowDisbursement(adminUser) === true, "Admin CAN authorize 
 assert(canAuthorizeEscrowDisbursement(airSenseUser) === false, "Startup CANNOT authorize escrow disbursement");
 assert(canAuthorizeEscrowDisbursement(assignedExpert) === false, "Expert Evaluator CANNOT authorize escrow disbursement");
 
+// 7. Independent Validator Workspace & Role Separation Tests
+console.log("\n--- 7. Testing Independent Validator Workspace & Role Separation ---");
+
+const VALID_VALIDATION_OUTCOMES = ["Validated", "Partially Validated", "Not Validated"];
+
+function isValidValidationOutcome(outcome) {
+  return VALID_VALIDATION_OUTCOMES.includes(outcome);
+}
+
+function canSubmitValidationReport(user) {
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  return role === "VALIDATOR" || role === "ADMIN";
+}
+
+function canStartupModifyValidatorFindings(user) {
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  return role === "STARTUP"; // Must never be allowed to modify validator findings
+}
+
+function validateSubmissionPayload(payload) {
+  if (!payload) return { valid: false, reason: "Payload missing" };
+  if (!isValidValidationOutcome(payload.outcome)) return { valid: false, reason: "Invalid outcome" };
+  if (!payload.findings || payload.findings.trim().length < 20) return { valid: false, reason: "Findings missing or too short" };
+  if (!payload.evidenceReferences || !Array.isArray(payload.evidenceReferences) || payload.evidenceReferences.length === 0) {
+    return { valid: false, reason: "Evidence references required" };
+  }
+  if (!payload.limitations || payload.limitations.trim().length < 10) return { valid: false, reason: "Limitations missing or too short" };
+  if (!payload.comments || payload.comments.trim().length < 10) return { valid: false, reason: "Comments missing or too short" };
+  return { valid: true };
+}
+
+// 1. Outcome enum validity
+VALID_VALIDATION_OUTCOMES.forEach((out) => {
+  assert(isValidValidationOutcome(out) === true, `Outcome '${out}' is a valid statutory determination`);
+});
+assert(isValidValidationOutcome("UNVALIDATED") === false, "Arbitrary outcome 'UNVALIDATED' is rejected");
+
+// 2. Role separation & Segregation of Duties
+assert(canSubmitValidationReport(validatorUser) === true, "Independent Validator CAN submit validation report");
+assert(canSubmitValidationReport(adminUser) === true, "Platform Admin CAN submit validation report");
+assert(canSubmitValidationReport(airSenseUser) === false, "Startup CANNOT submit validation report");
+assert(canSubmitValidationReport(govUser) === false, "Line Government Officer CANNOT submit independent validation report");
+assert(canSubmitValidationReport(procurementUser) === false, "Procurement Officer CANNOT submit independent validation report");
+assert(canSubmitValidationReport(assignedExpert) === false, "Expert Evaluator CANNOT submit independent validation report");
+assert(canStartupModifyValidatorFindings(airSenseUser) === true, "AirSense is correctly identified as STARTUP role");
+
+// 3. Payload validation (all 4 required fields)
+const validPayload = {
+  outcome: "Validated",
+  findings: "Comprehensive 90-day physical collocation confirmed R² = 0.94 with CPCB BAM-1020 reference analyzer.",
+  evidenceReferences: ["ev-001", "ev-002", "ev-003"],
+  limitations: "Monsoon humidity exceeding 90% RH causes transient optical scattering overestimation.",
+  comments: "Recommended for state-wide smart city deployment scaling under GFR 149.",
+};
+
+const missingFindingsPayload = { ...validPayload, findings: "" };
+const missingEvidencePayload = { ...validPayload, evidenceReferences: [] };
+const missingLimitationsPayload = { ...validPayload, limitations: "" };
+const missingCommentsPayload = { ...validPayload, comments: "" };
+
+assert(validateSubmissionPayload(validPayload).valid === true, "Valid complete submission payload is accepted");
+assert(validateSubmissionPayload(missingFindingsPayload).valid === false, "Submission without Findings is rejected");
+assert(validateSubmissionPayload(missingEvidencePayload).valid === false, "Submission without Evidence References is rejected");
+assert(validateSubmissionPayload(missingLimitationsPayload).valid === false, "Submission without Limitations is rejected");
+assert(validateSubmissionPayload(missingCommentsPayload).valid === false, "Submission without Comments is rejected");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");

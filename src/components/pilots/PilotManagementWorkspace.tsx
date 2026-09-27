@@ -19,6 +19,7 @@ import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManag
 import { RiskIssueManagementWorkspace } from "@/components/risks/RiskIssueManagementWorkspace";
 import { DocumentContractManagementWorkspace } from "@/components/documents/DocumentContractManagementWorkspace";
 import { MilestonePaymentWorkspace } from "@/components/payments/MilestonePaymentWorkspace";
+import { ValidatorWorkspace } from "@/components/validator/ValidatorWorkspace";
 import {
   Building2,
   CheckCircle2,
@@ -554,75 +555,7 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {activeTab === "validation" && (
         <div className="space-y-4 animate-in fade-in duration-150">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-gov-primary">
-                Independent Third-Party Empirical Validation
-              </h2>
-              <p className="text-[11px] text-gov-muted">
-                Statutory audits conducted by accredited testing laboratory (TERI Environmental Systems)
-              </p>
-            </div>
-            <Badge variant="success" className="font-mono text-xs">
-              Preliminary Audit Certified
-            </Badge>
-          </div>
-
-          <div className="bg-white border border-gov-border rounded-card p-5 space-y-4 shadow-2xs text-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
-              <div>
-                <span className="text-[10px] font-mono text-purple-800 font-bold uppercase tracking-wider block">
-                  ACCREDITED VALIDATION AGENCY
-                </span>
-                <h3 className="font-bold text-slate-900 text-sm">
-                  The Energy and Resources Institute (TERI Environmental Laboratory)
-                </h3>
-                <span className="text-[11px] text-gov-muted">
-                  NABL Accreditation #NABL-TC-8891 • CPCB Approved Auditing Agency
-                </span>
-              </div>
-
-              <div className="text-right">
-                <span className="text-[10px] text-gov-muted font-mono block">Auditor In Charge:</span>
-                <span className="font-bold text-slate-800">Priya Nair (Senior Scientist)</span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                <span className="text-[9.5px] font-mono text-gov-muted uppercase block">
-                  REGRESSION AUDIT COEFFICIENT
-                </span>
-                <div className="text-lg font-mono font-extrabold text-emerald-700">R² = 0.952</div>
-                <span className="text-[10px] text-slate-500">vs CPCB BAM-1020 BAM Analyzer</span>
-              </div>
-
-              <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                <span className="text-[9.5px] font-mono text-gov-muted uppercase block">
-                  MEAN ABSOLUTE PERCENTAGE ERROR
-                </span>
-                <div className="text-lg font-mono font-extrabold text-emerald-700">3.4% Error</div>
-                <span className="text-[10px] text-slate-500">Allowable Ceiling: ≤ 10.0%</span>
-              </div>
-
-              <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                <span className="text-[9.5px] font-mono text-gov-muted uppercase block">
-                  FINAL 90-DAY CERTIFICATE
-                </span>
-                <div className="text-lg font-mono font-extrabold text-amber-700">In 22 Days</div>
-                <span className="text-[10px] text-slate-500">Final Sign-Off for Scaling</span>
-              </div>
-            </div>
-
-            <div className="p-3.5 bg-purple-50/70 border border-purple-200 rounded-control space-y-1">
-              <span className="text-[10px] font-mono text-purple-900 font-bold uppercase block">
-                AUDITOR CERTIFICATION OPINION
-              </span>
-              <p className="text-purple-950 text-[11.5px] leading-relaxed">
-                "We confirm that AirSense Technologies sensor nodes collocated at the Lalbagh CAAQMS station exhibit statistical collinearity with reference BAM-1020 equipment over 60 test days. Relative humidity correction polynomials effectively eliminate fog artifacts. Recommending conditional scale approval."
-              </p>
-            </div>
-          </div>
+          <ValidatorWorkspace pilotId="PILOT-UP-UAQ-01" />
         </div>
       )}
 
