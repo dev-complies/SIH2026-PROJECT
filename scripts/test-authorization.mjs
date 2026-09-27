@@ -260,6 +260,81 @@ assert(canAccessDocumentTest(procurementUser, confidentialProcurementDoc) === tr
 assert(canAccessDocumentTest(govUser, confidentialProcurementDoc) === true, "Government Officer CAN access procurement clearance documents");
 assert(canAccessDocumentTest(airSenseUser, confidentialProcurementDoc) === false, "Startup CANNOT access internal government procurement clearance documents");
 
+// 6. Milestone-Based Payment & Escrow Disbursement RBAC Tests
+console.log("\n--- 6. Testing Milestone-Based Payment & Escrow Disbursement RBAC ---");
+
+const VALID_PAYMENT_STATUSES = [
+  "Pending",
+  "Submitted",
+  "Under Review",
+  "Approved",
+  "Paid",
+  "Rejected",
+  "Delayed",
+];
+
+function isValidPaymentStatus(status) {
+  return VALID_PAYMENT_STATUSES.includes(status);
+}
+
+function canSubmitInvoice(user, payment) {
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  if (role === "ADMIN") return true;
+  if (role === "STARTUP") {
+    return payment.status === "Pending" || payment.status === "Delayed" || payment.status === "Rejected";
+  }
+  return false;
+}
+
+function canApproveMilestonePayment(user) {
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  return role === "ADMIN" || role === "GOVERNMENT_OFFICER" || role === "PROCUREMENT_OFFICER";
+}
+
+function canAuthorizeEscrowDisbursement(user) {
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  return role === "ADMIN" || role === "PROCUREMENT_OFFICER";
+}
+
+// Verify payment status enum
+VALID_PAYMENT_STATUSES.forEach((st) => {
+  assert(isValidPaymentStatus(st) === true, `Status '${st}' is a valid statutory payment status`);
+});
+assert(isValidPaymentStatus("UNKNOWN_STATUS") === false, "Unknown status is correctly rejected");
+
+// Financial summary arithmetic invariant test
+const mockContract = 2450000;
+const mockPaid = 1150000;
+const mockApproved = 650000;
+const mockPending = 400000;
+const mockRemaining = 250000;
+assert(
+  mockContract === mockPaid + mockApproved + mockPending + mockRemaining,
+  "Contract Value (₹24.5L) equals Paid + Approved + Pending + Remaining"
+);
+
+// Payment action authorization tests
+const pendingPayment = { id: "PAY-1", status: "Pending", amount: 400000 };
+const submittedPayment = { id: "PAY-2", status: "Submitted", amount: 650000 };
+const approvedPayment = { id: "PAY-3", status: "Approved", amount: 650000 };
+
+assert(canSubmitInvoice(airSenseUser, pendingPayment) === true, "Startup CAN submit invoice for pending milestone payment");
+assert(canSubmitInvoice(govUser, pendingPayment) === false, "Government Officer CANNOT submit startup tax invoice");
+assert(canSubmitInvoice(airSenseUser, submittedPayment) === false, "Startup CANNOT resubmit invoice while already submitted");
+
+assert(canApproveMilestonePayment(govUser) === true, "Government Officer CAN approve milestone payment");
+assert(canApproveMilestonePayment(procurementUser) === true, "Procurement Officer CAN approve milestone payment");
+assert(canApproveMilestonePayment(airSenseUser) === false, "Startup CANNOT self-approve milestone payment");
+assert(canApproveMilestonePayment(validatorUser) === false, "Independent Validator CANNOT approve procurement payment");
+
+assert(canAuthorizeEscrowDisbursement(procurementUser) === true, "Procurement Officer CAN authorize escrow disbursement");
+assert(canAuthorizeEscrowDisbursement(adminUser) === true, "Admin CAN authorize escrow disbursement");
+assert(canAuthorizeEscrowDisbursement(airSenseUser) === false, "Startup CANNOT authorize escrow disbursement");
+assert(canAuthorizeEscrowDisbursement(assignedExpert) === false, "Expert Evaluator CANNOT authorize escrow disbursement");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");

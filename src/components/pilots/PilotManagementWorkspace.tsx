@@ -18,6 +18,7 @@ import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
 import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManagementWorkspace";
 import { RiskIssueManagementWorkspace } from "@/components/risks/RiskIssueManagementWorkspace";
 import { DocumentContractManagementWorkspace } from "@/components/documents/DocumentContractManagementWorkspace";
+import { MilestonePaymentWorkspace } from "@/components/payments/MilestonePaymentWorkspace";
 import {
   Building2,
   CheckCircle2,
@@ -541,93 +542,10 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {activeTab === "payments" && (
         <div className="space-y-4 animate-in fade-in duration-150">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-gov-primary">
-                Treasury Escrow & Milestone Funding Releases
-              </h2>
-              <p className="text-[11px] text-gov-muted">
-                Public procurement performance disbursement ledger
-              </p>
-            </div>
-            <div className="font-mono text-xs text-right">
-              <span className="font-bold text-emerald-700">₹15,50,000 Disbursed</span>
-              <span className="text-gov-muted ml-2">/ ₹24,50,000 Total</span>
-            </div>
-          </div>
-
-          <div className="bg-white border border-slate-200 rounded-card overflow-hidden text-xs shadow-2xs">
-            <table className="w-full text-left border-collapse">
-              <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-slate-200">
-                <tr>
-                  <th className="p-3">Tranche & Milestone</th>
-                  <th className="p-3">Amount</th>
-                  <th className="p-3">Invoice & NEFT Ref</th>
-                  <th className="p-3">Disbursement Date</th>
-                  <th className="p-3 text-right">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 bg-white">
-                {[
-                  {
-                    tranche: "Tranche 1: Mobilization & Equipment",
-                    amount: "₹7,50,000",
-                    invoice: "INV-AS-2026-01",
-                    neft: "SBI-TREAS-UP-91823",
-                    date: "12 Jun 2026",
-                    status: "DISBURSED",
-                  },
-                  {
-                    tranche: "Tranche 2: Ward Network Deployment",
-                    amount: "₹8,00,000",
-                    invoice: "INV-AS-2026-02",
-                    neft: "SBI-TREAS-UP-98412",
-                    date: "02 Jul 2026",
-                    status: "DISBURSED",
-                  },
-                  {
-                    tranche: "Tranche 3: 60-Day Telemetry Submission",
-                    amount: "₹5,00,000",
-                    invoice: "INV-AS-2026-03",
-                    neft: "Treasury Approval Pending",
-                    date: "Pending Clearance",
-                    status: "PENDING_RELEASE",
-                  },
-                  {
-                    tranche: "Tranche 4: Final TERI Validation & Scale",
-                    amount: "₹4,00,000",
-                    invoice: "Awaiting Milestone 4",
-                    neft: "In Escrow Reserve",
-                    date: "Scheduled Aug 2026",
-                    status: "IN_ESCROW",
-                  },
-                ].map((pay, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
-                    <td className="p-3 font-semibold text-slate-900">{pay.tranche}</td>
-                    <td className="p-3 font-mono font-bold text-slate-900">{pay.amount}</td>
-                    <td className="p-3 font-mono text-gov-muted">
-                      {pay.invoice} • {pay.neft}
-                    </td>
-                    <td className="p-3 font-mono text-slate-700">{pay.date}</td>
-                    <td className="p-3 text-right">
-                      <Badge
-                        variant={
-                          pay.status === "DISBURSED"
-                            ? "success"
-                            : pay.status === "PENDING_RELEASE"
-                            ? "warning"
-                            : "outline"
-                        }
-                        className="font-mono text-[9px]"
-                      >
-                        {pay.status.replace(/_/g, " ")}
-                      </Badge>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <MilestonePaymentWorkspace
+            pilotId="PILOT-UP-UAQ-01"
+            onNavigateToMilestones={() => setActiveTab("milestones")}
+          />
         </div>
       )}
 

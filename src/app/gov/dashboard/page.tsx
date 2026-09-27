@@ -16,6 +16,7 @@ import { KpiTrackingWorkspace } from "@/components/kpi/KpiTrackingWorkspace";
 import { EvidenceManagementWorkspace } from "@/components/evidence/EvidenceManagementWorkspace";
 import { RiskIssueManagementWorkspace } from "@/components/risks/RiskIssueManagementWorkspace";
 import { DocumentContractManagementWorkspace } from "@/components/documents/DocumentContractManagementWorkspace";
+import { MilestonePaymentWorkspace } from "@/components/payments/MilestonePaymentWorkspace";
 import {
   Building2,
   AlertCircle,
@@ -285,6 +286,21 @@ function GovernmentDashboardContent() {
             <span className="text-slate-800 font-semibold">Document & Contract Management</span>
           </div>
           <DocumentContractManagementWorkspace />
+        </div>
+      );
+    }
+
+    if (tab === "payments") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center space-x-2 text-xs text-gov-muted mb-2">
+            <Link href="/gov/dashboard" className="hover:text-gov-primary flex items-center">
+              Dashboard
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 font-semibold">Milestone-Based Payment Tracking</span>
+          </div>
+          <MilestonePaymentWorkspace />
         </div>
       );
     }

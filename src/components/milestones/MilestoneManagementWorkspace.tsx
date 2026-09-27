@@ -1190,6 +1190,15 @@ export function MilestoneManagementWorkspace() {
                     </Badge>
                   </div>
                 </div>
+                <div className="text-right">
+                  <Link
+                    href={`/payments?milestone=${selectedMilestone.code}`}
+                    className="inline-flex items-center text-[11px] font-semibold text-gov-primary hover:underline mt-1"
+                  >
+                    <CreditCard className="w-3 h-3 mr-1" />
+                    Open Payment in Treasury Ledger →
+                  </Link>
+                </div>
               </div>
 
               {/* Field 7: Approval Status & Historical Deliberations */}
