@@ -109,6 +109,15 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
             </Link>
 
             <Link
+              href="/matching"
+              className={`hover:text-gov-primary transition-colors ${
+                pathname.startsWith("/matching") ? "text-gov-primary font-bold" : ""
+              }`}
+            >
+              AI Matching
+            </Link>
+
+            <Link
               href="/analytics"
               className={`hover:text-gov-primary transition-colors ${
                 pathname.startsWith("/analytics") ? "text-gov-primary font-bold" : ""

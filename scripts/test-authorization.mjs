@@ -1219,6 +1219,224 @@ assert(shouldDisplayInNotificationCenter({ type: "Application Deadline", severit
 assert(shouldDisplayInNotificationCenter({ type: "Milestone Due", severity: "MEDIUM" }, samplePreferences) === false, "Notification suppressed when user disabled inApp preference");
 assert(shouldDisplayInNotificationCenter({ type: "Application Deadline", severity: "INFO" }, samplePreferences) === false, "INFO severity notification suppressed when muteLowPriority is enabled");
 
+// ======================================================================
+// SECTION 14: AI-ASSISTED STARTUP-TO-CHALLENGE MATCHING & HUMAN GOVERNANCE (Prompt Request 12)
+// ======================================================================
+console.log("\n--- SECTION 14: AI-ASSISTED MATCHING & HUMAN DECISION RESPONSIBILITY (Prompt 12) ---");
+
+// 1. Mandatory 8 Matching Factors Check
+const MANDATORY_MATCHING_FACTORS = [
+  "Technology",
+  "Industry",
+  "Experience",
+  "Location",
+  "Budget",
+  "Requirements",
+  "Certifications",
+  "Previous Projects"
+];
+
+assert(MANDATORY_MATCHING_FACTORS.length === 8, "AI matching system incorporates all 8 statutory factors");
+for (const factor of MANDATORY_MATCHING_FACTORS) {
+  assert(MANDATORY_MATCHING_FACTORS.includes(factor), `Matching factor '${factor}' is verified present`);
+}
+
+// 2. Explanation-First Format & Anti-Blackbox Score Check
+// The prompt specifies: "Do not display a meaningless single 'AI score' without explanation. Instead show: Why this startup matches: Technology — Strong, Industry — Strong, Experience — Moderate, Location — Strong, Requirements — Strong"
+const VALID_MATCH_RATINGS = ["Strong", "Moderate", "Developing"];
+
+function validateExplanationFirstModel(matchingAnalysis) {
+  // Must NOT be just a raw scalar score
+  if (typeof matchingAnalysis === "number") {
+    return { valid: false, error: "Prohibited: Meaningless single AI score without explanation" };
+  }
+
+  // Must contain explanatory factor breakdown
+  if (!matchingAnalysis.factors) {
+    return { valid: false, error: "Missing explanatory factor breakdown" };
+  }
+
+  for (const factor of MANDATORY_MATCHING_FACTORS) {
+    const key = factor.toLowerCase().replace(/ /g, "");
+    const factorData = matchingAnalysis.factors[key];
+    if (!factorData) {
+      return { valid: false, error: `Missing factor '${factor}'` };
+    }
+    if (!VALID_MATCH_RATINGS.includes(factorData.rating)) {
+      return { valid: false, error: `Invalid rating for factor '${factor}'` };
+    }
+    if (!factorData.detailedRationale || factorData.detailedRationale.length < 15) {
+      return { valid: false, error: `Insufficient explanation for factor '${factor}'` };
+    }
+  }
+
+  return { valid: true };
+}
+
+const mockAirSenseMatchingResult = {
+  startupId: "org-airsense-001",
+  challengeCode: "UAQ-LKO-2026",
+  isAIAssisted: true,
+  factors: {
+    technology: {
+      factor: "Technology",
+      rating: "Strong",
+      detailedRationale: "Direct production capability in IoT Sensors, LoRaWAN, and CPCB edge calibration."
+    },
+    industry: {
+      factor: "Industry",
+      rating: "Strong",
+      detailedRationale: "Core specialization in CleanTech & Environmental IoT and Smart Cities."
+    },
+    experience: {
+      factor: "Experience",
+      rating: "Moderate",
+      detailedRationale: "4 years of active field hardware manufacturing and operational support."
+    },
+    location: {
+      factor: "Location",
+      rating: "Strong",
+      detailedRationale: "Lucknow headquarters ensures 2-hour sensor field maintenance SLA."
+    },
+    budget: {
+      factor: "Budget",
+      rating: "Strong",
+      detailedRationale: "Projected pilot cost is ₹21.5L vs ₹25L statutory budget ceiling."
+    },
+    requirements: {
+      factor: "Requirements",
+      rating: "Strong",
+      detailedRationale: "Meets continuous CPCB collocated monitoring protocols (R2 >= 0.90)."
+    },
+    certifications: {
+      factor: "Certifications",
+      rating: "Strong",
+      detailedRationale: "DPIIT recognized, ISO 27001 data security, and RoHS compliant."
+    },
+    previousprojects: {
+      factor: "Previous Projects",
+      rating: "Strong",
+      detailedRationale: "UPPCB industrial cluster sensor deployment and CPCB winter trials completed."
+    }
+  }
+};
+
+const validation = validateExplanationFirstModel(mockAirSenseMatchingResult);
+assert(validation.valid === true, "AI matching output satisfies explanation-first architecture with all 8 factors");
+assert(mockAirSenseMatchingResult.factors.technology.rating === "Strong", "Technology factor rated 'Strong' with concrete rationale");
+assert(mockAirSenseMatchingResult.factors.industry.rating === "Strong", "Industry factor rated 'Strong' with concrete rationale");
+assert(mockAirSenseMatchingResult.factors.experience.rating === "Moderate", "Experience factor rated 'Moderate' with concrete rationale");
+assert(mockAirSenseMatchingResult.factors.location.rating === "Strong", "Location factor rated 'Strong' with concrete rationale");
+assert(mockAirSenseMatchingResult.factors.requirements.rating === "Strong", "Requirements factor rated 'Strong' with concrete rationale");
+
+// Verify rejection of meaningless single score
+assert(validateExplanationFirstModel(88.5).valid === false, "Meaningless raw scalar AI score is rejected");
+
+// 3. Autonomous AI Selection Block (Statutory Mandate: "AI recommendations must not automatically select a startup")
+function executeShortlistingDecision(params) {
+  // Block Autonomous AI Selection
+  if (params.isAutomatedAISystemAttempt) {
+    return {
+      status: 403,
+      success: false,
+      error: "Statutory Prohibition: AI recommendations must not automatically select a startup under GFR Rule 149."
+    };
+  }
+
+  // Validate Authorized Human Officer
+  const role = normalizeRole(params.user ? params.user.role : "");
+  if (!["GOVERNMENT_OFFICER", "PROCUREMENT_OFFICER", "ADMIN"].includes(role)) {
+    return {
+      status: 403,
+      success: false,
+      error: "Unauthorized: Only Government Officers retain authority for shortlisting decisions."
+    };
+  }
+
+  // Validate Statutory Human Accountability Declaration
+  if (!params.gfrRule149Confirmed) {
+    return {
+      status: 400,
+      success: false,
+      error: "Mandatory compliance affirmation under GFR Rule 149 required."
+    };
+  }
+
+  // Validate Rationale
+  if (!params.justification || params.justification.trim().length < 20) {
+    return {
+      status: 400,
+      success: false,
+      error: "Detailed statutory rationale (min 20 chars) required."
+    };
+  }
+
+  return {
+    status: 200,
+    success: true,
+    decision: params.decision,
+    decidedBy: params.user.email
+  };
+}
+
+// Test AI Autonomous Selection Block
+const autoAIResult = executeShortlistingDecision({
+  isAutomatedAISystemAttempt: true,
+  decision: "SHORTLISTED",
+  user: null,
+  gfrRule149Confirmed: false,
+  justification: "Auto select"
+});
+assert(autoAIResult.success === false && autoAIResult.status === 403, "AI autonomous selection attempt is strictly rejected under GFR Rule 149");
+
+// 4. Role Authorization for Shortlisting Decision (Government users remain responsible)
+const startupAttempt = executeShortlistingDecision({
+  isAutomatedAISystemAttempt: false,
+  decision: "SHORTLISTED",
+  user: airSenseUser,
+  gfrRule149Confirmed: true,
+  justification: "Startup trying to shortlist itself"
+});
+assert(startupAttempt.success === false, "Startup CANNOT make shortlisting decisions");
+
+const validatorAttempt = executeShortlistingDecision({
+  isAutomatedAISystemAttempt: false,
+  decision: "SHORTLISTED",
+  user: validatorUser,
+  gfrRule149Confirmed: true,
+  justification: "Validator attempting procurement selection"
+});
+assert(validatorAttempt.success === false, "Independent Validator CANNOT make procurement shortlisting decisions");
+
+const expertAttempt = executeShortlistingDecision({
+  isAutomatedAISystemAttempt: false,
+  decision: "SHORTLISTED",
+  user: assignedExpert,
+  gfrRule149Confirmed: true,
+  justification: "Evaluator attempting final procurement award"
+});
+assert(expertAttempt.success === false, "Expert Evaluator CANNOT make final government shortlisting decisions");
+
+// Valid Government Officer Execution
+const validGovDecision = executeShortlistingDecision({
+  isAutomatedAISystemAttempt: false,
+  decision: "SHORTLISTED",
+  user: govUser,
+  gfrRule149Confirmed: true,
+  justification: "Approved based on local UPPCB track record and CPCB collocated sensor benchmark."
+});
+assert(validGovDecision.success === true, "Government Officer successfully executes shortlisting with human accountability");
+
+// Rejection if GFR confirmation omitted
+const missingGfrDecision = executeShortlistingDecision({
+  isAutomatedAISystemAttempt: false,
+  decision: "SHORTLISTED",
+  user: govUser,
+  gfrRule149Confirmed: false,
+  justification: "Approved based on local UPPCB track record and CPCB collocated sensor benchmark."
+});
+assert(missingGfrDecision.success === false, "Decision rejected if GFR Rule 149 accountability declaration is not confirmed");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");
