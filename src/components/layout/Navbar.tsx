@@ -108,6 +108,15 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
             </Link>
 
             <Link
+              href="/analytics"
+              className={`hover:text-gov-primary transition-colors ${
+                pathname.startsWith("/analytics") ? "text-gov-primary font-bold" : ""
+              }`}
+            >
+              Analytics
+            </Link>
+
+            <Link
               href="/design-system"
               className={`hover:text-gov-primary transition-colors ${
                 pathname === "/design-system" ? "text-gov-accent font-bold" : ""

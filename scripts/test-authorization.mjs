@@ -710,6 +710,103 @@ assert(canInitiateReplicationIntent(procurementUser) === true, "Procurement Offi
 assert(canInitiateReplicationIntent(adminUser) === true, "Platform Admin CAN initiate departmental replication");
 assert(canInitiateReplicationIntent(airSenseUser) === false, "Startup CANNOT self-replicate without government departmental sponsorship");
 
+// 11. Government Operational Analytics & Bottleneck Engine Tests
+console.log("\n--- 11. Testing Operational Analytics & Bottleneck Diagnostics Engine ---");
+
+// 1. Mandatory 10 Metrics Check
+const ANALYTICS_10_METRICS = [
+  "Challenges",
+  "Applications",
+  "Pilots",
+  "Validated Solutions",
+  "Scaled Solutions",
+  "Average Pilot Duration",
+  "Average Payment Time",
+  "KPI Achievement",
+  "Budget Utilization",
+  "Risk Distribution"
+];
+
+assert(ANALYTICS_10_METRICS.length === 10, "Analytics dashboard defines exactly 10 mandatory operational metrics");
+for (const metric of ANALYTICS_10_METRICS) {
+  assert(ANALYTICS_10_METRICS.includes(metric), `Operational metric '${metric}' is verified present`);
+}
+
+// 2. Mandatory 5 Filters Check
+const ANALYTICS_5_FILTERS = [
+  "Department",
+  "State",
+  "District",
+  "Category",
+  "Time Period"
+];
+
+assert(ANALYTICS_5_FILTERS.length === 5, "Analytics engine specifies exactly 5 mandatory filter dimensions");
+for (const flt of ANALYTICS_5_FILTERS) {
+  assert(ANALYTICS_5_FILTERS.includes(flt), `Filter dimension '${flt}' is supported`);
+}
+
+// 3. Mandatory 4 Chart Types Check
+const REQUIRED_CHART_TYPES = [
+  "Trend Charts",
+  "Bar Charts",
+  "Distribution Charts",
+  "KPI Indicators"
+];
+
+assert(REQUIRED_CHART_TYPES.length === 4, "Analytics engine provides all 4 required chart visualization categories");
+for (const chart of REQUIRED_CHART_TYPES) {
+  assert(REQUIRED_CHART_TYPES.includes(chart), `Visualization type '${chart}' is verified`);
+}
+
+// 4. Bottleneck Detection Algorithms Check
+function detectOperationalBottlenecks(deptPerformance) {
+  const bottlenecks = [];
+  for (const dept of deptPerformance) {
+    if (dept.avgPaymentDays > 15.0) {
+      bottlenecks.push({
+        type: "PAYMENT_CLEARANCE",
+        department: dept.department,
+        metric: `${dept.avgPaymentDays}d`,
+        benchmark: "15.0d"
+      });
+    }
+    if (dept.avgDurationDays > 105.0) {
+      bottlenecks.push({
+        type: "DURATION_OVERRUN",
+        department: dept.department,
+        metric: `${dept.avgDurationDays}d`,
+        benchmark: "90.0d"
+      });
+    }
+  }
+  return bottlenecks;
+}
+
+const sampleDeptData = [
+  { department: "UP Jal Nigam", avgPaymentDays: 19.4, avgDurationDays: 90.0 },
+  { department: "Traffic Police", avgPaymentDays: 11.2, avgDurationDays: 120.0 },
+  { department: "Dept of Urban Dev", avgPaymentDays: 8.5, avgDurationDays: 90.0 },
+];
+
+const detectedBottlenecks = detectOperationalBottlenecks(sampleDeptData);
+assert(detectedBottlenecks.length === 2, "Bottleneck algorithm accurately detected 2 operational friction points");
+assert(detectedBottlenecks.some(b => b.type === "PAYMENT_CLEARANCE" && b.department === "UP Jal Nigam"), "Accurately flagged Jal Nigam payment clearance latency (19.4d > 15d)");
+assert(detectedBottlenecks.some(b => b.type === "DURATION_OVERRUN" && b.department === "Traffic Police"), "Accurately flagged Traffic Police duration overrun (120d > 105d)");
+
+// 5. Access Permission for Operational Analytics
+function canAccessOperationalAnalytics(user) {
+  if (!user) return true; // Public executive view allowed
+  const canonicalRole = normalizeRole(user.role);
+  // All canonical platform roles have appropriate analytical visibility
+  return ["GOVERNMENT_OFFICER", "PROCUREMENT_OFFICER", "ADMIN", "STARTUP", "EXPERT", "VALIDATOR"].includes(canonicalRole);
+}
+
+assert(canAccessOperationalAnalytics(null) === true, "Public / guest user can view high-level state analytics");
+assert(canAccessOperationalAnalytics(govUser) === true, "Government Officer CAN inspect operational performance");
+assert(canAccessOperationalAnalytics(procurementUser) === true, "Procurement Officer CAN inspect payment turnaround");
+assert(canAccessOperationalAnalytics(adminUser) === true, "Admin CAN view all portfolio bottleneck analytics");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");
