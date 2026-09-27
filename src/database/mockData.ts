@@ -334,7 +334,7 @@ export const MOCK_KPIS: KPI[] = [
     metricCode: "SENSOR_ACCURACY_R2",
     description: "Correlation coefficient (R-squared converted to percentage) against reference analyzer",
     baselineValue: 82.0,
-    targetValue: 92.0,
+    targetValue: 95.0,
     currentValue: 95.0,
     unit: "%",
     measurementFrequency: "Bi-weekly Collocation",
@@ -594,3 +594,47 @@ export const MOCK_AUDIT_LOGS: AuditLog[] = [
     createdAt: "2026-07-30T15:00:00.000Z",
   },
 ];
+
+// ============================================================================
+// RELATIONAL DEMO DATASET EXPORTS
+// ============================================================================
+export {
+  DEMO_DATASET_META,
+  DEMO_DEPARTMENT,
+  DEMO_USERS,
+  DEMO_STARTUP,
+  DEMO_CHALLENGE,
+  DEMO_APPLICATION,
+  DEMO_ELIGIBILITY_REVIEW,
+  DEMO_EXPERT_EVALUATIONS,
+  DEMO_SHORTLIST,
+  DEMO_PILOT,
+  DEMO_MILESTONES,
+  DEMO_KPIS,
+  DEMO_KPI_MEASUREMENTS,
+  DEMO_EVIDENCE,
+  DEMO_RISKS,
+  DEMO_ISSUES,
+  DEMO_PAYMENTS,
+  DEMO_VALIDATION_REPORT,
+  DEMO_PILOT_REPORT,
+  DEMO_SCALE_UP_DECISION,
+  DEMO_PROVEN_SOLUTION,
+  MASTER_DEMO_DATASET,
+  getDemoFullLifecycle,
+} from "./demoDataset";
+
+export const MOCK_ELIGIBILITY_REVIEWS = [
+  {
+    id: "elig-airsense-001",
+    applicationId: "app-airsense-001",
+    reviewedBy: "user-gov-001",
+    decision: "ELIGIBLE" as const,
+    reason: "DPIIT registration, previous deployment, and financial track record verified.",
+    checklistResults: { dpiitRecognition: true, priorDeployment: true, netWorthPositive: true },
+    reviewedAt: "2026-02-22T11:30:00.000Z",
+    createdAt: "2026-02-22T11:30:00.000Z",
+  },
+];
+
+export { DEMO_RISKS as MOCK_RISKS, DEMO_ISSUES as MOCK_ISSUES } from "./demoDataset";
