@@ -231,6 +231,42 @@ export default function HomePage() {
     <div className="space-y-20 pb-16">
       {/* 1. HERO SECTION */}
       <section className="pt-2">
+        {/* Live Hackathon Demonstration Banner */}
+        <div className="mb-6 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950 text-white border border-blue-500/30 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex items-center space-x-3">
+            <div className="p-2 rounded-xl bg-blue-500/20 border border-blue-400/30 shrink-0">
+              <Sparkles className="w-5 h-5 text-amber-400" />
+            </div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-300">
+                  SIH 2026 Live Evaluation
+                </span>
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-1.5 py-0.2 rounded font-mono">
+                  12-Step Workflow Ready
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm font-semibold text-slate-100 mt-0.5">
+                Primary Demo Challenge: <span className="text-blue-300">Urban Air Quality Monitoring (Lucknow Pilot • AirSense)</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-2 w-full sm:w-auto">
+            <Link href="/gov/dashboard" className="w-full sm:w-auto">
+              <Button size="sm" className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-sm">
+                <span>Start Step 2: Gov Dashboard</span>
+                <ChevronRight className="w-3.5 h-3.5 ml-1" />
+              </Button>
+            </Link>
+            <Link href="/auth/login" className="hidden sm:inline-block">
+              <Button size="sm" variant="outline" className="border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-xs">
+                Demo Accounts
+              </Button>
+            </Link>
+          </div>
+        </div>
+
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <Badge variant="default" className="bg-gov-primary font-mono text-xs tracking-wide px-2.5 py-0.5">
             REPUBLIC OF INDIA • GOVTECH OPERATING SYSTEM

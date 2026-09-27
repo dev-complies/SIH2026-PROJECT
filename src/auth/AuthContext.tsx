@@ -19,6 +19,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
   switchRole: (role: UserRole) => void;
+  loginAsDemoUser: (userId: string) => void;
   hasPermission: (permission: Permission) => boolean;
   canAccess: (pathname: string) => boolean;
 }
@@ -70,6 +71,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const loginAsDemoUser = (userId: string) => {
+    const matched = DEMO_USERS.find((u) => u.id === userId);
+    if (matched) {
+      const userEntity = toUserEntity(matched);
+      setCurrentUser(userEntity);
+      setClientSession(userEntity);
+    }
+  };
+
   const hasPerm = (permission: Permission): boolean => {
     return checkPermission(currentUser, permission);
   };
@@ -87,6 +97,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         login,
         logout,
         switchRole,
+        loginAsDemoUser,
         hasPermission: hasPerm,
         canAccess,
       }}

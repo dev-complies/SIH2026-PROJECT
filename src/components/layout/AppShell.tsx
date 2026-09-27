@@ -7,6 +7,7 @@ import { TopNav } from "./TopNav";
 import { CommandPalette } from "./CommandPalette";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { HackathonDemoBar } from "./HackathonDemoBar";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -80,6 +81,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           isOpen={isCommandPaletteOpen}
           onClose={() => setIsCommandPaletteOpen(false)}
         />
+
+        {/* Live Hackathon Demonstration Tour Console */}
+        <HackathonDemoBar />
       </div>
     );
   }
@@ -110,6 +114,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         isOpen={isCommandPaletteOpen}
         onClose={() => setIsCommandPaletteOpen(false)}
       />
+
+      {/* Live Hackathon Demonstration Tour Console */}
+      <HackathonDemoBar />
     </div>
   );
 }
