@@ -51,6 +51,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             type={type}
             id={inputId}
             disabled={disabled}
+            aria-invalid={Boolean(error)}
+            aria-describedby={
+              error
+                ? `${inputId}-error`
+                : helperText
+                ? `${inputId}-helper`
+                : undefined
+            }
             className={cn(
               "flex h-9 w-full rounded-control border bg-white px-3 py-1.5 text-sm text-gov-text placeholder:text-slate-400 transition-colors duration-150",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gov-accent focus-visible:ring-offset-1",
@@ -67,21 +75,26 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           />
 
           {error ? (
-            <span className="absolute right-3 text-gov-danger pointer-events-none">
+            <span className="absolute right-3 text-gov-danger pointer-events-none" aria-hidden="true">
               <AlertCircle className="w-4 h-4" />
             </span>
           ) : (
             rightIcon && (
-              <span className="absolute right-3 text-gov-muted pointer-events-none">
+              <span className="absolute right-3 text-gov-muted pointer-events-none" aria-hidden="true">
                 {rightIcon}
               </span>
             )
           )}
         </div>
 
-        {error && <p className="text-[11px] font-medium text-gov-danger">{error}</p>}
+        {error && (
+          <p id={`${inputId}-error`} role="alert" aria-live="polite" className="text-[11px] font-medium text-gov-danger flex items-center">
+            <span className="sr-only">Error: </span>
+            {error}
+          </p>
+        )}
         {!error && helperText && (
-          <p className="text-[11px] text-gov-muted">{helperText}</p>
+          <p id={`${inputId}-helper`} className="text-[11px] text-gov-muted">{helperText}</p>
         )}
       </div>
     );

@@ -354,7 +354,7 @@ export function PilotManagementWorkspace() {
         {/* ======================================================== */}
         {/* 2. NAVIGATION TABS                                       */}
         {/* ======================================================== */}
-        <div className="flex items-center overflow-x-auto space-x-1 border-b border-slate-200 pt-1 text-xs font-semibold scrollbar-none">
+        <div className="flex items-center overflow-x-auto space-x-1 border-b border-slate-200 pt-1 text-xs font-semibold scrollbar-none" role="tablist" aria-label="Pilot workspace tabs">
           {[
             { id: "overview", label: "Overview" },
             { id: "milestones", label: "Milestones", count: "3/4" },
@@ -371,6 +371,8 @@ export function PilotManagementWorkspace() {
           ].map((t) => (
             <button
               key={t.id}
+              role="tab"
+              aria-selected={activeTab === t.id}
               onClick={() => setActiveTab(t.id as PilotTab)}
               className={`px-3 py-2 rounded-t-md border-b-2 transition-all shrink-0 flex items-center space-x-1.5 ${
                 activeTab === t.id
@@ -691,12 +693,17 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {previewEvidence && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-card shadow-2xl border border-gov-border max-w-xl w-full p-5 space-y-4 text-left text-xs">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="evidence-preview-title"
+            className="bg-white rounded-card shadow-2xl border border-gov-border max-w-xl w-full p-5 space-y-4 text-left text-xs"
+          >
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center space-x-2">
-                <FileText className="w-5 h-5 text-gov-primary" />
+                <FileText className="w-5 h-5 text-gov-primary" aria-hidden="true" />
                 <div>
-                  <h3 className="font-bold text-slate-900 text-sm truncate max-w-xs sm:max-w-md">
+                  <h3 id="evidence-preview-title" className="font-bold text-slate-900 text-sm truncate max-w-xs sm:max-w-md">
                     {previewEvidence.title}
                   </h3>
                   <span className="text-[10px] text-gov-muted font-mono">
@@ -706,9 +713,10 @@ export function PilotManagementWorkspace() {
               </div>
               <button
                 onClick={() => setPreviewEvidence(null)}
-                className="text-slate-400 hover:text-slate-700"
+                aria-label="Close evidence preview"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded text-slate-400 hover:text-slate-700"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
             </div>
 
@@ -746,17 +754,23 @@ export function PilotManagementWorkspace() {
       {/* ======================================================== */}
       {showNewIssueModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-card shadow-2xl border border-gov-border max-w-md w-full p-5 space-y-4 text-left text-xs">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="report-issue-modal-title"
+            className="bg-white rounded-card shadow-2xl border border-gov-border max-w-md w-full p-5 space-y-4 text-left text-xs"
+          >
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center space-x-2">
-                <AlertTriangle className="w-5 h-5 text-amber-600" />
-                <h3 className="font-bold text-slate-900 text-sm">Report Field Operational Issue</h3>
+                <AlertTriangle className="w-5 h-5 text-amber-600" aria-hidden="true" />
+                <h3 id="report-issue-modal-title" className="font-bold text-slate-900 text-sm">Report Field Operational Issue</h3>
               </div>
               <button
                 onClick={() => setShowNewIssueModal(false)}
-                className="text-slate-400 hover:text-slate-700"
+                aria-label="Close report field issue dialog"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded text-slate-400 hover:text-slate-700"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
             </div>
 

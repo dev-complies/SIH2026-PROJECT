@@ -29,6 +29,14 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           <textarea
             id={inputId}
             disabled={disabled}
+            aria-invalid={Boolean(error)}
+            aria-describedby={
+              error
+                ? `${inputId}-error`
+                : helperText
+                ? `${inputId}-helper`
+                : undefined
+            }
             className={cn(
               "flex min-h-[90px] w-full rounded-control border bg-white px-3 py-2 text-sm text-gov-text placeholder:text-slate-400 transition-colors duration-150 resize-y",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gov-accent focus-visible:ring-offset-1",
@@ -44,13 +52,14 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         </div>
 
         {error && (
-          <p className="text-[11px] font-medium text-gov-danger flex items-center">
-            <AlertCircle className="w-3.5 h-3.5 mr-1" />
+          <p id={`${inputId}-error`} role="alert" aria-live="polite" className="text-[11px] font-medium text-gov-danger flex items-center">
+            <AlertCircle className="w-3.5 h-3.5 mr-1 shrink-0" aria-hidden="true" />
+            <span className="sr-only">Error: </span>
             {error}
           </p>
         )}
         {!error && helperText && (
-          <p className="text-[11px] text-gov-muted">{helperText}</p>
+          <p id={`${inputId}-helper`} className="text-[11px] text-gov-muted">{helperText}</p>
         )}
       </div>
     );

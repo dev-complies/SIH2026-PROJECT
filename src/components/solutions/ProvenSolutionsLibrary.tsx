@@ -273,9 +273,10 @@ export function ProvenSolutionsLibrary() {
             {search && (
               <button
                 onClick={() => setSearch("")}
-                className="absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600"
+                aria-label="Clear solution search"
+                className="absolute right-1.5 top-1.5 p-1 min-w-[28px] min-h-[28px] flex items-center justify-center text-slate-400 hover:text-slate-600 rounded"
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-3.5 h-3.5" aria-hidden="true" />
               </button>
             )}
           </div>
@@ -283,10 +284,12 @@ export function ProvenSolutionsLibrary() {
           <div className="flex items-center space-x-2 w-full sm:w-auto justify-between sm:justify-end">
             {/* Sort Dropdown */}
             <div className="flex items-center space-x-1.5 text-xs">
-              <span className="text-gov-muted text-[11px] font-mono hidden md:inline">Sort:</span>
+              <label htmlFor="solution-sort" className="text-gov-muted text-[11px] font-mono hidden md:inline">Sort:</label>
               <select
+                id="solution-sort"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
+                aria-label="Sort solutions by"
                 className="border border-slate-300 rounded-control px-2 py-1 text-xs bg-white text-slate-700 font-medium focus:ring-1 focus:ring-gov-primary"
               >
                 <option value="kpi">Highest KPI Attainment</option>
@@ -297,44 +300,50 @@ export function ProvenSolutionsLibrary() {
             </div>
 
             {/* Visual Card / Ledger View Toggle */}
-            <div className="flex items-center border border-slate-300 rounded-control p-0.5 bg-slate-50">
+            <div className="flex items-center border border-slate-300 rounded-control p-0.5 bg-slate-50" role="toolbar" aria-label="View display mode">
               <button
                 onClick={() => setViewMode("hybrid")}
                 title="Card / Visual Hybrid View"
+                aria-label="Cards view"
+                aria-pressed={viewMode === "hybrid"}
                 className={cn(
-                  "p-1.5 rounded-2xs text-xs font-semibold flex items-center transition-all",
+                  "p-1.5 rounded-2xs text-xs font-semibold flex items-center transition-all min-h-[32px]",
                   viewMode === "hybrid"
                     ? "bg-white text-gov-primary shadow-xs"
                     : "text-slate-500 hover:text-slate-900"
                 )}
               >
-                <LayoutGrid className="w-3.5 h-3.5" />
+                <LayoutGrid className="w-3.5 h-3.5" aria-hidden="true" />
                 <span className="ml-1 text-[11px] hidden sm:inline">Cards</span>
               </button>
               <button
                 onClick={() => setViewMode("ledger")}
                 title="Compact Procurement Ledger View"
+                aria-label="Ledger table view"
+                aria-pressed={viewMode === "ledger"}
                 className={cn(
-                  "p-1.5 rounded-2xs text-xs font-semibold flex items-center transition-all",
+                  "p-1.5 rounded-2xs text-xs font-semibold flex items-center transition-all min-h-[32px]",
                   viewMode === "ledger"
                     ? "bg-white text-gov-primary shadow-xs"
                     : "text-slate-500 hover:text-slate-900"
                 )}
               >
-                <ListFilter className="w-3.5 h-3.5" />
+                <ListFilter className="w-3.5 h-3.5" aria-hidden="true" />
                 <span className="ml-1 text-[11px] hidden sm:inline">Ledger</span>
               </button>
               <button
                 onClick={() => setViewMode("spatial")}
                 title="Spatial Deployment Mesh (3D)"
+                aria-label="3D Spatial Mesh view"
+                aria-pressed={viewMode === "spatial"}
                 className={cn(
-                  "p-1.5 rounded-2xs text-xs font-semibold flex items-center transition-all",
+                  "p-1.5 rounded-2xs text-xs font-semibold flex items-center transition-all min-h-[32px]",
                   viewMode === "spatial"
                     ? "bg-white text-purple-700 shadow-xs font-bold"
                     : "text-slate-500 hover:text-slate-900"
                 )}
               >
-                <Layers className="w-3.5 h-3.5 text-purple-600" />
+                <Layers className="w-3.5 h-3.5 text-purple-600" aria-hidden="true" />
                 <span className="ml-1 text-[11px] hidden sm:inline">3D Mesh</span>
               </button>
             </div>
@@ -345,10 +354,11 @@ export function ProvenSolutionsLibrary() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-100 text-xs">
           {/* 1. Category Filter */}
           <div>
-            <label className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
+            <label htmlFor="filter-category" className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
               CATEGORY
             </label>
             <select
+              id="filter-category"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="w-full border border-slate-300 rounded-control p-1.5 text-xs bg-white text-slate-800"
@@ -364,10 +374,11 @@ export function ProvenSolutionsLibrary() {
 
           {/* 2. Technology Filter */}
           <div>
-            <label className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
+            <label htmlFor="filter-technology" className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
               TECHNOLOGY
             </label>
             <select
+              id="filter-technology"
               value={selectedTechnology}
               onChange={(e) => setSelectedTechnology(e.target.value)}
               className="w-full border border-slate-300 rounded-control p-1.5 text-xs bg-white text-slate-800"
@@ -383,10 +394,11 @@ export function ProvenSolutionsLibrary() {
 
           {/* 3. Department Filter */}
           <div>
-            <label className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
+            <label htmlFor="filter-department" className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
               APPLICABLE DEPARTMENT
             </label>
             <select
+              id="filter-department"
               value={selectedDepartment}
               onChange={(e) => setSelectedDepartment(e.target.value)}
               className="w-full border border-slate-300 rounded-control p-1.5 text-xs bg-white text-slate-800"
@@ -402,10 +414,11 @@ export function ProvenSolutionsLibrary() {
 
           {/* 4. Location Filter */}
           <div>
-            <label className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
+            <label htmlFor="filter-location" className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
               TESTED LOCATION
             </label>
             <select
+              id="filter-location"
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
               className="w-full border border-slate-300 rounded-control p-1.5 text-xs bg-white text-slate-800"
@@ -758,7 +771,12 @@ export function ProvenSolutionsLibrary() {
       {/* ======================================================== */}
       {dossierSolution && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-end">
-          <div className="bg-white h-full max-w-2xl w-full shadow-2xl border-l border-gov-border overflow-y-auto p-6 space-y-5 text-left text-xs animate-in slide-in-from-right duration-200">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dossier-solution-title"
+            className="bg-white h-full max-w-2xl w-full shadow-2xl border-l border-gov-border overflow-y-auto p-6 space-y-5 text-left text-xs animate-in slide-in-from-right duration-200"
+          >
             {/* Drawer Header */}
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
@@ -770,15 +788,16 @@ export function ProvenSolutionsLibrary() {
                     {dossierSolution.category}
                   </span>
                 </div>
-                <h2 className="text-lg font-bold text-gov-primary mt-1">
+                <h2 id="dossier-solution-title" className="text-lg font-bold text-gov-primary mt-1">
                   {dossierSolution.title}
                 </h2>
               </div>
               <button
                 onClick={() => setDossierSolution(null)}
-                className="p-1 rounded-control hover:bg-slate-100 text-slate-400 hover:text-slate-700"
+                aria-label="Close solution dossier"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-control hover:bg-slate-100 text-slate-400 hover:text-slate-700"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
             </div>
 
@@ -1009,19 +1028,25 @@ export function ProvenSolutionsLibrary() {
       {/* ======================================================== */}
       {replicationModal.isOpen && replicationModal.solution && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-card shadow-2xl border border-gov-border max-w-lg w-full p-5 space-y-4 text-left text-xs my-8 animate-in fade-in zoom-in-95 duration-150">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="replication-modal-title"
+            className="bg-white rounded-card shadow-2xl border border-gov-border max-w-lg w-full p-5 space-y-4 text-left text-xs my-8 animate-in fade-in zoom-in-95 duration-150"
+          >
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
                 <span className="text-[10px] font-mono text-emerald-700 uppercase font-bold block">
                   FAST-TRACK ADOPTION WORKFLOW
                 </span>
-                <h3 className="font-bold text-slate-900 text-base">
+                <h3 id="replication-modal-title" className="font-bold text-slate-900 text-base">
                   Replicate Solution in My Department
                 </h3>
               </div>
               <button
                 onClick={() => setReplicationModal({ isOpen: false, solution: null })}
-                className="text-slate-400 hover:text-slate-600 text-lg font-bold"
+                aria-label="Close replication dialog"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-control text-slate-400 hover:text-slate-600 text-lg font-bold"
               >
                 ✕
               </button>

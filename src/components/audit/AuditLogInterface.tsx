@@ -313,9 +313,10 @@ export function AuditLogInterface() {
             {search && (
               <button
                 onClick={() => setSearch("")}
-                className="absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600"
+                aria-label="Clear search input"
+                className="absolute right-1.5 top-1.5 p-1 min-w-[28px] min-h-[28px] flex items-center justify-center text-slate-400 hover:text-slate-600 rounded"
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-3.5 h-3.5" aria-hidden="true" />
               </button>
             )}
           </div>
@@ -607,7 +608,12 @@ export function AuditLogInterface() {
       {/* ======================================================== */}
       {inspectedEntry && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-card shadow-2xl border border-gov-border max-w-2xl w-full p-6 space-y-4 text-left text-xs my-8 animate-in fade-in zoom-in-95 duration-150">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="audit-detail-title"
+            className="bg-white rounded-card shadow-2xl border border-gov-border max-w-2xl w-full p-6 space-y-4 text-left text-xs my-8 animate-in fade-in zoom-in-95 duration-150"
+          >
             {/* Modal Header */}
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
@@ -619,13 +625,14 @@ export function AuditLogInterface() {
                     {inspectedEntry.id}
                   </span>
                 </div>
-                <h3 className="font-extrabold text-slate-900 text-base mt-1">
+                <h3 id="audit-detail-title" className="font-extrabold text-slate-900 text-base mt-1">
                   {inspectedEntry.action}
                 </h3>
               </div>
               <button
                 onClick={() => setInspectedEntry(null)}
-                className="text-slate-400 hover:text-slate-700 text-lg font-bold"
+                aria-label="Close log entry inspection details"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-control text-slate-400 hover:text-slate-700 hover:bg-slate-100 text-lg font-bold"
               >
                 ✕
               </button>

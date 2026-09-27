@@ -80,8 +80,10 @@ export function UserMenu() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2.5 p-1.5 rounded-control hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gov-accent text-left"
         aria-label="User Menu"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
       >
-        <div className="h-8 w-8 rounded-full bg-gov-primary text-white font-bold text-xs flex items-center justify-center shrink-0 border border-slate-300 shadow-2xs font-mono">
+        <div className="h-8 w-8 rounded-full bg-gov-primary text-white font-bold text-xs flex items-center justify-center shrink-0 border border-slate-300 shadow-2xs font-mono" aria-hidden="true">
           {initials}
         </div>
 
@@ -94,7 +96,7 @@ export function UserMenu() {
           </div>
         </div>
 
-        <ChevronDown className="w-3.5 h-3.5 text-slate-400 hidden sm:inline" />
+        <ChevronDown className="w-3.5 h-3.5 text-slate-400 hidden sm:inline" aria-hidden="true" />
       </button>
 
       {isOpen && (

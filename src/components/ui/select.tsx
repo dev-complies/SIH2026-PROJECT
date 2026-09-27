@@ -48,6 +48,14 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           <select
             id={selectId}
             disabled={disabled}
+            aria-invalid={Boolean(error)}
+            aria-describedby={
+              error
+                ? `${selectId}-error`
+                : helperText
+                ? `${selectId}-helper`
+                : undefined
+            }
             className={cn(
               "flex h-9 w-full appearance-none rounded-control border bg-white px-3 py-1.5 pr-8 text-sm text-gov-text transition-colors duration-150 cursor-pointer",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gov-accent focus-visible:ring-offset-1",
@@ -69,19 +77,20 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               : children}
           </select>
 
-          <span className="pointer-events-none absolute right-2.5 text-slate-500">
+          <span className="pointer-events-none absolute right-2.5 text-slate-500" aria-hidden="true">
             <ChevronDown className="h-4 w-4" />
           </span>
         </div>
 
         {error && (
-          <p className="text-[11px] font-medium text-gov-danger flex items-center">
-            <AlertCircle className="w-3.5 h-3.5 mr-1" />
+          <p id={`${selectId}-error`} role="alert" aria-live="polite" className="text-[11px] font-medium text-gov-danger flex items-center">
+            <AlertCircle className="w-3.5 h-3.5 mr-1 shrink-0" aria-hidden="true" />
+            <span className="sr-only">Error: </span>
             {error}
           </p>
         )}
         {!error && helperText && (
-          <p className="text-[11px] text-gov-muted">{helperText}</p>
+          <p id={`${selectId}-helper`} className="text-[11px] text-gov-muted">{helperText}</p>
         )}
       </div>
     );

@@ -39,6 +39,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   if (isAuthenticatedWorkspace) {
     return (
       <div className="min-h-screen flex bg-gov-bg text-gov-text font-sans antialiased">
+        {/* Skip to Main Content Link for Keyboard / Screen Reader Users (WCAG 2.4.1) */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-gov-primary focus:text-white focus:font-semibold focus:text-xs focus:rounded-md focus:shadow-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+        >
+          Skip to main content
+        </a>
+
         {/* Responsive Role-Aware Sidebar */}
         <Sidebar
           isCollapsed={isCollapsed}
@@ -56,7 +64,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           />
 
           {/* Scrollable Content Container */}
-          <main className="flex-1 overflow-y-auto px-4 sm:px-6 lg:px-8 py-6">
+          <main
+            id="main-content"
+            tabIndex={-1}
+            className="flex-1 overflow-y-auto px-4 sm:px-6 lg:px-8 py-6 focus:outline-none"
+          >
             <div className="max-w-7xl mx-auto w-full">
               {children}
             </div>
@@ -75,8 +87,20 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   // Public Layout (Home, Challenges, Solutions, Design System, Auth, Unauthorized)
   return (
     <div className="min-h-screen flex flex-col font-sans bg-gov-bg text-gov-text antialiased selection:bg-blue-100 selection:text-gov-primary">
+      {/* Skip to Main Content Link for Keyboard / Screen Reader Users (WCAG 2.4.1) */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-gov-primary focus:text-white focus:font-semibold focus:text-xs focus:rounded-md focus:shadow-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       <Navbar onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 focus:outline-none"
+      >
         {children}
       </main>
       <Footer />

@@ -49,12 +49,13 @@ export function TopNav({
             onClick={onOpenCommandPalette}
             className="flex items-center space-x-2 px-3 py-1.5 rounded-control border border-gov-border bg-slate-50/80 hover:bg-slate-100 text-slate-500 hover:text-slate-800 transition-colors text-xs shadow-2xs"
             title="Search Workspace (⌘K / Ctrl+K)"
+            aria-label="Search Workspace (Command K)"
           >
-            <Search className="w-3.5 h-3.5 text-gov-muted" />
+            <Search className="w-3.5 h-3.5 text-gov-muted" aria-hidden="true" />
             <span className="hidden sm:inline text-xs text-gov-muted">
               Search workspace...
             </span>
-            <kbd className="hidden sm:inline-flex items-center space-x-0.5 px-1.5 py-0.5 rounded bg-white border border-slate-200 text-[10px] font-mono text-slate-500 shadow-2xs">
+            <kbd className="hidden sm:inline-flex items-center space-x-0.5 px-1.5 py-0.5 rounded bg-white border border-slate-200 text-[10px] font-mono text-slate-500 shadow-2xs" aria-hidden="true">
               <span>⌘</span>
               <span>K</span>
             </kbd>

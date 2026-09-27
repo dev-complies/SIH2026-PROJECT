@@ -401,56 +401,64 @@ export function OperationalAnalyticsWorkspace() {
       {/* 4. EXECUTIVE TAB NAVIGATION TO PREVENT SCREEN OVERLOAD   */}
       {/* Overview | Operational Bottlenecks | Department Velocity */}
       {/* ======================================================== */}
-      <div className="flex items-center space-x-1 border-b border-slate-200 text-xs font-semibold">
+      <div className="flex items-center space-x-1 border-b border-slate-200 text-xs font-semibold overflow-x-auto scrollbar-none" role="tablist" aria-label="Analytics view tabs">
         <button
+          role="tab"
+          aria-selected={activeTab === "overview"}
           onClick={() => setActiveTab("overview")}
           className={cn(
-            "px-4 py-2.5 rounded-t-md border-b-2 transition-all flex items-center space-x-1.5",
+            "px-4 py-2.5 rounded-t-md border-b-2 transition-all flex items-center space-x-1.5 shrink-0",
             activeTab === "overview"
               ? "border-gov-primary text-gov-primary font-bold bg-slate-50"
               : "border-transparent text-slate-600 hover:text-slate-900"
           )}
         >
-          <Activity className="w-3.5 h-3.5" />
+          <Activity className="w-3.5 h-3.5" aria-hidden="true" />
           <span>Pipeline & Trends</span>
         </button>
 
         <button
+          role="tab"
+          aria-selected={activeTab === "bottlenecks"}
           onClick={() => setActiveTab("bottlenecks")}
           className={cn(
-            "px-4 py-2.5 rounded-t-md border-b-2 transition-all flex items-center space-x-1.5",
+            "px-4 py-2.5 rounded-t-md border-b-2 transition-all flex items-center space-x-1.5 shrink-0",
             activeTab === "bottlenecks"
               ? "border-amber-600 text-amber-900 font-bold bg-amber-50/50"
               : "border-transparent text-slate-600 hover:text-slate-900"
           )}
         >
-          <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
+          <AlertTriangle className="w-3.5 h-3.5 text-amber-600" aria-hidden="true" />
           <span>Operational Bottlenecks ({analyticsData.operationalBottlenecks.length})</span>
         </button>
 
         <button
+          role="tab"
+          aria-selected={activeTab === "performance"}
           onClick={() => setActiveTab("performance")}
           className={cn(
-            "px-4 py-2.5 rounded-t-md border-b-2 transition-all flex items-center space-x-1.5",
+            "px-4 py-2.5 rounded-t-md border-b-2 transition-all flex items-center space-x-1.5 shrink-0",
             activeTab === "performance"
               ? "border-gov-primary text-gov-primary font-bold bg-slate-50"
               : "border-transparent text-slate-600 hover:text-slate-900"
           )}
         >
-          <BarChart3 className="w-3.5 h-3.5" />
+          <BarChart3 className="w-3.5 h-3.5" aria-hidden="true" />
           <span>Department Performance</span>
         </button>
 
         <button
+          role="tab"
+          aria-selected={activeTab === "fiscal"}
           onClick={() => setActiveTab("fiscal")}
           className={cn(
-            "px-4 py-2.5 rounded-t-md border-b-2 transition-all flex items-center space-x-1.5",
+            "px-4 py-2.5 rounded-t-md border-b-2 transition-all flex items-center space-x-1.5 shrink-0",
             activeTab === "fiscal"
               ? "border-gov-primary text-gov-primary font-bold bg-slate-50"
               : "border-transparent text-slate-600 hover:text-slate-900"
           )}
         >
-          <DollarSign className="w-3.5 h-3.5" />
+          <DollarSign className="w-3.5 h-3.5" aria-hidden="true" />
           <span>Fiscal & Risk Distribution</span>
         </button>
       </div>

@@ -612,40 +612,46 @@ export function RiskIssueManagementWorkspace({
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex border-b border-slate-200 pt-2">
+        <div className="flex border-b border-slate-200 pt-2 overflow-x-auto scrollbar-none" role="tablist" aria-label="Risk and issue tabs">
           <button
+            role="tab"
+            aria-selected={activeTab === "risks"}
             onClick={() => setActiveTab("risks")}
-            className={`flex items-center space-x-2 py-2.5 px-4 font-semibold text-xs border-b-2 transition-all ${
+            className={`flex items-center space-x-2 py-2.5 px-4 font-semibold text-xs border-b-2 transition-all shrink-0 ${
               activeTab === "risks"
                 ? "border-gov-primary text-gov-primary font-bold bg-slate-50/80"
                 : "border-transparent text-slate-600 hover:text-slate-900"
             }`}
           >
-            <ShieldAlert className="w-4 h-4 text-gov-primary" />
+            <ShieldAlert className="w-4 h-4 text-gov-primary" aria-hidden="true" />
             <span>Risk Register ({risks.length})</span>
           </button>
 
           <button
+            role="tab"
+            aria-selected={activeTab === "issues"}
             onClick={() => setActiveTab("issues")}
-            className={`flex items-center space-x-2 py-2.5 px-4 font-semibold text-xs border-b-2 transition-all ${
+            className={`flex items-center space-x-2 py-2.5 px-4 font-semibold text-xs border-b-2 transition-all shrink-0 ${
               activeTab === "issues"
                 ? "border-gov-primary text-gov-primary font-bold bg-slate-50/80"
                 : "border-transparent text-slate-600 hover:text-slate-900"
             }`}
           >
-            <AlertTriangle className="w-4 h-4 text-amber-600" />
+            <AlertTriangle className="w-4 h-4 text-amber-600" aria-hidden="true" />
             <span>Issue Tracker ({issues.length})</span>
           </button>
 
           <button
+            role="tab"
+            aria-selected={activeTab === "ai-risks"}
             onClick={() => setActiveTab("ai-risks")}
-            className={`flex items-center space-x-2 py-2.5 px-4 font-semibold text-xs border-b-2 transition-all ${
+            className={`flex items-center space-x-2 py-2.5 px-4 font-semibold text-xs border-b-2 transition-all shrink-0 ${
               activeTab === "ai-risks"
                 ? "border-purple-600 text-purple-900 font-bold bg-purple-50/60"
                 : "border-transparent text-slate-600 hover:text-slate-900"
             }`}
           >
-            <Sparkles className="w-4 h-4 text-purple-600" />
+            <Sparkles className="w-4 h-4 text-purple-600" aria-hidden="true" />
             <span>AI Risk Suggestions</span>
             <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 font-medium">Advisory</span>
           </button>
@@ -1167,7 +1173,12 @@ export function RiskIssueManagementWorkspace({
       {/* ======================================================== */}
       {riskDrawerOpen && selectedRisk && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex justify-end animate-in fade-in duration-150">
-          <div className="w-full max-w-lg bg-white h-full shadow-2xl overflow-y-auto p-6 space-y-5 text-left border-l border-slate-200">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="selected-risk-title"
+            className="w-full max-w-lg bg-white h-full shadow-2xl overflow-y-auto p-6 space-y-5 text-left border-l border-slate-200"
+          >
             <div className="flex items-start justify-between border-b border-slate-200 pb-3">
               <div>
                 <div className="flex items-center space-x-2 mb-1">
@@ -1175,15 +1186,16 @@ export function RiskIssueManagementWorkspace({
                   {renderCategoryChip(selectedRisk.category)}
                   {renderRiskStatusBadge(selectedRisk.status)}
                 </div>
-                <h2 className="text-base font-bold text-slate-900 leading-snug">
+                <h2 id="selected-risk-title" className="text-base font-bold text-slate-900 leading-snug">
                   {selectedRisk.title}
                 </h2>
               </div>
               <button
                 onClick={() => setRiskDrawerOpen(false)}
-                className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+                aria-label="Close risk drawer"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
             </div>
 
@@ -1279,7 +1291,12 @@ export function RiskIssueManagementWorkspace({
       {/* ======================================================== */}
       {issueDrawerOpen && selectedIssue && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex justify-end animate-in fade-in duration-150">
-          <div className="w-full max-w-lg bg-white h-full shadow-2xl overflow-y-auto p-6 space-y-5 text-left border-l border-slate-200">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="selected-issue-title"
+            className="w-full max-w-lg bg-white h-full shadow-2xl overflow-y-auto p-6 space-y-5 text-left border-l border-slate-200"
+          >
             <div className="flex items-start justify-between border-b border-slate-200 pb-3">
               <div>
                 <div className="flex items-center space-x-2 mb-1">
@@ -1287,15 +1304,16 @@ export function RiskIssueManagementWorkspace({
                   {renderIssueSeverityBadge(selectedIssue.severity)}
                   {renderIssueStatusBadge(selectedIssue.status)}
                 </div>
-                <h2 className="text-base font-bold text-slate-900 leading-snug">
+                <h2 id="selected-issue-title" className="text-base font-bold text-slate-900 leading-snug">
                   {selectedIssue.title}
                 </h2>
               </div>
               <button
                 onClick={() => setIssueDrawerOpen(false)}
-                className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+                aria-label="Close issue drawer"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
             </div>
 
@@ -1371,10 +1389,15 @@ export function RiskIssueManagementWorkspace({
       {/* ======================================================== */}
       {showAddRiskModal && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white rounded-card border border-slate-200 max-w-lg w-full p-6 space-y-4 shadow-xl text-left">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="add-risk-modal-title"
+            className="bg-white rounded-card border border-slate-200 max-w-lg w-full p-6 space-y-4 shadow-xl text-left"
+          >
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div>
-                <h3 className="font-bold text-base text-slate-900">
+                <h3 id="add-risk-modal-title" className="font-bold text-base text-slate-900">
                   Register Statutory Pilot Risk
                 </h3>
                 <p className="text-[11px] text-gov-muted">
@@ -1383,9 +1406,10 @@ export function RiskIssueManagementWorkspace({
               </div>
               <button
                 onClick={() => setShowAddRiskModal(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                aria-label="Close register risk dialog"
+                className="text-slate-400 hover:text-slate-700 p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
 
@@ -1536,10 +1560,15 @@ export function RiskIssueManagementWorkspace({
       {/* ======================================================== */}
       {showAddIssueModal && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white rounded-card border border-slate-200 max-w-lg w-full p-6 space-y-4 shadow-xl text-left">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="add-issue-modal-title"
+            className="bg-white rounded-card border border-slate-200 max-w-lg w-full p-6 space-y-4 shadow-xl text-left"
+          >
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div>
-                <h3 className="font-bold text-base text-slate-900">
+                <h3 id="add-issue-modal-title" className="font-bold text-base text-slate-900">
                   Report Operational Field Issue
                 </h3>
                 <p className="text-[11px] text-gov-muted">
@@ -1548,9 +1577,10 @@ export function RiskIssueManagementWorkspace({
               </div>
               <button
                 onClick={() => setShowAddIssueModal(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                aria-label="Close report issue dialog"
+                className="text-slate-400 hover:text-slate-700 p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
 

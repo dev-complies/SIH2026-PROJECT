@@ -180,9 +180,10 @@ function SidebarInternal({
           {/* Mobile close button */}
           <button
             onClick={onCloseMobile}
-            className="md:hidden text-slate-400 hover:text-white p-1 rounded"
+            aria-label="Close navigation sidebar"
+            className="md:hidden text-slate-400 hover:text-white p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
@@ -250,7 +251,7 @@ function SidebarInternal({
         {!isCollapsed && (
           <div className="px-2 py-1.5 rounded bg-slate-950/60 border border-slate-800 text-[10px] text-slate-400 flex items-center justify-between">
             <span className="flex items-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse" aria-hidden="true" />
               Node UP-01 Online
             </span>
             <span className="font-mono text-slate-500">v1.0.4</span>
@@ -262,12 +263,14 @@ function SidebarInternal({
           onClick={onToggleCollapse}
           className="hidden md:flex w-full items-center justify-center p-2 rounded-control text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-xs"
           title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          aria-expanded={!isCollapsed}
         >
           {isCollapsed ? (
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4 h-4" aria-hidden="true" />
           ) : (
             <div className="flex items-center space-x-2 text-[11px]">
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4" aria-hidden="true" />
               <span>Collapse Sidebar</span>
             </div>
           )}

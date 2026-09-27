@@ -5,7 +5,12 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="relative w-full overflow-auto rounded-control border border-gov-border bg-white shadow-sm">
+  <div
+    role="region"
+    aria-label="Data Table"
+    tabIndex={0}
+    className="relative w-full overflow-auto rounded-control border border-gov-border bg-white shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gov-accent"
+  >
     <table
       ref={ref}
       className={cn("w-full caption-bottom text-sm text-gov-text", className)}
@@ -68,9 +73,10 @@ TableRow.displayName = "TableRow";
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
   React.ThHTMLAttributes<HTMLTableCellElement>
->(({ className, ...props }, ref) => (
+>(({ className, scope = "col", ...props }, ref) => (
   <th
     ref={ref}
+    scope={scope}
     className={cn(
       "h-11 px-4 text-left align-middle font-semibold text-slate-700 text-xs uppercase tracking-wider [&:has([role=checkbox])]:pr-0",
       className

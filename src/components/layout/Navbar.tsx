@@ -167,8 +167,9 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
                 onClick={onOpenCommandPalette}
                 className="flex items-center space-x-1 px-2 py-1 rounded-control bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs text-slate-600 transition-colors"
                 title="Search Workspace (⌘K)"
+                aria-label="Search Workspace (Command K)"
               >
-                <Search className="w-3 h-3 text-gov-muted" />
+                <Search className="w-3 h-3 text-gov-muted" aria-hidden="true" />
                 <span className="text-[11px] text-slate-500">Search</span>
                 <kbd className="px-1 py-0.2 rounded bg-white text-[9px] font-mono border border-slate-200 text-slate-500">⌘K</kbd>
               </button>
@@ -180,11 +181,12 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
         <div className="flex items-center space-x-2 sm:space-x-3">
           {/* Quick Persona Switcher for Desktop */}
           <div className="hidden lg:flex items-center bg-slate-50 border border-slate-200 rounded-control px-2.5 py-1 space-x-2">
-            <ArrowRightLeft className="w-3.5 h-3.5 text-gov-muted" />
+            <ArrowRightLeft className="w-3.5 h-3.5 text-gov-muted" aria-hidden="true" />
             <span className="text-xs text-gov-muted font-medium">Switch Persona:</span>
             <select
               value={currentUser?.role || "GOVERNMENT_OFFICER"}
               onChange={(e) => switchRole(e.target.value as UserRole)}
+              aria-label="Switch demo persona"
               className="bg-transparent text-xs font-semibold text-gov-primary focus:outline-none cursor-pointer"
             >
               {roleOptions.map((opt) => (
@@ -220,9 +222,10 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
               <button
                 onClick={logout}
                 title="Logout"
-                className="p-1.5 rounded-control text-slate-400 hover:text-gov-danger hover:bg-red-50 transition-colors"
+                aria-label="Logout"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-control text-slate-400 hover:text-gov-danger hover:bg-red-50 transition-colors"
               >
-                <LogOut className="w-4 h-4" />
+                <LogOut className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
           ) : (
@@ -237,18 +240,19 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
 
       {/* Mobile Drawer Slide-Out Navigation */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden flex">
+        <div className="fixed inset-0 z-50 md:hidden flex" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
           {/* Backdrop */}
           <div
             className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
           />
 
           {/* Drawer Menu */}
           <div className="relative flex-1 flex flex-col max-w-xs w-full bg-white shadow-2xl z-10 text-left">
             <div className="flex items-center justify-between p-4 border-b border-slate-200">
               <div className="flex items-center space-x-2">
-                <div className="flex h-7 w-7 items-center justify-center rounded bg-gov-primary text-white font-bold text-xs">
+                <div className="flex h-7 w-7 items-center justify-center rounded bg-gov-primary text-white font-bold text-xs" aria-hidden="true">
                   GI
                 </div>
                 <span className="font-extrabold text-gov-primary text-sm">
@@ -257,9 +261,10 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
               </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-1.5 rounded-control text-slate-500 hover:text-slate-800 hover:bg-slate-100"
+                aria-label="Close mobile navigation menu"
+                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-control text-slate-500 hover:text-slate-800 hover:bg-slate-100"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
             </div>
 
@@ -274,6 +279,7 @@ export function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => 
                   switchRole(e.target.value as UserRole);
                   setMobileMenuOpen(false);
                 }}
+                aria-label="Select demo persona"
                 className="w-full text-xs font-semibold p-1.5 bg-white border border-slate-300 rounded text-gov-primary"
               >
                 {roleOptions.map((opt) => (
