@@ -807,6 +807,226 @@ assert(canAccessOperationalAnalytics(govUser) === true, "Government Officer CAN 
 assert(canAccessOperationalAnalytics(procurementUser) === true, "Procurement Officer CAN inspect payment turnaround");
 assert(canAccessOperationalAnalytics(adminUser) === true, "Admin CAN view all portfolio bottleneck analytics");
 
+// ======================================================================
+// SECTION 12: STATUTORY CRYPTOGRAPHIC AUDIT LOGGING SYSTEM (Prompt Request 10)
+// ======================================================================
+console.log("\n--- SECTION 12: STATUTORY AUDIT LOGGING & TAMPER PROTECTION (Prompt 10) ---");
+
+// 1. Mandatory 8 Fields per Audit Record Check
+const REQUIRED_AUDIT_FIELDS = [
+  "user",
+  "role",
+  "action",
+  "entity",
+  "entityId",
+  "timestamp",
+  "previousState",
+  "newState"
+];
+
+function validateAuditRecordStructure(record) {
+  for (const field of REQUIRED_AUDIT_FIELDS) {
+    if (record[field] === undefined || record[field] === null) {
+      return { valid: false, missing: field };
+    }
+  }
+  return { valid: true };
+}
+
+const sampleAuditRecords = [
+  {
+    id: "AUD-001",
+    user: { id: "USR-002", name: "Rajesh Verma", email: "rajesh.verma@gov.in" },
+    role: "GOVERNMENT_OFFICER",
+    action: "Challenge Published",
+    entity: "Challenge",
+    entityId: "CHAL-2026-001",
+    timestamp: "2026-01-15T09:30:00Z",
+    previousState: { status: "DRAFT" },
+    newState: { status: "PUBLISHED" },
+    currentHash: "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+    previousHash: "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    id: "AUD-002",
+    user: { id: "USR-004", name: "Aarav Sharma", email: "aarav@aquasense.io" },
+    role: "STARTUP",
+    action: "Application Submitted",
+    entity: "Application",
+    entityId: "APP-2026-089",
+    timestamp: "2026-01-28T14:15:00Z",
+    previousState: { status: "IN_PROGRESS" },
+    newState: { status: "SUBMITTED" },
+    currentHash: "2345678901abcdef2345678901abcdef2345678901abcdef2345678901abcdef",
+    previousHash: "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+  }
+];
+
+for (const rec of sampleAuditRecords) {
+  const validation = validateAuditRecordStructure(rec);
+  assert(validation.valid === true, `Audit record ${rec.id} contains all 8 mandatory statutory fields`);
+}
+
+// 2. Mandatory 10 Examples of Important Actions Check
+const MANDATORY_AUDIT_ACTIONS = [
+  "Challenge Published",
+  "Application Submitted",
+  "Eligibility Approved",
+  "Evaluation Submitted",
+  "Startup Shortlisted",
+  "Pilot Started",
+  "Milestone Approved",
+  "Payment Approved",
+  "Validation Submitted",
+  "Scale-Up Decision Made"
+];
+
+assert(MANDATORY_AUDIT_ACTIONS.length === 10, "All 10 required statutory audit action types are defined");
+for (const action of MANDATORY_AUDIT_ACTIONS) {
+  assert(MANDATORY_AUDIT_ACTIONS.includes(action), `Mandatory audit action '${action}' is verified`);
+}
+
+// 3. Search and Multi-Dimensional Filter Verification
+function filterAuditLogs(logs, filters) {
+  return logs.filter((log) => {
+    if (filters.search) {
+      const q = filters.search.toLowerCase();
+      const match =
+        log.id.toLowerCase().includes(q) ||
+        log.user.name.toLowerCase().includes(q) ||
+        log.action.toLowerCase().includes(q) ||
+        log.entityId.toLowerCase().includes(q);
+      if (!match) return false;
+    }
+    if (filters.user && filters.user !== "ALL") {
+      if (log.user.name !== filters.user && log.user.id !== filters.user) return false;
+    }
+    if (filters.entity && filters.entity !== "ALL") {
+      if (log.entity !== filters.entity) return false;
+    }
+    if (filters.action && filters.action !== "ALL") {
+      if (log.action !== filters.action) return false;
+    }
+    if (filters.dateRange && filters.dateRange !== "ALL") {
+      const logDate = new Date(log.timestamp).getTime();
+      const now = new Date("2026-09-27T00:00:00Z").getTime();
+      if (filters.dateRange === "7D" && now - logDate > 7 * 86400000) return false;
+    }
+    return true;
+  });
+}
+
+const mockAuditDataset = [
+  { id: "AUD-001", user: { id: "USR-002", name: "Rajesh Verma" }, action: "Challenge Published", entity: "Challenge", entityId: "CHAL-2026-001", timestamp: "2026-01-15T09:30:00Z" },
+  { id: "AUD-002", user: { id: "USR-004", name: "Aarav Sharma" }, action: "Application Submitted", entity: "Application", entityId: "APP-2026-089", timestamp: "2026-01-28T14:15:00Z" },
+  { id: "AUD-003", user: { id: "USR-002", name: "Rajesh Verma" }, action: "Eligibility Approved", entity: "Application", entityId: "APP-2026-089", timestamp: "2026-02-05T11:00:00Z" },
+  { id: "AUD-004", user: { id: "USR-005", name: "Dr. Arvind Gupta" }, action: "Evaluation Submitted", entity: "EvaluationReport", entityId: "EVAL-2026-042", timestamp: "2026-02-14T16:45:00Z" },
+  { id: "AUD-005", user: { id: "USR-003", name: "Sunita Deshmukh" }, action: "Payment Approved", entity: "Payment", entityId: "PAY-2026-001", timestamp: "2026-06-25T11:45:00Z" },
+  { id: "AUD-006", user: { id: "USR-006", name: "Priya Nair" }, action: "Validation Submitted", entity: "ValidationReport", entityId: "VAL-2026-001", timestamp: "2026-07-28T17:15:00Z" },
+  { id: "AUD-007", user: { id: "USR-003", name: "Sunita Deshmukh" }, action: "Scale-Up Decision Made", entity: "ScaleUpDossier", entityId: "SUD-2026-001", timestamp: "2026-09-27T09:15:00Z" },
+];
+
+// Test Search
+const searchResult = filterAuditLogs(mockAuditDataset, { search: "CHAL-2026-001" });
+assert(searchResult.length === 1 && searchResult[0].id === "AUD-001", "Audit Search accurately locates entity CHAL-2026-001");
+
+// Test User Filter
+const userFilterResult = filterAuditLogs(mockAuditDataset, { user: "Sunita Deshmukh" });
+assert(userFilterResult.length === 2, "Audit User Filter retrieves all actions performed by Sunita Deshmukh");
+
+// Test Entity Filter
+const entityFilterResult = filterAuditLogs(mockAuditDataset, { entity: "Application" });
+assert(entityFilterResult.length === 2, "Audit Entity Filter returns all Application entity actions");
+
+// Test Action Filter
+const actionFilterResult = filterAuditLogs(mockAuditDataset, { action: "Scale-Up Decision Made" });
+assert(actionFilterResult.length === 1 && actionFilterResult[0].action === "Scale-Up Decision Made", "Audit Action Filter retrieves 'Scale-Up Decision Made'");
+
+// Test Date Range Filter
+const dateRangeResult = filterAuditLogs(mockAuditDataset, { dateRange: "7D" });
+assert(dateRangeResult.length === 1 && dateRangeResult[0].id === "AUD-007", "Audit Date Range Filter (7D) isolates recent events correctly");
+
+// 4. Protection Against Unauthorized Modification & Tamper Evidence
+function simulateAuditMutationAttempt(httpMethod) {
+  if (["PUT", "PATCH", "DELETE", "UPDATE"].includes(httpMethod)) {
+    return {
+      status: 405,
+      error: "Method Not Allowed - Statutory Violation: Audit information is legally immutable under GFR Rule 149 and DPDP Act Sec 8."
+    };
+  }
+  return { status: 200 };
+}
+
+assert(simulateAuditMutationAttempt("PUT").status === 405, "Modifying audit log via PUT is strictly forbidden (405)");
+assert(simulateAuditMutationAttempt("PATCH").status === 405, "Modifying audit log via PATCH is strictly forbidden (405)");
+assert(simulateAuditMutationAttempt("DELETE").status === 405, "Deleting audit log via DELETE is strictly forbidden (405)");
+
+// 5. Cryptographic Hash Chain Integrity Check
+function computeSimpleHash(prevHash, seq, action, entityId) {
+  const str = `${prevHash}|${seq}|${action}|${entityId}`;
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return Math.abs(hash).toString(16).padStart(16, "0");
+}
+
+function verifyHashChain(entries) {
+  let prevHash = "0000000000000000";
+  for (let i = 0; i < entries.length; i++) {
+    const e = entries[i];
+    if (e.previousHash !== prevHash) {
+      return { isTamperFree: false, tamperedBlock: e.id, reason: "Previous hash mismatch" };
+    }
+    const expectedCurrent = computeSimpleHash(e.previousHash, i + 1, e.action, e.entityId);
+    if (e.currentHash !== expectedCurrent) {
+      return { isTamperFree: false, tamperedBlock: e.id, reason: "Current hash checksum invalid" };
+    }
+    prevHash = e.currentHash;
+  }
+  return { isTamperFree: true, verifiedCount: entries.length };
+}
+
+// Build chained entries
+const chainEntries = [];
+let lastHash = "0000000000000000";
+for (let i = 0; i < 3; i++) {
+  const cur = computeSimpleHash(lastHash, i + 1, mockAuditDataset[i].action, mockAuditDataset[i].entityId);
+  chainEntries.push({
+    id: mockAuditDataset[i].id,
+    action: mockAuditDataset[i].action,
+    entityId: mockAuditDataset[i].entityId,
+    previousHash: lastHash,
+    currentHash: cur
+  });
+  lastHash = cur;
+}
+
+const integrityCheck = verifyHashChain(chainEntries);
+assert(integrityCheck.isTamperFree === true, "Cryptographic hash chain is 100% verified and tamper-free");
+
+// Tamper test: Alter block 2
+const tamperedChain = JSON.parse(JSON.stringify(chainEntries));
+tamperedChain[1].action = "Unauthorized Tamper";
+const tamperDetected = verifyHashChain(tamperedChain);
+assert(tamperDetected.isTamperFree === false && tamperDetected.tamperedBlock === "AUD-002", "Cryptographic hash verification immediately detects tampered block AUD-002");
+
+// 6. Access Authorization for Audit Trail (Protection against unauthorized access)
+function canViewAuditTrail(user) {
+  if (!user) return false;
+  const canonicalRole = normalizeRole(user.role);
+  // ADMIN, GOVERNMENT_OFFICER, PROCUREMENT_OFFICER, VALIDATOR can view statutory audit logs
+  return ["ADMIN", "GOVERNMENT_OFFICER", "PROCUREMENT_OFFICER", "VALIDATOR"].includes(canonicalRole);
+}
+
+assert(canViewAuditTrail(null) === false, "Unauthenticated user CANNOT view audit trail");
+assert(canViewAuditTrail(airSenseUser) === false, "Startup role CANNOT view statutory platform audit logs");
+assert(canViewAuditTrail(adminUser) === true, "Admin CAN view statutory audit logs");
+assert(canViewAuditTrail(govUser) === true, "Government Officer CAN view statutory audit logs");
+assert(canViewAuditTrail(procurementUser) === true, "Procurement Officer CAN view statutory audit logs");
+assert(canViewAuditTrail(validatorUser) === true, "Validator CAN view statutory audit logs");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");

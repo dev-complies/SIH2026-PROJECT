@@ -11,13 +11,29 @@ import { MOCK_AUDIT_LOGS, MOCK_USERS } from "@/database/mockData";
 import { formatDate } from "@/utils";
 import { ShellModulePlaceholder } from "@/components/layout/ShellModulePlaceholder";
 import { ShieldCheck, Database, Users, History, CheckCircle2, Lock } from "lucide-react";
+import { AuditLogInterface } from "@/components/audit/AuditLogInterface";
 
 function AdminDashboardContent() {
   const { currentUser } = useAuth();
   const searchParams = useSearchParams();
   const tab = searchParams?.get("tab") || "overview";
 
-  if (tab !== "overview" && tab !== "audit-logs") {
+  if (tab === "audit-logs") {
+    return (
+      <div className="space-y-6">
+        <div className="flex items-center space-x-2 text-xs text-gov-muted">
+          <Link href="/admin/dashboard" className="hover:text-gov-primary flex items-center">
+            Admin Overview
+          </Link>
+          <span>/</span>
+          <span className="text-slate-800 font-semibold">Immutable Audit Trail</span>
+        </div>
+        <AuditLogInterface />
+      </div>
+    );
+  }
+
+  if (tab !== "overview") {
     const tabConfigs: Record<string, { title: string; desc: string; count?: string; action?: string }> = {
       users: {
         title: "User Provisioning & Role-Based Access Control",
