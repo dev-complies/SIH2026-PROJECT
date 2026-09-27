@@ -60,7 +60,7 @@ export function Timeline({ events, className }: TimelineProps) {
                 <span className="text-xs font-bold text-slate-900 leading-tight">
                   {evt.title}
                 </span>
-                <span className="text-[10px] font-mono text-gov-muted">
+                <span className="text-xs font-mono text-gov-muted">
                   {formatDate(evt.timestamp)}
                 </span>
               </div>
@@ -73,7 +73,7 @@ export function Timeline({ events, className }: TimelineProps) {
 
               <div className="flex items-center space-x-2 pt-0.5">
                 {evt.actor && (
-                  <span className="text-[11px] font-medium text-slate-500">
+                  <span className="text-xs font-medium text-slate-500">
                     By: <strong className="text-slate-700">{evt.actor}</strong>
                   </span>
                 )}

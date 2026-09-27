@@ -45,13 +45,13 @@ const DatePicker = React.forwardRef<HTMLInputElement, DatePickerProps>(
         </div>
 
         {error && (
-          <p className="text-[11px] font-medium text-gov-danger flex items-center">
+          <p className="text-xs font-medium text-gov-danger flex items-center">
             <AlertCircle className="w-3.5 h-3.5 mr-1" />
             {error}
           </p>
         )}
         {!error && helperText && (
-          <p className="text-[11px] text-gov-muted">{helperText}</p>
+          <p className="text-xs text-gov-muted">{helperText}</p>
         )}
       </div>
     );

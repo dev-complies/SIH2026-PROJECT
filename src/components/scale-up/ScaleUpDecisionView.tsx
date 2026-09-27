@@ -262,7 +262,7 @@ export function ScaleUpDecisionView({
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 STATE INNOVATION SCALE-UP DOSSIER
               </Badge>
               <span className="text-slate-300">•</span>
@@ -286,26 +286,26 @@ export function ScaleUpDecisionView({
                 variant="outline"
                 size="sm"
                 onClick={onBack}
-                className="text-xs h-7 border-slate-300"
+                className="text-xs h-8 border-slate-300"
               >
                 <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Back to Pilot
               </Button>
             ) : (
               <Link href={`/gov/pilots/${pilotId}`}>
-                <Button variant="outline" size="sm" className="text-xs h-7 border-slate-300">
+                <Button variant="outline" size="sm" className="text-xs h-8 border-slate-300">
                   <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Pilot Workspace
                 </Button>
               </Link>
             )}
             <Link href="/gov/pilots/report">
-              <Button variant="outline" size="sm" className="text-xs h-7 border-slate-300">
+              <Button variant="outline" size="sm" className="text-xs h-8 border-slate-300">
                 <FileText className="w-3.5 h-3.5 mr-1" /> View Full Report
               </Button>
             </Link>
             <Button
               size="sm"
               onClick={() => window.print()}
-              className="text-xs h-7 bg-slate-900 hover:bg-slate-800 text-white font-semibold"
+              className="text-xs h-8 bg-slate-900 hover:bg-slate-800 text-white font-semibold"
             >
               <Printer className="w-3.5 h-3.5 mr-1" /> Print Decision Packet
             </Button>
@@ -315,45 +315,45 @@ export function ScaleUpDecisionView({
         {/* Operational Scope Banner */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 border border-slate-200 rounded-control p-3.5 text-xs">
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               CURRENT LIFECYCLE STAGE
             </span>
             <span className="font-bold text-gov-primary font-mono text-xs">
               {dossier.currentStage.replace(/_/g, " ")}
             </span>
-            <span className="text-[10px] text-slate-500 block">Under GFR Rule 149</span>
+            <span className="text-xs text-slate-500 block">Under GFR Rule 149</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               EXPANSION SCOPE
             </span>
             <strong className="text-slate-900 text-xs">
               6 Cities • 380 Wards
             </strong>
-            <span className="text-[10px] text-slate-500 block font-mono">910 Sensor Pods</span>
+            <span className="text-xs text-slate-500 block font-mono">910 Sensor Pods</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               ESTIMATED SCALE BUDGET
             </span>
             <strong className="text-amber-800 text-xs font-mono">
               ₹{(dossier.expansionCost.totalEstimatedBudgetInr / 10000000).toFixed(2)} Crore
             </strong>
-            <span className="text-[10px] text-emerald-700 block font-semibold">
+            <span className="text-xs text-emerald-700 block font-semibold">
               98.3% Cost Savings
             </span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               INDEPENDENT VALIDATION
             </span>
             <span className="inline-flex items-center text-emerald-800 font-bold text-xs">
               <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" /> TERI & IITK Certified
             </span>
-            <span className="text-[10px] text-slate-500 block font-mono">R² = 0.95 vs BAM-1020</span>
+            <span className="text-xs text-slate-500 block font-mono">R² = 0.95 vs BAM-1020</span>
           </div>
         </div>
       </div>
@@ -374,7 +374,7 @@ export function ScaleUpDecisionView({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
           <div>
             <div className="flex items-center space-x-2">
-              <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-xs border border-amber-400/20">
+              <span className="text-xs font-mono uppercase tracking-wider font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-xs border border-amber-400/20">
                 STATUTORY DECISION BENCH
               </span>
               <span className="text-slate-500">•</span>
@@ -388,7 +388,7 @@ export function ScaleUpDecisionView({
           </div>
 
           {!isAuthorizedDecisionMaker && (
-            <Badge variant="outline" className="border-amber-500/50 bg-amber-500/10 text-amber-300 text-[10px] font-mono">
+            <Badge variant="outline" className="border-amber-500/50 bg-amber-500/10 text-amber-300 text-xs font-mono">
               <Lock className="w-3 h-3 mr-1" /> Read-Only: Committee Sign-off Required
             </Badge>
           )}
@@ -408,17 +408,17 @@ export function ScaleUpDecisionView({
           >
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="w-7 h-7 rounded-control bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                <span className="w-7 h-8 rounded-control bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
                   <Rocket className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase">
+                <span className="text-xs font-mono text-emerald-400 font-bold uppercase">
                   RECOMMENDED
                 </span>
               </div>
               <h3 className="font-bold text-sm text-slate-100 group-hover:text-emerald-300">
                 Start Scale-Up
               </h3>
-              <p className="text-[11px] text-slate-300 mt-1 line-clamp-2">
+              <p className="text-xs text-slate-300 mt-1 line-clamp-2">
                 Advance directly to Procurement Review under GFR 149 for 6 cities and 380 wards.
               </p>
             </div>
@@ -440,17 +440,17 @@ export function ScaleUpDecisionView({
           >
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="w-7 h-7 rounded-control bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
+                <span className="w-7 h-8 rounded-control bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
                   <Clock className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-mono text-amber-400 font-bold uppercase">
+                <span className="text-xs font-mono text-amber-400 font-bold uppercase">
                   SECONDARY TEST
                 </span>
               </div>
               <h3 className="font-bold text-sm text-slate-100 group-hover:text-amber-300">
                 Request Additional Pilot
               </h3>
-              <p className="text-[11px] text-slate-300 mt-1 line-clamp-2">
+              <p className="text-xs text-slate-300 mt-1 line-clamp-2">
                 Order secondary stress-test under severe North Indian winter fog or industrial emissions.
               </p>
             </div>
@@ -472,17 +472,17 @@ export function ScaleUpDecisionView({
           >
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="w-7 h-7 rounded-control bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">
+                <span className="w-7 h-8 rounded-control bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">
                   <RotateCcw className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-mono text-indigo-400 font-bold uppercase">
+                <span className="text-xs font-mono text-indigo-400 font-bold uppercase">
                   REVISIONS
                 </span>
               </div>
               <h3 className="font-bold text-sm text-slate-100 group-hover:text-indigo-300">
                 Modify & Retest
               </h3>
-              <p className="text-[11px] text-slate-300 mt-1 line-clamp-2">
+              <p className="text-xs text-slate-300 mt-1 line-clamp-2">
                 Require startup to implement hardware heated inlets & LoRa repeaters before scaling.
               </p>
             </div>
@@ -504,17 +504,17 @@ export function ScaleUpDecisionView({
           >
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="w-7 h-7 rounded-control bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold">
+                <span className="w-7 h-8 rounded-control bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold">
                   <XCircle className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-mono text-rose-400 font-bold uppercase">
+                <span className="text-xs font-mono text-rose-400 font-bold uppercase">
                   ARCHIVE
                 </span>
               </div>
               <h3 className="font-bold text-sm text-slate-100 group-hover:text-rose-300">
                 Close Pilot
               </h3>
-              <p className="text-[11px] text-slate-300 mt-1 line-clamp-2">
+              <p className="text-xs text-slate-300 mt-1 line-clamp-2">
                 Conclude pilot without scaling. Archive dataset and empirical lessons into state library.
               </p>
             </div>
@@ -540,12 +540,12 @@ export function ScaleUpDecisionView({
               </span>
               <div>
                 <h3 className="font-bold text-slate-900 text-sm">Pilot Results Attainment</h3>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   90-Day Empirical Field Benchmarks
                 </span>
               </div>
             </div>
-            <Badge variant="success" className="font-mono text-[10px]">
+            <Badge variant="success" className="font-mono text-xs">
               {dossier.pilotResults.overallAttainment}% ATTAINED
             </Badge>
           </div>
@@ -638,12 +638,12 @@ export function ScaleUpDecisionView({
               </span>
               <div>
                 <h3 className="font-bold text-slate-900 text-sm">Third-Party Independent Validation</h3>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   {dossier.validation.agency}
                 </span>
               </div>
             </div>
-            <Badge variant="success" className="font-mono text-[10px]">
+            <Badge variant="success" className="font-mono text-xs">
               {dossier.validation.status}
             </Badge>
           </div>
@@ -663,18 +663,18 @@ export function ScaleUpDecisionView({
           </div>
 
           <div className="p-2.5 rounded-control bg-amber-50/70 border border-amber-200 text-xs text-amber-900 space-y-1">
-            <span className="font-bold flex items-center text-[11px] text-amber-950">
+            <span className="font-bold flex items-center text-xs text-amber-950">
               <AlertTriangle className="w-3 h-3 mr-1 text-amber-700" />
               Recognized Physical Limitations for Scale-Up:
             </span>
-            <ul className="list-disc list-inside space-y-0.5 text-[11px] text-amber-900">
+            <ul className="list-disc list-inside space-y-0.5 text-xs text-amber-900">
               {dossier.validation.recognizedLimitations.map((lim, idx) => (
                 <li key={idx}>{lim}</li>
               ))}
             </ul>
           </div>
 
-          <div className="flex items-center justify-between pt-1 text-[10px] text-gov-muted font-mono border-t border-slate-100">
+          <div className="flex items-center justify-between pt-1 text-xs text-gov-muted font-mono border-t border-slate-100">
             <span>Lead: {dossier.validation.leadValidator}</span>
             <span className="truncate max-w-[200px]">SHA256: {dossier.validation.certificateSha256.slice(0, 16)}...</span>
           </div>
@@ -692,7 +692,7 @@ export function ScaleUpDecisionView({
               </span>
               <div>
                 <h3 className="font-bold text-slate-900 text-sm">Unit Economics & Cost Benefit</h3>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   Pilot vs Scale Comparison
                 </span>
               </div>
@@ -765,12 +765,12 @@ export function ScaleUpDecisionView({
               </span>
               <div>
                 <h3 className="font-bold text-slate-900 text-sm">Scale-Up Risks & Mitigation Matrix</h3>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   Residual Risk Mitigation
                 </span>
               </div>
             </div>
-            <Badge variant="outline" className="font-mono text-[10px] text-emerald-700 border-emerald-300">
+            <Badge variant="outline" className="font-mono text-xs text-emerald-700 border-emerald-300">
               ALL RISKS MITIGATED
             </Badge>
           </div>
@@ -787,7 +787,7 @@ export function ScaleUpDecisionView({
                   </span>
                   <Badge
                     variant={risk.severity === "MEDIUM" ? "warning" : "default"}
-                    className="text-[9px] font-mono shrink-0"
+                    className="text-xs font-mono shrink-0"
                   >
                     {risk.category}
                   </Badge>
@@ -812,12 +812,12 @@ export function ScaleUpDecisionView({
               </span>
               <div>
                 <h3 className="font-bold text-slate-900 text-sm">Statutory Compliance & Legal Clearances</h3>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   GFR 149 • DPDP Act 2023 • Class-1 Local
                 </span>
               </div>
             </div>
-            <Badge variant="success" className="font-mono text-[10px]">
+            <Badge variant="success" className="font-mono text-xs">
               VERIFIED COMPLIANT
             </Badge>
           </div>
@@ -829,11 +829,11 @@ export function ScaleUpDecisionView({
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-1.5" />
                   GFR Rule 149(v) Public Procurement Eligibility
                 </span>
-                <span className="font-mono text-[10px] text-emerald-700 font-bold">
+                <span className="font-mono text-xs text-emerald-700 font-bold">
                   {dossier.compliance.gfr149Status}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-tight">
+              <p className="text-xs text-slate-600 leading-tight">
                 {dossier.compliance.gfr149Note}
               </p>
             </div>
@@ -844,24 +844,24 @@ export function ScaleUpDecisionView({
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-1.5" />
                   Digital Personal Data Protection (DPDP) Act 2023
                 </span>
-                <span className="font-mono text-[10px] text-emerald-700 font-bold">
+                <span className="font-mono text-xs text-emerald-700 font-bold">
                   {dossier.compliance.dpdpAct2023Status}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-tight">
+              <p className="text-xs text-slate-600 leading-tight">
                 {dossier.compliance.dpdpNote}
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-xs">
               <div className="p-2 bg-slate-50 rounded-control border border-slate-200">
-                <span className="text-[10px] text-gov-muted block">Make in India Local Content:</span>
+                <span className="text-xs text-gov-muted block">Make in India Local Content:</span>
                 <strong className="font-mono text-emerald-800 text-xs">
                   {dossier.compliance.makeInIndiaLocalContent}% (Class-1 Supplier)
                 </strong>
               </div>
               <div className="p-2 bg-slate-50 rounded-control border border-slate-200">
-                <span className="text-[10px] text-gov-muted block">CERT-In Security Audit:</span>
+                <span className="text-xs text-gov-muted block">CERT-In Security Audit:</span>
                 <strong className="text-slate-900 text-xs">Zero Vulnerabilities</strong>
               </div>
             </div>
@@ -877,18 +877,18 @@ export function ScaleUpDecisionView({
               </span>
               <div>
                 <h3 className="font-bold text-slate-900 text-sm">Technical Scalability & Edge Architecture</h3>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   State Data Centre Microservices
                 </span>
               </div>
             </div>
-            <Badge variant="outline" className="font-mono text-[10px] text-blue-700 border-blue-300">
+            <Badge variant="outline" className="font-mono text-xs text-blue-700 border-blue-300">
               {dossier.scalability.cloudSLA}
             </Badge>
           </div>
 
           <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200 text-xs">
-            <span className="text-[10px] text-gov-muted font-mono block">ARCHITECTURE SPECIFICATION:</span>
+            <span className="text-xs text-gov-muted font-mono block">ARCHITECTURE SPECIFICATION:</span>
             <p className="font-semibold text-slate-900 mt-0.5">
               {dossier.scalability.architecture}
             </p>
@@ -942,13 +942,13 @@ export function ScaleUpDecisionView({
               <h3 className="font-bold text-slate-900 text-sm">
                 Proposed Geography & Multi-City Expansion Topology
               </h3>
-              <p className="text-[11px] text-gov-muted">
+              <p className="text-xs text-gov-muted">
                 Statewide multi-city rollout: 6 Smart Cities • 380 Wards • 910 Sensor Nodes
               </p>
             </div>
           </div>
 
-          <Badge variant="outline" className="font-mono text-[10px] text-gov-primary border-gov-primary/30 self-start sm:self-center">
+          <Badge variant="outline" className="font-mono text-xs text-gov-primary border-gov-primary/30 self-start sm:self-center">
             {dossier.proposedGeography.state} Statewide Corridor
           </Badge>
         </div>
@@ -968,19 +968,19 @@ export function ScaleUpDecisionView({
               className="bg-white border border-gov-border rounded-card p-3.5 shadow-2xs space-y-2 text-xs"
             >
               <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                <span className="font-mono text-[10px] font-bold text-gov-primary">
+                <span className="font-mono text-xs font-bold text-gov-primary">
                   {phase.timeline}
                 </span>
-                <span className="font-mono text-[10px] text-amber-800 font-bold bg-amber-50 px-1.5 py-0.5 rounded-2xs border border-amber-200">
+                <span className="font-mono text-xs text-amber-800 font-bold bg-amber-50 px-1.5 py-0.5 rounded-2xs border border-amber-200">
                   ₹{(phase.budgetInr / 10000000).toFixed(2)} Cr
                 </span>
               </div>
               <h4 className="font-bold text-slate-900 text-xs">{phase.phase}</h4>
-              <div className="space-y-1 text-[11px] text-slate-600">
+              <div className="space-y-1 text-xs text-slate-600">
                 <span className="block font-medium">Target Municipalities:</span>
                 <div className="flex flex-wrap gap-1">
                   {phase.targetCities.map((c, i) => (
-                    <Badge key={i} variant="outline" className="text-[9px] bg-slate-50">
+                    <Badge key={i} variant="outline" className="text-xs bg-slate-50">
                       {c}
                     </Badge>
                   ))}
@@ -1007,7 +1007,7 @@ export function ScaleUpDecisionView({
               <h3 className="font-bold text-slate-900 text-sm">
                 Expansion Cost & Financial Allocation Plan
               </h3>
-              <span className="text-[10px] text-gov-muted font-mono">
+              <span className="text-xs text-gov-muted font-mono">
                 Total Sanctioned Scale Budget: ₹3,85,00,000 (₹3.85 Crore)
               </span>
             </div>
@@ -1015,13 +1015,13 @@ export function ScaleUpDecisionView({
 
           <div className="flex items-center space-x-3 text-xs">
             <div>
-              <span className="text-gov-muted text-[10px] block">Per Resident / Year:</span>
+              <span className="text-gov-muted text-xs block">Per Resident / Year:</span>
               <strong className="font-mono text-emerald-800 text-xs">
                 ₹{dossier.expansionCost.citizenPerCapitaCostInr.toFixed(2)}
               </strong>
             </div>
             <div>
-              <span className="text-gov-muted text-[10px] block">Annual OPEX:</span>
+              <span className="text-gov-muted text-xs block">Annual OPEX:</span>
               <strong className="font-mono text-slate-900 text-xs">
                 ₹{(dossier.expansionCost.annualOperatingExpenditureInr / 100000).toFixed(1)}L
               </strong>
@@ -1033,7 +1033,7 @@ export function ScaleUpDecisionView({
         <div className="overflow-x-auto border border-gov-border rounded-control">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold text-[11px]">
+              <tr className="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold text-xs">
                 <th className="p-2.5">Code</th>
                 <th className="p-2.5">Category & Description</th>
                 <th className="p-2.5 text-right">Units</th>
@@ -1042,7 +1042,7 @@ export function ScaleUpDecisionView({
                 <th className="p-2.5">Procurement Route</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 font-mono text-[11px]">
+            <tbody className="divide-y divide-slate-100 font-mono text-xs">
               {dossier.expansionCost.breakdown.map((item, idx) => (
                 <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
                   <td className="p-2.5 text-gov-muted font-semibold">{item.statutoryCode}</td>
@@ -1091,12 +1091,12 @@ export function ScaleUpDecisionView({
               <h3 className="font-bold text-slate-900 text-sm">
                 Empirical Lessons Learned for Scale-Up Deployment
               </h3>
-              <span className="text-[10px] text-gov-muted font-mono">
+              <span className="text-xs text-gov-muted font-mono">
                 Lucknow 90-Day Operational Insights
               </span>
             </div>
           </div>
-          <Badge variant="outline" className="font-mono text-[10px]">
+          <Badge variant="outline" className="font-mono text-xs">
             {dossier.lessonsLearned.length} Key Directives
           </Badge>
         </div>
@@ -1108,12 +1108,12 @@ export function ScaleUpDecisionView({
               className="p-3 rounded-control border border-slate-200 bg-slate-50/70 space-y-1.5"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] text-gov-primary font-bold">
+                <span className="font-mono text-xs text-gov-primary font-bold">
                   {lesson.domain}
                 </span>
                 <Badge
                   variant={lesson.priority === "CRITICAL" ? "destructive" : "warning"}
-                  className="text-[9px] font-mono"
+                  className="text-xs font-mono"
                 >
                   {lesson.priority}
                 </Badge>
@@ -1140,7 +1140,7 @@ export function ScaleUpDecisionView({
               Statutory Scale-Up Decision Ledger & Audit Trail
             </h3>
           </div>
-          <span className="text-[10px] font-mono text-emerald-700 font-bold">
+          <span className="text-xs font-mono text-emerald-700 font-bold">
             100% SHA-256 Digitally Signed
           </span>
         </div>
@@ -1150,19 +1150,19 @@ export function ScaleUpDecisionView({
             <div key={dec.id} className="py-3 first:pt-0 last:pb-0 space-y-1">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <div className="flex items-center space-x-2">
-                  <Badge variant="outline" className="font-mono text-[9px] bg-slate-50">
+                  <Badge variant="outline" className="font-mono text-xs bg-slate-50">
                     {dec.officerRole}
                   </Badge>
                   <strong className="text-slate-900 font-bold">{dec.decidedBy}</strong>
                   <span className="text-slate-300">•</span>
-                  <span className="text-gov-muted text-[11px]">{dec.designation}</span>
+                  <span className="text-gov-muted text-xs">{dec.designation}</span>
                 </div>
-                <span className="text-[10px] font-mono text-gov-muted">{dec.timestamp}</span>
+                <span className="text-xs font-mono text-gov-muted">{dec.timestamp}</span>
               </div>
               <p className="text-slate-800 text-[11.5px] bg-slate-50 p-2 rounded-control border border-slate-200">
                 &ldquo;{dec.justification}&rdquo;
               </p>
-              <div className="flex flex-wrap items-center gap-2 pt-0.5 text-[10px] font-mono text-slate-500">
+              <div className="flex flex-wrap items-center gap-2 pt-0.5 text-xs font-mono text-slate-500">
                 <span>Action: <strong className="text-gov-primary">{dec.label}</strong></span>
                 <span>•</span>
                 <span>Budget: <strong>₹{(dec.sanctionedBudgetInr || 0).toLocaleString()}</strong></span>
@@ -1204,7 +1204,7 @@ export function ScaleUpDecisionView({
             <div className="space-y-3 pt-1">
               {actionModal.action === "START_SCALE_UP" && (
                 <div>
-                  <label className="text-[11px] font-bold text-slate-800 uppercase block mb-1 font-mono">
+                  <label className="text-xs font-bold text-slate-800 uppercase block mb-1 font-mono">
                     Sanctioned Scale-Up Budget (INR):
                   </label>
                   <Input
@@ -1213,7 +1213,7 @@ export function ScaleUpDecisionView({
                     onChange={(e) => setSanctionedBudget(Number(e.target.value))}
                     className="font-mono text-xs"
                   />
-                  <span className="text-[10px] text-gov-muted mt-0.5 block">
+                  <span className="text-xs text-gov-muted mt-0.5 block">
                     Sanctioned under GFR Rule 149 for 6 UP Smart Cities.
                   </span>
                 </div>
@@ -1221,7 +1221,7 @@ export function ScaleUpDecisionView({
 
               {actionModal.action === "REQUEST_ADDITIONAL_PILOT" && (
                 <div>
-                  <label className="text-[11px] font-bold text-slate-800 uppercase block mb-1 font-mono">
+                  <label className="text-xs font-bold text-slate-800 uppercase block mb-1 font-mono">
                     Secondary Additional Testbed Scope & Conditions:
                   </label>
                   <Input
@@ -1229,7 +1229,7 @@ export function ScaleUpDecisionView({
                     onChange={(e) => setSecondaryTestbedScope(e.target.value)}
                     className="text-xs"
                   />
-                  <span className="text-[10px] text-gov-muted mt-0.5 block">
+                  <span className="text-xs text-gov-muted mt-0.5 block">
                     Specify environmental, duration, or sensor stress conditions required.
                   </span>
                 </div>
@@ -1237,7 +1237,7 @@ export function ScaleUpDecisionView({
 
               {actionModal.action === "MODIFY_RETEST" && (
                 <div>
-                  <label className="text-[11px] font-bold text-slate-800 uppercase block mb-1 font-mono">
+                  <label className="text-xs font-bold text-slate-800 uppercase block mb-1 font-mono">
                     Mandatory Technical Modifications (One per line):
                   </label>
                   <Textarea
@@ -1251,7 +1251,7 @@ export function ScaleUpDecisionView({
 
               {/* Justification Field */}
               <div>
-                <label className="text-[11px] font-bold text-slate-800 uppercase block mb-1 font-mono">
+                <label className="text-xs font-bold text-slate-800 uppercase block mb-1 font-mono">
                   Statutory Committee Justification (Mandatory):
                 </label>
                 <Textarea
@@ -1261,7 +1261,7 @@ export function ScaleUpDecisionView({
                   placeholder="Provide detailed statutory rationale for this procurement decision..."
                   className="text-xs leading-relaxed"
                 />
-                <span className="text-[10px] text-gov-muted mt-0.5 block font-mono">
+                <span className="text-xs text-gov-muted mt-0.5 block font-mono">
                   Minimum 20 characters required. Recorded permanently in state procurement audit trail.
                 </span>
               </div>

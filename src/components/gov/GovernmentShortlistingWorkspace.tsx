@@ -424,7 +424,7 @@ export function GovernmentShortlistingWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 GOVERNMENT DELIBERATION DESK
               </Badge>
               <span className="text-slate-300">•</span>
@@ -452,7 +452,7 @@ export function GovernmentShortlistingWorkspace() {
               <h3 className="font-bold text-amber-950 text-xs">
                 Human-in-the-Loop Procurement Mandate (No Automated Algorithmic Selection)
               </h3>
-              <p className="text-[11px] text-amber-900 mt-0.5 leading-relaxed">
+              <p className="text-xs text-amber-900 mt-0.5 leading-relaxed">
                 The platform deliberately does not auto-select the highest-scoring startup. Objective
                 expert evaluation scores are provided to inform the committee, but final shortlisting
                 requires holistic human deliberation considering civic ward constraints, deployment
@@ -502,7 +502,7 @@ export function GovernmentShortlistingWorkspace() {
       <div className="bg-white border border-gov-border rounded-card shadow-sm overflow-hidden text-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
-            <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+            <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
               <tr>
                 <th className="p-3">Startup</th>
                 <th className="p-3 text-center">Eligibility</th>
@@ -532,7 +532,7 @@ export function GovernmentShortlistingWorkspace() {
                         <div className="font-bold text-slate-900 truncate">
                           {cand.startupName}
                         </div>
-                        <div className="text-[11px] text-gov-muted truncate mt-0.5">
+                        <div className="text-xs text-gov-muted truncate mt-0.5">
                           {cand.solutionTitle}
                         </div>
                         <div className="flex items-center space-x-1.5 mt-1 font-mono text-[9.5px] text-gov-accent">
@@ -554,7 +554,7 @@ export function GovernmentShortlistingWorkspace() {
                               ? "destructive"
                               : "warning"
                           }
-                          className="font-mono text-[9px]"
+                          className="font-mono text-xs"
                         >
                           {cand.eligibilityStatus.replace(/_/g, " ")}
                         </Badge>
@@ -563,7 +563,7 @@ export function GovernmentShortlistingWorkspace() {
                       {/* 3. Technical Feasibility (25%) */}
                       <td className="p-3 text-center font-mono font-bold text-slate-800">
                         <div className="text-xs">{cand.scores.technicalFeasibility}</div>
-                        <span className="text-[9px] text-gov-muted font-normal">(w: 25%)</span>
+                        <span className="text-xs text-gov-muted font-normal">(w: 25%)</span>
                       </td>
 
                       {/* 4. Problem Fit (20%) */}
@@ -575,19 +575,19 @@ export function GovernmentShortlistingWorkspace() {
                         >
                           {cand.scores.problemFit}
                         </div>
-                        <span className="text-[9px] text-gov-muted font-normal">(w: 20%)</span>
+                        <span className="text-xs text-gov-muted font-normal">(w: 20%)</span>
                       </td>
 
                       {/* 5. Innovation (15%) */}
                       <td className="p-3 text-center font-mono font-bold text-slate-800">
                         <div className="text-xs">{cand.scores.innovation}</div>
-                        <span className="text-[9px] text-gov-muted font-normal">(w: 15%)</span>
+                        <span className="text-xs text-gov-muted font-normal">(w: 15%)</span>
                       </td>
 
                       {/* 6. Scalability (15%) */}
                       <td className="p-3 text-center font-mono font-bold text-slate-800">
                         <div className="text-xs">{cand.scores.scalability}</div>
-                        <span className="text-[9px] text-gov-muted font-normal">(w: 15%)</span>
+                        <span className="text-xs text-gov-muted font-normal">(w: 15%)</span>
                       </td>
 
                       {/* 7. Cost */}
@@ -608,7 +608,7 @@ export function GovernmentShortlistingWorkspace() {
                               ? "destructive"
                               : "warning"
                           }
-                          className="font-mono text-[9px]"
+                          className="font-mono text-xs"
                         >
                           {cand.risk.level}
                         </Badge>
@@ -626,7 +626,7 @@ export function GovernmentShortlistingWorkspace() {
                               ? "destructive"
                               : "secondary"
                           }
-                          className="font-mono text-[9px]"
+                          className="font-mono text-xs"
                         >
                           {cand.evaluationStatus.replace(/_/g, " ")}
                         </Badge>
@@ -638,7 +638,7 @@ export function GovernmentShortlistingWorkspace() {
                           size="sm"
                           variant="outline"
                           onClick={() => toggleRow(cand.id)}
-                          className="text-[10px] h-7 px-2 border-slate-300"
+                          className="text-xs h-8 px-2 border-slate-300"
                         >
                           {isExpanded ? (
                             <>
@@ -662,7 +662,7 @@ export function GovernmentShortlistingWorkspace() {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                               {/* Left sub-box: Expert Deliberations */}
                               <div className="bg-white p-3.5 rounded-control border border-slate-200 space-y-2">
-                                <span className="text-[10px] font-mono text-purple-800 font-bold uppercase tracking-wider block">
+                                <span className="text-xs font-mono text-purple-800 font-bold uppercase tracking-wider block">
                                   INDEPENDENT EXPERT APPRAISAL
                                 </span>
                                 <p className="text-slate-700 leading-relaxed text-[11.5px]">
@@ -675,22 +675,22 @@ export function GovernmentShortlistingWorkspace() {
 
                               {/* Center sub-box: Risk & Mitigations */}
                               <div className="bg-white p-3.5 rounded-control border border-slate-200 space-y-2">
-                                <span className="text-[10px] font-mono text-amber-800 font-bold uppercase tracking-wider block">
+                                <span className="text-xs font-mono text-amber-800 font-bold uppercase tracking-wider block">
                                   RISK PROFILE & FEASIBILITY
                                 </span>
                                 <div>
-                                  <span className="font-bold text-slate-800 block text-[11px]">
+                                  <span className="font-bold text-slate-800 block text-xs">
                                     Identified Factor:
                                   </span>
-                                  <p className="text-slate-600 text-[11px] leading-tight">
+                                  <p className="text-slate-600 text-xs leading-tight">
                                     {cand.risk.factors}
                                   </p>
                                 </div>
                                 <div className="pt-1 border-t border-slate-100">
-                                  <span className="font-bold text-slate-800 block text-[11px]">
+                                  <span className="font-bold text-slate-800 block text-xs">
                                     Mandatory Mitigation:
                                   </span>
-                                  <p className="text-slate-600 text-[11px] leading-tight">
+                                  <p className="text-slate-600 text-xs leading-tight">
                                     {cand.risk.mitigation}
                                   </p>
                                 </div>
@@ -698,17 +698,17 @@ export function GovernmentShortlistingWorkspace() {
 
                               {/* Right sub-box: Statutory & Eligibility Details */}
                               <div className="bg-white p-3.5 rounded-control border border-slate-200 space-y-2">
-                                <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+                                <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                                   STATUTORY PRE-QUALIFICATION
                                 </span>
-                                <div className="space-y-1 text-[11px]">
+                                <div className="space-y-1 text-xs">
                                   <p className="text-slate-700 leading-snug">
                                     {cand.eligibilityNotes}
                                   </p>
                                   <p className="text-slate-600 text-[10.5px] pt-1 border-t border-slate-100">
                                     <strong>Track Record:</strong> {cand.teamTrackRecord}
                                   </p>
-                                  <p className="text-gov-muted text-[10px] font-mono">
+                                  <p className="text-gov-muted text-xs font-mono">
                                     Dossier: {cand.documentsCount} Sealed Documents Verified
                                   </p>
                                 </div>
@@ -717,10 +717,10 @@ export function GovernmentShortlistingWorkspace() {
 
                             {/* Scoring Dimensions Breakdown Strip */}
                             <div className="bg-white p-3 rounded-control border border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
-                              <span className="font-bold text-slate-800 text-[11px]">
+                              <span className="font-bold text-slate-800 text-xs">
                                 6-Criterion Scoring Breakdown:
                               </span>
-                              <div className="flex flex-wrap items-center gap-3 font-mono text-[11px]">
+                              <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
                                 <span className="bg-slate-50 px-2 py-1 rounded border border-slate-200">
                                   Tech: <strong>{cand.scores.technicalFeasibility}</strong> (25%)
                                 </span>
@@ -748,10 +748,10 @@ export function GovernmentShortlistingWorkspace() {
                             {/* FOUR STATUTORY ACTIONS STRIP */}
                             <div className="bg-slate-100/90 p-3.5 rounded-control border border-slate-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                               <div>
-                                <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+                                <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                                   COMMISSION DETERMINATION FOR {cand.startupName.toUpperCase()}
                                 </span>
-                                <span className="text-[11px] text-slate-700">
+                                <span className="text-xs text-slate-700">
                                   Require a documented statutory reason for all official actions.
                                 </span>
                               </div>
@@ -761,7 +761,7 @@ export function GovernmentShortlistingWorkspace() {
                                 <Button
                                   size="sm"
                                   onClick={() => handleOpenDecisionModal(cand, "SHORTLISTED")}
-                                  className="bg-emerald-700 hover:bg-emerald-800 text-white text-[11px] font-semibold h-8"
+                                  className="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold h-8"
                                 >
                                   <Check className="w-3 h-3 mr-1" /> Shortlist
                                 </Button>
@@ -770,7 +770,7 @@ export function GovernmentShortlistingWorkspace() {
                                 <Button
                                   size="sm"
                                   onClick={() => handleOpenDecisionModal(cand, "MOVED_TO_PILOT_DESIGN")}
-                                  className="bg-gov-primary hover:bg-gov-primary/90 text-white text-[11px] font-semibold h-8"
+                                  className="bg-gov-primary hover:bg-gov-primary/90 text-white text-xs font-semibold h-8"
                                 >
                                   <Sparkles className="w-3 h-3 mr-1" /> Move to Pilot Design
                                 </Button>
@@ -779,7 +779,7 @@ export function GovernmentShortlistingWorkspace() {
                                 <Button
                                   size="sm"
                                   onClick={() => handleOpenDecisionModal(cand, "CLARIFICATION_REQUESTED")}
-                                  className="bg-purple-700 hover:bg-purple-800 text-white text-[11px] font-semibold h-8"
+                                  className="bg-purple-700 hover:bg-purple-800 text-white text-xs font-semibold h-8"
                                 >
                                   <MessageSquare className="w-3 h-3 mr-1" /> Request Clarification
                                 </Button>
@@ -788,7 +788,7 @@ export function GovernmentShortlistingWorkspace() {
                                 <Button
                                   size="sm"
                                   onClick={() => handleOpenDecisionModal(cand, "REJECTED")}
-                                  className="bg-red-700 hover:bg-red-800 text-white text-[11px] font-semibold h-8"
+                                  className="bg-red-700 hover:bg-red-800 text-white text-xs font-semibold h-8"
                                 >
                                   <X className="w-3 h-3 mr-1" /> Reject
                                 </Button>
@@ -825,7 +825,7 @@ export function GovernmentShortlistingWorkspace() {
 
         <div className="border border-gov-border rounded-control overflow-hidden">
           <table className="w-full text-left border-collapse text-xs">
-            <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+            <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
               <tr>
                 <th className="p-2.5">Startup & Candidate</th>
                 <th className="p-2.5">Action Committed</th>
@@ -840,7 +840,7 @@ export function GovernmentShortlistingWorkspace() {
                 <tr key={log.id} className="hover:bg-slate-50/60 transition-colors">
                   <td className="p-2.5">
                     <span className="font-bold text-slate-900 block">{log.candidateName}</span>
-                    <span className="text-[10px] text-gov-muted font-mono">{log.candidateCode}</span>
+                    <span className="text-xs text-gov-muted font-mono">{log.candidateCode}</span>
                   </td>
                   <td className="p-2.5">
                     <Badge
@@ -851,25 +851,25 @@ export function GovernmentShortlistingWorkspace() {
                           ? "destructive"
                           : "warning"
                       }
-                      className="font-mono text-[9px]"
+                      className="font-mono text-xs"
                     >
                       {log.action.replace(/_/g, " ")}
                     </Badge>
                   </td>
                   <td className="p-2.5">
                     <span className="font-semibold text-slate-800 block">{log.officerName}</span>
-                    <span className="text-[10px] text-gov-muted">{log.officerDesignation}</span>
+                    <span className="text-xs text-gov-muted">{log.officerDesignation}</span>
                   </td>
-                  <td className="p-2.5 font-mono text-slate-600 text-[11px]">{log.timestamp}</td>
+                  <td className="p-2.5 font-mono text-slate-600 text-xs">{log.timestamp}</td>
                   <td className="p-2.5 max-w-sm text-slate-700 leading-snug">
-                    <p className="text-[11px]">{log.reason}</p>
+                    <p className="text-xs">{log.reason}</p>
                     {log.conditions && (
-                      <p className="text-[10px] text-amber-900 font-medium mt-1">
+                      <p className="text-xs text-amber-900 font-medium mt-1">
                         <strong>Conditions:</strong> {log.conditions}
                       </p>
                     )}
                   </td>
-                  <td className="p-2.5 text-right font-mono text-[10px] text-slate-500">
+                  <td className="p-2.5 text-right font-mono text-xs text-slate-500">
                     {log.cryptographicSeal.slice(0, 16)}...{log.cryptographicSeal.slice(-6)}
                   </td>
                 </tr>
@@ -898,7 +898,7 @@ export function GovernmentShortlistingWorkspace() {
                       ? "destructive"
                       : "warning"
                   }
-                  className="font-mono text-[9px] mb-1"
+                  className="font-mono text-xs mb-1"
                 >
                   ACTION: {activeDecisionModal.action.replace(/_/g, " ")}
                 </Badge>
@@ -916,20 +916,20 @@ export function GovernmentShortlistingWorkspace() {
 
             <div className="space-y-3 text-xs">
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-control">
-                <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                <span className="text-xs font-mono text-gov-muted uppercase block">
                   CANDIDATE STARTUP
                 </span>
                 <span className="font-bold text-slate-900 block text-xs">
                   {activeDecisionModal.candidate.startupName}
                 </span>
-                <span className="text-[11px] text-slate-600 block">
+                <span className="text-xs text-slate-600 block">
                   {activeDecisionModal.candidate.solutionTitle} (Score:{" "}
                   {activeDecisionModal.candidate.scores.compositeWeightedScore}/100)
                 </span>
               </div>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Official Committee Deliberation Reason{" "}
                   <span className="text-red-500 font-bold">*</span>
                 </label>
@@ -955,7 +955,7 @@ export function GovernmentShortlistingWorkspace() {
                 activeDecisionModal.action === "MOVED_TO_PILOT_DESIGN" ||
                 activeDecisionModal.action === "CLARIFICATION_REQUESTED") && (
                 <div>
-                  <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                  <label className="font-bold text-slate-800 text-xs block mb-1">
                     Stipulated Conditions / Pilot Directives (Optional):
                   </label>
                   <Input

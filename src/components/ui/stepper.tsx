@@ -77,7 +77,7 @@ export function Stepper({
                     {step.title}
                   </p>
                   {step.description && (
-                    <p className="text-[10px] text-gov-muted truncate max-w-[120px]">
+                    <p className="text-xs text-gov-muted truncate max-w-[120px]">
                       {step.description}
                     </p>
                   )}

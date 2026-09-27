@@ -95,7 +95,7 @@ function ProcurementDashboardContent() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gov-border pb-5">
         <div>
           <div className="flex items-center space-x-2 mb-1">
-            <Badge variant="default" className="bg-slate-800 font-mono text-[10px]">
+            <Badge variant="default" className="bg-slate-800 font-mono text-xs">
               PROCUREMENT OFFICER CLEARANCE
             </Badge>
             <span className="text-xs text-gov-muted">Public Procurement & Treasury Disbursements</span>
@@ -179,13 +179,13 @@ function ProcurementDashboardContent() {
                 <TableCell className="font-semibold text-xs text-gov-primary">
                   {formatCurrency(p.amount)}
                 </TableCell>
-                <TableCell className="font-mono text-[11px] text-gov-muted">
+                <TableCell className="font-mono text-xs text-gov-muted">
                   {p.paymentReference || p.mockTransactionId || "Pending Authorization"}
                 </TableCell>
                 <TableCell>
                   <Badge
                     variant={p.status === "PAID" ? "success" : "warning"}
-                    className="text-[10px]"
+                    className="text-xs"
                   >
                     {p.status}
                   </Badge>

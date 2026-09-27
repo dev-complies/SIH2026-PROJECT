@@ -136,7 +136,7 @@ function LocationPinMesh({
           )}
         >
           <span>{pin.name}</span>
-          <span className="block text-[9px] font-mono text-gov-muted font-normal">
+          <span className="block text-xs font-mono text-gov-muted font-normal">
             {pin.location}
           </span>
         </div>
@@ -201,11 +201,11 @@ function FallbackPilotMap({ onSelectPin }: { onSelectPin: (p: PilotLocationPin) 
             onClick={() => onSelectPin(p)}
             className="p-3.5 rounded-control border border-slate-700 bg-slate-800/80 hover:border-blue-500 cursor-pointer transition-colors"
           >
-            <span className="text-[10px] font-mono text-gov-muted block">{p.code}</span>
+            <span className="text-xs font-mono text-gov-muted block">{p.code}</span>
             <p className="text-xs font-bold text-white mt-1">{p.name}</p>
-            <p className="text-[11px] text-blue-300 mt-0.5">{p.location}</p>
+            <p className="text-xs text-blue-300 mt-0.5">{p.location}</p>
             <div className="flex justify-between items-baseline mt-3 border-t border-slate-700 pt-2 text-xs">
-              <span className="text-[11px] text-slate-300">{p.startup}</span>
+              <span className="text-xs text-slate-300">{p.startup}</span>
               <span className="font-bold text-emerald-400">{p.progress}%</span>
             </div>
           </div>
@@ -272,10 +272,10 @@ export function PilotMap({ height = "h-[450px]", className, onSelectPilot }: Pil
         <div className="bg-white border border-gov-border rounded-card p-4 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
           <div>
             <div className="flex items-center space-x-2">
-              <span className="text-[10px] font-mono font-bold text-gov-accent">
+              <span className="text-xs font-mono font-bold text-gov-accent">
                 {selectedPin.code}
               </span>
-              <Badge variant="outline" className="text-[10px]">
+              <Badge variant="outline" className="text-xs">
                 {selectedPin.status}
               </Badge>
             </div>
@@ -287,12 +287,12 @@ export function PilotMap({ height = "h-[450px]", className, onSelectPilot }: Pil
 
           <div className="flex items-center space-x-6 shrink-0 text-xs">
             <div>
-              <span className="text-[10px] text-gov-muted block">KEY RESULT</span>
+              <span className="text-xs text-gov-muted block">KEY RESULT</span>
               <span className="font-semibold text-emerald-700">{selectedPin.kpiSummary}</span>
             </div>
             <div>
-              <span className="text-[10px] text-gov-muted block">RISK</span>
-              <Badge variant={selectedPin.risk === "LOW" ? "success" : "warning"} className="text-[10px]">
+              <span className="text-xs text-gov-muted block">RISK</span>
+              <Badge variant={selectedPin.risk === "LOW" ? "success" : "warning"} className="text-xs">
                 {selectedPin.risk}
               </Badge>
             </div>

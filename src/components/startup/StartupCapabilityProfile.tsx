@@ -159,7 +159,7 @@ export function StartupCapabilityProfile({
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-gov-primary tracking-tight">
                   AirSense Technologies Private Limited
                 </h1>
-                <Badge variant="outline" className="text-emerald-800 bg-emerald-50 border-emerald-300 font-mono text-[10px] flex items-center gap-1">
+                <Badge variant="outline" className="text-emerald-800 bg-emerald-50 border-emerald-300 font-mono text-xs flex items-center gap-1">
                   <ShieldCheck className="w-3 h-3 text-emerald-600" />
                   DPIIT VERIFIED
                 </Badge>
@@ -190,7 +190,7 @@ export function StartupCapabilityProfile({
           {/* Verification Status & Profile Completion Callout */}
           <div className="bg-slate-50 border border-slate-200 rounded-card p-4 shrink-0 w-full md:w-72 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono text-gov-muted uppercase font-bold">
+              <span className="text-xs font-mono text-gov-muted uppercase font-bold">
                 PROFILE COMPLETION
               </span>
               <span className="font-mono font-extrabold text-gov-primary text-xs">
@@ -200,7 +200,7 @@ export function StartupCapabilityProfile({
 
             <Progress value={94} className="h-2 bg-slate-200" />
 
-            <div className="pt-1 border-t border-slate-200/80 space-y-1 text-[11px]">
+            <div className="pt-1 border-t border-slate-200/80 space-y-1 text-xs">
               <div className="flex items-center justify-between text-slate-700">
                 <span>Verification Status:</span>
                 <span className="font-semibold text-emerald-700 flex items-center">
@@ -213,7 +213,7 @@ export function StartupCapabilityProfile({
               </div>
               <div className="flex items-center justify-between text-slate-700">
                 <span>GeM Empanelment:</span>
-                <span className="font-mono text-slate-900 text-[10px]">GEM/2023/S/849201</span>
+                <span className="font-mono text-slate-900 text-xs">GEM/2023/S/849201</span>
               </div>
             </div>
           </div>
@@ -266,7 +266,7 @@ export function StartupCapabilityProfile({
                 <Sparkles className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-[10px] font-mono text-purple-800 font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-purple-800 font-bold uppercase tracking-wider block">
                   STATUTORY COMPATIBILITY AUDIT
                 </span>
                 <h3 className="text-sm font-extrabold text-gov-primary">
@@ -290,9 +290,9 @@ export function StartupCapabilityProfile({
             <div className="bg-white/80 border border-purple-200 rounded-control p-3 space-y-1">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 text-[11.5px]">Technology Alignment</span>
-                <span className="text-[10px] font-mono font-bold text-emerald-700">100% Match</span>
+                <span className="text-xs font-mono font-bold text-emerald-700">100% Match</span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-tight">
+              <p className="text-xs text-slate-600 leading-tight">
                 Mandates simultaneous PM1, PM2.5, PM10 counting. AirSense Dual-Beam Optical Sensor exceeds required resolution.
               </p>
             </div>
@@ -300,9 +300,9 @@ export function StartupCapabilityProfile({
             <div className="bg-white/80 border border-purple-200 rounded-control p-3 space-y-1">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 text-[11.5px]">Calibration Accuracy</span>
-                <span className="text-[10px] font-mono font-bold text-emerald-700">R² = 0.94 (&ge; 0.92 Target)</span>
+                <span className="text-xs font-mono font-bold text-emerald-700">R² = 0.94 (&ge; 0.92 Target)</span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-tight">
+              <p className="text-xs text-slate-600 leading-tight">
                 Exceeds statutory CPCB reference correlation benchmark by +2.2% in collocated field trials over 90 days.
               </p>
             </div>
@@ -310,9 +310,9 @@ export function StartupCapabilityProfile({
             <div className="bg-white/80 border border-purple-200 rounded-control p-3 space-y-1">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 text-[11.5px]">Geographic & Field Readiness</span>
-                <span className="text-[10px] font-mono font-bold text-emerald-700">15-Day Mobilization</span>
+                <span className="text-xs font-mono font-bold text-emerald-700">15-Day Mobilization</span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-tight">
+              <p className="text-xs text-slate-600 leading-tight">
                 Local engineering hub in Lucknow Wards ensures under 2-hour emergency site replacement and ICCC integration.
               </p>
             </div>
@@ -331,7 +331,7 @@ export function StartupCapabilityProfile({
                 <Building2 className="w-4 h-4 mr-2 text-gov-accent" />
                 1. Company Overview & Governance
               </h2>
-              <Badge variant="outline" className="text-[9px] font-mono">
+              <Badge variant="outline" className="text-xs font-mono">
                 Incorporated 2022
               </Badge>
             </div>
@@ -343,27 +343,27 @@ export function StartupCapabilityProfile({
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
                 <div className="p-2.5 bg-slate-50 border border-slate-200/80 rounded-control">
-                  <span className="text-[10px] text-gov-muted font-mono uppercase block">LEGAL ENTITY</span>
+                  <span className="text-xs text-gov-muted font-mono uppercase block">LEGAL ENTITY</span>
                   <span className="font-semibold text-slate-900">Private Limited (India)</span>
                 </div>
                 <div className="p-2.5 bg-slate-50 border border-slate-200/80 rounded-control">
-                  <span className="text-[10px] text-gov-muted font-mono uppercase block">DPIIT CERTIFICATE</span>
+                  <span className="text-xs text-gov-muted font-mono uppercase block">DPIIT CERTIFICATE</span>
                   <span className="font-semibold text-emerald-800 font-mono">DIPP-94812 (Verified)</span>
                 </div>
                 <div className="p-2.5 bg-slate-50 border border-slate-200/80 rounded-control">
-                  <span className="text-[10px] text-gov-muted font-mono uppercase block">OPERATING RUNWAY</span>
+                  <span className="text-xs text-gov-muted font-mono uppercase block">OPERATING RUNWAY</span>
                   <span className="font-semibold text-slate-900">14 Months Confirmed</span>
                 </div>
                 <div className="p-2.5 bg-slate-50 border border-slate-200/80 rounded-control">
-                  <span className="text-[10px] text-gov-muted font-mono uppercase block">DATA LOCALIZATION</span>
+                  <span className="text-xs text-gov-muted font-mono uppercase block">DATA LOCALIZATION</span>
                   <span className="font-semibold text-slate-900">100% Indian Cloud (MeitY)</span>
                 </div>
                 <div className="p-2.5 bg-slate-50 border border-slate-200/80 rounded-control">
-                  <span className="text-[10px] text-gov-muted font-mono uppercase block">ANNUAL REVENUE</span>
+                  <span className="text-xs text-gov-muted font-mono uppercase block">ANNUAL REVENUE</span>
                   <span className="font-semibold text-slate-900 font-mono">₹1.85 Cr (FY25)</span>
                 </div>
                 <div className="p-2.5 bg-slate-50 border border-slate-200/80 rounded-control">
-                  <span className="text-[10px] text-gov-muted font-mono uppercase block">TRL READINESS</span>
+                  <span className="text-xs text-gov-muted font-mono uppercase block">TRL READINESS</span>
                   <span className="font-semibold text-slate-900">TRL 8 (Mission Qualified)</span>
                 </div>
               </div>
@@ -377,7 +377,7 @@ export function StartupCapabilityProfile({
                 <Cpu className="w-4 h-4 mr-2 text-gov-accent" />
                 2. Proprietary Technology & IP Portfolio
               </h2>
-              <Badge variant="outline" className="text-[9px] font-mono text-blue-800 bg-blue-50 border-blue-200">
+              <Badge variant="outline" className="text-xs font-mono text-blue-800 bg-blue-50 border-blue-200">
                 1 Patent Published
               </Badge>
             </div>
@@ -388,7 +388,7 @@ export function StartupCapabilityProfile({
                   <span className="font-bold text-slate-900 block text-[12px]">
                     Dual-Beam Optical Particulate Counter
                   </span>
-                  <p className="text-[11px] text-slate-600 leading-tight">
+                  <p className="text-xs text-slate-600 leading-tight">
                     Patent Application 202311048192: Orthogonal laser scatter geometry resolving PM1, PM2.5, PM10 simultaneously from 0.3 to 40 µm.
                   </p>
                 </div>
@@ -397,7 +397,7 @@ export function StartupCapabilityProfile({
                   <span className="font-bold text-slate-900 block text-[12px]">
                     Automated Anti-Fouling Optical Purge
                   </span>
-                  <p className="text-[11px] text-slate-600 leading-tight">
+                  <p className="text-xs text-slate-600 leading-tight">
                     Cyclonic positive-pressure filtered air purge preventing optical sensor blindness in extreme dust episodes.
                   </p>
                 </div>
@@ -406,7 +406,7 @@ export function StartupCapabilityProfile({
                   <span className="font-bold text-slate-900 block text-[12px]">
                     Edge Machine Learning Drift Compensation
                   </span>
-                  <p className="text-[11px] text-slate-600 leading-tight">
+                  <p className="text-xs text-slate-600 leading-tight">
                     On-device non-linear hygroscopic growth correction curves calibrated against statutory CAAQMS analyzers.
                   </p>
                 </div>
@@ -415,7 +415,7 @@ export function StartupCapabilityProfile({
                   <span className="font-bold text-slate-900 block text-[12px]">
                     Dual-Carrier LoRaWAN & NB-IoT Backhaul
                   </span>
-                  <p className="text-[11px] text-slate-600 leading-tight">
+                  <p className="text-xs text-slate-600 leading-tight">
                     Cryptographic SHA-256 anchored 15-minute telemetry streams pushing directly to municipal command centers (ICCC).
                   </p>
                 </div>
@@ -430,7 +430,7 @@ export function StartupCapabilityProfile({
                 <Briefcase className="w-4 h-4 mr-2 text-gov-accent" />
                 3. Previous Track Record & Deployments
               </h2>
-              <span className="text-[10px] font-mono text-gov-muted">3 Major Projects</span>
+              <span className="text-xs font-mono text-gov-muted">3 Major Projects</span>
             </div>
 
             <div className="space-y-3 text-xs">
@@ -489,12 +489,12 @@ export function StartupCapabilityProfile({
                   <span className="font-bold text-gov-primary text-[13px]">
                     Municipal Tactical Intervention Optimization (Lucknow Ward 14)
                   </span>
-                  <span className="text-[10px] font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  <span className="text-xs font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                     Validated Pilot
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
                   <div className="p-2 bg-slate-50 rounded border border-slate-100">
                     <span className="text-[9.5px] font-mono text-gov-muted uppercase block">BASELINE STATE</span>
                     <p className="text-slate-700 font-semibold mt-0.5">Uniform truck dispatch; 4.5h delay</p>
@@ -524,7 +524,7 @@ export function StartupCapabilityProfile({
                   <FileText className="w-4 h-4 mr-2 text-gov-accent" />
                   5. Statutory Dossier & Compliance Documents
                 </h2>
-                <p className="text-[10px] text-gov-muted mt-0.5">
+                <p className="text-xs text-gov-muted mt-0.5">
                   Cryptographically anchored public compliance files for tender evaluation
                 </p>
               </div>
@@ -534,7 +534,7 @@ export function StartupCapabilityProfile({
                   size="sm"
                   variant="outline"
                   onClick={() => setIsUploadModalOpen(true)}
-                  className="text-xs h-7 border-slate-300"
+                  className="text-xs h-8 border-slate-300"
                 >
                   <Plus className="w-3 h-3 mr-1" /> Add Document
                 </Button>
@@ -544,7 +544,7 @@ export function StartupCapabilityProfile({
             <div className="space-y-2 text-xs">
               <div className="border border-gov-border rounded-control overflow-hidden">
                 <table className="w-full text-left border-collapse">
-                  <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+                  <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
                     <tr>
                       <th className="p-2.5">Document Name</th>
                       <th className="p-2.5">Category</th>
@@ -557,9 +557,9 @@ export function StartupCapabilityProfile({
                       <tr key={doc.id} className="hover:bg-slate-50/60 transition-colors">
                         <td className="p-2.5">
                           <p className="font-semibold text-slate-900 truncate max-w-xs">{doc.name}</p>
-                          <span className="text-[10px] text-gov-muted font-mono">{doc.size} • {doc.date}</span>
+                          <span className="text-xs text-gov-muted font-mono">{doc.size} • {doc.date}</span>
                         </td>
-                        <td className="p-2.5 text-slate-600 text-[11px]">{doc.category}</td>
+                        <td className="p-2.5 text-slate-600 text-xs">{doc.category}</td>
                         <td className="p-2.5 font-mono text-gov-muted text-[10.5px]">{doc.sha256}</td>
                         <td className="p-2.5 text-right">
                           <Button
@@ -572,7 +572,7 @@ export function StartupCapabilityProfile({
                                 description: `Downloading ${doc.name}`,
                               });
                             }}
-                            className="text-[10px] h-6 px-2 border-slate-300"
+                            className="text-xs h-6 px-2 border-slate-300"
                           >
                             <Download className="w-3 h-3 mr-1" /> Get
                           </Button>
@@ -592,7 +592,7 @@ export function StartupCapabilityProfile({
           <div className="bg-white border border-gov-border rounded-card p-5 shadow-sm space-y-4 text-xs">
             <div className="flex items-center space-x-2 border-b border-slate-100 pb-2">
               <Users className="w-4 h-4 text-gov-primary" />
-              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-[11px]">
+              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-xs">
                 Key Technical Leadership
               </h3>
             </div>
@@ -602,7 +602,7 @@ export function StartupCapabilityProfile({
                 <span className="font-bold text-slate-900 block text-[12px]">
                   Dr. Vikramaditya Sen, PhD
                 </span>
-                <span className="text-[11px] text-gov-accent font-semibold block">
+                <span className="text-xs text-gov-accent font-semibold block">
                   CEO & Co-founder
                 </span>
                 <p className="text-[10.5px] text-slate-600 leading-tight">
@@ -614,7 +614,7 @@ export function StartupCapabilityProfile({
                 <span className="font-bold text-slate-900 block text-[12px]">
                   Ananya Singhal
                 </span>
-                <span className="text-[11px] text-gov-accent font-semibold block">
+                <span className="text-xs text-gov-accent font-semibold block">
                   CTO & Hardware Lead
                 </span>
                 <p className="text-[10.5px] text-slate-600 leading-tight">
@@ -626,7 +626,7 @@ export function StartupCapabilityProfile({
                 <span className="font-bold text-slate-900 block text-[12px]">
                   Rajesh Murthy, M.Tech
                 </span>
-                <span className="text-[11px] text-gov-accent font-semibold block">
+                <span className="text-xs text-gov-accent font-semibold block">
                   Head of Atmospheric Calibration
                 </span>
                 <p className="text-[10.5px] text-slate-600 leading-tight">
@@ -638,7 +638,7 @@ export function StartupCapabilityProfile({
                 <span className="font-bold text-slate-900 block text-[12px]">
                   Meenakshi Nair
                 </span>
-                <span className="text-[11px] text-gov-accent font-semibold block">
+                <span className="text-xs text-gov-accent font-semibold block">
                   Public Procurement & Legal
                 </span>
                 <p className="text-[10.5px] text-slate-600 leading-tight">
@@ -652,7 +652,7 @@ export function StartupCapabilityProfile({
           <div className="bg-white border border-gov-border rounded-card p-5 shadow-sm space-y-4 text-xs">
             <div className="flex items-center space-x-2 border-b border-slate-100 pb-2">
               <Award className="w-4 h-4 text-gov-primary" />
-              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-[11px]">
+              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-xs">
                 Audited Certifications
               </h3>
             </div>
@@ -696,7 +696,7 @@ export function StartupCapabilityProfile({
           <div className="bg-white border border-gov-border rounded-card p-5 shadow-sm space-y-3 text-xs">
             <div className="flex items-center space-x-2 border-b border-slate-100 pb-2">
               <Layers className="w-4 h-4 text-gov-primary" />
-              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-[11px]">
+              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-xs">
                 Target Industry Sectors
               </h3>
             </div>
@@ -712,7 +712,7 @@ export function StartupCapabilityProfile({
               ].map((ind) => (
                 <span
                   key={ind}
-                  className="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-800 rounded text-[11px]"
+                  className="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-800 rounded text-xs"
                 >
                   {ind}
                 </span>
@@ -722,7 +722,7 @@ export function StartupCapabilityProfile({
 
           {/* Government Experience Summary */}
           <div className="bg-slate-50 border border-gov-border rounded-card p-5 space-y-3 text-xs">
-            <span className="text-[10px] font-mono text-gov-primary uppercase font-bold block">
+            <span className="text-xs font-mono text-gov-primary uppercase font-bold block">
               PUBLIC PROCUREMENT CREDENTIALS
             </span>
             <div className="space-y-2 text-[11.5px] text-slate-700">

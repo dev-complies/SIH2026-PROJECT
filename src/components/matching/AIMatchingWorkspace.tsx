@@ -77,19 +77,19 @@ export function AIMatchingWorkspace() {
     switch (rating) {
       case "Strong":
         return (
-          <Badge variant="success" className="font-mono text-[10px] tracking-wide px-2 py-0.5">
+          <Badge variant="success" className="font-mono text-xs tracking-wide px-2 py-0.5">
             Strong
           </Badge>
         );
       case "Moderate":
         return (
-          <Badge variant="warning" className="font-mono text-[10px] tracking-wide px-2 py-0.5">
+          <Badge variant="warning" className="font-mono text-xs tracking-wide px-2 py-0.5">
             Moderate
           </Badge>
         );
       case "Developing":
         return (
-          <Badge variant="outline" className="text-slate-600 bg-slate-100 font-mono text-[10px] px-2 py-0.5">
+          <Badge variant="outline" className="text-slate-600 bg-slate-100 font-mono text-xs px-2 py-0.5">
             Developing
           </Badge>
         );
@@ -206,10 +206,10 @@ export function AIMatchingWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1.5">
             <div className="flex items-center space-x-2">
-              <Badge variant="default" className="bg-indigo-700 text-white font-mono text-[10px] tracking-wider flex items-center">
+              <Badge variant="default" className="bg-indigo-700 text-white font-mono text-xs tracking-wider flex items-center">
                 <Sparkles className="w-3 h-3 mr-1" /> AI-ASSISTED MATCHING ADVISORY
               </Badge>
-              <Badge variant="outline" className="border-indigo-300 text-indigo-800 bg-white font-mono text-[10px]">
+              <Badge variant="outline" className="border-indigo-300 text-indigo-800 bg-white font-mono text-xs">
                 NON-DECISIONAL RECOMMENDATIONS
               </Badge>
             </div>
@@ -243,7 +243,7 @@ export function AIMatchingWorkspace() {
         </div>
 
         {/* Legal Safeguard Warning Box */}
-        <div className="mt-4 pt-3 border-t border-indigo-200/80 flex items-start space-x-2 text-[11px] text-indigo-950">
+        <div className="mt-4 pt-3 border-t border-indigo-200/80 flex items-start space-x-2 text-xs text-indigo-950">
           <ShieldAlert className="w-4 h-4 text-indigo-700 shrink-0 mt-0.5" />
           <span>
             <strong>Statutory Mandate (GFR Rule 149 & Public Procurement Guidelines):</strong> AI recommendations must not
@@ -259,31 +259,31 @@ export function AIMatchingWorkspace() {
           <div>
             <div className="flex items-center space-x-2">
               <span className="font-mono text-gov-muted uppercase font-semibold">Active RFP Challenge:</span>
-              <Badge variant="outline" className="font-mono text-[10px] bg-slate-50">
+              <Badge variant="outline" className="font-mono text-xs bg-slate-50">
                 {CANONICAL_CHALLENGE.code}
               </Badge>
             </div>
             <h2 className="text-sm font-bold text-slate-900 mt-1">
               {CANONICAL_CHALLENGE.title}
             </h2>
-            <div className="text-[11px] text-gov-muted mt-0.5">
+            <div className="text-xs text-gov-muted mt-0.5">
               {CANONICAL_CHALLENGE.department} • Budget Ceiling: ₹{(CANONICAL_CHALLENGE.budgetCeiling / 100000).toFixed(1)} Lakhs • Min Experience: {CANONICAL_CHALLENGE.minimumExperienceYears} yrs
             </div>
           </div>
 
           <div className="flex items-center space-x-2 shrink-0">
-            <span className="text-gov-muted text-[11px]">Required Tech:</span>
+            <span className="text-gov-muted text-xs">Required Tech:</span>
             <div className="flex flex-wrap gap-1">
               {CANONICAL_CHALLENGE.requiredTechnologies.slice(0, 4).map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 py-0.5 bg-slate-100 rounded text-[10px] font-mono text-slate-700 border border-slate-200"
+                  className="px-2 py-0.5 bg-slate-100 rounded text-xs font-mono text-slate-700 border border-slate-200"
                 >
                   {tech}
                 </span>
               ))}
               {CANONICAL_CHALLENGE.requiredTechnologies.length > 4 && (
-                <span className="px-1.5 py-0.5 bg-slate-50 rounded text-[10px] font-mono text-slate-500">
+                <span className="px-1.5 py-0.5 bg-slate-50 rounded text-xs font-mono text-slate-500">
                   +{CANONICAL_CHALLENGE.requiredTechnologies.length - 4} more
                 </span>
               )}
@@ -300,7 +300,7 @@ export function AIMatchingWorkspace() {
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700">
               Candidate Startups ({matches.length})
             </h3>
-            <span className="text-[11px] text-gov-muted font-mono">DPIIT Vetted</span>
+            <span className="text-xs text-gov-muted font-mono">DPIIT Vetted</span>
           </div>
 
           <div className="space-y-2.5">
@@ -322,7 +322,7 @@ export function AIMatchingWorkspace() {
                       <h4 className="font-bold text-xs text-slate-900 leading-snug">
                         {item.startup.name}
                       </h4>
-                      <div className="flex items-center space-x-1.5 mt-1 font-mono text-[10px] text-gov-muted">
+                      <div className="flex items-center space-x-1.5 mt-1 font-mono text-xs text-gov-muted">
                         <span>{item.startup.dpiitNumber}</span>
                         <span>•</span>
                         <span>{item.startup.headquarters.city}, {item.startup.headquarters.state}</span>
@@ -330,22 +330,22 @@ export function AIMatchingWorkspace() {
                     </div>
 
                     {isShortlisted ? (
-                      <Badge variant="success" className="text-[9px] py-0 px-1 font-mono">
+                      <Badge variant="success" className="text-xs py-0 px-1 font-mono">
                         SHORTLISTED
                       </Badge>
                     ) : item.humanDecision?.decision === "CLARIFICATION_REQUESTED" ? (
-                      <Badge variant="warning" className="text-[9px] py-0 px-1 font-mono">
+                      <Badge variant="warning" className="text-xs py-0 px-1 font-mono">
                         CLARIFICATION
                       </Badge>
                     ) : (
-                      <Badge variant="outline" className="text-[9px] py-0 px-1 font-mono text-slate-500">
+                      <Badge variant="outline" className="text-xs py-0 px-1 font-mono text-slate-500">
                         AI EVALUATED
                       </Badge>
                     )}
                   </div>
 
                   {/* Factor Snapshot Badges */}
-                  <div className="mt-3 pt-2 border-t border-slate-100 flex flex-wrap gap-1.5 text-[10px]">
+                  <div className="mt-3 pt-2 border-t border-slate-100 flex flex-wrap gap-1.5 text-xs">
                     <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium">
                       Tech: {item.factors.technology.rating}
                     </span>
@@ -374,7 +374,7 @@ export function AIMatchingWorkspace() {
                       <h3 className="text-base font-bold text-gov-primary">
                         Why this startup matches:
                       </h3>
-                      <Badge variant="outline" className="text-[10px] font-mono text-indigo-700 border-indigo-300 bg-indigo-50">
+                      <Badge variant="outline" className="text-xs font-mono text-indigo-700 border-indigo-300 bg-indigo-50">
                         AI Factor Breakdown
                       </Badge>
                     </div>
@@ -408,7 +408,7 @@ export function AIMatchingWorkspace() {
                       {selectedMatch.factors.technology.evidencePoints.map((ev, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 rounded text-[10px] bg-slate-100 text-slate-600 font-mono"
+                          className="px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600 font-mono"
                         >
                           {ev}
                         </span>
@@ -434,7 +434,7 @@ export function AIMatchingWorkspace() {
                       {selectedMatch.factors.industry.evidencePoints.map((ind, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 rounded text-[10px] bg-indigo-50 text-indigo-700 border border-indigo-200 font-medium"
+                          className="px-2 py-0.5 rounded text-xs bg-indigo-50 text-indigo-700 border border-indigo-200 font-medium"
                         >
                           {ind}
                         </span>
@@ -456,7 +456,7 @@ export function AIMatchingWorkspace() {
                     <p className="text-xs text-slate-700 mt-1.5 pl-6 leading-relaxed">
                       {selectedMatch.factors.experience.detailedRationale}
                     </p>
-                    <div className="mt-2 pl-6 flex flex-wrap gap-1.5 text-[10px] text-gov-muted font-mono">
+                    <div className="mt-2 pl-6 flex flex-wrap gap-1.5 text-xs text-gov-muted font-mono">
                       {selectedMatch.factors.experience.evidencePoints.map((ev, i) => (
                         <span key={i} className="px-2 py-0.5 rounded bg-slate-100">
                           {ev}
@@ -479,7 +479,7 @@ export function AIMatchingWorkspace() {
                     <p className="text-xs text-slate-700 mt-1.5 pl-6 leading-relaxed">
                       {selectedMatch.factors.location.detailedRationale}
                     </p>
-                    <div className="mt-2 pl-6 flex flex-wrap gap-1.5 text-[10px] text-gov-muted font-mono">
+                    <div className="mt-2 pl-6 flex flex-wrap gap-1.5 text-xs text-gov-muted font-mono">
                       {selectedMatch.factors.location.evidencePoints.map((ev, i) => (
                         <span key={i} className="px-2 py-0.5 rounded bg-slate-100">
                           {ev}
@@ -502,7 +502,7 @@ export function AIMatchingWorkspace() {
                     <p className="text-xs text-slate-700 mt-1.5 pl-6 leading-relaxed">
                       {selectedMatch.factors.budget.detailedRationale}
                     </p>
-                    <div className="mt-2 pl-6 flex flex-wrap gap-1.5 text-[10px] text-gov-muted font-mono">
+                    <div className="mt-2 pl-6 flex flex-wrap gap-1.5 text-xs text-gov-muted font-mono">
                       {selectedMatch.factors.budget.evidencePoints.map((ev, i) => (
                         <span key={i} className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
                           {ev}
@@ -527,7 +527,7 @@ export function AIMatchingWorkspace() {
                     </p>
                     <div className="mt-2 pl-6 space-y-1">
                       {selectedMatch.factors.requirements.evidencePoints.map((req, i) => (
-                        <div key={i} className="text-[11px] text-slate-600 flex items-center space-x-1.5">
+                        <div key={i} className="text-xs text-slate-600 flex items-center space-x-1.5">
                           <Check className="w-3 h-3 text-emerald-600 shrink-0" />
                           <span>{req}</span>
                         </div>
@@ -553,7 +553,7 @@ export function AIMatchingWorkspace() {
                       {selectedMatch.factors.certifications.evidencePoints.map((cert, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 rounded text-[10px] bg-amber-50 text-amber-900 border border-amber-200 font-medium"
+                          className="px-2 py-0.5 rounded text-xs bg-amber-50 text-amber-900 border border-amber-200 font-medium"
                         >
                           {cert}
                         </span>
@@ -579,10 +579,10 @@ export function AIMatchingWorkspace() {
                       {selectedMatch.startup.previousProjects.map((p, i) => (
                         <div
                           key={i}
-                          className="p-2 rounded bg-slate-50 border border-slate-100 text-[11px] text-slate-700"
+                          className="p-2 rounded bg-slate-50 border border-slate-100 text-xs text-slate-700"
                         >
                           <div className="font-semibold text-slate-900">{p.title}</div>
-                          <div className="text-[10px] text-gov-muted font-mono mt-0.5">
+                          <div className="text-xs text-gov-muted font-mono mt-0.5">
                             Client: {p.client} ({p.clientType}) • Value: {p.contractValue} • Year: {p.year}
                           </div>
                         </div>
@@ -598,7 +598,7 @@ export function AIMatchingWorkspace() {
                   <div className="font-bold flex items-center text-emerald-900">
                     <CheckCircle2 className="w-4 h-4 mr-1.5 text-emerald-700" /> Key Strengths for Deployment
                   </div>
-                  <ul className="list-disc pl-5 space-y-1 text-[11px] text-slate-700">
+                  <ul className="list-disc pl-5 space-y-1 text-xs text-slate-700">
                     {selectedMatch.keyStrengths.map((str, i) => (
                       <li key={i}>{str}</li>
                     ))}
@@ -609,7 +609,7 @@ export function AIMatchingWorkspace() {
                   <div className="font-bold flex items-center text-amber-900">
                     <AlertTriangle className="w-4 h-4 mr-1.5 text-amber-700" /> Points for Committee Due Diligence
                   </div>
-                  <ul className="list-disc pl-5 space-y-1 text-[11px] text-slate-700">
+                  <ul className="list-disc pl-5 space-y-1 text-xs text-slate-700">
                     {selectedMatch.potentialRisksToInspect.map((risk, i) => (
                       <li key={i}>{risk}</li>
                     ))}
@@ -628,15 +628,15 @@ export function AIMatchingWorkspace() {
                       {selectedMatch.humanDecision.decision}
                     </Badge>
                   </div>
-                  <p className="text-[11px] text-slate-700">
+                  <p className="text-xs text-slate-700">
                     <strong>Decided by:</strong> {selectedMatch.humanDecision.decidedBy.name} (
                     {selectedMatch.humanDecision.decidedBy.designation}) on{" "}
                     {new Date(selectedMatch.humanDecision.decidedAt).toLocaleString()}
                   </p>
-                  <p className="text-[11px] text-slate-800 bg-white p-2.5 rounded border border-emerald-200 italic">
+                  <p className="text-xs text-slate-800 bg-white p-2.5 rounded border border-emerald-200 italic">
                     "{selectedMatch.humanDecision.statutoryJustification}"
                   </p>
-                  <div className="text-[10px] text-emerald-800 font-mono">
+                  <div className="text-xs text-emerald-800 font-mono">
                     ✓ GFR Rule 149 Human Accountability Certified & Logged to Immutable Audit Trail
                   </div>
                 </div>

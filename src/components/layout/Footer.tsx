@@ -20,7 +20,7 @@ export function Footer() {
       <div className="border-b border-slate-800 bg-slate-950/60 py-4 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs">
           <div className="flex items-center space-x-3">
-            <div className="h-6 w-6 rounded bg-blue-600 flex items-center justify-center font-bold text-white text-[10px]">
+            <div className="h-6 w-6 rounded bg-blue-600 flex items-center justify-center font-bold text-white text-xs">
               GOV
             </div>
             <span className="font-semibold text-slate-200">
@@ -32,7 +32,7 @@ export function Footer() {
             </span>
           </div>
 
-          <div className="flex items-center space-x-4 text-[11px] text-slate-400">
+          <div className="flex items-center space-x-4 text-xs text-slate-400">
             <span className="inline-flex items-center text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse" />
               All Systems Operational (99.98% Telemetry Uptime)
@@ -56,7 +56,7 @@ export function Footer() {
                 <span className="font-bold text-white text-base tracking-tight">
                   GovInnovate
                 </span>
-                <span className="block text-[10px] uppercase font-semibold text-slate-400 tracking-wider">
+                <span className="block text-xs uppercase font-semibold text-slate-400 tracking-wider">
                   Public Innovation Procurement OS
                 </span>
               </div>
@@ -66,7 +66,7 @@ export function Footer() {
               An enterprise GovTech infrastructure governing the complete lifecycle from government problem definition, competitive startup onboarding, and blind evaluation to real-world pilot execution, sensor evidence validation, and direct public procurement scaling.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
+            <div className="pt-2 flex flex-wrap gap-2 text-xs">
               <span className="px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono">
                 ISO 27001 CERTIFIED
               </span>
@@ -137,7 +137,7 @@ export function Footer() {
               <li>
                 <Link href="/design-system" className="hover:text-white transition-colors flex items-center">
                   GovInnovate Design System
-                  <span className="ml-1.5 px-1 py-0.2 bg-blue-900/80 text-blue-300 rounded text-[9px]">v1.0</span>
+                  <span className="ml-1.5 px-1 py-0.2 bg-blue-900/80 text-blue-300 rounded text-xs">v1.0</span>
                 </Link>
               </li>
               <li>
@@ -201,12 +201,12 @@ export function Footer() {
             <p>
               © 2026 GovInnovate Platform. Designed and engineered for public sector transparency, empirical pilot validation, and accountable innovation procurement.
             </p>
-            <p className="text-[11px] text-slate-600 mt-0.5">
+            <p className="text-xs text-slate-600 mt-0.5">
               Hosted on National Cloud Infrastructure. End-to-end TLS 1.3 encrypted with cryptographic SHA-256 evidence anchoring.
             </p>
           </div>
 
-          <div className="flex items-center space-x-6 text-[11px]">
+          <div className="flex items-center space-x-6 text-xs">
             <Link href="/auth/login" className="hover:text-slate-300">
               Security Login
             </Link>

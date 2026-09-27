@@ -347,26 +347,26 @@ export function ValidatorWorkspace({
     switch (status) {
       case "Verified":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
             <Check className="w-3 h-3 mr-1 text-emerald-600" /> Verified
           </span>
         );
       case "Minor Concern":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
             <AlertTriangle className="w-3 h-3 mr-1 text-amber-600" /> Minor Concern
           </span>
         );
       case "Failed":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-rose-50 text-rose-800 border border-rose-200">
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-rose-50 text-rose-800 border border-rose-200">
             <X className="w-3 h-3 mr-1 text-rose-600" /> Failed
           </span>
         );
       case "Not Audited":
       default:
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-slate-100 text-slate-600 border border-slate-200">
             <Clock className="w-3 h-3 mr-1 text-slate-400" /> Not Audited
           </span>
         );
@@ -414,7 +414,7 @@ export function ValidatorWorkspace({
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-2.5">
             <div className="text-right">
-              <span className="text-[10px] uppercase font-mono text-gov-muted block">
+              <span className="text-xs uppercase font-mono text-gov-muted block">
                 Statutory Outcome:
               </span>
               {renderOutcomeBadge(record.outcome)}
@@ -444,7 +444,7 @@ export function ValidatorWorkspace({
               overwrite validator findings.
             </div>
           </div>
-          <div className="shrink-0 flex items-center space-x-2 font-mono text-[11px] bg-white/80 px-2.5 py-1 rounded border border-teal-200">
+          <div className="shrink-0 flex items-center space-x-2 font-mono text-xs bg-white/80 px-2.5 py-1 rounded border border-teal-200">
             <Award className="w-3.5 h-3.5 text-teal-700" />
             <span>Auditor: {record.validatorName} ({record.validatorOrg})</span>
           </div>
@@ -523,7 +523,7 @@ export function ValidatorWorkspace({
           <div className="flex flex-col md:flex-row gap-6">
             {/* Left Dimension Selector Sidebar */}
             <div className="w-full md:w-64 space-y-1.5 shrink-0 border-r border-slate-100 pr-4">
-              <span className="text-[10px] font-mono uppercase font-bold text-gov-muted block mb-2 px-2">
+              <span className="text-xs font-mono uppercase font-bold text-gov-muted block mb-2 px-2">
                 Mandatory Review Dimensions
               </span>
               {dimensionsList.map((dim, idx) => {
@@ -578,7 +578,7 @@ export function ValidatorWorkspace({
                         {record.objectivesReview.beneficiaryWards.map((w) => (
                           <span
                             key={w}
-                            className="px-2 py-0.5 rounded bg-white border border-slate-200 text-[10px] font-mono text-slate-700"
+                            className="px-2 py-0.5 rounded bg-white border border-slate-200 text-xs font-mono text-slate-700"
                           >
                             {w}
                           </span>
@@ -593,7 +593,7 @@ export function ValidatorWorkspace({
                       <p className="text-slate-900 font-mono font-bold">
                         {record.objectivesReview.observationPeriod}
                       </p>
-                      <span className="text-[10px] text-gov-muted block">
+                      <span className="text-xs text-gov-muted block">
                         Mandated under GFR 149 performance period
                       </span>
                     </div>
@@ -632,7 +632,7 @@ export function ValidatorWorkspace({
                       <span className="font-semibold text-slate-700 block">
                         Sampling Framework:
                       </span>
-                      <p className="text-slate-800 mt-1 font-mono text-[11px]">
+                      <p className="text-slate-800 mt-1 font-mono text-xs">
                         {record.methodologyReview.samplingFramework}
                       </p>
                     </div>
@@ -641,7 +641,7 @@ export function ValidatorWorkspace({
                       <span className="font-semibold text-slate-700 block">
                         Hardware Collocation Protocol:
                       </span>
-                      <p className="text-slate-800 mt-1 font-mono text-[11px]">
+                      <p className="text-slate-800 mt-1 font-mono text-xs">
                         {record.methodologyReview.hardwareCollocation}
                       </p>
                     </div>
@@ -650,7 +650,7 @@ export function ValidatorWorkspace({
                       <span className="font-semibold text-slate-700 block">
                         Reference Instrumentation:
                       </span>
-                      <p className="text-slate-800 mt-1 font-mono text-[11px]">
+                      <p className="text-slate-800 mt-1 font-mono text-xs">
                         {record.methodologyReview.referenceInstrumentation}
                       </p>
                     </div>
@@ -659,7 +659,7 @@ export function ValidatorWorkspace({
                       <span className="font-semibold text-slate-700 block">
                         Encrypted Telemetry Protocol:
                       </span>
-                      <p className="text-slate-800 mt-1 font-mono text-[11px]">
+                      <p className="text-slate-800 mt-1 font-mono text-xs">
                         {record.methodologyReview.telemetryProtocol}
                       </p>
                     </div>
@@ -668,7 +668,7 @@ export function ValidatorWorkspace({
                   <div className="p-3.5 rounded bg-teal-50 border border-teal-200 text-xs text-teal-950 space-y-1">
                     <strong className="block">Auditor Assessment:</strong>
                     <p>{record.methodologyReview.auditorEvaluation}</p>
-                    <span className="text-[10px] font-mono text-teal-800 block">
+                    <span className="text-xs font-mono text-teal-800 block">
                       Standards Checked: {record.methodologyReview.complianceCertification}
                     </span>
                   </div>
@@ -690,37 +690,37 @@ export function ValidatorWorkspace({
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Historic Coverage
                       </span>
                       <span className="text-xl font-bold font-mono text-slate-900 block mt-1">
                         35.0%
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-xs text-slate-500">
                         1 CAAQMS Station / District
                       </span>
                     </div>
 
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Historic Accuracy
                       </span>
                       <span className="text-xl font-bold font-mono text-slate-900 block mt-1">
                         82.0%
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-xs text-slate-500">
                         Uncalibrated Optical Curve
                       </span>
                     </div>
 
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Historic Uptime
                       </span>
                       <span className="text-xl font-bold font-mono text-slate-900 block mt-1">
                         76.0%
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-xs text-slate-500">
                         Frequent Solar Inverter Trips
                       </span>
                     </div>
@@ -733,7 +733,7 @@ export function ValidatorWorkspace({
                     <p className="text-slate-700 leading-relaxed">
                       {record.baselineReview.priorInterventionConditions}
                     </p>
-                    <span className="text-[10px] text-gov-muted font-mono block">
+                    <span className="text-xs text-gov-muted font-mono block">
                       Observation Window: {record.baselineReview.observationDateRange}
                     </span>
                   </div>
@@ -755,37 +755,37 @@ export function ValidatorWorkspace({
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Target Coverage
                       </span>
                       <span className="text-xl font-bold font-mono text-gov-primary block mt-1">
                         ≥ 85.0%
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-xs text-slate-500">
                         500m Voronoi buffer
                       </span>
                     </div>
 
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Target Accuracy
                       </span>
                       <span className="text-xl font-bold font-mono text-gov-primary block mt-1">
                         R² ≥ 0.90
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-xs text-slate-500">
                         vs BAM-1020 Analyzer
                       </span>
                     </div>
 
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Target Uptime
                       </span>
                       <span className="text-xl font-bold font-mono text-gov-primary block mt-1">
                         ≥ 90.0%
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-xs text-slate-500">
                         Continuous hourly transmission
                       </span>
                     </div>
@@ -798,7 +798,7 @@ export function ValidatorWorkspace({
                     <p className="text-slate-700 leading-relaxed">
                       {record.targetsReview.performanceThresholdRationale}
                     </p>
-                    <span className="text-[10px] text-gov-muted font-mono block">
+                    <span className="text-xs text-gov-muted font-mono block">
                       Statutory Mandate: {record.targetsReview.statutoryMandate}
                     </span>
                   </div>
@@ -820,7 +820,7 @@ export function ValidatorWorkspace({
 
                   <div className="overflow-x-auto border border-slate-200 rounded-lg">
                     <table className="w-full text-left text-xs border-collapse">
-                      <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-slate-200">
+                      <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-slate-200">
                         <tr>
                           <th className="p-3">Audited Metric</th>
                           <th className="p-3">Baseline</th>
@@ -852,7 +852,7 @@ export function ValidatorWorkspace({
                                     ? "success"
                                     : "outline"
                                 }
-                                className="text-[10px]"
+                                className="text-xs"
                               >
                                 {k.outcomeStatus}
                               </Badge>
@@ -896,18 +896,18 @@ export function ValidatorWorkspace({
                       >
                         <div>
                           <div className="flex items-center space-x-2">
-                            <span className="font-mono text-[10px] font-bold text-gov-primary bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                            <span className="font-mono text-xs font-bold text-gov-primary bg-white px-1.5 py-0.5 rounded border border-slate-200">
                               {ev.id}
                             </span>
                             <span className="font-semibold text-slate-900">
                               {ev.title}
                             </span>
                           </div>
-                          <span className="font-mono text-[10px] text-gov-muted block mt-0.5">
+                          <span className="font-mono text-xs text-gov-muted block mt-0.5">
                             Type: {ev.type} • SHA-256: {ev.sha256}
                           </span>
                         </div>
-                        <Badge variant="success" className="text-[10px]">
+                        <Badge variant="success" className="text-xs">
                           {ev.status}
                         </Badge>
                       </div>
@@ -924,7 +924,7 @@ export function ValidatorWorkspace({
                     </div>
                     <Link
                       href="/evidence"
-                      className="text-[11px] font-bold text-emerald-900 hover:underline shrink-0"
+                      className="text-xs font-bold text-emerald-900 hover:underline shrink-0"
                     >
                       Open Evidence Vault →
                     </Link>
@@ -947,49 +947,49 @@ export function ValidatorWorkspace({
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Linearity (R²)
                       </span>
                       <span className="text-2xl font-bold font-mono text-emerald-700 block mt-1">
                         {record.resultsReview.regressionLinearityR2}
                       </span>
-                      <span className="text-[10px] text-emerald-800">
+                      <span className="text-xs text-emerald-800">
                         Target ≥ 0.90 exceeded
                       </span>
                     </div>
 
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Mean Error (MAPE)
                       </span>
                       <span className="text-2xl font-bold font-mono text-slate-900 block mt-1">
                         {record.resultsReview.meanAbsolutePercentageError}%
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-xs text-slate-500">
                         Target ≤ 5.0%
                       </span>
                     </div>
 
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Operational Uptime
                       </span>
                       <span className="text-2xl font-bold font-mono text-slate-900 block mt-1">
                         {record.resultsReview.uptimePercentage}%
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-xs text-slate-500">
                         Target ≥ 90.0%
                       </span>
                     </div>
 
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded">
-                      <span className="text-gov-muted block text-[10px] uppercase font-mono">
+                      <span className="text-gov-muted block text-xs uppercase font-mono">
                         Significance (p)
                       </span>
                       <span className="text-2xl font-bold font-mono text-purple-700 block mt-1">
                         p &lt; 0.001
                       </span>
-                      <span className="text-[10px] text-purple-800">
+                      <span className="text-xs text-purple-800">
                         Statistically Robust
                       </span>
                     </div>
@@ -1104,7 +1104,7 @@ export function ValidatorWorkspace({
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2">
                   <div className="flex items-center space-x-2">
-                    <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200">
+                    <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200">
                       {item.dimension}
                     </span>
                     <h4 className="font-bold text-slate-900 text-sm">
@@ -1118,7 +1118,7 @@ export function ValidatorWorkspace({
                         size="sm"
                         variant="outline"
                         onClick={() => openEditModal(item)}
-                        className="h-6 text-[10px] px-2 text-gov-primary border-gov-primary/30 hover:bg-gov-light"
+                        className="h-6 text-xs px-2 text-gov-primary border-gov-primary/30 hover:bg-gov-light"
                       >
                         Audit / Edit
                       </Button>
@@ -1131,7 +1131,7 @@ export function ValidatorWorkspace({
                   {item.criteria}
                 </p>
 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 text-[11px] text-gov-muted">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 text-xs text-gov-muted">
                   <div>
                     <span className="font-mono">
                       Standard: {item.standardReference}
@@ -1145,7 +1145,7 @@ export function ValidatorWorkspace({
                   </div>
 
                   {item.verifiedBy && (
-                    <span className="font-mono text-[10px] text-slate-500 shrink-0">
+                    <span className="font-mono text-xs text-slate-500 shrink-0">
                       Audited by {item.verifiedBy}
                     </span>
                   )}
@@ -1213,7 +1213,7 @@ export function ValidatorWorkspace({
                       <span className="font-bold text-slate-900 text-sm block">
                         Validated
                       </span>
-                      <span className="text-[11px] text-slate-600">
+                      <span className="text-xs text-slate-600">
                         All primary objectives and critical KPI thresholds
                         exceeded. Ready for direct public procurement scale-up.
                       </span>
@@ -1240,7 +1240,7 @@ export function ValidatorWorkspace({
                       <span className="font-bold text-slate-900 text-sm block">
                         Partially Validated
                       </span>
-                      <span className="text-[11px] text-slate-600">
+                      <span className="text-xs text-slate-600">
                         Substantial milestones achieved, but specific secondary
                         criteria or reliability limits require remediation.
                       </span>
@@ -1267,7 +1267,7 @@ export function ValidatorWorkspace({
                       <span className="font-bold text-slate-900 text-sm block">
                         Not Validated
                       </span>
-                      <span className="text-[11px] text-slate-600">
+                      <span className="text-xs text-slate-600">
                         Core performance targets were not satisfied or
                         insurmountable technical failure occurred.
                       </span>
@@ -1288,7 +1288,7 @@ export function ValidatorWorkspace({
                   placeholder="Detail empirical findings, R² correlation figures, uptime statistics, and municipal impact..."
                   className="text-xs"
                 />
-                <span className="text-[10px] text-gov-muted mt-0.5 block">
+                <span className="text-xs text-gov-muted mt-0.5 block">
                   Provide detailed empirical justification based on audited data.
                 </span>
               </div>
@@ -1304,7 +1304,7 @@ export function ValidatorWorkspace({
                     return (
                       <label
                         key={ev.id}
-                        className="flex items-center space-x-2 text-[11px] cursor-pointer"
+                        className="flex items-center space-x-2 text-xs cursor-pointer"
                       >
                         <input
                           type="checkbox"
@@ -1319,7 +1319,7 @@ export function ValidatorWorkspace({
                     );
                   })}
                 </div>
-                <span className="text-[10px] text-gov-muted mt-0.5 block">
+                <span className="text-xs text-gov-muted mt-0.5 block">
                   Select at least one evidence artifact supporting the validation findings.
                 </span>
               </div>
@@ -1336,7 +1336,7 @@ export function ValidatorWorkspace({
                   placeholder="State any sensor drift, humidity scattering, cellular coverage blindspots, or maintenance requirements..."
                   className="text-xs"
                 />
-                <span className="text-[10px] text-gov-muted mt-0.5 block">
+                <span className="text-xs text-gov-muted mt-0.5 block">
                   Every field pilot encounters constraints. Documenting them protects public procurement.
                 </span>
               </div>
@@ -1407,19 +1407,19 @@ export function ValidatorWorkspace({
               >
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="font-mono font-bold text-[10px] text-gov-primary bg-white px-2 py-0.5 rounded border border-slate-200">
+                    <span className="font-mono font-bold text-xs text-gov-primary bg-white px-2 py-0.5 rounded border border-slate-200">
                       {log.action}
                     </span>
                     <span className="font-semibold text-slate-900">
                       {log.summary}
                     </span>
                   </div>
-                  <span className="font-mono text-[10px] text-slate-400 block mt-1">
+                  <span className="font-mono text-xs text-slate-400 block mt-1">
                     Seal Digest: {log.hash}
                   </span>
                 </div>
 
-                <div className="text-right shrink-0 font-mono text-[10px] text-gov-muted">
+                <div className="text-right shrink-0 font-mono text-xs text-gov-muted">
                   <div className="font-semibold text-slate-700">{log.actor}</div>
                   <div>
                     {new Date(log.timestamp).toLocaleString("en-IN", {
@@ -1460,7 +1460,7 @@ export function ValidatorWorkspace({
                   Evaluation Criteria:
                 </span>
                 <p className="text-slate-700">{editingItem.criteria}</p>
-                <span className="font-mono text-[10px] text-gov-muted block">
+                <span className="font-mono text-xs text-gov-muted block">
                   Standard: {editingItem.standardReference}
                 </span>
               </div>

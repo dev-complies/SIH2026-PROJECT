@@ -101,7 +101,7 @@ function SensorMast({
           )}
         >
           <span>{station.name}</span>
-          <span className={cn("block text-[10px]", isAlert ? "text-red-400" : "text-emerald-400")}>
+          <span className={cn("block text-xs", isAlert ? "text-red-400" : "text-emerald-400")}>
             PM2.5: {station.pm25} µg/m³
           </span>
         </div>
@@ -135,7 +135,7 @@ function PilotTerrainEnvironment({
           <meshStandardMaterial color="#163A5F" roughness={0.3} metalness={0.4} />
         </mesh>
         <Html position={[0, 1.2, 0]} center distanceFactor={12} className="pointer-events-none">
-          <div className="bg-blue-950/90 border border-blue-500/80 rounded-control px-2 py-0.5 text-[9px] font-mono font-bold text-blue-200 shadow-md">
+          <div className="bg-blue-950/90 border border-blue-500/80 rounded-control px-2 py-0.5 text-xs font-mono font-bold text-blue-200 shadow-md">
             CPCB REGULATORY STATION
           </div>
         </Html>
@@ -185,7 +185,7 @@ function FallbackPilotEnvironment() {
                 : "bg-slate-800/80 border-slate-700 text-slate-200"
             )}
           >
-            <div className="flex justify-between items-center text-[10px] font-mono text-slate-400">
+            <div className="flex justify-between items-center text-xs font-mono text-slate-400">
               <span>{s.ward}</span>
               <span className={s.status === "ALERT" ? "text-red-400 font-bold" : "text-emerald-400"}>
                 {s.status}
@@ -194,7 +194,7 @@ function FallbackPilotEnvironment() {
             <p className="text-xs font-bold text-white mt-1">{s.name}</p>
             <div className="flex justify-between items-baseline mt-2">
               <span className="text-lg font-bold">PM2.5: {s.pm25}</span>
-              <span className="text-[10px] text-slate-400">{s.uptime}% Uptime</span>
+              <span className="text-xs text-slate-400">{s.uptime}% Uptime</span>
             </div>
           </div>
         ))}

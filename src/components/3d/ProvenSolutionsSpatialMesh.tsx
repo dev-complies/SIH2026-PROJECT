@@ -85,13 +85,13 @@ function SolutionPillar({
               : "bg-slate-950/80 border-slate-700 text-slate-300"
           )}
         >
-          <span className="text-[9px] font-mono block text-slate-400 font-semibold truncate max-w-[120px]">
+          <span className="text-xs font-mono block text-slate-400 font-semibold truncate max-w-[120px]">
             {node.solution.pilotLocation.city}, {node.solution.pilotLocation.state}
           </span>
           <span className="text-xs font-bold text-white block truncate max-w-[140px]">
             {node.solution.startup.name}
           </span>
-          <span className="text-[9px] font-mono text-emerald-400 block">
+          <span className="text-xs font-mono text-emerald-400 block">
             {primaryKpi ? primaryKpi.actualAchieved : "Validated"} ({primaryKpi ? primaryKpi.name.substring(0, 10) : "KPI"})
           </span>
         </div>
@@ -145,14 +145,14 @@ function FallbackProvenSolutionsSchematic({
     <div className="w-full min-h-[380px] rounded-card bg-slate-900 border border-slate-800 p-5 flex flex-col justify-between text-left text-white shadow-inner">
       <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
         <div>
-          <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">
+          <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">
             PROVEN SOLUTIONS SPATIAL REPLICATION MESH
           </span>
           <h4 className="text-sm font-bold text-white mt-1">
             Geographic Municipal Deployment & Validation Matrix
           </h4>
         </div>
-        <span className="text-[11px] font-mono text-slate-400">
+        <span className="text-xs font-mono text-slate-400">
           {solutions.length} Certified Innovations
         </span>
       </div>
@@ -172,7 +172,7 @@ function FallbackProvenSolutionsSchematic({
                   : "bg-slate-800/60 border-slate-700 hover:border-slate-600"
               )}
             >
-              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
                 <span className="flex items-center">
                   <MapPin className="w-3 h-3 mr-1 text-blue-400" />
                   {sol.pilotLocation.city}, {sol.pilotLocation.state}
@@ -180,9 +180,9 @@ function FallbackProvenSolutionsSchematic({
                 <span className="text-emerald-400 font-semibold">{sol.pilotDuration.durationDays} Days</span>
               </div>
               <h5 className="font-bold text-white text-xs truncate">{sol.problem.statement}</h5>
-              <p className="text-[11px] text-slate-300 font-mono mt-0.5 truncate">{sol.startup.name}</p>
+              <p className="text-xs text-slate-300 font-mono mt-0.5 truncate">{sol.startup.name}</p>
               {kpi && (
-                <div className="mt-2 pt-1.5 border-t border-slate-700/80 flex items-center justify-between text-[10px] font-mono">
+                <div className="mt-2 pt-1.5 border-t border-slate-700/80 flex items-center justify-between text-xs font-mono">
                   <span className="text-slate-400 truncate max-w-[120px]">{kpi.name}</span>
                   <span className="text-emerald-400 font-bold">{kpi.actualAchieved} (Baseline: {kpi.baseline})</span>
                 </div>
@@ -192,7 +192,7 @@ function FallbackProvenSolutionsSchematic({
         })}
       </div>
 
-      <div className="border-t border-slate-800 pt-2 text-[11px] text-slate-400 flex justify-between items-center mt-3">
+      <div className="border-t border-slate-800 pt-2 text-xs text-slate-400 flex justify-between items-center mt-3">
         <span>Click any proven solution to view validation dossier & replication terms.</span>
         <span className="text-emerald-400 font-mono">100% GFR 149 Direct Procurement Ready</span>
       </div>
@@ -295,14 +295,14 @@ export function ProvenSolutionsSpatialMesh({
         <div className="bg-white border border-gov-border rounded-control p-3.5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-left">
           <div className="space-y-1">
             <div className="flex items-center space-x-2">
-              <span className="font-mono text-[10px] font-bold text-gov-primary bg-slate-100 px-2 py-0.5 rounded">
+              <span className="font-mono text-xs font-bold text-gov-primary bg-slate-100 px-2 py-0.5 rounded">
                 {activeSelected.code}
               </span>
-              <span className="font-mono text-[10px] text-gov-muted flex items-center">
+              <span className="font-mono text-xs text-gov-muted flex items-center">
                 <MapPin className="w-3 h-3 mr-1 text-slate-500" />
                 {activeSelected.pilotLocation.city}, {activeSelected.pilotLocation.state}
               </span>
-              <Badge variant="outline" className="text-[9px] font-mono border-emerald-300 text-emerald-800 bg-emerald-50">
+              <Badge variant="outline" className="text-xs font-mono border-emerald-300 text-emerald-800 bg-emerald-50">
                 VALIDATED • {activeSelected.validationStatus.rating}
               </Badge>
             </div>
@@ -312,13 +312,13 @@ export function ProvenSolutionsSpatialMesh({
           </div>
 
           <div className="flex items-center space-x-2">
-            <span className="text-[11px] font-mono text-gov-muted hidden md:inline">
+            <span className="text-xs font-mono text-gov-muted hidden md:inline">
               Auditor: <strong className="text-slate-700">{activeSelected.validationStatus.accreditedAgency}</strong>
             </span>
             <Button
               size="sm"
               onClick={() => handleSelect(activeSelected)}
-              className="bg-gov-primary hover:bg-gov-primary-hover h-7 text-xs text-white"
+              className="bg-gov-primary hover:bg-gov-primary-hover h-8 text-xs text-white"
             >
               Inspect Replication Dossier
             </Button>

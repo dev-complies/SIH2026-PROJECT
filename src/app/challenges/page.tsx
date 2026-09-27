@@ -239,7 +239,7 @@ export default function StartupChallengeDiscoveryPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center space-x-2 mb-1.5">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 PUBLIC PROCUREMENT CATALOG
               </Badge>
               <span className="text-slate-300">•</span>
@@ -267,7 +267,7 @@ export default function StartupChallengeDiscoveryPage() {
             >
               <Bookmark className={`w-3.5 h-3.5 mr-1.5 ${savedFilterOnly ? "fill-purple-600 text-purple-600" : "text-slate-400"}`} />
               Saved Challenges
-              <span className="ml-1.5 px-1.5 py-0.2 rounded-full text-[10px] bg-slate-200 text-slate-800 font-mono">
+              <span className="ml-1.5 px-1.5 py-0.2 rounded-full text-xs bg-slate-200 text-slate-800 font-mono">
                 {savedIds.length}
               </span>
             </button>
@@ -354,70 +354,70 @@ export default function StartupChallengeDiscoveryPage() {
         {/* Active Filter Pills Bar */}
         {activeFilterCount > 0 && (
           <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100 text-xs">
-            <span className="text-[11px] text-gov-muted font-medium mr-1">Active Filters:</span>
+            <span className="text-xs text-gov-muted font-medium mr-1">Active Filters:</span>
             {selectedDept !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-slate-50 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-slate-50 flex items-center gap-1">
                 Dept: {selectedDept}
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedDept("ALL")} />
               </Badge>
             )}
             {selectedState !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-slate-50 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-slate-50 flex items-center gap-1">
                 State: {selectedState}
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedState("ALL")} />
               </Badge>
             )}
             {selectedDistrict !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-slate-50 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-slate-50 flex items-center gap-1">
                 District: {selectedDistrict}
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedDistrict("ALL")} />
               </Badge>
             )}
             {selectedCategory !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-slate-50 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-slate-50 flex items-center gap-1">
                 Category: {selectedCategory}
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedCategory("ALL")} />
               </Badge>
             )}
             {selectedTech.map((t) => (
-              <Badge key={t} variant="outline" className="text-[10px] bg-blue-50 text-blue-800 border-blue-200 flex items-center gap-1">
+              <Badge key={t} variant="outline" className="text-xs bg-blue-50 text-blue-800 border-blue-200 flex items-center gap-1">
                 Tech: {t}
                 <X className="w-3 h-3 cursor-pointer" onClick={() => toggleTech(t)} />
               </Badge>
             ))}
             {selectedBudget !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-slate-50 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-slate-50 flex items-center gap-1">
                 Budget: {selectedBudget}
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedBudget("ALL")} />
               </Badge>
             )}
             {selectedDuration !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-slate-50 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-slate-50 flex items-center gap-1">
                 Duration: {selectedDuration} Days
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedDuration("ALL")} />
               </Badge>
             )}
             {selectedDeadline !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-slate-50 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-slate-50 flex items-center gap-1">
                 Deadline: {selectedDeadline}
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedDeadline("ALL")} />
               </Badge>
             )}
             {selectedStatus !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-slate-50 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-slate-50 flex items-center gap-1">
                 Status: {selectedStatus}
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedStatus("ALL")} />
               </Badge>
             )}
             {savedFilterOnly && (
-              <Badge variant="outline" className="text-[10px] bg-purple-50 text-purple-800 border-purple-200 flex items-center gap-1">
+              <Badge variant="outline" className="text-xs bg-purple-50 text-purple-800 border-purple-200 flex items-center gap-1">
                 Saved Only
                 <X className="w-3 h-3 cursor-pointer" onClick={() => setSavedFilterOnly(false)} />
               </Badge>
             )}
             <button
               onClick={handleClearFilters}
-              className="text-[11px] text-gov-accent hover:underline font-semibold ml-2"
+              className="text-xs text-gov-accent hover:underline font-semibold ml-2"
             >
               Clear All
             </button>
@@ -434,14 +434,14 @@ export default function StartupChallengeDiscoveryPage() {
           }`}
         >
           <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
-            <span className="font-extrabold text-gov-primary tracking-tight flex items-center uppercase text-[11px] font-mono">
+            <span className="font-extrabold text-gov-primary tracking-tight flex items-center uppercase text-xs font-mono">
               <Filter className="w-3.5 h-3.5 mr-1.5 text-gov-accent" />
               Procurement Filters
             </span>
             {activeFilterCount > 0 && (
               <button
                 onClick={handleClearFilters}
-                className="text-[10px] text-gov-muted hover:text-gov-danger font-medium"
+                className="text-xs text-gov-muted hover:text-gov-danger font-medium"
               >
                 Reset
               </button>
@@ -450,7 +450,7 @@ export default function StartupChallengeDiscoveryPage() {
 
           {/* 1. Department */}
           <div className="space-y-1.5">
-            <label className="font-bold text-slate-800 block text-[11px]">Department</label>
+            <label className="font-bold text-slate-800 block text-xs">Department</label>
             <select
               value={selectedDept}
               onChange={(e) => setSelectedDept(e.target.value)}
@@ -468,7 +468,7 @@ export default function StartupChallengeDiscoveryPage() {
           {/* 2. State & District */}
           <div className="grid grid-cols-2 gap-2">
             <div className="space-y-1">
-              <label className="font-bold text-slate-800 block text-[11px]">State</label>
+              <label className="font-bold text-slate-800 block text-xs">State</label>
               <select
                 value={selectedState}
                 onChange={(e) => setSelectedState(e.target.value)}
@@ -484,7 +484,7 @@ export default function StartupChallengeDiscoveryPage() {
             </div>
 
             <div className="space-y-1">
-              <label className="font-bold text-slate-800 block text-[11px]">District</label>
+              <label className="font-bold text-slate-800 block text-xs">District</label>
               <select
                 value={selectedDistrict}
                 onChange={(e) => setSelectedDistrict(e.target.value)}
@@ -502,7 +502,7 @@ export default function StartupChallengeDiscoveryPage() {
 
           {/* 3. Category */}
           <div className="space-y-1.5">
-            <label className="font-bold text-slate-800 block text-[11px]">Category</label>
+            <label className="font-bold text-slate-800 block text-xs">Category</label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
@@ -519,7 +519,7 @@ export default function StartupChallengeDiscoveryPage() {
 
           {/* 4. Technology Pills (Multi-Select) */}
           <div className="space-y-1.5">
-            <label className="font-bold text-slate-800 block text-[11px]">Technology Stack</label>
+            <label className="font-bold text-slate-800 block text-xs">Technology Stack</label>
             <div className="flex flex-wrap gap-1 max-h-32 overflow-y-auto pt-0.5">
               {technologies.map((t) => {
                 const isSelected = selectedTech.includes(t);
@@ -527,7 +527,7 @@ export default function StartupChallengeDiscoveryPage() {
                   <button
                     key={t}
                     onClick={() => toggleTech(t)}
-                    className={`px-2 py-0.5 rounded text-[10px] font-mono border transition-all ${
+                    className={`px-2 py-0.5 rounded text-xs font-mono border transition-all ${
                       isSelected
                         ? "bg-blue-600 text-white border-blue-600 shadow-2xs"
                         : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
@@ -542,7 +542,7 @@ export default function StartupChallengeDiscoveryPage() {
 
           {/* 5. Budget Range */}
           <div className="space-y-1.5">
-            <label className="font-bold text-slate-800 block text-[11px]">Pilot Budget</label>
+            <label className="font-bold text-slate-800 block text-xs">Pilot Budget</label>
             <select
               value={selectedBudget}
               onChange={(e) => setSelectedBudget(e.target.value)}
@@ -557,13 +557,13 @@ export default function StartupChallengeDiscoveryPage() {
 
           {/* 6. Pilot Duration */}
           <div className="space-y-1.5">
-            <label className="font-bold text-slate-800 block text-[11px]">Pilot Duration</label>
+            <label className="font-bold text-slate-800 block text-xs">Pilot Duration</label>
             <div className="grid grid-cols-2 gap-1.5">
               {["ALL", "60", "90", "120", "180"].map((dur) => (
                 <button
                   key={dur}
                   onClick={() => setSelectedDuration(dur)}
-                  className={`py-1 px-2 rounded text-[11px] font-mono border text-center transition-all ${
+                  className={`py-1 px-2 rounded text-xs font-mono border text-center transition-all ${
                     selectedDuration === dur
                       ? "bg-gov-primary text-white border-gov-primary font-bold shadow-2xs"
                       : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
@@ -577,7 +577,7 @@ export default function StartupChallengeDiscoveryPage() {
 
           {/* 7. Deadline */}
           <div className="space-y-1.5">
-            <label className="font-bold text-slate-800 block text-[11px]">Submission Deadline</label>
+            <label className="font-bold text-slate-800 block text-xs">Submission Deadline</label>
             <select
               value={selectedDeadline}
               onChange={(e) => setSelectedDeadline(e.target.value)}
@@ -591,7 +591,7 @@ export default function StartupChallengeDiscoveryPage() {
 
           {/* 8. Status */}
           <div className="space-y-1.5">
-            <label className="font-bold text-slate-800 block text-[11px]">Challenge Status</label>
+            <label className="font-bold text-slate-800 block text-xs">Challenge Status</label>
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
@@ -613,7 +613,7 @@ export default function StartupChallengeDiscoveryPage() {
             <span>
               Showing <strong>{filteredChallenges.length}</strong> of {CHALLENGES_DATA.length} published challenges
             </span>
-            <span className="text-[11px] font-mono text-emerald-800 flex items-center">
+            <span className="text-xs font-mono text-emerald-800 flex items-center">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-1" />
               100% GFR 2017 Rule 149 Verified
             </span>
@@ -629,11 +629,11 @@ export default function StartupChallengeDiscoveryPage() {
                       <MapIcon className="w-4 h-4 mr-1.5 text-gov-accent" />
                       Geospatial Pilot & Challenge Mesh
                     </h3>
-                    <p className="text-[11px] text-gov-muted">
+                    <p className="text-xs text-gov-muted">
                       Explore physical pilot testbeds and open challenge wards across Indian municipalities. Click any node to review specs.
                     </p>
                   </div>
-                  <Badge variant="outline" className="text-[10px] font-mono">
+                  <Badge variant="outline" className="text-xs font-mono">
                     3D Telemetry Active
                   </Badge>
                 </div>
@@ -678,7 +678,7 @@ export default function StartupChallengeDiscoveryPage() {
                             {item.location}
                           </span>
                         </div>
-                        <span className="text-[10px] font-mono text-gov-accent block">
+                        <span className="text-xs font-mono text-gov-accent block">
                           {item.code}
                         </span>
                       </div>
@@ -686,7 +686,7 @@ export default function StartupChallengeDiscoveryPage() {
                       <div className="flex items-center space-x-2 shrink-0">
                         <Badge
                           variant={item.statusVariant as any}
-                          className="font-mono text-[10px] py-0.5 px-2"
+                          className="font-mono text-xs py-0.5 px-2"
                         >
                           {item.statusLabel}
                         </Badge>
@@ -719,11 +719,11 @@ export default function StartupChallengeDiscoveryPage() {
 
                     {/* Technology Badges */}
                     <div className="flex flex-wrap items-center gap-1.5">
-                      <span className="text-[10px] font-mono text-gov-muted mr-1">TECH:</span>
+                      <span className="text-xs font-mono text-gov-muted mr-1">TECH:</span>
                       {item.technology.map((tech) => (
                         <span
                           key={tech}
-                          className="text-[10px] bg-slate-100 border border-slate-200 text-slate-700 px-2 py-0.5 rounded font-mono"
+                          className="text-xs bg-slate-100 border border-slate-200 text-slate-700 px-2 py-0.5 rounded font-mono"
                         >
                           {tech}
                         </span>
@@ -733,7 +733,7 @@ export default function StartupChallengeDiscoveryPage() {
                     {/* Key Metrics Grid: Budget, Deadline, Duration, Category */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 border border-slate-200/80 rounded-control p-3 text-xs">
                       <div>
-                        <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                        <span className="text-xs text-gov-muted font-mono uppercase block">
                           PILOT BUDGET
                         </span>
                         <span className="font-extrabold text-slate-900 font-mono text-sm">
@@ -742,7 +742,7 @@ export default function StartupChallengeDiscoveryPage() {
                       </div>
 
                       <div>
-                        <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                        <span className="text-xs text-gov-muted font-mono uppercase block">
                           TESTING DURATION
                         </span>
                         <span className="font-semibold text-slate-800">
@@ -751,7 +751,7 @@ export default function StartupChallengeDiscoveryPage() {
                       </div>
 
                       <div>
-                        <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                        <span className="text-xs text-gov-muted font-mono uppercase block">
                           DEADLINE
                         </span>
                         <span className="font-bold text-amber-900">
@@ -765,7 +765,7 @@ export default function StartupChallengeDiscoveryPage() {
                       </div>
 
                       <div>
-                        <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                        <span className="text-xs text-gov-muted font-mono uppercase block">
                           CATEGORY
                         </span>
                         <span className="font-medium text-slate-800 truncate block">
@@ -776,7 +776,7 @@ export default function StartupChallengeDiscoveryPage() {
 
                     {/* Action Footer */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-                      <div className="text-[11px] text-gov-muted flex items-center">
+                      <div className="text-xs text-gov-muted flex items-center">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-1.5" />
                         Requires DPIIT Startup Recognition Certificate
                       </div>

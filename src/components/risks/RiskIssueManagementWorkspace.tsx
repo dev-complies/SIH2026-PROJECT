@@ -483,25 +483,25 @@ export function RiskIssueManagementWorkspace({
     switch (severity) {
       case "Critical":
         return (
-          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-900 text-rose-300 border border-slate-700 inline-flex items-center">
+          <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-900 text-rose-300 border border-slate-700 inline-flex items-center">
             CRITICAL
           </span>
         );
       case "High":
         return (
-          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-300 inline-flex items-center">
+          <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-300 inline-flex items-center">
             HIGH
           </span>
         );
       case "Medium":
         return (
-          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-300 inline-flex items-center">
+          <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-300 inline-flex items-center">
             MEDIUM
           </span>
         );
       case "Low":
         return (
-          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-50 text-slate-600 border border-slate-200 inline-flex items-center">
+          <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-50 text-slate-600 border border-slate-200 inline-flex items-center">
             LOW
           </span>
         );
@@ -545,7 +545,7 @@ export function RiskIssueManagementWorkspace({
 
   const renderCategoryChip = (category: RiskCategory) => {
     return (
-      <span className="font-mono text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+      <span className="font-mono text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
         {category}
       </span>
     );
@@ -560,7 +560,7 @@ export function RiskIssueManagementWorkspace({
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[10px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 RISK & ISSUE OVERSIGHT
               </Badge>
               <span className="text-xs font-mono text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center">
@@ -653,7 +653,7 @@ export function RiskIssueManagementWorkspace({
           >
             <Sparkles className="w-4 h-4 text-purple-600" aria-hidden="true" />
             <span>AI Risk Suggestions</span>
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 font-medium">Advisory</span>
+            <span className="text-xs px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 font-medium">Advisory</span>
           </button>
         </div>
 
@@ -661,46 +661,46 @@ export function RiskIssueManagementWorkspace({
         {activeTab === "risks" ? (
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
             <div className="p-2.5 rounded bg-slate-50 border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase font-mono block">TOTAL RISKS</span>
+              <span className="text-xs text-gov-muted uppercase font-mono block">TOTAL RISKS</span>
               <span className="text-lg font-bold text-slate-900 font-mono">{riskStats.total}</span>
             </div>
             <div className="p-2.5 rounded bg-slate-900 text-white border border-slate-800">
-              <span className="text-[10px] text-rose-300 uppercase font-mono block">HIGH EXPOSURE (≥15)</span>
+              <span className="text-xs text-rose-300 uppercase font-mono block">HIGH EXPOSURE (≥15)</span>
               <span className="text-lg font-bold text-rose-200 font-mono">{riskStats.high}</span>
             </div>
             <div className="p-2.5 rounded bg-amber-50/70 border border-amber-200">
-              <span className="text-[10px] text-amber-800 uppercase font-mono block">MEDIUM (7-14)</span>
+              <span className="text-xs text-amber-800 uppercase font-mono block">MEDIUM (7-14)</span>
               <span className="text-lg font-bold text-amber-900 font-mono">{riskStats.medium}</span>
             </div>
             <div className="p-2.5 rounded bg-slate-50 border border-slate-200">
-              <span className="text-[10px] text-slate-600 uppercase font-mono block">LOW IMPACT (&lt;7)</span>
+              <span className="text-xs text-slate-600 uppercase font-mono block">LOW IMPACT (&lt;7)</span>
               <span className="text-lg font-bold text-slate-800 font-mono">{riskStats.low}</span>
             </div>
             <div className="p-2.5 rounded bg-blue-50/70 border border-blue-200">
-              <span className="text-[10px] text-blue-800 uppercase font-mono block">ACTIVELY MITIGATING</span>
+              <span className="text-xs text-blue-800 uppercase font-mono block">ACTIVELY MITIGATING</span>
               <span className="text-lg font-bold text-blue-900 font-mono">{riskStats.mitigating}</span>
             </div>
           </div>
         ) : activeTab === "issues" ? (
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
             <div className="p-2.5 rounded bg-slate-50 border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase font-mono block">TOTAL ISSUES</span>
+              <span className="text-xs text-gov-muted uppercase font-mono block">TOTAL ISSUES</span>
               <span className="text-lg font-bold text-slate-900 font-mono">{issueStats.total}</span>
             </div>
             <div className="p-2.5 rounded bg-blue-50/80 border border-blue-200">
-              <span className="text-[10px] text-blue-800 uppercase font-mono block">OPEN TICKETS</span>
+              <span className="text-xs text-blue-800 uppercase font-mono block">OPEN TICKETS</span>
               <span className="text-lg font-bold text-blue-900 font-mono">{issueStats.open}</span>
             </div>
             <div className="p-2.5 rounded bg-amber-50/80 border border-amber-200">
-              <span className="text-[10px] text-amber-800 uppercase font-mono block">IN PROGRESS</span>
+              <span className="text-xs text-amber-800 uppercase font-mono block">IN PROGRESS</span>
               <span className="text-lg font-bold text-amber-900 font-mono">{issueStats.inProgress}</span>
             </div>
             <div className="p-2.5 rounded bg-rose-50/80 border border-rose-200">
-              <span className="text-[10px] text-rose-800 uppercase font-mono block">BLOCKED</span>
+              <span className="text-xs text-rose-800 uppercase font-mono block">BLOCKED</span>
               <span className="text-lg font-bold text-rose-900 font-mono">{issueStats.blocked}</span>
             </div>
             <div className="p-2.5 rounded bg-emerald-50/80 border border-emerald-200">
-              <span className="text-[10px] text-emerald-800 uppercase font-mono block">RESOLVED & CLOSED</span>
+              <span className="text-xs text-emerald-800 uppercase font-mono block">RESOLVED & CLOSED</span>
               <span className="text-lg font-bold text-emerald-900 font-mono">
                 {issueStats.resolved + issueStats.closed}
               </span>
@@ -716,7 +716,7 @@ export function RiskIssueManagementWorkspace({
             </div>
             <Link
               href="/risks-issues/ai-analysis"
-              className="text-[11px] font-semibold text-purple-700 hover:underline flex items-center space-x-1"
+              className="text-xs font-semibold text-purple-700 hover:underline flex items-center space-x-1"
             >
               <span>Full Screen View</span>
               <ArrowRight className="w-3 h-3" />
@@ -739,7 +739,7 @@ export function RiskIssueManagementWorkspace({
                   <h3 className="text-xs font-bold text-slate-900 uppercase font-mono">
                     Probability vs Impact Risk Matrix
                   </h3>
-                  <p className="text-[11px] text-gov-muted">
+                  <p className="text-xs text-gov-muted">
                     Click any cell to filter risks by coordinate density
                   </p>
                 </div>
@@ -748,7 +748,7 @@ export function RiskIssueManagementWorkspace({
                     variant="outline"
                     size="sm"
                     onClick={() => setSelectedMatrixCell(null)}
-                    className="h-6 text-[10px] px-2 text-slate-600"
+                    className="h-6 text-xs px-2 text-slate-600"
                   >
                     Clear Filter
                   </Button>
@@ -761,7 +761,7 @@ export function RiskIssueManagementWorkspace({
                   {/* Y-Axis Label & Grid rows (5 down to 1) */}
                   {[5, 4, 3, 2, 1].map((prob) => (
                     <div key={prob} className="flex items-center space-x-1.5">
-                      <span className="w-12 text-[10px] font-mono text-slate-500 text-right pr-1">
+                      <span className="w-12 text-xs font-mono text-slate-500 text-right pr-1">
                         P{prob}
                       </span>
                       <div className="grid grid-cols-5 gap-1.5 flex-1">
@@ -804,7 +804,7 @@ export function RiskIssueManagementWorkspace({
                   {/* X-Axis Labels */}
                   <div className="flex items-center space-x-1.5 pt-1">
                     <span className="w-12"></span>
-                    <div className="grid grid-cols-5 gap-1.5 flex-1 text-center font-mono text-[10px] text-slate-500">
+                    <div className="grid grid-cols-5 gap-1.5 flex-1 text-center font-mono text-xs text-slate-500">
                       <span>I1 (Negl)</span>
                       <span>I2 (Min)</span>
                       <span>I3 (Mod)</span>
@@ -822,7 +822,7 @@ export function RiskIssueManagementWorkspace({
                 <h3 className="text-xs font-bold text-slate-900 uppercase font-mono">
                   Statutory Categories (8 Areas)
                 </h3>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   {riskCategoryFilter === "ALL" ? "All Categories Active" : `Filtered: ${riskCategoryFilter}`}
                 </span>
               </div>
@@ -850,8 +850,8 @@ export function RiskIssueManagementWorkspace({
                           : "bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100"
                       }`}
                     >
-                      <span className="font-semibold block truncate text-[11px]">{cat}</span>
-                      <span className={`text-[10px] font-mono block mt-0.5 ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
+                      <span className="font-semibold block truncate text-xs">{cat}</span>
+                      <span className={`text-xs font-mono block mt-0.5 ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
                         {count} {count === 1 ? "Risk" : "Risks"}
                       </span>
                     </button>
@@ -927,7 +927,7 @@ export function RiskIssueManagementWorkspace({
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
-                  <tr className="bg-slate-50 border-b border-slate-200 text-gov-muted uppercase font-mono text-[10px]">
+                  <tr className="bg-slate-50 border-b border-slate-200 text-gov-muted uppercase font-mono text-xs">
                     <th className="py-2.5 px-3 font-semibold">Risk & Category</th>
                     <th className="py-2.5 px-3 font-semibold text-center">P × I</th>
                     <th className="py-2.5 px-3 font-semibold">Risk Score</th>
@@ -944,7 +944,7 @@ export function RiskIssueManagementWorkspace({
                       <td className="py-3 px-3">
                         <div className="space-y-1">
                           <div className="flex items-center space-x-1.5">
-                            <span className="font-mono text-[10px] text-gov-muted font-bold">{risk.id}</span>
+                            <span className="font-mono text-xs text-gov-muted font-bold">{risk.id}</span>
                             {renderCategoryChip(risk.category)}
                           </div>
                           <button
@@ -953,7 +953,7 @@ export function RiskIssueManagementWorkspace({
                           >
                             {risk.title}
                           </button>
-                          <p className="text-[11px] text-slate-500 line-clamp-1">
+                          <p className="text-xs text-slate-500 line-clamp-1">
                             {risk.description}
                           </p>
                         </div>
@@ -971,7 +971,7 @@ export function RiskIssueManagementWorkspace({
 
                       {/* Mitigation */}
                       <td className="py-3 px-3 max-w-xs">
-                        <p className="text-[11px] text-slate-700 leading-snug line-clamp-2">
+                        <p className="text-xs text-slate-700 leading-snug line-clamp-2">
                           {risk.mitigation}
                         </p>
                       </td>
@@ -981,7 +981,7 @@ export function RiskIssueManagementWorkspace({
                         <div className="font-semibold text-slate-800 text-xs truncate max-w-[130px]">
                           {risk.owner}
                         </div>
-                        <div className="text-[10px] font-mono text-slate-500 flex items-center mt-0.5">
+                        <div className="text-xs font-mono text-slate-500 flex items-center mt-0.5">
                           <Calendar className="w-3 h-3 mr-1" />
                           {risk.dueDate}
                         </div>
@@ -998,7 +998,7 @@ export function RiskIssueManagementWorkspace({
                           variant="outline"
                           size="sm"
                           onClick={() => openRiskDrawer(risk)}
-                          className="h-7 text-xs px-2.5"
+                          className="h-8 text-xs px-2.5"
                         >
                           <Eye className="w-3 h-3 mr-1" /> Details
                         </Button>
@@ -1103,7 +1103,7 @@ export function RiskIssueManagementWorkspace({
                       {issue.title}
                     </button>
                     {issue.relatedRiskId && (
-                      <span className="text-[10px] font-mono text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
+                      <span className="text-xs font-mono text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
                         Linked: {issue.relatedRiskId}
                       </span>
                     )}
@@ -1121,7 +1121,7 @@ export function RiskIssueManagementWorkspace({
 
                 {issue.resolution && (
                   <div className="bg-slate-50/80 p-2.5 rounded border border-slate-200/80 text-xs">
-                    <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+                    <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       RESOLUTION AUDIT / REMEDIATION PLAN
                     </span>
                     <p className="text-slate-800 text-[11.5px] leading-relaxed mt-0.5">
@@ -1130,7 +1130,7 @@ export function RiskIssueManagementWorkspace({
                   </div>
                 )}
 
-                <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-[11px] text-slate-500">
+                <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500">
                   <div className="flex items-center space-x-4">
                     <span>
                       Owner: <strong className="text-slate-700">{issue.owner}</strong>
@@ -1144,7 +1144,7 @@ export function RiskIssueManagementWorkspace({
                     variant="outline"
                     size="sm"
                     onClick={() => openIssueDrawer(issue)}
-                    className="h-6 text-[10px] px-2.5"
+                    className="h-6 text-xs px-2.5"
                   >
                     <Eye className="w-3 h-3 mr-1" /> Inspect / Update
                   </Button>
@@ -1201,20 +1201,20 @@ export function RiskIssueManagementWorkspace({
 
             {/* Score & Coordinates */}
             <div className="p-3 bg-slate-50 border border-slate-200 rounded-card space-y-2">
-              <span className="text-[10px] text-gov-muted uppercase font-mono font-bold block">
+              <span className="text-xs text-gov-muted uppercase font-mono font-bold block">
                 QUANTITATIVE RISK CALCULATION
               </span>
               <div className="flex items-center justify-between text-xs">
                 <div>
-                  <span className="text-[10px] text-gov-muted block">PROBABILITY</span>
+                  <span className="text-xs text-gov-muted block">PROBABILITY</span>
                   <span className="font-mono font-bold text-slate-800 text-sm">Level {selectedRisk.probability} / 5</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-gov-muted block">IMPACT</span>
+                  <span className="text-xs text-gov-muted block">IMPACT</span>
                   <span className="font-mono font-bold text-slate-800 text-sm">Level {selectedRisk.impact} / 5</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-gov-muted block">AGGREGATE SCORE</span>
+                  <span className="text-xs text-gov-muted block">AGGREGATE SCORE</span>
                   {renderRiskScorePill(selectedRisk.riskScore)}
                 </div>
               </div>
@@ -1231,11 +1231,11 @@ export function RiskIssueManagementWorkspace({
             {/* Owner & Due Date */}
             <div className="grid grid-cols-2 gap-3 text-xs bg-white border border-slate-200 rounded-card p-3">
               <div>
-                <span className="text-[10px] text-gov-muted block uppercase">ASSIGNED OWNER</span>
+                <span className="text-xs text-gov-muted block uppercase">ASSIGNED OWNER</span>
                 <span className="font-bold text-slate-800">{selectedRisk.owner}</span>
               </div>
               <div>
-                <span className="text-[10px] text-gov-muted block uppercase">MITIGATION DUE DATE</span>
+                <span className="text-xs text-gov-muted block uppercase">MITIGATION DUE DATE</span>
                 <span className="font-mono font-bold text-slate-800">{selectedRisk.dueDate}</span>
               </div>
             </div>
@@ -1253,7 +1253,7 @@ export function RiskIssueManagementWorkspace({
               />
 
               <div className="space-y-1">
-                <label className="text-[11px] font-semibold text-slate-800 block">
+                <label className="text-xs font-semibold text-slate-800 block">
                   Update Risk Lifecycle Status
                 </label>
                 <div className="grid grid-cols-3 gap-2">
@@ -1328,11 +1328,11 @@ export function RiskIssueManagementWorkspace({
             {/* Owner & Deadline */}
             <div className="grid grid-cols-2 gap-3 text-xs bg-white border border-slate-200 rounded-card p-3">
               <div>
-                <span className="text-[10px] text-gov-muted block uppercase">ASSIGNED OWNER</span>
+                <span className="text-xs text-gov-muted block uppercase">ASSIGNED OWNER</span>
                 <span className="font-bold text-slate-800">{selectedIssue.owner}</span>
               </div>
               <div>
-                <span className="text-[10px] text-gov-muted block uppercase">RESOLUTION DEADLINE</span>
+                <span className="text-xs text-gov-muted block uppercase">RESOLUTION DEADLINE</span>
                 <span className="font-mono font-bold text-slate-800">{selectedIssue.deadline}</span>
               </div>
             </div>
@@ -1351,7 +1351,7 @@ export function RiskIssueManagementWorkspace({
               />
 
               <div className="space-y-1">
-                <label className="text-[11px] font-semibold text-slate-800 block">
+                <label className="text-xs font-semibold text-slate-800 block">
                   Update Issue Status
                 </label>
                 <div className="grid grid-cols-3 gap-2">
@@ -1400,7 +1400,7 @@ export function RiskIssueManagementWorkspace({
                 <h3 id="add-risk-modal-title" className="font-bold text-base text-slate-900">
                   Register Statutory Pilot Risk
                 </h3>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Log threat across 8 risk areas with binding mitigation plan
                 </p>
               </div>
@@ -1491,7 +1491,7 @@ export function RiskIssueManagementWorkspace({
               </div>
 
               <div className="p-2 bg-slate-50 border border-slate-200 rounded text-center">
-                <span className="text-[10px] text-gov-muted uppercase font-mono mr-2">CALCULATED RISK SCORE:</span>
+                <span className="text-xs text-gov-muted uppercase font-mono mr-2">CALCULATED RISK SCORE:</span>
                 {renderRiskScorePill(newRiskProb * newRiskImp)}
               </div>
 
@@ -1571,7 +1571,7 @@ export function RiskIssueManagementWorkspace({
                 <h3 id="add-issue-modal-title" className="font-bold text-base text-slate-900">
                   Report Operational Field Issue
                 </h3>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Log an active failure, maintenance blockage, or telemetry disruption
                 </p>
               </div>

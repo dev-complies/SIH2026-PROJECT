@@ -83,7 +83,7 @@ function StagePillar({
               : "bg-slate-950/80 border-slate-700 text-slate-300"
           )}
         >
-          <span className="text-[10px] font-mono block text-slate-400 font-semibold">{stage.name}</span>
+          <span className="text-xs font-mono block text-slate-400 font-semibold">{stage.name}</span>
           <span className="text-sm font-extrabold text-white">{stage.count} Active</span>
         </div>
       </Html>
@@ -142,16 +142,16 @@ function FallbackPipeline({ onSelectStage }: { onSelectStage: (s: PipelineStageD
             onClick={() => onSelectStage(st)}
             className="p-3 rounded-control border border-slate-700 bg-slate-800/80 hover:border-blue-500 cursor-pointer transition-colors text-left"
           >
-            <span className="text-[10px] font-mono text-slate-400 block">{st.name}</span>
+            <span className="text-xs font-mono text-slate-400 block">{st.name}</span>
             <span className="text-xl font-extrabold text-white mt-1 block">{st.count}</span>
-            <p className="text-[10px] text-gov-muted mt-0.5 truncate">{st.subtext}</p>
+            <p className="text-xs text-gov-muted mt-0.5 truncate">{st.subtext}</p>
           </div>
         ))}
       </div>
 
       <div className="border-t border-slate-800 pt-2 text-xs text-slate-400 flex justify-between items-center">
         <span>Click any stage card to filter operational queue.</span>
-        <span className="text-emerald-400 font-mono text-[11px]">Lifecycle Traceability 100%</span>
+        <span className="text-emerald-400 font-mono text-xs">Lifecycle Traceability 100%</span>
       </div>
     </div>
   );
@@ -220,7 +220,7 @@ export function InnovationPipeline({
               Active Items: <strong className="text-gov-primary">{selectedStage.count}</strong> ({selectedStage.subtext})
             </span>
           </div>
-          <span className="text-[11px] text-gov-muted">Filtered in operational table below</span>
+          <span className="text-xs text-gov-muted">Filtered in operational table below</span>
         </div>
       )}
     </div>

@@ -584,7 +584,7 @@ export function MilestoneManagementWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 PILOT MILESTONE MANAGEMENT SYSTEM
               </Badge>
               <span className="text-slate-300">•</span>
@@ -602,7 +602,7 @@ export function MilestoneManagementWorkspace() {
 
           {/* Persona Switcher Toggle */}
           <div className="flex items-center space-x-2 bg-slate-100 p-1 rounded-control text-xs font-semibold shrink-0">
-            <span className="text-[10px] uppercase font-mono text-gov-muted px-2">Role View:</span>
+            <span className="text-xs uppercase font-mono text-gov-muted px-2">Role View:</span>
             <button
               onClick={() => setCurrentPersona("GOVERNMENT")}
               className={`px-3 py-1 rounded transition-all flex items-center space-x-1 ${
@@ -631,7 +631,7 @@ export function MilestoneManagementWorkspace() {
           {/* Progress Bar & Value */}
           <div className="sm:col-span-2 space-y-1.5">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] uppercase font-mono text-gov-muted font-bold">
+              <span className="text-xs uppercase font-mono text-gov-muted font-bold">
                 AUTOMATIC OVERALL PILOT PROGRESS
               </span>
               <span className="font-mono text-lg font-extrabold text-gov-primary">
@@ -651,7 +651,7 @@ export function MilestoneManagementWorkspace() {
 
           {/* Treasury Escrow Disbursed */}
           <div className="space-y-0.5 border-l border-slate-200 pl-4">
-            <span className="text-[10px] uppercase font-mono text-gov-muted font-bold">
+            <span className="text-xs uppercase font-mono text-gov-muted font-bold">
               TREASURY DISBURSED
             </span>
             <div className="font-mono text-base font-extrabold text-emerald-700">
@@ -664,7 +664,7 @@ export function MilestoneManagementWorkspace() {
 
           {/* Current Active Milestone */}
           <div className="space-y-0.5 border-l border-slate-200 pl-4">
-            <span className="text-[10px] uppercase font-mono text-gov-muted font-bold">
+            <span className="text-xs uppercase font-mono text-gov-muted font-bold">
               ACTIVE STAGE
             </span>
             <div className="font-mono text-xs font-bold text-amber-900">
@@ -688,7 +688,7 @@ export function MilestoneManagementWorkspace() {
               <span className="w-1.5 h-3.5 bg-gov-accent rounded-xs mr-2" />
               Contractual Progress Timeline: M1 → M2 → M3 → M4 → M5
             </h2>
-            <p className="text-[11px] text-gov-muted">
+            <p className="text-xs text-gov-muted">
               Click any milestone node to open its slide-over inspection drawer
             </p>
           </div>
@@ -754,7 +754,7 @@ export function MilestoneManagementWorkspace() {
                   <h3 className="font-bold text-slate-900 text-xs leading-snug line-clamp-2">
                     {m.name}
                   </h3>
-                  <span className="text-[10px] text-gov-muted font-mono block">
+                  <span className="text-xs text-gov-muted font-mono block">
                     Due: {m.deadline}
                   </span>
                 </div>
@@ -773,12 +773,12 @@ export function MilestoneManagementWorkspace() {
                         ? "default"
                         : "secondary"
                     }
-                    className="font-mono text-[9px]"
+                    className="font-mono text-xs"
                   >
                     {m.status.replace(/_/g, " ")}
                   </Badge>
 
-                  <span className="text-[10px] font-mono text-slate-500 font-semibold">
+                  <span className="text-xs font-mono text-slate-500 font-semibold">
                     {m.payment.percentage}%
                   </span>
                 </div>
@@ -811,7 +811,7 @@ export function MilestoneManagementWorkspace() {
                   </span>
                   <div>
                     <h3 className="font-bold text-slate-900 text-sm">{m.name}</h3>
-                    <p className="text-[11px] text-gov-muted">
+                    <p className="text-xs text-gov-muted">
                       Target Deadline: <strong className="text-slate-700 font-mono">{m.deadline}</strong> • Weight: {m.weight}% of Total Pilot
                     </p>
                   </div>
@@ -837,7 +837,7 @@ export function MilestoneManagementWorkspace() {
                   >
                     {m.status.replace(/_/g, " ")}
                   </Badge>
-                  <Button size="sm" variant="outline" className="text-xs h-7 border-slate-300">
+                  <Button size="sm" variant="outline" className="text-xs h-8 border-slate-300">
                     Open Drawer <ChevronRight className="w-3.5 h-3.5 ml-1" />
                   </Button>
                 </div>
@@ -851,7 +851,7 @@ export function MilestoneManagementWorkspace() {
                   <span className="text-[9.5px] uppercase font-mono text-gov-muted block">
                     KEY PERFORMANCE INDICATOR (KPI)
                   </span>
-                  <span className="font-semibold text-slate-800 text-[11px]">
+                  <span className="font-semibold text-slate-800 text-xs">
                     {m.kpi.name}: <strong className="text-emerald-700">{m.kpi.actual}</strong> (Target: {m.kpi.target})
                   </span>
                 </div>
@@ -860,7 +860,7 @@ export function MilestoneManagementWorkspace() {
                   <span className="text-[9.5px] uppercase font-mono text-gov-muted block">
                     EVIDENCE ATTACHMENTS
                   </span>
-                  <span className="font-semibold text-slate-800 text-[11px]">
+                  <span className="font-semibold text-slate-800 text-xs">
                     {m.evidence.length} Sealed Document(s) Attached
                   </span>
                 </div>
@@ -869,7 +869,7 @@ export function MilestoneManagementWorkspace() {
                   <span className="text-[9.5px] uppercase font-mono text-gov-muted block">
                     APPROVAL STATUS
                   </span>
-                  <span className="font-semibold text-slate-800 text-[11px]">
+                  <span className="font-semibold text-slate-800 text-xs">
                     {m.approval?.approvedBy || m.approval?.rejectedBy || "Pending Officer Determination"}
                   </span>
                 </div>
@@ -891,7 +891,7 @@ export function MilestoneManagementWorkspace() {
             <div className="p-4 sm:p-5 border-b border-slate-200 bg-slate-50 flex items-start justify-between gap-3">
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
-                  <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+                  <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                     {selectedMilestone.code} DOSSIER
                   </Badge>
                   <span className="text-slate-300">•</span>
@@ -922,7 +922,7 @@ export function MilestoneManagementWorkspace() {
                       ? "default"
                       : "secondary"
                   }
-                  className="font-mono text-[10px]"
+                  className="font-mono text-xs"
                 >
                   {selectedMilestone.status.replace(/_/g, " ")}
                 </Badge>
@@ -939,7 +939,7 @@ export function MilestoneManagementWorkspace() {
             <div className="flex-1 overflow-y-auto p-5 space-y-5">
               {/* Field 1: Description */}
               <div className="space-y-1.5">
-                <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                   1. WORK PACKAGE SCOPE & DESCRIPTION
                 </span>
                 <p className="text-slate-700 leading-relaxed text-[11.5px] bg-slate-50 p-3 rounded border border-slate-200">
@@ -950,7 +950,7 @@ export function MilestoneManagementWorkspace() {
               {/* Field 2: Deadline & SLA */}
               <div className="grid grid-cols-2 gap-3 text-[11.5px]">
                 <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                  <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                  <span className="text-xs font-mono text-gov-muted uppercase block">
                     CONTRACTUAL DEADLINE
                   </span>
                   <span className="font-bold text-slate-900 font-mono text-xs">
@@ -959,7 +959,7 @@ export function MilestoneManagementWorkspace() {
                 </div>
 
                 <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                  <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                  <span className="text-xs font-mono text-gov-muted uppercase block">
                     PAYMENT DISBURSEMENT TRANCHE
                   </span>
                   <span className="font-bold text-emerald-800 font-mono text-xs">
@@ -970,7 +970,7 @@ export function MilestoneManagementWorkspace() {
 
               {/* Field 3: Deliverables Checklist */}
               <div className="space-y-2">
-                <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                   2. REQUIRED CONTRACTUAL DELIVERABLES
                 </span>
                 <div className="space-y-1.5">
@@ -986,7 +986,7 @@ export function MilestoneManagementWorkspace() {
                       />
                       <div>
                         <span className="font-bold text-slate-900 block text-xs">{del.name}</span>
-                        <span className="text-[11px] text-slate-600">{del.description}</span>
+                        <span className="text-xs text-slate-600">{del.description}</span>
                       </div>
                     </div>
                   ))}
@@ -995,7 +995,7 @@ export function MilestoneManagementWorkspace() {
 
               {/* Field 4: KPI Benchmark Tracking */}
               <div className="space-y-1.5">
-                <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                   3. MEASURABLE PERFORMANCE BENCHMARK (KPI)
                 </span>
                 <div className="p-3 bg-purple-50/70 border border-purple-200 rounded-control flex items-center justify-between">
@@ -1003,13 +1003,13 @@ export function MilestoneManagementWorkspace() {
                     <span className="font-bold text-purple-950 text-xs block">
                       {selectedMilestone.kpi.name}
                     </span>
-                    <span className="text-[11px] text-purple-900">
+                    <span className="text-xs text-purple-900">
                       Contractual Baseline: <strong className="font-mono">{selectedMilestone.kpi.target}</strong>
                     </span>
                   </div>
 
                   <div className="text-right">
-                    <span className="text-[9px] font-mono text-purple-800 uppercase block">
+                    <span className="text-xs font-mono text-purple-800 uppercase block">
                       VERIFIED ACTUAL
                     </span>
                     <span className="font-mono font-extrabold text-sm text-emerald-700">
@@ -1022,7 +1022,7 @@ export function MilestoneManagementWorkspace() {
               {/* Field 5: Evidence Documents & Startup Upload Terminal */}
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+                  <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                     4. EMPIRICAL EVIDENCE & SENSOR LOGS ({selectedMilestone.evidence.length})
                   </span>
 
@@ -1030,7 +1030,7 @@ export function MilestoneManagementWorkspace() {
                     <Button
                       size="sm"
                       onClick={() => setShowUploadEvidence(true)}
-                      className="bg-gov-primary text-[10px] h-6 px-2 font-semibold"
+                      className="bg-gov-primary text-xs h-6 px-2 font-semibold"
                     >
                       <UploadCloud className="w-3 h-3 mr-1" /> Upload Evidence
                     </Button>
@@ -1061,7 +1061,7 @@ export function MilestoneManagementWorkspace() {
                           value={newEvidenceTitle}
                           onChange={(e) => setNewEvidenceTitle(e.target.value)}
                           placeholder="e.g. 60Day_TimeSeries_Particulate_Telemetry.parquet"
-                          className="text-xs h-7"
+                          className="text-xs h-8"
                         />
                       </div>
 
@@ -1086,7 +1086,7 @@ export function MilestoneManagementWorkspace() {
                           <label className="font-bold text-slate-800 text-[10.5px] block mb-0.5">
                             Simulated Cryptographic Digest:
                           </label>
-                          <span className="text-[10px] font-mono text-slate-500 block pt-1">
+                          <span className="text-xs font-mono text-slate-500 block pt-1">
                             SHA-256 Chained Automatically
                           </span>
                         </div>
@@ -1098,14 +1098,14 @@ export function MilestoneManagementWorkspace() {
                         size="sm"
                         variant="outline"
                         onClick={() => setShowUploadEvidence(false)}
-                        className="text-[10px] h-6 px-2"
+                        className="text-xs h-6 px-2"
                       >
                         Cancel
                       </Button>
                       <Button
                         size="sm"
                         onClick={handleUploadEvidence}
-                        className="bg-gov-primary text-[10px] h-6 px-2.5 font-semibold text-white"
+                        className="bg-gov-primary text-xs h-6 px-2.5 font-semibold text-white"
                       >
                         Confirm & Attach File
                       </Button>
@@ -1127,7 +1127,7 @@ export function MilestoneManagementWorkspace() {
                       >
                         <div className="min-w-0 pr-2">
                           <p className="font-bold text-slate-900 text-xs truncate">{ev.title}</p>
-                          <span className="text-[10px] text-gov-muted font-mono block">
+                          <span className="text-xs text-gov-muted font-mono block">
                             {ev.category} • {ev.size} • Uploaded {ev.uploadDate} by {ev.uploadedBy}
                           </span>
                           <span className="text-[9.5px] text-slate-400 font-mono block">
@@ -1146,7 +1146,7 @@ export function MilestoneManagementWorkspace() {
                                 description: `Verifying SHA-256 seal for ${ev.title}.`,
                               })
                             }
-                            className="text-[10px] h-6 px-2 border-slate-300"
+                            className="text-xs h-6 px-2 border-slate-300"
                           >
                             <Eye className="w-3 h-3 mr-1" /> Inspect
                           </Button>
@@ -1159,7 +1159,7 @@ export function MilestoneManagementWorkspace() {
 
               {/* Field 6: Payment Details */}
               <div className="space-y-1.5">
-                <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                   5. TREASURY ESCROW & DISBURSEMENT
                 </span>
                 <div className="p-3 bg-slate-50 border border-slate-200 rounded flex items-center justify-between text-xs">
@@ -1167,7 +1167,7 @@ export function MilestoneManagementWorkspace() {
                     <span className="font-bold text-slate-900 block">
                       {selectedMilestone.payment.tranche}
                     </span>
-                    <span className="text-[11px] text-gov-muted font-mono">
+                    <span className="text-xs text-gov-muted font-mono">
                       Invoice: {selectedMilestone.payment.invoiceNumber || "Pending Generation"}
                     </span>
                   </div>
@@ -1184,7 +1184,7 @@ export function MilestoneManagementWorkspace() {
                           ? "warning"
                           : "outline"
                       }
-                      className="font-mono text-[9px]"
+                      className="font-mono text-xs"
                     >
                       {selectedMilestone.payment.escrowStatus.replace(/_/g, " ")}
                     </Badge>
@@ -1193,7 +1193,7 @@ export function MilestoneManagementWorkspace() {
                 <div className="text-right">
                   <Link
                     href={`/payments?milestone=${selectedMilestone.code}`}
-                    className="inline-flex items-center text-[11px] font-semibold text-gov-primary hover:underline mt-1"
+                    className="inline-flex items-center text-xs font-semibold text-gov-primary hover:underline mt-1"
                   >
                     <CreditCard className="w-3 h-3 mr-1" />
                     Open Payment in Treasury Ledger →
@@ -1203,7 +1203,7 @@ export function MilestoneManagementWorkspace() {
 
               {/* Field 7: Approval Status & Historical Deliberations */}
               <div className="space-y-1.5">
-                <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                   6. OFFICIAL STATUTORY DETERMINATION & MINUTES
                 </span>
 
@@ -1212,19 +1212,19 @@ export function MilestoneManagementWorkspace() {
                     <span className="font-bold text-slate-800 text-xs">
                       {selectedMilestone.approval?.approvedBy || selectedMilestone.approval?.rejectedBy || "Deliberation Status:"}
                     </span>
-                    <span className="text-[10px] font-mono text-gov-muted">
+                    <span className="text-xs font-mono text-gov-muted">
                       {selectedMilestone.approval?.approvedAt || selectedMilestone.approval?.rejectedAt || "Pending"}
                     </span>
                   </div>
 
                   {selectedMilestone.approval?.reviewNotes && (
-                    <p className="text-[11px] text-slate-700 leading-relaxed">
+                    <p className="text-xs text-slate-700 leading-relaxed">
                       {selectedMilestone.approval.reviewNotes}
                     </p>
                   )}
 
                   {selectedMilestone.approval?.rejectionReason && (
-                    <div className="p-2 bg-red-50 border border-red-200 rounded text-red-900 text-[11px]">
+                    <div className="p-2 bg-red-50 border border-red-200 rounded text-red-900 text-xs">
                       <strong>Rejection Rationale:</strong> {selectedMilestone.approval.rejectionReason}
                     </div>
                   )}
@@ -1318,7 +1318,7 @@ export function MilestoneManagementWorkspace() {
               </p>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Statutory Rejection Comments <span className="text-red-600 font-bold">*</span>
                 </label>
                 <Textarea

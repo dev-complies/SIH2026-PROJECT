@@ -83,14 +83,14 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         </div>
 
         {error && (
-          <p id={`${selectId}-error`} role="alert" aria-live="polite" className="text-[11px] font-medium text-gov-danger flex items-center">
+          <p id={`${selectId}-error`} role="alert" aria-live="polite" className="text-xs font-medium text-gov-danger flex items-center">
             <AlertCircle className="w-3.5 h-3.5 mr-1 shrink-0" aria-hidden="true" />
             <span className="sr-only">Error: </span>
             {error}
           </p>
         )}
         {!error && helperText && (
-          <p id={`${selectId}-helper`} className="text-[11px] text-gov-muted">{helperText}</p>
+          <p id={`${selectId}-helper`} className="text-xs text-gov-muted">{helperText}</p>
         )}
       </div>
     );

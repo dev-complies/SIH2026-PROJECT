@@ -177,25 +177,25 @@ export function NotificationWorkspace() {
     switch (sev) {
       case "CRITICAL":
         return (
-          <Badge variant="destructive" className="font-mono text-[10px]">
+          <Badge variant="destructive" className="font-mono text-xs">
             CRITICAL
           </Badge>
         );
       case "HIGH":
         return (
-          <Badge variant="warning" className="font-mono text-[10px]">
+          <Badge variant="warning" className="font-mono text-xs">
             HIGH
           </Badge>
         );
       case "MEDIUM":
         return (
-          <Badge variant="default" className="bg-blue-600 font-mono text-[10px]">
+          <Badge variant="default" className="bg-blue-600 font-mono text-xs">
             MEDIUM
           </Badge>
         );
       default:
         return (
-          <Badge variant="outline" className="font-mono text-[10px]">
+          <Badge variant="outline" className="font-mono text-xs">
             INFO
           </Badge>
         );
@@ -235,10 +235,10 @@ export function NotificationWorkspace() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gov-border pb-5">
         <div>
           <div className="flex items-center space-x-2 mb-1.5">
-            <Badge variant="default" className="bg-gov-primary font-mono text-[10px]">
+            <Badge variant="default" className="bg-gov-primary font-mono text-xs">
               ROLE CONTEXT: {currentUser?.role || "GOVERNMENT_OFFICER"}
             </Badge>
-            <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-300 text-[10px]">
+            <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-300 text-xs">
               <Shield className="w-3 h-3 mr-1" /> ANTI-SPAM PROTECTION ACTIVE
             </Badge>
           </div>
@@ -291,7 +291,7 @@ export function NotificationWorkspace() {
           </div>
           <div>
             <span className="font-bold">Contextual Event Routing Guarantee:</span>
-            <p className="text-slate-600 text-[11px] mt-0.5">
+            <p className="text-slate-600 text-xs mt-0.5">
               You only receive notifications pertinent to your authorized operational duties as a{" "}
               <strong className="text-blue-950 font-semibold">{currentUser?.role || "Government Official"}</strong>.
               Statutory evaluations are blinded, payment tranches are routed to procurement, and milestone deadlines are isolated to vendors.
@@ -302,12 +302,12 @@ export function NotificationWorkspace() {
         <div className="flex items-center space-x-3 shrink-0">
           <div className="text-right">
             <div className="font-mono text-sm font-bold text-blue-950">{unreadCount}</div>
-            <div className="text-[10px] text-blue-700 uppercase font-semibold">Unread Alerts</div>
+            <div className="text-xs text-blue-700 uppercase font-semibold">Unread Alerts</div>
           </div>
           <div className="h-8 w-px bg-blue-200" />
           <div className="text-right">
             <div className="font-mono text-sm font-bold text-blue-950">{displayedNotifications.length}</div>
-            <div className="text-[10px] text-blue-700 uppercase font-semibold">Matching Events</div>
+            <div className="text-xs text-blue-700 uppercase font-semibold">Matching Events</div>
           </div>
         </div>
       </div>
@@ -347,7 +347,7 @@ export function NotificationWorkspace() {
           >
             <span>Unread</span>
             {unreadCount > 0 && (
-              <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
+              <span className={`px-1.5 py-0.2 rounded-full text-xs font-mono ${
                 readFilter === "UNREAD" ? "bg-white text-red-700" : "bg-red-100 text-red-700"
               }`}>
                 {unreadCount}
@@ -434,12 +434,12 @@ export function NotificationWorkspace() {
                         {notif.title}
                       </span>
                       {!notif.read && (
-                        <Badge variant="warning" className="text-[9px] py-0 px-1 font-mono">
+                        <Badge variant="warning" className="text-xs py-0 px-1 font-mono">
                           NEW
                         </Badge>
                       )}
                       {getSeverityBadge(notif.severity)}
-                      <Badge variant="outline" className="text-[10px] py-0 font-medium">
+                      <Badge variant="outline" className="text-xs py-0 font-medium">
                         {notif.type}
                       </Badge>
                     </div>
@@ -448,7 +448,7 @@ export function NotificationWorkspace() {
                       {notif.message}
                     </p>
 
-                    <div className="flex items-center space-x-4 pt-1 text-[11px] text-gov-muted">
+                    <div className="flex items-center space-x-4 pt-1 text-xs text-gov-muted">
                       <span className="font-mono">
                         Entity: <strong className="text-slate-700">{notif.entityType} ({notif.entityId})</strong>
                       </span>
@@ -463,7 +463,7 @@ export function NotificationWorkspace() {
                         })}
                       </span>
                       <span>•</span>
-                      <span className="text-[10px] text-slate-400 font-mono">
+                      <span className="text-xs text-slate-400 font-mono">
                         Dedup: {notif.dedupKey}
                       </span>
                     </div>
@@ -488,7 +488,7 @@ export function NotificationWorkspace() {
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => toggleReadStatus(notif)}
-                      className={`text-[11px] font-medium transition-colors ${
+                      className={`text-xs font-medium transition-colors ${
                         notif.read
                           ? "text-slate-400 hover:text-slate-700"
                           : "text-blue-600 hover:text-blue-800"

@@ -268,7 +268,7 @@ export function CommandPalette({
             className="w-full bg-transparent text-sm text-slate-900 placeholder:text-gov-muted focus:outline-none"
           />
           <div className="flex items-center space-x-2 shrink-0">
-            <span className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-slate-200 text-[10px] font-mono text-slate-600">
+            <span className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-slate-200 text-xs font-mono text-slate-600">
               ESC to close
             </span>
             <button
@@ -313,16 +313,16 @@ export function CommandPalette({
                       <div className="flex items-center space-x-2">
                         <span className="font-semibold text-slate-900">{item.title}</span>
                         {item.badge && (
-                          <Badge variant="outline" className="text-[9px] px-1 py-0 font-mono">
+                          <Badge variant="outline" className="text-xs px-1 py-0 font-mono">
                             {item.badge}
                           </Badge>
                         )}
                       </div>
-                      <p className="text-[11px] text-gov-muted truncate">{item.subtitle}</p>
+                      <p className="text-xs text-gov-muted truncate">{item.subtitle}</p>
                     </div>
                   </div>
 
-                  <div className="shrink-0 flex items-center space-x-2 text-[10px] text-gov-muted font-mono">
+                  <div className="shrink-0 flex items-center space-x-2 text-xs text-gov-muted font-mono">
                     <span className="hidden sm:inline">{item.category}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
                   </div>
@@ -333,18 +333,18 @@ export function CommandPalette({
         </div>
 
         {/* Command Palette Footer */}
-        <div className="border-t border-slate-100 bg-slate-50 px-4 py-2 flex items-center justify-between text-[11px] text-gov-muted">
+        <div className="border-t border-slate-100 bg-slate-50 px-4 py-2 flex items-center justify-between text-xs text-gov-muted">
           <div className="flex items-center space-x-3">
             <span>
-              <kbd className="px-1 py-0.5 rounded bg-slate-200 font-mono text-[10px]">↑</kbd>
-              <kbd className="px-1 py-0.5 rounded bg-slate-200 font-mono text-[10px] ml-0.5">↓</kbd> Navigate
+              <kbd className="px-1 py-0.5 rounded bg-slate-200 font-mono text-xs">↑</kbd>
+              <kbd className="px-1 py-0.5 rounded bg-slate-200 font-mono text-xs ml-0.5">↓</kbd> Navigate
             </span>
             <span>
-              <kbd className="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-[10px]">↵</kbd> Select
+              <kbd className="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-xs">↵</kbd> Select
             </span>
           </div>
 
-          <span className="font-mono text-[10px] text-slate-500">
+          <span className="font-mono text-xs text-slate-500">
             GovInnovate Command OS v1.0
           </span>
         </div>

@@ -144,7 +144,7 @@ function LoginForm() {
                 <UserCheck className="w-4 h-4 mr-1 text-gov-accent" />
                 One-Click Demo Personas:
               </span>
-              <span className="text-[10px] text-gov-muted">Password: Password123!</span>
+              <span className="text-xs text-gov-muted">Password: Password123!</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -159,11 +159,11 @@ function LoginForm() {
                     <span className="font-semibold text-gov-primary truncate max-w-[140px]">
                       {user.firstName} {user.lastName}
                     </span>
-                    <Badge variant="outline" className="text-[9px] px-1.5 py-0 font-mono">
+                    <Badge variant="outline" className="text-xs px-1.5 py-0 font-mono">
                       {user.role}
                     </Badge>
                   </div>
-                  <span className="text-[10px] text-gov-muted truncate block">
+                  <span className="text-xs text-gov-muted truncate block">
                     {user.designation}
                   </span>
                 </button>
@@ -173,7 +173,7 @@ function LoginForm() {
         </CardContent>
 
         <CardFooter className="bg-slate-50 border-t border-slate-100 p-4 text-center justify-center">
-          <p className="text-[11px] text-gov-muted">
+          <p className="text-xs text-gov-muted">
             Authorized government personnel and registered startups only. All actions are logged.
           </p>
         </CardFooter>

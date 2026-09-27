@@ -414,7 +414,7 @@ export function EligibilityReviewWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 OFFICIAL ELIGIBILITY DESK
               </Badge>
               <span className="text-slate-300">•</span>
@@ -453,25 +453,25 @@ export function EligibilityReviewWorkspace() {
         {/* Current Active Dossier Meta Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-slate-50 border border-slate-200/90 rounded-control p-3">
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block">APPLICANT STARTUP</span>
+            <span className="text-xs text-gov-muted font-mono uppercase block">APPLICANT STARTUP</span>
             <span className="font-bold text-slate-900 truncate block">{app.startupName}</span>
-            <span className="text-[10px] font-mono text-gov-accent">{app.dpiitNumber}</span>
+            <span className="text-xs font-mono text-gov-accent">{app.dpiitNumber}</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block">TARGET CHALLENGE</span>
+            <span className="text-xs text-gov-muted font-mono uppercase block">TARGET CHALLENGE</span>
             <span className="font-semibold text-slate-800 truncate block">{app.challengeTitle}</span>
-            <span className="text-[10px] text-gov-muted font-mono">{app.challengeCode}</span>
+            <span className="text-xs text-gov-muted font-mono">{app.challengeCode}</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block">PROPOSED BUDGET</span>
+            <span className="text-xs text-gov-muted font-mono uppercase block">PROPOSED BUDGET</span>
             <span className="font-bold text-slate-900 font-mono text-sm">{app.proposedCost}</span>
-            <span className="text-[10px] text-gov-muted block">Max: {app.budgetCeiling}</span>
+            <span className="text-xs text-gov-muted block">Max: {app.budgetCeiling}</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block">ELIGIBILITY STATUS</span>
+            <span className="text-xs text-gov-muted font-mono uppercase block">ELIGIBILITY STATUS</span>
             <Badge
               variant={
                 currentStatus === "ELIGIBLE"
@@ -482,7 +482,7 @@ export function EligibilityReviewWorkspace() {
                   ? "warning"
                   : "secondary"
               }
-              className="font-mono text-[10px] mt-0.5"
+              className="font-mono text-xs mt-0.5"
             >
               {currentStatus.replace(/_/g, " ")}
             </Badge>
@@ -535,7 +535,7 @@ export function EligibilityReviewWorkspace() {
               {leftTab === "summary" && (
                 <div className="space-y-4 animate-in fade-in duration-150">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+                    <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                       PROPOSAL SPECIFICATION
                     </span>
                     <h3 className="text-base font-extrabold text-gov-primary leading-tight">
@@ -544,7 +544,7 @@ export function EligibilityReviewWorkspace() {
                   </div>
 
                   <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                    <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+                    <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       EXECUTIVE SUMMARY
                     </span>
                     <p className="text-slate-700 leading-relaxed text-[11.5px]">
@@ -592,7 +592,7 @@ export function EligibilityReviewWorkspace() {
                   <div className="flex items-start justify-between border-b border-slate-100 pb-3">
                     <div>
                       <h3 className="font-bold text-slate-900 text-sm">{app.startupName}</h3>
-                      <p className="text-[11px] text-gov-muted">Incorporated on {app.incorporationDate}</p>
+                      <p className="text-xs text-gov-muted">Incorporated on {app.incorporationDate}</p>
                     </div>
                     <Badge variant="outline" className="text-emerald-800 bg-emerald-50 border-emerald-300 font-mono text-[9.5px]">
                       DPIIT VERIFIED
@@ -601,31 +601,31 @@ export function EligibilityReviewWorkspace() {
 
                   <div className="grid grid-cols-2 gap-3 text-[11.5px]">
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">DPIIT NUMBER</span>
+                      <span className="text-xs text-gov-muted font-mono uppercase block">DPIIT NUMBER</span>
                       <span className="font-semibold text-slate-900 font-mono">{app.dpiitNumber}</span>
                     </div>
 
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">CORPORATE CIN</span>
+                      <span className="text-xs text-gov-muted font-mono uppercase block">CORPORATE CIN</span>
                       <span className="font-semibold text-slate-900 font-mono">{app.cinNumber}</span>
                     </div>
 
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">FINANCIAL RUNWAY</span>
+                      <span className="text-xs text-gov-muted font-mono uppercase block">FINANCIAL RUNWAY</span>
                       <span className="font-semibold text-slate-900">{app.operatingRunway}</span>
                     </div>
 
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">NET WORTH AUDIT</span>
+                      <span className="text-xs text-gov-muted font-mono uppercase block">NET WORTH AUDIT</span>
                       <span className="font-semibold text-emerald-800">{app.netWorth}</span>
                     </div>
                   </div>
 
                   <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                    <span className="text-[10px] font-mono text-gov-primary uppercase font-bold block">
+                    <span className="text-xs font-mono text-gov-primary uppercase font-bold block">
                       SOVEREIGN DATA RESIDENCY TENANCY
                     </span>
-                    <p className="text-slate-700 text-[11px] leading-relaxed">
+                    <p className="text-slate-700 text-xs leading-relaxed">
                       {app.sovereignDataHost}
                     </p>
                   </div>
@@ -645,7 +645,7 @@ export function EligibilityReviewWorkspace() {
               {/* TAB 3: DOCUMENTS */}
               {leftTab === "documents" && (
                 <div className="space-y-3 animate-in fade-in duration-150">
-                  <span className="text-[10px] font-mono text-gov-muted font-bold uppercase tracking-wider block">
+                  <span className="text-xs font-mono text-gov-muted font-bold uppercase tracking-wider block">
                     CRYPTOGRAPHICALLY SEALED PROPOSAL DOSSIER
                   </span>
 
@@ -659,7 +659,7 @@ export function EligibilityReviewWorkspace() {
                           <p className="font-semibold text-slate-900 text-[11.5px] truncate">
                             {doc.name}
                           </p>
-                          <span className="text-[10px] text-gov-muted font-mono">
+                          <span className="text-xs text-gov-muted font-mono">
                             {doc.category} • {doc.size} • {doc.sha256}
                           </span>
                         </div>
@@ -669,7 +669,7 @@ export function EligibilityReviewWorkspace() {
                             size="sm"
                             variant="outline"
                             onClick={() => setPreviewDoc(doc)}
-                            className="text-[10px] h-6 px-2 border-slate-300"
+                            className="text-xs h-6 px-2 border-slate-300"
                           >
                             <Eye className="w-3 h-3 mr-1" /> Inspect
                           </Button>
@@ -688,7 +688,7 @@ export function EligibilityReviewWorkspace() {
           <div className="bg-white border border-gov-border rounded-card shadow-sm p-5 space-y-5 text-xs text-left">
             <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
               <div>
-                <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                   STATUTORY EVALUATION GATE
                 </span>
                 <h2 className="text-sm font-bold text-gov-primary">
@@ -729,7 +729,7 @@ export function EligibilityReviewWorkspace() {
                     </div>
 
                     {/* Status Pill Switcher */}
-                    <div className="flex rounded-md border border-slate-200 bg-white p-0.5 shrink-0 text-[10px] font-mono font-semibold">
+                    <div className="flex rounded-md border border-slate-200 bg-white p-0.5 shrink-0 text-xs font-mono font-semibold">
                       <button
                         onClick={() => handleChecklistStatusChange(item.id, "PASS")}
                         className={`px-2 py-0.5 rounded transition-all ${
@@ -763,7 +763,7 @@ export function EligibilityReviewWorkspace() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-[10px] text-gov-muted pt-1 border-t border-slate-100">
+                  <div className="flex items-center justify-between text-xs text-gov-muted pt-1 border-t border-slate-100">
                     <span className="font-mono">Ref: {item.documentRef}</span>
                     <span className="text-slate-600 italic">{item.notes}</span>
                   </div>
@@ -775,11 +775,11 @@ export function EligibilityReviewWorkspace() {
             <div className="space-y-3 pt-2 border-t border-slate-100">
               <div className="space-y-1">
                 <div className="flex items-center justify-between">
-                  <label className="font-bold text-slate-800 text-[11px] flex items-center">
+                  <label className="font-bold text-slate-800 text-xs flex items-center">
                     <Lock className="w-3 h-3 text-gov-primary mr-1" />
                     Reviewer Evaluation Notes
                   </label>
-                  <span className="text-[10px] text-gov-muted font-mono">Confidential Internal</span>
+                  <span className="text-xs text-gov-muted font-mono">Confidential Internal</span>
                 </div>
                 <Textarea
                   rows={2}
@@ -792,9 +792,9 @@ export function EligibilityReviewWorkspace() {
 
               {/* Mandatory Reason Input (Strictly enforced when Rejecting or Conditionally Approving) */}
               <div className="space-y-1">
-                <label className="font-bold text-slate-800 text-[11px]">
+                <label className="font-bold text-slate-800 text-xs">
                   Statutory Decision Reason / Conditions{" "}
-                  <span className="text-gov-muted font-normal text-[10px]">
+                  <span className="text-gov-muted font-normal text-xs">
                     (Mandatory for Rejection or Conditional Approval)
                   </span>
                 </label>
@@ -831,14 +831,14 @@ export function EligibilityReviewWorkspace() {
 
               {/* Four Decision Action Buttons */}
               <div className="pt-2 border-t border-slate-100 space-y-2">
-                <span className="text-[10px] font-mono text-gov-muted font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-muted font-bold uppercase tracking-wider block">
                   COMMIT STATUTORY DETERMINATION
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   <Button
                     size="sm"
                     onClick={() => handleDecision("ELIGIBLE")}
-                    className="bg-emerald-700 hover:bg-emerald-800 text-white text-[11px] font-semibold h-8"
+                    className="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold h-8"
                   >
                     <Check className="w-3 h-3 mr-1" /> Approve
                   </Button>
@@ -846,7 +846,7 @@ export function EligibilityReviewWorkspace() {
                   <Button
                     size="sm"
                     onClick={() => handleDecision("CONDITIONALLY_ELIGIBLE")}
-                    className="bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-semibold h-8"
+                    className="bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold h-8"
                   >
                     <Clock className="w-3 h-3 mr-1" /> Conditional
                   </Button>
@@ -854,7 +854,7 @@ export function EligibilityReviewWorkspace() {
                   <Button
                     size="sm"
                     onClick={() => handleDecision("CLARIFICATION_REQUIRED")}
-                    className="bg-purple-700 hover:bg-purple-800 text-white text-[11px] font-semibold h-8"
+                    className="bg-purple-700 hover:bg-purple-800 text-white text-xs font-semibold h-8"
                   >
                     <MessageSquare className="w-3 h-3 mr-1" /> Clarification
                   </Button>
@@ -862,7 +862,7 @@ export function EligibilityReviewWorkspace() {
                   <Button
                     size="sm"
                     onClick={() => handleDecision("INELIGIBLE")}
-                    className="bg-red-700 hover:bg-red-800 text-white text-[11px] font-semibold h-8"
+                    className="bg-red-700 hover:bg-red-800 text-white text-xs font-semibold h-8"
                   >
                     <X className="w-3 h-3 mr-1" /> Reject
                   </Button>
@@ -889,7 +889,7 @@ export function EligibilityReviewWorkspace() {
 
         <div className="border border-gov-border rounded-control overflow-hidden">
           <table className="w-full text-left border-collapse text-xs">
-            <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+            <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
               <tr>
                 <th className="p-2.5">Reviewer & Designation</th>
                 <th className="p-2.5">Timestamp</th>
@@ -904,9 +904,9 @@ export function EligibilityReviewWorkspace() {
                 <tr key={log.id} className="hover:bg-slate-50/60">
                   <td className="p-2.5">
                     <span className="font-semibold text-slate-900 block">{log.reviewerName}</span>
-                    <span className="text-[10px] text-gov-muted">{log.reviewerRole}</span>
+                    <span className="text-xs text-gov-muted">{log.reviewerRole}</span>
                   </td>
-                  <td className="p-2.5 font-mono text-slate-600 text-[11px]">{log.timestamp}</td>
+                  <td className="p-2.5 font-mono text-slate-600 text-xs">{log.timestamp}</td>
                   <td className="p-2.5">
                     <Badge
                       variant={
@@ -918,24 +918,24 @@ export function EligibilityReviewWorkspace() {
                           ? "warning"
                           : "secondary"
                       }
-                      className="font-mono text-[9px]"
+                      className="font-mono text-xs"
                     >
                       {log.decision.replace(/_/g, " ")}
                     </Badge>
                   </td>
-                  <td className="p-2.5 text-slate-700 text-[11px] max-w-xs">{log.reason}</td>
+                  <td className="p-2.5 text-slate-700 text-xs max-w-xs">{log.reason}</td>
                   <td className="p-2.5">
                     {log.isPublicToStartup ? (
-                      <span className="text-[10px] text-amber-800 font-semibold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
+                      <span className="text-xs text-amber-800 font-semibold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
                         Public to Startup
                       </span>
                     ) : (
-                      <span className="text-[10px] text-slate-600 font-mono bg-slate-100 px-1.5 py-0.5 rounded">
+                      <span className="text-xs text-slate-600 font-mono bg-slate-100 px-1.5 py-0.5 rounded">
                         Internal Only
                       </span>
                     )}
                   </td>
-                  <td className="p-2.5 font-mono text-right text-[10px] text-gov-muted">
+                  <td className="p-2.5 font-mono text-right text-xs text-gov-muted">
                     {log.cryptographicSeal}
                   </td>
                 </tr>
@@ -959,7 +959,7 @@ export function EligibilityReviewWorkspace() {
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 bg-slate-50 p-2.5 rounded border border-slate-200 text-[11px] font-mono">
+            <div className="grid grid-cols-3 gap-2 bg-slate-50 p-2.5 rounded border border-slate-200 text-xs font-mono">
               <div><span className="text-gov-muted block">CATEGORY</span>{previewDoc.category}</div>
               <div><span className="text-gov-muted block">FILE SIZE</span>{previewDoc.size}</div>
               <div><span className="text-gov-muted block">SHA-256 SEAL</span>{previewDoc.sha256}</div>
@@ -970,7 +970,7 @@ export function EligibilityReviewWorkspace() {
               <p className="text-xs font-semibold text-slate-800">
                 Official Government Document Preview
               </p>
-              <p className="text-[11px] text-gov-muted max-w-sm mx-auto">
+              <p className="text-xs text-gov-muted max-w-sm mx-auto">
                 Cryptographically anchored verification payload is verified intact against the State Digital Repository.
               </p>
             </div>

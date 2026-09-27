@@ -64,7 +64,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
             <div className="flex-1 text-left">
               <h4 className="text-xs font-bold leading-tight">{t.title}</h4>
               {t.description && (
-                <p className="text-[11px] opacity-90 mt-0.5 leading-normal">{t.description}</p>
+                <p className="text-xs opacity-90 mt-0.5 leading-normal">{t.description}</p>
               )}
             </div>
 

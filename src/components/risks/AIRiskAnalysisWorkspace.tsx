@@ -202,10 +202,10 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1.5">
             <div className="flex items-center space-x-2 flex-wrap gap-y-1">
-              <Badge variant="default" className="bg-indigo-700 text-white font-mono text-[10px] tracking-wider flex items-center">
+              <Badge variant="default" className="bg-indigo-700 text-white font-mono text-xs tracking-wider flex items-center">
                 <Sparkles className="w-3 h-3 mr-1" /> {AI_SUGGESTION_LABEL}
               </Badge>
-              <Badge variant="outline" className="border-indigo-300 text-indigo-900 bg-white font-mono text-[10px]">
+              <Badge variant="outline" className="border-indigo-300 text-indigo-900 bg-white font-mono text-xs">
                 GROUNDED IN CHALLENGE, STARTUP, PILOT & EVIDENCE DATA
               </Badge>
             </div>
@@ -228,7 +228,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
         </div>
 
         {/* Legal Mandate Box */}
-        <div className="mt-4 pt-3 border-t border-indigo-200/80 flex items-start space-x-2 text-[11px] text-indigo-950">
+        <div className="mt-4 pt-3 border-t border-indigo-200/80 flex items-start space-x-2 text-xs text-indigo-950">
           <ShieldAlert className="w-4 h-4 text-indigo-700 shrink-0 mt-0.5" />
           <span>
             <strong>Statutory Governance Mandate:</strong> AI recommendations are strictly advisory and{" "}
@@ -241,30 +241,30 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
 
       {/* Grounding Context Data Bar */}
       <div className="p-4 rounded-xl bg-white border border-gov-border shadow-2xs text-xs space-y-2">
-        <span className="font-bold text-slate-900 uppercase tracking-wider text-[11px] flex items-center">
+        <span className="font-bold text-slate-900 uppercase tracking-wider text-xs flex items-center">
           <BookOpen className="w-3.5 h-3.5 mr-1.5 text-gov-accent" />
           Grounding Information Baseline (Zero Hallucination Sources)
         </span>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
           <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-            <span className="text-[10px] text-gov-muted uppercase font-mono block">1. Challenge RFP</span>
-            <strong className="text-slate-800 text-[11px] block truncate">UAQ-LKO-2026 (Winter Smog Grid)</strong>
-            <span className="text-[10px] text-slate-500">R2 &gt;= 0.90 CPCB requirement</span>
+            <span className="text-xs text-gov-muted uppercase font-mono block">1. Challenge RFP</span>
+            <strong className="text-slate-800 text-xs block truncate">UAQ-LKO-2026 (Winter Smog Grid)</strong>
+            <span className="text-xs text-slate-500">R2 &gt;= 0.90 CPCB requirement</span>
           </div>
           <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-            <span className="text-[10px] text-gov-muted uppercase font-mono block">2. Startup Profile</span>
-            <strong className="text-slate-800 text-[11px] block truncate">AirSense Technologies</strong>
-            <span className="text-[10px] text-slate-500">DPIIT98214 • Turnover ₹1.45 Cr</span>
+            <span className="text-xs text-gov-muted uppercase font-mono block">2. Startup Profile</span>
+            <strong className="text-slate-800 text-xs block truncate">AirSense Technologies</strong>
+            <span className="text-xs text-slate-500">DPIIT98214 • Turnover ₹1.45 Cr</span>
           </div>
           <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-            <span className="text-[10px] text-gov-muted uppercase font-mono block">3. Active Pilot</span>
-            <strong className="text-slate-800 text-[11px] block truncate">PILOT-UP-UAQ-2026-01</strong>
-            <span className="text-[10px] text-slate-500">40 Nodes • Wards 14, 18, 22, 29</span>
+            <span className="text-xs text-gov-muted uppercase font-mono block">3. Active Pilot</span>
+            <strong className="text-slate-800 text-xs block truncate">PILOT-UP-UAQ-2026-01</strong>
+            <span className="text-xs text-slate-500">40 Nodes • Wards 14, 18, 22, 29</span>
           </div>
           <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-            <span className="text-[10px] text-gov-muted uppercase font-mono block">4. Telemetry Evidence</span>
-            <strong className="text-slate-800 text-[11px] block truncate">EVID-2026-001 &amp; EVID-004</strong>
-            <span className="text-[10px] text-slate-500">92% RH fog &amp; packet loss data</span>
+            <span className="text-xs text-gov-muted uppercase font-mono block">4. Telemetry Evidence</span>
+            <strong className="text-slate-800 text-xs block truncate">EVID-2026-001 &amp; EVID-004</strong>
+            <span className="text-xs text-slate-500">92% RH fog &amp; packet loss data</span>
           </div>
         </div>
       </div>
@@ -298,7 +298,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
               >
                 {getCategoryIcon(cat)}
                 <span>{cat}</span>
-                <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${isSelected ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"}`}>
+                <span className={`px-1.5 py-0.2 rounded-full text-xs font-mono ${isSelected ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"}`}>
                   {count}
                 </span>
               </button>
@@ -347,28 +347,28 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
                 {/* Header: Label, Category, Severity Badges */}
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-slate-100 pb-3">
                   <div className="flex items-center space-x-2 flex-wrap gap-y-1">
-                    <Badge variant="outline" className="text-[10px] font-mono text-indigo-700 bg-indigo-50 border-indigo-200 flex items-center">
+                    <Badge variant="outline" className="text-xs font-mono text-indigo-700 bg-indigo-50 border-indigo-200 flex items-center">
                       <Sparkles className="w-2.5 h-2.5 mr-1" /> {s.label}
                     </Badge>
-                    <Badge variant="default" className="bg-slate-800 text-[10px] font-mono">
+                    <Badge variant="default" className="bg-slate-800 text-xs font-mono">
                       {s.category}
                     </Badge>
-                    <Badge variant="outline" className="font-mono text-[10px] text-slate-500">
+                    <Badge variant="outline" className="font-mono text-xs text-slate-500">
                       Suggested Score: {s.suggestedRiskScore}/25 (P:{s.suggestedProbability} × I:{s.suggestedImpact})
                     </Badge>
                   </div>
 
                   <div className="flex items-center space-x-2 shrink-0">
                     {isAdopted ? (
-                      <Badge variant="success" className="font-mono text-[10px] flex items-center">
+                      <Badge variant="success" className="font-mono text-xs flex items-center">
                         <CheckCircle2 className="w-3 h-3 mr-1" /> ADOPTED AS {s.adoptedRiskId}
                       </Badge>
                     ) : isDismissed ? (
-                      <Badge variant="outline" className="font-mono text-[10px] text-slate-500">
+                      <Badge variant="outline" className="font-mono text-xs text-slate-500">
                         DISMISSED BY HUMAN REVIEW
                       </Badge>
                     ) : (
-                      <Badge variant="warning" className="font-mono text-[10px]">
+                      <Badge variant="warning" className="font-mono text-xs">
                         ADVISORY PENDING HUMAN ACTION
                       </Badge>
                     )}
@@ -377,7 +377,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
 
                 {/* 1. Risk Statement */}
                 <div>
-                  <span className="text-[10px] font-bold text-gov-muted uppercase tracking-wider block mb-1">
+                  <span className="text-xs font-bold text-gov-muted uppercase tracking-wider block mb-1">
                     Risk Statement:
                   </span>
                   <h3 className="text-sm font-bold text-slate-900 leading-snug">
@@ -387,7 +387,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
 
                 {/* 2. Why it was identified (Strictly Grounded in Data) */}
                 <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200/80 space-y-2">
-                  <span className="text-[10px] font-bold text-gov-primary uppercase tracking-wider block flex items-center">
+                  <span className="text-xs font-bold text-gov-primary uppercase tracking-wider block flex items-center">
                     <Info className="w-3.5 h-3.5 mr-1 text-gov-accent" /> Why It Was Identified:
                   </span>
                   <p className="text-xs text-slate-700 leading-relaxed font-sans">
@@ -399,7 +399,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
                     {s.groundingSources.map((g, i) => (
                       <div
                         key={i}
-                        className="px-2.5 py-1 rounded bg-white border border-slate-200 text-[10px] text-slate-600 flex items-center space-x-1.5 font-mono"
+                        className="px-2.5 py-1 rounded bg-white border border-slate-200 text-xs text-slate-600 flex items-center space-x-1.5 font-mono"
                         title={g.excerpt}
                       >
                         <span className="font-bold text-indigo-700">[{g.sourceType}]</span>
@@ -414,7 +414,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Potential Impact */}
                   <div className="p-3.5 rounded-lg border border-rose-200 bg-rose-50/50 space-y-1">
-                    <span className="text-[10px] font-bold text-rose-900 uppercase tracking-wider block flex items-center">
+                    <span className="text-xs font-bold text-rose-900 uppercase tracking-wider block flex items-center">
                       <AlertTriangle className="w-3.5 h-3.5 mr-1 text-rose-700" /> Potential Impact:
                     </span>
                     <p className="text-xs text-rose-950 leading-relaxed">
@@ -424,7 +424,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
 
                   {/* Suggested Mitigation */}
                   <div className="p-3.5 rounded-lg border border-emerald-200 bg-emerald-50/50 space-y-1">
-                    <span className="text-[10px] font-bold text-emerald-900 uppercase tracking-wider block flex items-center">
+                    <span className="text-xs font-bold text-emerald-900 uppercase tracking-wider block flex items-center">
                       <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-700" /> Suggested Mitigation Protocol:
                     </span>
                     <p className="text-xs text-emerald-950 leading-relaxed">
@@ -435,14 +435,14 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
 
                 {/* Human Review Note (if reviewed) */}
                 {s.reviewedBy && (
-                  <div className="text-[11px] text-slate-600 bg-white p-2.5 rounded border border-slate-200 font-mono">
+                  <div className="text-xs text-slate-600 bg-white p-2.5 rounded border border-slate-200 font-mono">
                     ✓ Human Officer Audit: {s.humanReviewNote}
                   </div>
                 )}
 
                 {/* Actions: Human Authorization Required (AI Cannot Automatically Alter Status) */}
                 <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-                  <div className="text-[11px] text-gov-muted flex items-center">
+                  <div className="text-xs text-gov-muted flex items-center">
                     <ShieldCheck className="w-3.5 h-3.5 mr-1 text-gov-primary" />
                     <span>Statutory Rule: Human officer authorization required to modify risk status.</span>
                   </div>
@@ -453,7 +453,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
                         variant="ghost"
                         size="sm"
                         onClick={() => handleTestAutoStatusChange(s)}
-                        className="text-[11px] text-slate-500 hover:text-slate-800"
+                        className="text-xs text-slate-500 hover:text-slate-800"
                         title="Demonstrates that AI cannot autonomously modify status"
                       >
                         <Lock className="w-3 h-3 mr-1" />
@@ -516,9 +516,9 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
             {/* Modal Body */}
             <div className="p-6 space-y-4 max-h-[75vh] overflow-y-auto text-xs">
               <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                <span className="text-[10px] text-gov-muted uppercase font-mono block">Transcribing AI Suggestion:</span>
+                <span className="text-xs text-gov-muted uppercase font-mono block">Transcribing AI Suggestion:</span>
                 <strong className="text-sm text-slate-900 block mt-0.5">{adoptingSuggestion.risk}</strong>
-                <span className="text-slate-600 block mt-1 text-[11px]">Category: {adoptingSuggestion.category}</span>
+                <span className="text-slate-600 block mt-1 text-xs">Category: {adoptingSuggestion.category}</span>
               </div>
 
               <div>
@@ -545,7 +545,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
                 />
               </div>
 
-              <div className="p-3 rounded-lg border border-emerald-200 bg-emerald-50 text-[11px] text-emerald-950 flex items-start space-x-2">
+              <div className="p-3 rounded-lg border border-emerald-200 bg-emerald-50 text-xs text-emerald-950 flex items-start space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
                 <span>
                   By adopting this risk, it will be added to the live project risk matrix with status <strong>"Mitigating"</strong> and

@@ -152,7 +152,7 @@ export function NotificationPreferencesModal({
                 <h2 className="text-base font-bold text-gov-primary">
                   Notification Delivery Preferences
                 </h2>
-                <Badge variant="outline" className="font-mono text-[10px]">
+                <Badge variant="outline" className="font-mono text-xs">
                   {currentUser?.role || "ROLE-AWARE"}
                 </Badge>
               </div>
@@ -186,11 +186,11 @@ export function NotificationPreferencesModal({
                       Anti-Spam & Relevance Filtering Controls
                     </h3>
                   </div>
-                  <Badge variant="outline" className="text-[10px] text-emerald-800 border-emerald-300 bg-white">
+                  <Badge variant="outline" className="text-xs text-emerald-800 border-emerald-300 bg-white">
                     Rate Limit: 60m Dedup Window
                   </Badge>
                 </div>
-                <p className="text-[11px] text-emerald-800">
+                <p className="text-xs text-emerald-800">
                   GovInnovate automatically prevents notification spam by deduplicating repetitive alerts and suppressing irrelevant cross-role signals.
                 </p>
 
@@ -215,7 +215,7 @@ export function NotificationPreferencesModal({
                         className="rounded text-emerald-600"
                       />
                     </div>
-                    <p className="text-[10px] text-slate-500 mt-1">
+                    <p className="text-xs text-slate-500 mt-1">
                       Mute non-urgent alerts from 10:00 PM to 07:00 AM IST.
                     </p>
                   </div>
@@ -240,7 +240,7 @@ export function NotificationPreferencesModal({
                         className="rounded text-emerald-600"
                       />
                     </div>
-                    <p className="text-[10px] text-slate-500 mt-1">
+                    <p className="text-xs text-slate-500 mt-1">
                       Suppress informational badges during peak working hours.
                     </p>
                   </div>
@@ -265,7 +265,7 @@ export function NotificationPreferencesModal({
                         className="rounded text-emerald-600"
                       />
                     </div>
-                    <p className="text-[10px] text-slate-500 mt-1">
+                    <p className="text-xs text-slate-500 mt-1">
                       Batch non-critical events into a 17:00 PM summary digest.
                     </p>
                   </div>
@@ -278,7 +278,7 @@ export function NotificationPreferencesModal({
                   <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700">
                     Statutory Event Triggers & Channels
                   </h3>
-                  <div className="flex items-center space-x-6 text-[11px] font-semibold text-slate-500 pr-3">
+                  <div className="flex items-center space-x-6 text-xs font-semibold text-slate-500 pr-3">
                     <span className="flex items-center">
                       <Bell className="w-3.5 h-3.5 mr-1 text-slate-700" /> In-App
                     </span>
@@ -307,12 +307,12 @@ export function NotificationPreferencesModal({
                           <div className="flex items-center space-x-2">
                             <span className="text-xs font-bold text-slate-900">{type}</span>
                             {type.includes("Overdue") || type.includes("Risk") ? (
-                              <Badge variant="destructive" className="text-[9px] py-0 px-1 font-mono">
+                              <Badge variant="destructive" className="text-xs py-0 px-1 font-mono">
                                 HIGH URGENCY
                               </Badge>
                             ) : null}
                           </div>
-                          <span className="text-[11px] text-slate-500 block mt-0.5">
+                          <span className="text-xs text-slate-500 block mt-0.5">
                             {type === "Application Deadline" && "Alerts 48h and 12h prior to proposal window cutoff"}
                             {type === "Evaluation Assignment" && "Statutory blind proposal assignment notices"}
                             {type === "Evaluation Pending" && "Reminders for pending technical evaluation rubrics"}

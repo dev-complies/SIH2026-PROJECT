@@ -115,7 +115,7 @@ export default function DesignSystemShowcasePage() {
     { level: "H3", size: "text-lg (18px)", weight: "font-semibold", sample: "Active Innovation Pilots Oversight" },
     { level: "Body", size: "text-sm (14px)", weight: "font-normal", sample: "Municipal wards in central Lucknow suffer from localized particulate spikes." },
     { level: "Caption", size: "text-xs (12px)", weight: "font-medium", sample: "Empirically verified by Independent Validator on 2026-07-29" },
-    { level: "Metadata", size: "text-[10px] (10px)", weight: "font-mono", sample: "HASH: sha256_91823abce12893812839120938102381" },
+    { level: "Metadata", size: "text-xs (10px)", weight: "font-mono", sample: "HASH: sha256_91823abce12893812839120938102381" },
   ];
 
   const statuses: GovStatus[] = [
@@ -147,7 +147,7 @@ export default function DesignSystemShowcasePage() {
       {/* Header */}
       <div className="border-b border-gov-border pb-6 text-left">
         <div className="flex items-center space-x-2 mb-2">
-          <Badge variant="default" className="bg-gov-primary font-mono text-[10px]">
+          <Badge variant="default" className="bg-gov-primary font-mono text-xs">
             GOVINNOVATE DESIGN SYSTEM v1.0
           </Badge>
           <span className="text-xs text-gov-muted">Enterprise GovTech Design Language</span>
@@ -178,7 +178,7 @@ export default function DesignSystemShowcasePage() {
               <div key={c.name} className="border border-gov-border rounded-card bg-white p-3 shadow-2xs">
                 <div className={`h-12 w-full rounded-control ${c.bg} ${c.border || ""} shadow-inner mb-2`} />
                 <p className="text-xs font-bold text-slate-800 leading-tight">{c.name}</p>
-                <p className="text-[10px] font-mono text-gov-muted mt-0.5">{c.hex}</p>
+                <p className="text-xs font-mono text-gov-muted mt-0.5">{c.hex}</p>
               </div>
             ))}
           </div>
@@ -842,7 +842,7 @@ export default function DesignSystemShowcasePage() {
         >
           <div className="w-full h-44 bg-slate-50 border border-slate-200 rounded-control flex flex-col items-center justify-center text-xs text-gov-muted p-4">
             <span className="font-semibold text-slate-700">Recharts Telemetry Area (Real Database Values)</span>
-            <div className="flex items-center space-x-6 mt-3 text-[11px]">
+            <div className="flex items-center space-x-6 mt-3 text-xs">
               <span className="flex items-center">
                 <span className="w-3 h-3 rounded-full bg-slate-400 mr-1.5" /> Baseline: 82.0%
               </span>
@@ -870,10 +870,10 @@ export default function DesignSystemShowcasePage() {
             </p>
           </div>
           <div className="flex items-center space-x-2">
-            <Badge variant="outline" className="border-blue-300 text-gov-accent bg-blue-50/60 font-mono text-[10px]">
+            <Badge variant="outline" className="border-blue-300 text-gov-accent bg-blue-50/60 font-mono text-xs">
               THREE.JS • R3F • DREI
             </Badge>
-            <Badge variant="success" className="text-[10px]">
+            <Badge variant="success" className="text-xs">
               REDUCED MOTION SAFE
             </Badge>
           </div>
@@ -886,7 +886,7 @@ export default function DesignSystemShowcasePage() {
             <span>GovTech 3D Design Directives & Guardrails</span>
           </div>
           <p className="text-gov-muted leading-relaxed">
-            3D is applied selectively: Landing hero, executive pipeline, district pilot maps, and collocated sensor validation environments. All forms, tables, audit trails, and legal procurement artifacts remain strictly 2D. Cyberpunk neon shaders, gratuitous particle emitters, and rapid camera rotations are prohibited. Every 3D canvas includes automatic viewport intersection observation (pauses frame loop when offscreen), <code className="bg-slate-200 px-1 py-0.5 rounded text-[11px]">prefers-reduced-motion</code> detection, and an accessible 2D fallback.
+            3D is applied selectively: Landing hero, executive pipeline, district pilot maps, and collocated sensor validation environments. All forms, tables, audit trails, and legal procurement artifacts remain strictly 2D. Cyberpunk neon shaders, gratuitous particle emitters, and rapid camera rotations are prohibited. Every 3D canvas includes automatic viewport intersection observation (pauses frame loop when offscreen), <code className="bg-slate-200 px-1 py-0.5 rounded text-xs">prefers-reduced-motion</code> detection, and an accessible 2D fallback.
           </p>
         </div>
 
@@ -917,7 +917,7 @@ export default function DesignSystemShowcasePage() {
                     Subtle daylight architectural geometry: State Secretariat, municipal departments, interconnected network arcs, and live pilot nodes.
                   </p>
                 </div>
-                <Badge variant="outline" className="font-mono text-[10px]">
+                <Badge variant="outline" className="font-mono text-xs">
                   &lt;InnovationCity /&gt;
                 </Badge>
               </div>
@@ -935,7 +935,7 @@ export default function DesignSystemShowcasePage() {
                     3D pillar heights correspond to program volume: Challenges (12) → Startups (48) → Pilots (6) → Validated (4) → Scaled (3).
                   </p>
                 </div>
-                <Badge variant="outline" className="font-mono text-[10px]">
+                <Badge variant="outline" className="font-mono text-xs">
                   &lt;InnovationPipeline /&gt;
                 </Badge>
               </div>
@@ -953,7 +953,7 @@ export default function DesignSystemShowcasePage() {
                     Urban pilot deployment across Lucknow Wards (14, 18, 22, 29) with collocated sensor masts, PM2.5 readings, and threshold alerts.
                   </p>
                 </div>
-                <Badge variant="outline" className="font-mono text-[10px]">
+                <Badge variant="outline" className="font-mono text-xs">
                   &lt;PilotEnvironment /&gt;
                 </Badge>
               </div>
@@ -971,7 +971,7 @@ export default function DesignSystemShowcasePage() {
                     Interactive state-level terrain visualizing pilot clusters across Lucknow, Kanpur, and Noida with drilldown detail cards.
                   </p>
                 </div>
-                <Badge variant="outline" className="font-mono text-[10px]">
+                <Badge variant="outline" className="font-mono text-xs">
                   &lt;PilotMap /&gt;
                 </Badge>
               </div>

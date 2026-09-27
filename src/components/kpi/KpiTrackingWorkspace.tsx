@@ -261,7 +261,7 @@ export function KpiTrackingWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 EMPIRICAL KPI TELEMETRY ENGINE
               </Badge>
               <span className="text-slate-300">•</span>
@@ -286,7 +286,7 @@ export function KpiTrackingWorkspace() {
             <Button
               size="sm"
               onClick={() => setShowLogModal(true)}
-              className="bg-gov-primary text-xs h-7 font-semibold"
+              className="bg-gov-primary text-xs h-8 font-semibold"
             >
               <Plus className="w-3.5 h-3.5 mr-1" /> Log Measurement
             </Button>
@@ -312,7 +312,7 @@ export function KpiTrackingWorkspace() {
               >
                 <div className="flex items-center justify-between mb-1">
                   <span
-                    className={`font-mono text-[9px] uppercase font-bold truncate ${
+                    className={`font-mono text-xs uppercase font-bold truncate ${
                       isSelected ? "text-slate-300" : "text-gov-muted"
                     }`}
                   >
@@ -360,7 +360,7 @@ export function KpiTrackingWorkspace() {
             <div className="md:col-span-4 bg-white border border-gov-border rounded-card p-5 shadow-2xs space-y-3 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] uppercase font-mono text-gov-muted font-bold tracking-wider">
+                  <span className="text-xs uppercase font-mono text-gov-muted font-bold tracking-wider">
                     CURRENT VALUE & BENCHMARK
                   </span>
                   <Badge
@@ -371,7 +371,7 @@ export function KpiTrackingWorkspace() {
                         ? "default"
                         : "warning"
                     }
-                    className="font-mono text-[9px]"
+                    className="font-mono text-xs"
                   >
                     {selectedKpi.status.replace(/_/g, " ")}
                   </Badge>
@@ -379,7 +379,7 @@ export function KpiTrackingWorkspace() {
                 <h2 className="text-base font-extrabold text-gov-primary leading-tight">
                   {selectedKpi.name}
                 </h2>
-                <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                   {selectedKpi.description}
                 </p>
               </div>
@@ -388,7 +388,7 @@ export function KpiTrackingWorkspace() {
               <div className="bg-slate-50 p-3.5 rounded-control border border-slate-200 space-y-1">
                 <div className="flex items-baseline justify-between">
                   <div>
-                    <span className="text-[9px] uppercase font-mono text-gov-muted block">
+                    <span className="text-xs uppercase font-mono text-gov-muted block">
                       VERIFIED CURRENT VALUE
                     </span>
                     <span className="font-mono text-2xl font-extrabold text-slate-900">
@@ -400,7 +400,7 @@ export function KpiTrackingWorkspace() {
                   </div>
 
                   <div className="text-right">
-                    <span className="text-[9px] uppercase font-mono text-gov-muted block">
+                    <span className="text-xs uppercase font-mono text-gov-muted block">
                       TARGET GAIN
                     </span>
                     <span className="font-mono text-base font-bold text-emerald-700 flex items-center justify-end">
@@ -420,7 +420,7 @@ export function KpiTrackingWorkspace() {
               </div>
 
               {/* Metadata Details */}
-              <div className="space-y-1 text-[11px] pt-1 border-t border-slate-100">
+              <div className="space-y-1 text-xs pt-1 border-t border-slate-100">
                 <div className="flex justify-between">
                   <span className="text-gov-muted">Measurement Source:</span>
                   <span className="font-semibold text-slate-800 truncate max-w-[190px]">
@@ -439,34 +439,34 @@ export function KpiTrackingWorkspace() {
             {/* Box 2 (4 Cols): Baseline vs Target Visual Comparison Bar */}
             <div className="md:col-span-4 bg-white border border-gov-border rounded-card p-5 shadow-2xs space-y-3 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] uppercase font-mono text-gov-muted font-bold tracking-wider block">
+                <span className="text-xs uppercase font-mono text-gov-muted font-bold tracking-wider block">
                   BASELINE VS TARGET COMPARISON
                 </span>
                 <h3 className="text-sm font-bold text-gov-primary mt-0.5">
                   Statutory Trajectory Attainment
                 </h3>
-                <p className="text-[11px] text-slate-600 mt-1">
+                <p className="text-xs text-slate-600 mt-1">
                   Empirical progress measured from initial testbed baseline toward contractual pilot target.
                 </p>
               </div>
 
               {/* Visual Benchmark Comparison Bar */}
               <div className="space-y-2 bg-slate-50 p-3.5 rounded-control border border-slate-200">
-                <div className="flex items-center justify-between text-[11px] font-mono">
+                <div className="flex items-center justify-between text-xs font-mono">
                   <div>
-                    <span className="text-[9px] text-gov-muted block">BASELINE (START)</span>
+                    <span className="text-xs text-gov-muted block">BASELINE (START)</span>
                     <strong className="text-slate-800">{selectedKpi.baseline}{selectedKpi.unit}</strong>
                   </div>
 
                   <div className="text-center">
-                    <span className="text-[9px] text-emerald-800 font-bold block">CURRENT</span>
+                    <span className="text-xs text-emerald-800 font-bold block">CURRENT</span>
                     <strong className="text-emerald-700 font-extrabold text-sm">
                       {selectedKpi.currentValue}{selectedKpi.unit}
                     </strong>
                   </div>
 
                   <div className="text-right">
-                    <span className="text-[9px] text-gov-muted block">CONTRACT TARGET</span>
+                    <span className="text-xs text-gov-muted block">CONTRACT TARGET</span>
                     <strong className="text-slate-800">{selectedKpi.target}{selectedKpi.unit}</strong>
                   </div>
                 </div>
@@ -498,13 +498,13 @@ export function KpiTrackingWorkspace() {
             {/* Box 3 (4 Cols): Threshold Indicator & Governance Margin */}
             <div className="md:col-span-4 bg-white border border-gov-border rounded-card p-5 shadow-2xs space-y-3 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] uppercase font-mono text-gov-muted font-bold tracking-wider block">
+                <span className="text-xs uppercase font-mono text-gov-muted font-bold tracking-wider block">
                   STATUTORY THRESHOLD INDICATOR
                 </span>
                 <h3 className="text-sm font-bold text-gov-primary mt-0.5">
                   Procurement Compliance Margin
                 </h3>
-                <p className="text-[11px] text-slate-600 mt-1">
+                <p className="text-xs text-slate-600 mt-1">
                   GFR Rule 149 performance safety boundary ensuring continuous municipal service delivery.
                 </p>
               </div>
@@ -512,8 +512,8 @@ export function KpiTrackingWorkspace() {
               {/* Threshold Zones Display */}
               <div className="space-y-2 bg-slate-50 p-3.5 rounded-control border border-slate-200">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-slate-800">Operational Compliance Zone:</span>
-                  <Badge variant="success" className="font-mono text-[9px]">
+                  <span className="text-xs font-bold text-slate-800">Operational Compliance Zone:</span>
+                  <Badge variant="success" className="font-mono text-xs">
                     NOMINAL MARGIN
                   </Badge>
                 </div>
@@ -557,13 +557,13 @@ export function KpiTrackingWorkspace() {
                   <span className="w-1.5 h-3.5 bg-gov-accent rounded-xs mr-2" />
                   Historical Trajectory: {selectedKpi.name}
                 </h3>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Chronological progression queried from TimescaleDB partition ({measurements.length} telemetry points recorded)
                 </p>
               </div>
 
               {/* Chart Legend */}
-              <div className="flex flex-wrap items-center space-x-3 text-[10px] font-mono text-slate-600">
+              <div className="flex flex-wrap items-center space-x-3 text-xs font-mono text-slate-600">
                 <span className="flex items-center">
                   <span className="w-3 h-0.5 bg-gov-accent mr-1.5" />
                   Actual Telemetry
@@ -679,7 +679,7 @@ export function KpiTrackingWorkspace() {
               {/* Hover Tooltip Overlay */}
               {hoveredPoint && (
                 <div
-                  className="absolute pointer-events-none bg-slate-900 text-white rounded p-2 text-[10px] shadow-lg border border-slate-700 font-mono z-20"
+                  className="absolute pointer-events-none bg-slate-900 text-white rounded p-2 text-xs shadow-lg border border-slate-700 font-mono z-20"
                   style={{
                     left: `${Math.min(500, Math.max(20, (hoveredPoint.value / (target || 100)) * 400))}px`,
                     top: "16px",
@@ -697,9 +697,9 @@ export function KpiTrackingWorkspace() {
               )}
             </div>
 
-            <div className="flex items-center justify-between text-[11px] text-gov-muted pt-1">
+            <div className="flex items-center justify-between text-xs text-gov-muted pt-1">
               <span>Database Sync: Continuous Time-Series Stream</span>
-              <span className="font-mono text-[10px] text-slate-500">
+              <span className="font-mono text-xs text-slate-500">
                 Audited against GFR Rule 149 Performance Standards
               </span>
             </div>
@@ -723,7 +723,7 @@ export function KpiTrackingWorkspace() {
 
             <div className="border border-gov-border rounded-control overflow-hidden">
               <table className="w-full text-left border-collapse text-xs">
-                <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+                <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
                   <tr>
                     <th className="p-2.5">Date & Timestamp</th>
                     <th className="p-2.5">Measured Value</th>
@@ -739,10 +739,10 @@ export function KpiTrackingWorkspace() {
                     return (
                       <tr key={m.id} className="hover:bg-slate-50/60 transition-colors">
                         <td className="p-2.5">
-                          <span className="font-bold text-slate-900 block font-mono text-[11px]">
+                          <span className="font-bold text-slate-900 block font-mono text-xs">
                             {m.dateLabel}
                           </span>
-                          <span className="text-[10px] text-gov-muted font-mono">
+                          <span className="text-xs text-gov-muted font-mono">
                             {new Date(m.measuredAt).toLocaleString("en-IN", {
                               day: "2-digit",
                               month: "short",
@@ -761,21 +761,21 @@ export function KpiTrackingWorkspace() {
                           <span className="text-emerald-700 font-bold">
                             +{delta} {unit}
                           </span>
-                          <span className="text-[10px] text-slate-400 block">
+                          <span className="text-xs text-slate-400 block">
                             Target: {m.targetValue} {unit}
                           </span>
                         </td>
 
-                        <td className="p-2.5 text-[11px]">
+                        <td className="p-2.5 text-xs">
                           <span className="font-semibold text-slate-800 block">{m.sourceNode}</span>
-                          <span className="text-[10px] text-gov-muted">By: {m.verifiedBy}</span>
+                          <span className="text-xs text-gov-muted">By: {m.verifiedBy}</span>
                         </td>
 
-                        <td className="p-2.5 text-slate-600 text-[11px] max-w-xs leading-snug">
+                        <td className="p-2.5 text-slate-600 text-xs max-w-xs leading-snug">
                           {m.notes}
                         </td>
 
-                        <td className="p-2.5 text-right font-mono text-[10px] text-slate-400">
+                        <td className="p-2.5 text-right font-mono text-xs text-slate-400">
                           {m.auditHash}
                         </td>
                       </tr>
@@ -811,15 +811,15 @@ export function KpiTrackingWorkspace() {
 
             <div className="space-y-3">
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-control">
-                <span className="text-[10px] font-mono text-gov-muted uppercase block">TARGET KPI</span>
+                <span className="text-xs font-mono text-gov-muted uppercase block">TARGET KPI</span>
                 <span className="font-bold text-slate-900 block text-xs">{selectedKpi.name}</span>
-                <span className="text-[10px] text-slate-500 font-mono">
+                <span className="text-xs text-slate-500 font-mono">
                   Baseline: {selectedKpi.baseline}{selectedKpi.unit} • Target: {selectedKpi.target}{selectedKpi.unit}
                 </span>
               </div>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Measured Value ({selectedKpi.unit}) <span className="text-red-500">*</span>:
                 </label>
                 <Input
@@ -833,7 +833,7 @@ export function KpiTrackingWorkspace() {
               </div>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Source Instrument / Node:
                 </label>
                 <Input
@@ -845,7 +845,7 @@ export function KpiTrackingWorkspace() {
               </div>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Field Calibration Notes & Verification Details:
                 </label>
                 <Textarea

@@ -174,7 +174,7 @@ export function ProvenSolutionsLibrary() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
           <div>
             <div className="flex items-center space-x-2 mb-1.5">
-              <Badge variant="default" className="bg-emerald-800 font-mono text-[9px]">
+              <Badge variant="default" className="bg-emerald-800 font-mono text-xs">
                 STATE REPLICATION REGISTRY • GFR RULE 149(v)
               </Badge>
               <span className="text-slate-300">•</span>
@@ -212,45 +212,45 @@ export function ProvenSolutionsLibrary() {
         {/* 4 Core Registry Statistical Metrics */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 border border-slate-200 rounded-control p-3.5 text-xs">
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               VALIDATED SOLUTIONS
             </span>
             <strong className="text-base font-extrabold text-gov-primary font-mono">
               {solutions.length} Fully Certified
             </strong>
-            <span className="text-[10px] text-emerald-700 block font-semibold">
+            <span className="text-xs text-emerald-700 block font-semibold">
               100% Third-Party Audited
             </span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               AVERAGE COST SAVINGS
             </span>
             <strong className="text-base font-extrabold text-emerald-800 font-mono">
               84.1% vs Legacy
             </strong>
-            <span className="text-[10px] text-slate-500 block">Unit Economic Reduction</span>
+            <span className="text-xs text-slate-500 block">Unit Economic Reduction</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               AVERAGE PILOT DURATION
             </span>
             <strong className="text-base font-extrabold text-slate-900 font-mono">
               92 Days Field-Tested
             </strong>
-            <span className="text-[10px] text-slate-500 block">Zero Telemetry Loss</span>
+            <span className="text-xs text-slate-500 block">Zero Telemetry Loss</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               REPLICATIONS UNDERWAY
             </span>
             <strong className="text-base font-extrabold text-amber-800 font-mono">
               16 Municipal Rollouts
             </strong>
-            <span className="text-[10px] text-slate-500 block">Across 6 Smart Cities</span>
+            <span className="text-xs text-slate-500 block">Across 6 Smart Cities</span>
           </div>
         </div>
       </div>
@@ -284,7 +284,7 @@ export function ProvenSolutionsLibrary() {
           <div className="flex items-center space-x-2 w-full sm:w-auto justify-between sm:justify-end">
             {/* Sort Dropdown */}
             <div className="flex items-center space-x-1.5 text-xs">
-              <label htmlFor="solution-sort" className="text-gov-muted text-[11px] font-mono hidden md:inline">Sort:</label>
+              <label htmlFor="solution-sort" className="text-gov-muted text-xs font-mono hidden md:inline">Sort:</label>
               <select
                 id="solution-sort"
                 value={sortBy}
@@ -314,7 +314,7 @@ export function ProvenSolutionsLibrary() {
                 )}
               >
                 <LayoutGrid className="w-3.5 h-3.5" aria-hidden="true" />
-                <span className="ml-1 text-[11px] hidden sm:inline">Cards</span>
+                <span className="ml-1 text-xs hidden sm:inline">Cards</span>
               </button>
               <button
                 onClick={() => setViewMode("ledger")}
@@ -329,7 +329,7 @@ export function ProvenSolutionsLibrary() {
                 )}
               >
                 <ListFilter className="w-3.5 h-3.5" aria-hidden="true" />
-                <span className="ml-1 text-[11px] hidden sm:inline">Ledger</span>
+                <span className="ml-1 text-xs hidden sm:inline">Ledger</span>
               </button>
               <button
                 onClick={() => setViewMode("spatial")}
@@ -344,7 +344,7 @@ export function ProvenSolutionsLibrary() {
                 )}
               >
                 <Layers className="w-3.5 h-3.5 text-purple-600" aria-hidden="true" />
-                <span className="ml-1 text-[11px] hidden sm:inline">3D Mesh</span>
+                <span className="ml-1 text-xs hidden sm:inline">3D Mesh</span>
               </button>
             </div>
           </div>
@@ -354,7 +354,7 @@ export function ProvenSolutionsLibrary() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-100 text-xs">
           {/* 1. Category Filter */}
           <div>
-            <label htmlFor="filter-category" className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
+            <label htmlFor="filter-category" className="text-xs font-mono text-gov-muted uppercase font-bold block mb-1">
               CATEGORY
             </label>
             <select
@@ -374,7 +374,7 @@ export function ProvenSolutionsLibrary() {
 
           {/* 2. Technology Filter */}
           <div>
-            <label htmlFor="filter-technology" className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
+            <label htmlFor="filter-technology" className="text-xs font-mono text-gov-muted uppercase font-bold block mb-1">
               TECHNOLOGY
             </label>
             <select
@@ -394,7 +394,7 @@ export function ProvenSolutionsLibrary() {
 
           {/* 3. Department Filter */}
           <div>
-            <label htmlFor="filter-department" className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
+            <label htmlFor="filter-department" className="text-xs font-mono text-gov-muted uppercase font-bold block mb-1">
               APPLICABLE DEPARTMENT
             </label>
             <select
@@ -414,7 +414,7 @@ export function ProvenSolutionsLibrary() {
 
           {/* 4. Location Filter */}
           <div>
-            <label htmlFor="filter-location" className="text-[10px] font-mono text-gov-muted uppercase font-bold block mb-1">
+            <label htmlFor="filter-location" className="text-xs font-mono text-gov-muted uppercase font-bold block mb-1">
               TESTED LOCATION
             </label>
             <select
@@ -435,34 +435,34 @@ export function ProvenSolutionsLibrary() {
 
         {/* Active Filter Indicators Bar */}
         {activeFilterCount > 0 && (
-          <div className="flex flex-wrap items-center gap-1.5 pt-2 text-[11px] border-t border-slate-100">
+          <div className="flex flex-wrap items-center gap-1.5 pt-2 text-xs border-t border-slate-100">
             <span className="text-gov-muted font-mono font-semibold">Active Filters:</span>
             {selectedCategory !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-blue-50 border-blue-200 text-blue-900">
+              <Badge variant="outline" className="text-xs bg-blue-50 border-blue-200 text-blue-900">
                 Category: {selectedCategory}
                 <X className="w-3 h-3 ml-1 cursor-pointer" onClick={() => setSelectedCategory("ALL")} />
               </Badge>
             )}
             {selectedTechnology !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-blue-50 border-blue-200 text-blue-900">
+              <Badge variant="outline" className="text-xs bg-blue-50 border-blue-200 text-blue-900">
                 Tech: {selectedTechnology}
                 <X className="w-3 h-3 ml-1 cursor-pointer" onClick={() => setSelectedTechnology("ALL")} />
               </Badge>
             )}
             {selectedDepartment !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-blue-50 border-blue-200 text-blue-900">
+              <Badge variant="outline" className="text-xs bg-blue-50 border-blue-200 text-blue-900">
                 Dept: {selectedDepartment}
                 <X className="w-3 h-3 ml-1 cursor-pointer" onClick={() => setSelectedDepartment("ALL")} />
               </Badge>
             )}
             {selectedLocation !== "ALL" && (
-              <Badge variant="outline" className="text-[10px] bg-blue-50 border-blue-200 text-blue-900">
+              <Badge variant="outline" className="text-xs bg-blue-50 border-blue-200 text-blue-900">
                 Location: {selectedLocation}
                 <X className="w-3 h-3 ml-1 cursor-pointer" onClick={() => setSelectedLocation("ALL")} />
               </Badge>
             )}
             {search && (
-              <Badge variant="outline" className="text-[10px] bg-blue-50 border-blue-200 text-blue-900">
+              <Badge variant="outline" className="text-xs bg-blue-50 border-blue-200 text-blue-900">
                 Query: &quot;{search}&quot;
                 <X className="w-3 h-3 ml-1 cursor-pointer" onClick={() => setSearch("")} />
               </Badge>
@@ -510,7 +510,7 @@ export function ProvenSolutionsLibrary() {
                 {/* Card Top Ribbon */}
                 <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
                   <div className="flex items-center space-x-2">
-                    <Badge variant="outline" className="font-mono text-[9px] bg-slate-50 border-slate-300">
+                    <Badge variant="outline" className="font-mono text-xs bg-slate-50 border-slate-300">
                       {sol.code}
                     </Badge>
                     <Badge variant="default" className="text-[9.5px] bg-gov-secondary text-white font-medium">
@@ -538,12 +538,12 @@ export function ProvenSolutionsLibrary() {
                 </div>
 
                 {/* Startup & DPIIT Info */}
-                <div className="flex items-center justify-between text-[11px] bg-slate-50 p-2 rounded-control border border-slate-200">
+                <div className="flex items-center justify-between text-xs bg-slate-50 p-2 rounded-control border border-slate-200">
                   <div>
                     <span className="text-gov-muted">Startup: </span>
                     <strong className="text-slate-900">{sol.startup.name}</strong>
                   </div>
-                  <div className="font-mono text-[10px] text-slate-500">
+                  <div className="font-mono text-xs text-slate-500">
                     DPIIT: <strong className="text-gov-primary">{sol.startup.dpiitNumber}</strong>
                   </div>
                 </div>
@@ -560,18 +560,18 @@ export function ProvenSolutionsLibrary() {
 
                 {/* 6. Validated KPIs Strip (Baseline -> Target -> Actual) */}
                 <div className="space-y-1.5">
-                  <div className="flex items-center justify-between text-[10px] font-mono uppercase font-bold text-gov-muted">
+                  <div className="flex items-center justify-between text-xs font-mono uppercase font-bold text-gov-muted">
                     <span>KEY VALIDATED KPI METRICS</span>
                     <span className="text-emerald-700">BASELINE → ACTUAL (TARGET)</span>
                   </div>
                   <div className="space-y-1 border border-slate-200 rounded-control p-2 bg-slate-50/50">
                     {sol.validatedKpis.slice(0, 2).map((kpi, idx) => (
-                      <div key={idx} className="flex items-center justify-between text-[11px]">
+                      <div key={idx} className="flex items-center justify-between text-xs">
                         <span className="font-medium text-slate-800 truncate max-w-[200px]">
                           {kpi.name}
                         </span>
-                        <div className="flex items-center space-x-2 font-mono text-[11px]">
-                          <span className="text-slate-400 line-through text-[10px]">{kpi.baseline}</span>
+                        <div className="flex items-center space-x-2 font-mono text-xs">
+                          <span className="text-slate-400 line-through text-xs">{kpi.baseline}</span>
                           <span className="text-slate-400">→</span>
                           <strong className="text-emerald-800 font-bold">{kpi.actualAchieved}</strong>
                           <span className="text-slate-500 text-[9.5px]">({kpi.target})</span>
@@ -582,7 +582,7 @@ export function ProvenSolutionsLibrary() {
                 </div>
 
                 {/* 7. Cost Economics Callout Strip */}
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
+                <div className="grid grid-cols-2 gap-2 text-xs">
                   <div className="p-2 bg-emerald-50/60 border border-emerald-200 rounded-control">
                     <span className="text-[9.5px] font-mono text-emerald-900 block font-semibold">
                       SCALE UNIT COST:
@@ -616,7 +616,7 @@ export function ProvenSolutionsLibrary() {
                       Auditor: <strong>{sol.validationStatus.accreditedAgency.split("&")[0]}</strong>
                     </span>
                   </div>
-                  <Badge variant="success" className="text-[9px] font-mono shrink-0">
+                  <Badge variant="success" className="text-xs font-mono shrink-0">
                     {sol.validationStatus.rating}
                   </Badge>
                 </div>
@@ -630,7 +630,7 @@ export function ProvenSolutionsLibrary() {
                     {sol.applicableDepartments.map((dept, idx) => (
                       <span
                         key={idx}
-                        className="px-1.5 py-0.5 rounded-xs bg-slate-100 border border-slate-200 text-slate-700 text-[10px]"
+                        className="px-1.5 py-0.5 rounded-xs bg-slate-100 border border-slate-200 text-slate-700 text-xs"
                       >
                         {dept}
                       </span>
@@ -645,7 +645,7 @@ export function ProvenSolutionsLibrary() {
                   variant="outline"
                   size="sm"
                   onClick={() => setDossierSolution(sol)}
-                  className="text-xs h-7 border-slate-300"
+                  className="text-xs h-8 border-slate-300"
                 >
                   <FileText className="w-3.5 h-3.5 mr-1" /> Full Dossier
                 </Button>
@@ -653,7 +653,7 @@ export function ProvenSolutionsLibrary() {
                 <Button
                   size="sm"
                   onClick={() => handleOpenReplication(sol)}
-                  className="text-xs h-7 bg-gov-primary hover:bg-gov-primary/90 text-white font-semibold shadow-2xs"
+                  className="text-xs h-8 bg-gov-primary hover:bg-gov-primary/90 text-white font-semibold shadow-2xs"
                 >
                   <TrendingUp className="w-3.5 h-3.5 mr-1" /> Replicate in My Dept
                 </Button>
@@ -671,7 +671,7 @@ export function ProvenSolutionsLibrary() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold text-[11px]">
+                <tr className="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold text-xs">
                   <th className="p-3">Code & Category</th>
                   <th className="p-3">Solution & Problem</th>
                   <th className="p-3">Startup & Location</th>
@@ -686,7 +686,7 @@ export function ProvenSolutionsLibrary() {
                   <tr key={sol.id} className="hover:bg-slate-50/60 transition-colors">
                     <td className="p-3 align-top font-mono">
                       <span className="font-bold text-gov-primary block">{sol.code}</span>
-                      <span className="text-[10px] text-gov-muted block">{sol.category}</span>
+                      <span className="text-xs text-gov-muted block">{sol.category}</span>
                     </td>
 
                     <td className="p-3 align-top max-w-xs">
@@ -696,19 +696,19 @@ export function ProvenSolutionsLibrary() {
                       >
                         {sol.title}
                       </h4>
-                      <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
+                      <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
                         {sol.problem.statement}
                       </p>
                     </td>
 
                     <td className="p-3 align-top">
                       <strong className="text-slate-900 block">{sol.startup.name}</strong>
-                      <span className="text-[10px] text-gov-muted font-mono block">
+                      <span className="text-xs text-gov-muted font-mono block">
                         {sol.pilotLocation.city}, {sol.pilotDuration.durationDays}d
                       </span>
                     </td>
 
-                    <td className="p-3 align-top font-mono text-[11px]">
+                    <td className="p-3 align-top font-mono text-xs">
                       <span className="text-slate-700 block font-sans text-[10.5px]">
                         {sol.validatedKpis[0]?.name}:
                       </span>
@@ -720,20 +720,20 @@ export function ProvenSolutionsLibrary() {
                       </span>
                     </td>
 
-                    <td className="p-3 align-top font-mono text-[11px]">
+                    <td className="p-3 align-top font-mono text-xs">
                       <strong className="text-slate-900 block">
                         ₹{sol.cost.perUnitScaleInr.toLocaleString()}
                       </strong>
-                      <span className="text-[10px] text-emerald-700 block font-semibold font-sans">
+                      <span className="text-xs text-emerald-700 block font-semibold font-sans">
                         {sol.cost.savingsVsLegacyPercentage}% savings
                       </span>
                     </td>
 
                     <td className="p-3 align-top">
-                      <Badge variant="success" className="text-[9px] font-mono block w-fit">
+                      <Badge variant="success" className="text-xs font-mono block w-fit">
                         {sol.validationStatus.rating}
                       </Badge>
-                      <span className="text-[10px] text-gov-muted block truncate max-w-[130px] mt-0.5">
+                      <span className="text-xs text-gov-muted block truncate max-w-[130px] mt-0.5">
                         {sol.validationStatus.accreditedAgency.split("&")[0]}
                       </span>
                     </td>
@@ -744,14 +744,14 @@ export function ProvenSolutionsLibrary() {
                           variant="ghost"
                           size="sm"
                           onClick={() => setDossierSolution(sol)}
-                          className="h-7 text-xs px-2"
+                          className="h-8 text-xs px-2"
                         >
                           Details
                         </Button>
                         <Button
                           size="sm"
                           onClick={() => handleOpenReplication(sol)}
-                          className="h-7 text-xs bg-gov-primary text-white font-semibold px-2"
+                          className="h-8 text-xs bg-gov-primary text-white font-semibold px-2"
                         >
                           Replicate
                         </Button>
@@ -781,10 +781,10 @@ export function ProvenSolutionsLibrary() {
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
                 <div className="flex items-center space-x-2">
-                  <Badge variant="outline" className="font-mono text-[9px]">
+                  <Badge variant="outline" className="font-mono text-xs">
                     {dossierSolution.code}
                   </Badge>
-                  <span className="text-[10px] font-mono text-gov-muted">
+                  <span className="text-xs font-mono text-gov-muted">
                     {dossierSolution.category}
                   </span>
                 </div>
@@ -803,26 +803,26 @@ export function ProvenSolutionsLibrary() {
 
             {/* Section 1: Problem */}
             <div className="space-y-1.5 p-3 rounded-control bg-slate-50 border border-slate-200">
-              <span className="font-mono text-[10px] text-gov-muted uppercase font-bold block">
+              <span className="font-mono text-xs text-gov-muted uppercase font-bold block">
                 1. CIVIC PROBLEM & STATUS QUO FAILURE
               </span>
               <p className="text-slate-800 leading-relaxed font-medium">
                 {dossierSolution.problem.statement}
               </p>
-              <div className="text-[11px] text-slate-600 pt-1 border-t border-slate-200">
+              <div className="text-xs text-slate-600 pt-1 border-t border-slate-200">
                 <strong>Civic Context:</strong> {dossierSolution.problem.civicContext}
               </div>
             </div>
 
             {/* Section 2: Technology */}
             <div className="space-y-2 p-3 rounded-control bg-slate-50 border border-slate-200">
-              <span className="font-mono text-[10px] text-gov-muted uppercase font-bold block">
+              <span className="font-mono text-xs text-gov-muted uppercase font-bold block">
                 2. TECHNOLOGY & HARDWARE/SOFTWARE STACK
               </span>
               <p className="text-slate-900 font-semibold">{dossierSolution.technology.architecture}</p>
               <div>
                 <span className="text-[10.5px] text-gov-muted block">Hardware Components:</span>
-                <ul className="list-disc list-inside text-[11px] text-slate-700 space-y-0.5 mt-0.5">
+                <ul className="list-disc list-inside text-xs text-slate-700 space-y-0.5 mt-0.5">
                   {dossierSolution.technology.hardwareSpecs.map((h, i) => (
                     <li key={i}>{h}</li>
                   ))}
@@ -832,7 +832,7 @@ export function ProvenSolutionsLibrary() {
                 <span className="text-[10.5px] text-gov-muted block">Connectivity & Protocols:</span>
                 <div className="flex flex-wrap gap-1 mt-1">
                   {dossierSolution.technology.connectivity.map((c, i) => (
-                    <Badge key={i} variant="outline" className="text-[9px] bg-white font-mono">
+                    <Badge key={i} variant="outline" className="text-xs bg-white font-mono">
                       {c}
                     </Badge>
                   ))}
@@ -845,10 +845,10 @@ export function ProvenSolutionsLibrary() {
 
             {/* Section 3: Startup Credentials */}
             <div className="space-y-1.5 p-3 rounded-control bg-slate-50 border border-slate-200">
-              <span className="font-mono text-[10px] text-gov-muted uppercase font-bold block">
+              <span className="font-mono text-xs text-gov-muted uppercase font-bold block">
                 3. STARTUP DETAILS & INDIGENOUS CONTENT
               </span>
-              <div className="grid grid-cols-2 gap-2 text-[11px]">
+              <div className="grid grid-cols-2 gap-2 text-xs">
                 <div>
                   <span className="text-slate-500 block">Startup Name:</span>
                   <strong className="text-slate-900">{dossierSolution.startup.name}</strong>
@@ -873,7 +873,7 @@ export function ProvenSolutionsLibrary() {
             {/* Section 4 & 5: Pilot Location & Duration */}
             <div className="grid grid-cols-2 gap-3 p-3 rounded-control bg-slate-50 border border-slate-200">
               <div>
-                <span className="font-mono text-[10px] text-gov-muted uppercase font-bold block">
+                <span className="font-mono text-xs text-gov-muted uppercase font-bold block">
                   4. PILOT LOCATION
                 </span>
                 <strong className="text-slate-900 text-xs block mt-0.5">
@@ -882,13 +882,13 @@ export function ProvenSolutionsLibrary() {
                 <span className="text-[10.5px] text-slate-600 block mt-0.5">
                   {dossierSolution.pilotLocation.siteDescription}
                 </span>
-                <span className="font-mono text-[10px] text-gov-muted block mt-1">
+                <span className="font-mono text-xs text-gov-muted block mt-1">
                   Tested: {dossierSolution.pilotLocation.wardsTested} Wards ({dossierSolution.pilotLocation.nodesDeployed} Nodes)
                 </span>
               </div>
 
               <div>
-                <span className="font-mono text-[10px] text-gov-muted uppercase font-bold block">
+                <span className="font-mono text-xs text-gov-muted uppercase font-bold block">
                   5. PILOT DURATION
                 </span>
                 <strong className="text-slate-900 text-xs block mt-0.5">
@@ -897,7 +897,7 @@ export function ProvenSolutionsLibrary() {
                 <span className="text-[10.5px] text-slate-600 block mt-0.5">
                   {dossierSolution.pilotDuration.startDate} → {dossierSolution.pilotDuration.endDate}
                 </span>
-                <span className="font-mono text-[10px] text-emerald-700 block mt-1 font-semibold">
+                <span className="font-mono text-xs text-emerald-700 block mt-1 font-semibold">
                   Status: {dossierSolution.pilotDuration.completionStatus.replace(/_/g, " ")}
                 </span>
               </div>
@@ -905,12 +905,12 @@ export function ProvenSolutionsLibrary() {
 
             {/* Section 6: Validated KPIs Table */}
             <div className="space-y-2">
-              <span className="font-mono text-[10px] text-gov-muted uppercase font-bold block">
+              <span className="font-mono text-xs text-gov-muted uppercase font-bold block">
                 6. VALIDATED PERFORMANCE METRICS (BASELINE → ACTUAL ACHIEVED)
               </span>
               <div className="border border-slate-200 rounded-control overflow-hidden">
-                <table className="w-full text-left text-[11px]">
-                  <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-mono text-[10px]">
+                <table className="w-full text-left text-xs">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-mono text-xs">
                     <tr>
                       <th className="p-2">Metric</th>
                       <th className="p-2 text-right">Baseline</th>
@@ -934,10 +934,10 @@ export function ProvenSolutionsLibrary() {
 
             {/* Section 7: Cost Economics */}
             <div className="space-y-1.5 p-3 rounded-control bg-slate-50 border border-slate-200">
-              <span className="font-mono text-[10px] text-gov-muted uppercase font-bold block">
+              <span className="font-mono text-xs text-gov-muted uppercase font-bold block">
                 7. COST & UNIT ECONOMICS
               </span>
-              <div className="grid grid-cols-2 gap-2 text-[11px]">
+              <div className="grid grid-cols-2 gap-2 text-xs">
                 <div>
                   <span className="text-slate-500 block">Pilot Total Spend:</span>
                   <strong className="font-mono text-slate-900">
@@ -965,10 +965,10 @@ export function ProvenSolutionsLibrary() {
 
             {/* Section 8: Validation Status */}
             <div className="space-y-1.5 p-3 rounded-control bg-emerald-50/50 border border-emerald-200">
-              <span className="font-mono text-[10px] text-emerald-950 uppercase font-bold block">
+              <span className="font-mono text-xs text-emerald-950 uppercase font-bold block">
                 8. INDEPENDENT THIRD-PARTY VALIDATION
               </span>
-              <div className="text-[11px] text-slate-800">
+              <div className="text-xs text-slate-800">
                 <strong>Accredited Auditor:</strong> {dossierSolution.validationStatus.accreditedAgency}
               </div>
               <p className="text-[11.5px] text-slate-700 italic">
@@ -982,17 +982,17 @@ export function ProvenSolutionsLibrary() {
 
             {/* Section 9: Applicable Departments */}
             <div className="space-y-1">
-              <span className="font-mono text-[10px] text-gov-muted uppercase font-bold block">
+              <span className="font-mono text-xs text-gov-muted uppercase font-bold block">
                 9. APPLICABLE DEPARTMENTS & GFR 149(v) ELIGIBILITY
               </span>
               <div className="flex flex-wrap gap-1">
                 {dossierSolution.applicableDepartments.map((d, i) => (
-                  <Badge key={i} variant="outline" className="text-[10px] bg-slate-50">
+                  <Badge key={i} variant="outline" className="text-xs bg-slate-50">
                     {d}
                   </Badge>
                 ))}
               </div>
-              <p className="text-[11px] text-slate-600 mt-1">
+              <p className="text-xs text-slate-600 mt-1">
                 Catalogue: <strong className="font-mono text-slate-800">{dossierSolution.procurementEligibility.gemCatalogueCategory}</strong>
               </p>
             </div>
@@ -1036,7 +1036,7 @@ export function ProvenSolutionsLibrary() {
           >
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
-                <span className="text-[10px] font-mono text-emerald-700 uppercase font-bold block">
+                <span className="text-xs font-mono text-emerald-700 uppercase font-bold block">
                   FAST-TRACK ADOPTION WORKFLOW
                 </span>
                 <h3 id="replication-modal-title" className="font-bold text-slate-900 text-base">
@@ -1060,7 +1060,7 @@ export function ProvenSolutionsLibrary() {
 
             <div className="space-y-3 pt-1">
               <div>
-                <label className="text-[11px] font-bold text-slate-800 uppercase block mb-1 font-mono">
+                <label className="text-xs font-bold text-slate-800 uppercase block mb-1 font-mono">
                   Your Department / Urban Body:
                 </label>
                 <Input
@@ -1073,7 +1073,7 @@ export function ProvenSolutionsLibrary() {
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-[11px] font-bold text-slate-800 uppercase block mb-1 font-mono">
+                  <label className="text-xs font-bold text-slate-800 uppercase block mb-1 font-mono">
                     Target City / District:
                   </label>
                   <Input
@@ -1084,7 +1084,7 @@ export function ProvenSolutionsLibrary() {
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] font-bold text-slate-800 uppercase block mb-1 font-mono">
+                  <label className="text-xs font-bold text-slate-800 uppercase block mb-1 font-mono">
                     Planned Wards / Units:
                   </label>
                   <Input
@@ -1097,7 +1097,7 @@ export function ProvenSolutionsLibrary() {
               </div>
 
               <div>
-                <label className="text-[11px] font-bold text-slate-800 uppercase block mb-1 font-mono">
+                <label className="text-xs font-bold text-slate-800 uppercase block mb-1 font-mono">
                   Replication Scope & Civic Note:
                 </label>
                 <Textarea
@@ -1108,7 +1108,7 @@ export function ProvenSolutionsLibrary() {
                 />
               </div>
 
-              <div className="p-2.5 bg-blue-50/70 border border-blue-200 rounded-control text-[11px] text-blue-900 space-y-0.5">
+              <div className="p-2.5 bg-blue-50/70 border border-blue-200 rounded-control text-xs text-blue-900 space-y-0.5">
                 <span className="font-bold flex items-center">
                   <ShieldCheck className="w-3.5 h-3.5 mr-1 text-gov-primary" />
                   Statutory Fast-Track Adoption Benefit:

@@ -50,7 +50,7 @@ export function Switch({
             </label>
           )}
           {description && (
-            <p className="text-[11px] text-gov-muted">{description}</p>
+            <p className="text-xs text-gov-muted">{description}</p>
           )}
         </div>
       )}

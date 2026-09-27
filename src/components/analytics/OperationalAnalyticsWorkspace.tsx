@@ -93,7 +93,7 @@ export function OperationalAnalyticsWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
           <div>
             <div className="flex items-center space-x-2 mb-1.5">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 STATE EXECUTIVE DASHBOARD • GFR COMPLIANT
               </Badge>
               <span className="text-slate-300">•</span>
@@ -145,7 +145,7 @@ export function OperationalAnalyticsWorkspace() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 text-xs">
             {/* 1. Department */}
             <div>
-              <label className="text-[10px] font-mono text-slate-500 uppercase block mb-1">
+              <label className="text-xs font-mono text-slate-500 uppercase block mb-1">
                 DEPARTMENT
               </label>
               <select
@@ -164,7 +164,7 @@ export function OperationalAnalyticsWorkspace() {
 
             {/* 2. State */}
             <div>
-              <label className="text-[10px] font-mono text-slate-500 uppercase block mb-1">
+              <label className="text-xs font-mono text-slate-500 uppercase block mb-1">
                 STATE
               </label>
               <select
@@ -183,7 +183,7 @@ export function OperationalAnalyticsWorkspace() {
 
             {/* 3. District */}
             <div>
-              <label className="text-[10px] font-mono text-slate-500 uppercase block mb-1">
+              <label className="text-xs font-mono text-slate-500 uppercase block mb-1">
                 DISTRICT
               </label>
               <select
@@ -202,7 +202,7 @@ export function OperationalAnalyticsWorkspace() {
 
             {/* 4. Category */}
             <div>
-              <label className="text-[10px] font-mono text-slate-500 uppercase block mb-1">
+              <label className="text-xs font-mono text-slate-500 uppercase block mb-1">
                 CATEGORY
               </label>
               <select
@@ -221,7 +221,7 @@ export function OperationalAnalyticsWorkspace() {
 
             {/* 5. Time Period */}
             <div>
-              <label className="text-[10px] font-mono text-slate-500 uppercase block mb-1">
+              <label className="text-xs font-mono text-slate-500 uppercase block mb-1">
                 TIME PERIOD
               </label>
               <select
@@ -249,9 +249,9 @@ export function OperationalAnalyticsWorkspace() {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs">
         {/* Metric 1: Challenges */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>CHALLENGES</span>
-            <Badge variant="outline" className="text-[9px] font-mono">
+            <Badge variant="outline" className="text-xs font-mono">
               FLOTATION
             </Badge>
           </div>
@@ -263,9 +263,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 2: Applications */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>APPLICATIONS</span>
-            <span className="text-emerald-700 font-bold text-[9px] font-mono">
+            <span className="text-emerald-700 font-bold text-xs font-mono">
               7.2x INFLOW
             </span>
           </div>
@@ -277,9 +277,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 3: Active Pilots */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>TESTBED PILOTS</span>
-            <Badge variant="default" className="text-[9px] font-mono bg-gov-secondary">
+            <Badge variant="default" className="text-xs font-mono bg-gov-secondary">
               ACTIVE
             </Badge>
           </div>
@@ -291,9 +291,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 4: Validated Solutions */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>VALIDATED</span>
-            <span className="text-emerald-700 font-bold text-[9px] font-mono">TERI / IITK</span>
+            <span className="text-emerald-700 font-bold text-xs font-mono">TERI / IITK</span>
           </div>
           <strong className="text-xl font-extrabold text-emerald-800 font-mono block">
             {m.validatedSolutionsCount}
@@ -305,9 +305,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 5: Scaled Solutions */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>SCALED</span>
-            <Badge variant="success" className="text-[9px] font-mono">
+            <Badge variant="success" className="text-xs font-mono">
               GFR 149
             </Badge>
           </div>
@@ -319,9 +319,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 6: Average Pilot Duration */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>AVG PILOT DURATION</span>
-            <span className="font-mono text-[9px] text-slate-400">Target 90d</span>
+            <span className="font-mono text-xs text-slate-400">Target 90d</span>
           </div>
           <strong className="text-xl font-extrabold text-slate-900 font-mono block">
             {m.averagePilotDurationDays} <span className="text-xs font-normal">Days</span>
@@ -333,9 +333,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 7: Average Payment Time */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>AVG PAYMENT TIME</span>
-            <span className="font-mono text-[9px] text-emerald-700 font-bold">&lt; 15d Mandate</span>
+            <span className="font-mono text-xs text-emerald-700 font-bold">&lt; 15d Mandate</span>
           </div>
           <strong
             className={cn(
@@ -350,9 +350,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 8: KPI Achievement Rate */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>KPI ACHIEVEMENT</span>
-            <span className="text-emerald-700 font-bold text-[9px] font-mono">PORTFOLIO</span>
+            <span className="text-emerald-700 font-bold text-xs font-mono">PORTFOLIO</span>
           </div>
           <strong className="text-xl font-extrabold text-emerald-800 font-mono block">
             {m.kpiAchievementRatePercent}%
@@ -362,9 +362,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 9: Budget Utilization */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>BUDGET UTILIZATION</span>
-            <span className="font-mono text-[9px] text-slate-400">Escrow Released</span>
+            <span className="font-mono text-xs text-slate-400">Escrow Released</span>
           </div>
           <strong className="text-xl font-extrabold text-gov-primary font-mono block">
             {m.budgetUtilizationPercent}%
@@ -376,9 +376,9 @@ export function OperationalAnalyticsWorkspace() {
 
         {/* Metric 10: Risk Distribution */}
         <div className="p-3.5 bg-white border border-gov-border rounded-card shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-gov-muted font-mono text-[10px]">
+          <div className="flex items-center justify-between text-gov-muted font-mono text-xs">
             <span>RISK DISTRIBUTION</span>
-            <span className="font-mono text-[9px] text-emerald-700 font-bold">0 CRITICAL</span>
+            <span className="font-mono text-xs text-emerald-700 font-bold">0 CRITICAL</span>
           </div>
           <div className="flex items-center space-x-1.5 pt-0.5">
             <span className="text-xs font-mono font-bold text-emerald-700">
@@ -476,12 +476,12 @@ export function OperationalAnalyticsWorkspace() {
                   <h3 className="font-bold text-slate-900 text-sm">
                     7-Month Innovation Trajectory & Scaling Velocity
                   </h3>
-                  <p className="text-[11px] text-gov-muted">
+                  <p className="text-xs text-gov-muted">
                     Monthly conversion from problem statements to certified commercial adoptions
                   </p>
                 </div>
 
-                <div className="flex items-center space-x-3 text-[10px] font-mono text-slate-600">
+                <div className="flex items-center space-x-3 text-xs font-mono text-slate-600">
                   <span className="flex items-center">
                     <span className="w-2.5 h-2.5 rounded-full bg-blue-600 mr-1.5" /> Applications
                   </span>
@@ -560,7 +560,7 @@ export function OperationalAnalyticsWorkspace() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-gov-muted pt-1">
+              <div className="flex items-center justify-between text-xs text-gov-muted pt-1">
                 <span>Data partition: TimescaleDB telemetry log</span>
                 <span className="font-mono text-emerald-700 font-bold">
                   Scale Conversion Velocity: 9.4%
@@ -574,7 +574,7 @@ export function OperationalAnalyticsWorkspace() {
                 <h3 className="font-bold text-slate-900 text-sm">
                   State Innovation Pipeline Funnel
                 </h3>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Stage-by-stage attrition and qualification rate
                 </p>
               </div>
@@ -602,7 +602,7 @@ export function OperationalAnalyticsWorkspace() {
                 ))}
               </div>
 
-              <div className="p-2.5 bg-emerald-50/70 border border-emerald-200 rounded-control text-[11px] text-emerald-950">
+              <div className="p-2.5 bg-emerald-50/70 border border-emerald-200 rounded-control text-xs text-emerald-950">
                 <span className="font-bold block">Funnel Efficiency:</span>
                 Application-to-pilot shortlisting ratio is <strong>1 : 7.2</strong> with zero drop-outs during independent validation.
               </div>
@@ -640,26 +640,26 @@ export function OperationalAnalyticsWorkspace() {
                   <div className="flex items-center justify-between">
                     <Badge
                       variant={bot.severity === "CRITICAL" ? "destructive" : "warning"}
-                      className="text-[9px] font-mono"
+                      className="text-xs font-mono"
                     >
                       {bot.severity} BOTTLENECK
                     </Badge>
-                    <span className="font-mono text-[10px] text-gov-muted">{bot.id}</span>
+                    <span className="font-mono text-xs text-gov-muted">{bot.id}</span>
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                    <span className="text-xs font-mono text-gov-muted uppercase block">
                       {bot.department}
                     </span>
                     <h4 className="font-bold text-slate-900 text-sm mt-0.5">{bot.location}</h4>
                   </div>
 
                   <div className="p-2 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                    <div className="flex justify-between text-[11px]">
+                    <div className="flex justify-between text-xs">
                       <span className="text-slate-500">Observed Metric:</span>
                       <strong className="text-rose-700 font-mono">{bot.metricObserved}</strong>
                     </div>
-                    <div className="flex justify-between text-[11px]">
+                    <div className="flex justify-between text-xs">
                       <span className="text-slate-500">Benchmark:</span>
                       <strong className="text-emerald-700 font-mono">{bot.targetBenchmark}</strong>
                     </div>
@@ -667,15 +667,15 @@ export function OperationalAnalyticsWorkspace() {
 
                   <div>
                     <span className="text-[10.5px] font-semibold text-slate-700 block">Delay Impact:</span>
-                    <p className="text-[11px] text-slate-600 mt-0.5">{bot.delayImpact}</p>
+                    <p className="text-xs text-slate-600 mt-0.5">{bot.delayImpact}</p>
                   </div>
                 </div>
 
                 <div className="pt-2 border-t border-slate-100">
-                  <span className="text-[10px] font-bold text-gov-primary uppercase block">
+                  <span className="text-xs font-bold text-gov-primary uppercase block">
                     RECOMMENDED INTERVENTION:
                   </span>
-                  <p className="text-[11px] text-slate-800 bg-blue-50/50 p-2 rounded-2xs border border-blue-100 mt-1 leading-snug">
+                  <p className="text-xs text-slate-800 bg-blue-50/50 p-2 rounded-2xs border border-blue-100 mt-1 leading-snug">
                     {bot.recommendedIntervention}
                   </p>
                 </div>
@@ -696,12 +696,12 @@ export function OperationalAnalyticsWorkspace() {
                 <h3 className="font-bold text-slate-900 text-sm">
                   Departmental Velocity & Testing Duration Comparison
                 </h3>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Mean pilot execution days vs statutory 90-day testing benchmark across line departments
                 </p>
               </div>
 
-              <div className="flex items-center space-x-3 text-[10px] font-mono text-slate-600">
+              <div className="flex items-center space-x-3 text-xs font-mono text-slate-600">
                 <span className="flex items-center">
                   <span className="w-3 h-2 bg-gov-primary mr-1.5" /> Department Avg Duration (Days)
                 </span>
@@ -715,10 +715,10 @@ export function OperationalAnalyticsWorkspace() {
             <div className="space-y-3 pt-1">
               {analyticsData.departmentalPerformance.map((dept, idx) => (
                 <div key={idx} className="space-y-1 text-xs">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px]">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
                     <div className="flex items-center space-x-2">
                       <strong className="text-slate-900 font-semibold">{dept.department}</strong>
-                      <span className="text-[10px] font-mono text-gov-muted">
+                      <span className="text-xs font-mono text-gov-muted">
                         ({dept.activePilots} Pilots)
                       </span>
                     </div>
@@ -769,7 +769,7 @@ export function OperationalAnalyticsWorkspace() {
                 <h3 className="font-bold text-slate-900 text-sm">
                   Budget Committed vs Treasury Disbursed
                 </h3>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Overall Portfolio Utilization: {m.budgetUtilizationPercent}%
                 </p>
               </div>
@@ -777,7 +777,7 @@ export function OperationalAnalyticsWorkspace() {
               <div className="space-y-3">
                 {analyticsData.departmentalPerformance.map((dept, idx) => (
                   <div key={idx} className="space-y-1 text-xs">
-                    <div className="flex justify-between text-[11px]">
+                    <div className="flex justify-between text-xs">
                       <span className="font-medium text-slate-800">{dept.departmentShort}</span>
                       <span className="font-mono text-[10.5px]">
                         ₹{(dept.budgetDisbursedInr / 100000).toFixed(1)}L / ₹{(dept.budgetCommittedInr / 100000).toFixed(1)}L ({dept.utilizationPercent}%)
@@ -800,60 +800,60 @@ export function OperationalAnalyticsWorkspace() {
                 <h3 className="font-bold text-slate-900 text-sm">
                   Portfolio Operational Risk Distribution
                 </h3>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Statutory risk covenant distribution across active testbeds
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-3 text-center">
                 <div className="p-3 rounded-control bg-emerald-50 border border-emerald-200">
-                  <span className="text-[10px] font-mono text-emerald-800 uppercase block font-semibold">
+                  <span className="text-xs font-mono text-emerald-800 uppercase block font-semibold">
                     LOW RISK (SECURE)
                   </span>
                   <strong className="text-2xl font-bold font-mono text-emerald-900">
                     {m.riskDistribution.lowPercent}%
                   </strong>
-                  <span className="text-[10px] text-emerald-700 block">
+                  <span className="text-xs text-emerald-700 block">
                     {m.riskDistribution.low} Active Pilots
                   </span>
                 </div>
 
                 <div className="p-3 rounded-control bg-amber-50 border border-amber-200">
-                  <span className="text-[10px] font-mono text-amber-800 uppercase block font-semibold">
+                  <span className="text-xs font-mono text-amber-800 uppercase block font-semibold">
                     MEDIUM RISK (MONITORED)
                   </span>
                   <strong className="text-2xl font-bold font-mono text-amber-900">
                     {m.riskDistribution.mediumPercent}%
                   </strong>
-                  <span className="text-[10px] text-amber-700 block">
+                  <span className="text-xs text-amber-700 block">
                     {m.riskDistribution.medium} Active Pilots
                   </span>
                 </div>
 
                 <div className="p-3 rounded-control bg-rose-50 border border-rose-200">
-                  <span className="text-[10px] font-mono text-rose-800 uppercase block font-semibold">
+                  <span className="text-xs font-mono text-rose-800 uppercase block font-semibold">
                     HIGH RISK (ATTENTION)
                   </span>
                   <strong className="text-2xl font-bold font-mono text-rose-900">
                     {m.riskDistribution.highPercent}%
                   </strong>
-                  <span className="text-[10px] text-rose-700 block">
+                  <span className="text-xs text-rose-700 block">
                     {m.riskDistribution.high} Active Pilots
                   </span>
                 </div>
 
                 <div className="p-3 rounded-control bg-slate-50 border border-slate-200">
-                  <span className="text-[10px] font-mono text-slate-500 uppercase block font-semibold">
+                  <span className="text-xs font-mono text-slate-500 uppercase block font-semibold">
                     CRITICAL BREACH
                   </span>
                   <strong className="text-2xl font-bold font-mono text-slate-700">
                     {m.riskDistribution.criticalPercent}%
                   </strong>
-                  <span className="text-[10px] text-slate-500 block">0 In Jeopardy</span>
+                  <span className="text-xs text-slate-500 block">0 In Jeopardy</span>
                 </div>
               </div>
 
-              <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-control text-[11px] text-slate-600">
+              <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-control text-xs text-slate-600">
                 Risk governance: All high-risk testbeds have designated senior nodal officers and weekly telemetry audit runs.
               </div>
             </div>

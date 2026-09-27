@@ -48,7 +48,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               </label>
             )}
             {description && (
-              <p className="text-[11px] text-gov-muted">{description}</p>
+              <p className="text-xs text-gov-muted">{description}</p>
             )}
           </div>
         )}

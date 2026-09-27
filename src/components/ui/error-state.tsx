@@ -33,7 +33,7 @@ export function ErrorState({
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-red-950">{title}</h3>
             {errorCode && (
-              <span className="text-[10px] font-mono font-semibold text-red-700 bg-red-100 px-1.5 py-0.5 rounded">
+              <span className="text-xs font-mono font-semibold text-red-700 bg-red-100 px-1.5 py-0.5 rounded">
                 CODE: {errorCode}
               </span>
             )}

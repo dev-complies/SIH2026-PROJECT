@@ -49,7 +49,7 @@ function UnauthorizedContent() {
           <span className="text-gov-muted font-medium">Authorized Roles:</span>
           <div className="flex flex-wrap gap-1">
             {requiredRoles.map((r) => (
-              <Badge key={r} variant="outline" className="text-gov-primary font-mono text-[10px]">
+              <Badge key={r} variant="outline" className="text-gov-primary font-mono text-xs">
                 {r}
               </Badge>
             ))}
@@ -67,7 +67,7 @@ function UnauthorizedContent() {
           <ArrowRightLeft className="w-4 h-4 text-blue-700" />
           <span>Demo Role Switcher (Simulate Authorized Clearance):</span>
         </div>
-        <p className="text-[11px] text-blue-800 mb-3">
+        <p className="text-xs text-blue-800 mb-3">
           To evaluate this protected workflow, select an authorized persona below:
         </p>
         <div className="flex flex-wrap gap-2">

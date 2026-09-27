@@ -55,7 +55,7 @@ export function TopNav({
             <span className="hidden sm:inline text-xs text-gov-muted">
               Search workspace...
             </span>
-            <kbd className="hidden sm:inline-flex items-center space-x-0.5 px-1.5 py-0.5 rounded bg-white border border-slate-200 text-[10px] font-mono text-slate-500 shadow-2xs" aria-hidden="true">
+            <kbd className="hidden sm:inline-flex items-center space-x-0.5 px-1.5 py-0.5 rounded bg-white border border-slate-200 text-xs font-mono text-slate-500 shadow-2xs" aria-hidden="true">
               <span>⌘</span>
               <span>K</span>
             </kbd>

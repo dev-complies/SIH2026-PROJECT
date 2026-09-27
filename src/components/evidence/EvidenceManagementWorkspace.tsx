@@ -366,28 +366,28 @@ export function EvidenceManagementWorkspace() {
     switch (status) {
       case "Verified":
         return (
-          <Badge variant="success" className="font-mono text-[10px] flex items-center space-x-1">
+          <Badge variant="success" className="font-mono text-xs flex items-center space-x-1">
             <CheckCircle2 className="w-3 h-3 mr-0.5" />
             <span>VERIFIED</span>
           </Badge>
         );
       case "Under Review":
         return (
-          <Badge variant="warning" className="font-mono text-[10px] flex items-center space-x-1 bg-amber-50 text-amber-800 border-amber-300">
+          <Badge variant="warning" className="font-mono text-xs flex items-center space-x-1 bg-amber-50 text-amber-800 border-amber-300">
             <Clock className="w-3 h-3 mr-0.5" />
             <span>UNDER REVIEW</span>
           </Badge>
         );
       case "Unverified":
         return (
-          <Badge variant="outline" className="font-mono text-[10px] text-slate-600 border-slate-300 flex items-center space-x-1">
+          <Badge variant="outline" className="font-mono text-xs text-slate-600 border-slate-300 flex items-center space-x-1">
             <Clock className="w-3 h-3 mr-0.5" />
             <span>UNVERIFIED</span>
           </Badge>
         );
       case "Rejected":
         return (
-          <Badge variant="destructive" className="font-mono text-[10px] flex items-center space-x-1 bg-rose-50 text-rose-800 border-rose-300">
+          <Badge variant="destructive" className="font-mono text-xs flex items-center space-x-1 bg-rose-50 text-rose-800 border-rose-300">
             <XCircle className="w-3 h-3 mr-0.5" />
             <span>REJECTED</span>
           </Badge>
@@ -400,28 +400,28 @@ export function EvidenceManagementWorkspace() {
     switch (level) {
       case "PUBLIC":
         return (
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 inline-flex items-center">
+          <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 inline-flex items-center">
             <Unlock className="w-2.5 h-2.5 mr-1" />
             PUBLIC
           </span>
         );
       case "RESTRICTED":
         return (
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 inline-flex items-center">
+          <span className="text-xs font-mono px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 inline-flex items-center">
             <Lock className="w-2.5 h-2.5 mr-1" />
             RESTRICTED
           </span>
         );
       case "CONFIDENTIAL_GOV_ONLY":
         return (
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200 inline-flex items-center">
+          <span className="text-xs font-mono px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200 inline-flex items-center">
             <ShieldAlert className="w-2.5 h-2.5 mr-1" />
             GOV ONLY
           </span>
         );
       case "PROPRIETARY_STARTUP":
         return (
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 inline-flex items-center">
+          <span className="text-xs font-mono px-2 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 inline-flex items-center">
             <ShieldCheck className="w-2.5 h-2.5 mr-1" />
             PROPRIETARY IP
           </span>
@@ -438,7 +438,7 @@ export function EvidenceManagementWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[10px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 SECURE EVIDENCE VAULT
               </Badge>
               <span className="text-xs font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center">
@@ -480,27 +480,27 @@ export function EvidenceManagementWorkspace() {
         {/* Operational Statistics Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-2 border-t border-slate-100">
           <div className="p-2.5 rounded bg-slate-50 border border-slate-200">
-            <span className="text-[10px] text-gov-muted uppercase font-mono block">TOTAL ARTIFACTS</span>
+            <span className="text-xs text-gov-muted uppercase font-mono block">TOTAL ARTIFACTS</span>
             <span className="text-lg font-bold text-slate-900 font-mono">{stats.total}</span>
           </div>
 
           <div className="p-2.5 rounded bg-emerald-50/70 border border-emerald-200">
-            <span className="text-[10px] text-emerald-700 uppercase font-mono block">VERIFIED (AUDITED)</span>
+            <span className="text-xs text-emerald-700 uppercase font-mono block">VERIFIED (AUDITED)</span>
             <span className="text-lg font-bold text-emerald-800 font-mono">{stats.verified}</span>
           </div>
 
           <div className="p-2.5 rounded bg-amber-50/70 border border-amber-200">
-            <span className="text-[10px] text-amber-700 uppercase font-mono block">UNDER REVIEW</span>
+            <span className="text-xs text-amber-700 uppercase font-mono block">UNDER REVIEW</span>
             <span className="text-lg font-bold text-amber-800 font-mono">{stats.underReview}</span>
           </div>
 
           <div className="p-2.5 rounded bg-blue-50/70 border border-blue-200">
-            <span className="text-[10px] text-blue-700 uppercase font-mono block">PENDING / UNVERIFIED</span>
+            <span className="text-xs text-blue-700 uppercase font-mono block">PENDING / UNVERIFIED</span>
             <span className="text-lg font-bold text-blue-800 font-mono">{stats.unverified}</span>
           </div>
 
           <div className="p-2.5 rounded bg-rose-50/70 border border-rose-200">
-            <span className="text-[10px] text-rose-700 uppercase font-mono block">REJECTED</span>
+            <span className="text-xs text-rose-700 uppercase font-mono block">REJECTED</span>
             <span className="text-lg font-bold text-rose-800 font-mono">{stats.rejected}</span>
           </div>
         </div>
@@ -543,7 +543,7 @@ export function EvidenceManagementWorkspace() {
             <GitBranch className="w-4 h-4 text-blue-700 shrink-0 mt-0.5" />
             <div className="space-y-1">
               <span className="font-bold block">Statutory Traceability Pipeline</span>
-              <p className="text-blue-800 leading-relaxed text-[11px]">
+              <p className="text-blue-800 leading-relaxed text-xs">
                 Select any contractual KPI below to drill down into its empirical time-series measurements. Each measurement is bound directly to primary cryptographic evidence artifacts (documents, spatial GeoJSON, sensor telemetry, and field videos) verifying that reading.
               </p>
             </div>
@@ -555,10 +555,10 @@ export function EvidenceManagementWorkspace() {
             <div className="lg:col-span-4 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-900 uppercase font-mono tracking-wider flex items-center">
-                  <span className="w-5 h-5 rounded-full bg-gov-primary text-white flex items-center justify-center text-[10px] mr-1.5 font-sans font-bold">1</span>
+                  <span className="w-5 h-5 rounded-full bg-gov-primary text-white flex items-center justify-center text-xs mr-1.5 font-sans font-bold">1</span>
                   Contractual KPIs
                 </span>
-                <span className="text-[10px] text-gov-muted font-mono">{allKpis.length || 5} Total</span>
+                <span className="text-xs text-gov-muted font-mono">{allKpis.length || 5} Total</span>
               </div>
 
               <div className="space-y-2">
@@ -586,7 +586,7 @@ export function EvidenceManagementWorkspace() {
                         </span>
                         <Badge
                           variant={isSelected ? "outline" : "default"}
-                          className={`font-mono text-[9px] ${
+                          className={`font-mono text-xs ${
                             isSelected ? "border-slate-600 text-slate-300" : "bg-emerald-50 text-emerald-700 border-emerald-200"
                           }`}
                         >
@@ -596,7 +596,7 @@ export function EvidenceManagementWorkspace() {
 
                       <div className="flex items-baseline space-x-3 mt-2 font-mono text-xs">
                         <div>
-                          <span className={`text-[9px] block uppercase ${isSelected ? "text-slate-400" : "text-slate-500"}`}>
+                          <span className={`text-xs block uppercase ${isSelected ? "text-slate-400" : "text-slate-500"}`}>
                             CURRENT
                           </span>
                           <span className={`font-bold text-sm ${isSelected ? "text-emerald-400" : "text-emerald-700"}`}>
@@ -604,7 +604,7 @@ export function EvidenceManagementWorkspace() {
                           </span>
                         </div>
                         <div>
-                          <span className={`text-[9px] block uppercase ${isSelected ? "text-slate-400" : "text-slate-500"}`}>
+                          <span className={`text-xs block uppercase ${isSelected ? "text-slate-400" : "text-slate-500"}`}>
                             TARGET
                           </span>
                           <span className={isSelected ? "text-slate-300" : "text-slate-600"}>
@@ -614,7 +614,7 @@ export function EvidenceManagementWorkspace() {
                       </div>
 
                       {isSelected && (
-                        <div className="mt-2.5 pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-300">
+                        <div className="mt-2.5 pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-slate-300">
                           <span className="flex items-center text-emerald-400 font-semibold">
                             <Check className="w-3 h-3 mr-1" /> Active Trace
                           </span>
@@ -633,10 +633,10 @@ export function EvidenceManagementWorkspace() {
             <div className="lg:col-span-4 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-900 uppercase font-mono tracking-wider flex items-center">
-                  <span className="w-5 h-5 rounded-full bg-gov-primary text-white flex items-center justify-center text-[10px] mr-1.5 font-sans font-bold">2</span>
+                  <span className="w-5 h-5 rounded-full bg-gov-primary text-white flex items-center justify-center text-xs mr-1.5 font-sans font-bold">2</span>
                   Historical Measurements
                 </span>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   {traceabilityData?.measurements?.length || 0} Data Points
                 </span>
               </div>
@@ -664,15 +664,15 @@ export function EvidenceManagementWorkspace() {
                         </span>
                       </div>
 
-                      <p className="text-[11px] text-slate-600 mt-1 line-clamp-1">
+                      <p className="text-xs text-slate-600 mt-1 line-clamp-1">
                         {m.notes}
                       </p>
 
-                      <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-500 font-mono">
+                      <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 text-xs text-slate-500 font-mono">
                         <span className="truncate max-w-[140px]">{m.sourceNode}</span>
                         <Badge
                           variant={evidenceCount > 0 ? "success" : "outline"}
-                          className={`text-[9px] ${
+                          className={`text-xs ${
                             evidenceCount > 0
                               ? "bg-emerald-50 text-emerald-800 border-emerald-300"
                               : "text-slate-500"
@@ -703,10 +703,10 @@ export function EvidenceManagementWorkspace() {
             <div className="lg:col-span-4 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-900 uppercase font-mono tracking-wider flex items-center">
-                  <span className="w-5 h-5 rounded-full bg-gov-primary text-white flex items-center justify-center text-[10px] mr-1.5 font-sans font-bold">3</span>
+                  <span className="w-5 h-5 rounded-full bg-gov-primary text-white flex items-center justify-center text-xs mr-1.5 font-sans font-bold">3</span>
                   Linked Evidence Files
                 </span>
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   {activeMeasurement?.evidence?.length || 0} Linked
                 </span>
               </div>
@@ -726,7 +726,7 @@ export function EvidenceManagementWorkspace() {
                           <h4 className="text-xs font-bold text-slate-900 line-clamp-1 leading-tight">
                             {evi.title}
                           </h4>
-                          <span className="text-[10px] font-mono text-gov-muted">
+                          <span className="text-xs font-mono text-gov-muted">
                             {evi.type} • {evi.fileSize} • {evi.relatedMilestoneId}
                           </span>
                         </div>
@@ -734,11 +734,11 @@ export function EvidenceManagementWorkspace() {
                       {renderStatusBadge(evi.verificationStatus)}
                     </div>
 
-                    <p className="text-[11px] text-slate-600 leading-snug line-clamp-2">
+                    <p className="text-xs text-slate-600 leading-snug line-clamp-2">
                       {evi.description}
                     </p>
 
-                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
                       {renderConfidentialityBadge(evi.confidentialityLevel)}
 
                       <div className="flex items-center space-x-1">
@@ -746,7 +746,7 @@ export function EvidenceManagementWorkspace() {
                           variant="outline"
                           size="sm"
                           onClick={() => openInspector(evi)}
-                          className="h-6 text-[10px] px-2"
+                          className="h-6 text-xs px-2"
                         >
                           <Eye className="w-3 h-3 mr-1" /> Inspect
                         </Button>
@@ -755,7 +755,7 @@ export function EvidenceManagementWorkspace() {
                           variant="outline"
                           size="sm"
                           onClick={() => handleSecureDownload(evi)}
-                          className="h-6 text-[10px] px-2 bg-slate-50 hover:bg-slate-100"
+                          className="h-6 text-xs px-2 bg-slate-50 hover:bg-slate-100"
                         >
                           <Download className="w-3 h-3" />
                         </Button>
@@ -770,7 +770,7 @@ export function EvidenceManagementWorkspace() {
                     <p className="text-xs text-slate-700 font-medium">
                       No evidence uploaded for this specific measurement yet.
                     </p>
-                    <p className="text-[11px] text-slate-500">
+                    <p className="text-xs text-slate-500">
                       Upload the primary laboratory certificate or telemetry file to complete the statutory audit chain.
                     </p>
                     <Button
@@ -866,7 +866,7 @@ export function EvidenceManagementWorkspace() {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
-                  <tr className="bg-slate-50 border-b border-slate-200 text-gov-muted uppercase font-mono text-[10px]">
+                  <tr className="bg-slate-50 border-b border-slate-200 text-gov-muted uppercase font-mono text-xs">
                     <th className="py-2.5 px-3 font-semibold">Evidence Asset</th>
                     <th className="py-2.5 px-3 font-semibold">Uploader & Timestamp</th>
                     <th className="py-2.5 px-3 font-semibold">Related KPI & Milestone</th>
@@ -891,7 +891,7 @@ export function EvidenceManagementWorkspace() {
                             >
                               {evi.title}
                             </button>
-                            <span className="text-[10px] text-gov-muted font-mono">
+                            <span className="text-xs text-gov-muted font-mono">
                               {evi.type} • {evi.fileSize} • {evi.fileFormat}
                             </span>
                           </div>
@@ -903,10 +903,10 @@ export function EvidenceManagementWorkspace() {
                         <div className="font-semibold text-slate-800 text-xs">
                           {evi.uploader.name}
                         </div>
-                        <div className="text-[10px] text-gov-muted">
+                        <div className="text-xs text-gov-muted">
                           {evi.uploader.organization}
                         </div>
-                        <div className="text-[10px] font-mono text-slate-500">
+                        <div className="text-xs font-mono text-slate-500">
                           {new Date(evi.timestamp).toLocaleDateString("en-IN", {
                             day: "2-digit",
                             month: "short",
@@ -918,12 +918,12 @@ export function EvidenceManagementWorkspace() {
                       {/* Related KPI & Milestone */}
                       <td className="py-3 px-3">
                         <div className="font-semibold text-slate-800 text-xs flex items-center space-x-1">
-                          <Badge variant="outline" className="font-mono text-[9px] px-1 py-0 mr-1">
+                          <Badge variant="outline" className="font-mono text-xs px-1 py-0 mr-1">
                             {evi.relatedMilestoneId}
                           </Badge>
                           <span className="truncate max-w-[150px]">{evi.relatedKpiName}</span>
                         </div>
-                        <div className="text-[10px] text-gov-muted font-mono mt-0.5">
+                        <div className="text-xs text-gov-muted font-mono mt-0.5">
                           {evi.relatedMeasurementLabel}
                         </div>
                       </td>
@@ -932,12 +932,12 @@ export function EvidenceManagementWorkspace() {
                       <td className="py-3 px-3">
                         {renderStatusBadge(evi.verificationStatus)}
                         {evi.verifiedBy && (
-                          <span className="block text-[9px] text-slate-500 font-mono mt-0.5 truncate max-w-[130px]">
+                          <span className="block text-xs text-slate-500 font-mono mt-0.5 truncate max-w-[130px]">
                             by {evi.verifiedBy}
                           </span>
                         )}
                         {evi.verificationStatus === "Rejected" && evi.rejectionReason && (
-                          <span className="block text-[9px] text-rose-600 mt-0.5 line-clamp-1 max-w-[150px]">
+                          <span className="block text-xs text-rose-600 mt-0.5 line-clamp-1 max-w-[150px]">
                             {evi.rejectionReason}
                           </span>
                         )}
@@ -955,7 +955,7 @@ export function EvidenceManagementWorkspace() {
                             variant="outline"
                             size="sm"
                             onClick={() => openInspector(evi)}
-                            className="h-7 text-xs px-2.5"
+                            className="h-8 text-xs px-2.5"
                           >
                             <Eye className="w-3.5 h-3.5 mr-1" /> Details
                           </Button>
@@ -964,7 +964,7 @@ export function EvidenceManagementWorkspace() {
                             variant="outline"
                             size="sm"
                             onClick={() => handleSecureDownload(evi)}
-                            className="h-7 text-xs px-2"
+                            className="h-8 text-xs px-2"
                             title="Secure Download"
                           >
                             <Download className="w-3.5 h-3.5" />
@@ -998,7 +998,7 @@ export function EvidenceManagementWorkspace() {
             <div className="flex items-start justify-between border-b border-slate-200 pb-4">
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
-                  <Badge variant="default" className="font-mono text-[9px] bg-slate-900">
+                  <Badge variant="default" className="font-mono text-xs bg-slate-900">
                     {selectedEvidence.id}
                   </Badge>
                   {renderStatusBadge(selectedEvidence.verificationStatus)}
@@ -1018,7 +1018,7 @@ export function EvidenceManagementWorkspace() {
 
             {/* Traceability Breadcrumb Strip */}
             <div className="p-3 bg-slate-50 border border-slate-200 rounded-card space-y-2">
-              <span className="text-[10px] text-gov-muted uppercase font-mono font-bold block">
+              <span className="text-xs text-gov-muted uppercase font-mono font-bold block">
                 STATUTORY TRACEABILITY BREADCRUMB
               </span>
               <div className="flex items-center text-xs text-slate-700 space-x-1.5 flex-wrap">
@@ -1053,30 +1053,30 @@ export function EvidenceManagementWorkspace() {
               </h3>
               <div className="grid grid-cols-2 gap-2 text-xs bg-white border border-slate-200 rounded-card p-3">
                 <div>
-                  <span className="text-[10px] text-gov-muted block uppercase">FILE TYPE / FORMAT</span>
+                  <span className="text-xs text-gov-muted block uppercase">FILE TYPE / FORMAT</span>
                   <span className="font-semibold text-slate-800 font-mono">
                     {selectedEvidence.type} ({selectedEvidence.fileFormat})
                   </span>
                 </div>
 
                 <div>
-                  <span className="text-[10px] text-gov-muted block uppercase">SIZE</span>
+                  <span className="text-xs text-gov-muted block uppercase">SIZE</span>
                   <span className="font-semibold text-slate-800 font-mono">
                     {selectedEvidence.fileSize}
                   </span>
                 </div>
 
                 <div className="col-span-2 pt-2 border-t border-slate-100">
-                  <span className="text-[10px] text-gov-muted block uppercase">SHA-256 INTEGRITY DIGEST</span>
-                  <span className="font-mono text-[11px] text-slate-700 break-all bg-slate-50 p-1.5 rounded block mt-0.5 border border-slate-200">
+                  <span className="text-xs text-gov-muted block uppercase">SHA-256 INTEGRITY DIGEST</span>
+                  <span className="font-mono text-xs text-slate-700 break-all bg-slate-50 p-1.5 rounded block mt-0.5 border border-slate-200">
                     {selectedEvidence.sha256Hash}
                   </span>
                 </div>
 
                 {selectedEvidence.metadata && Object.keys(selectedEvidence.metadata).length > 0 && (
                   <div className="col-span-2 pt-2 border-t border-slate-100 space-y-1">
-                    <span className="text-[10px] text-gov-muted block uppercase">METRIC ANNOTATIONS</span>
-                    <pre className="text-[10px] font-mono bg-slate-900 text-emerald-400 p-2 rounded overflow-x-auto">
+                    <span className="text-xs text-gov-muted block uppercase">METRIC ANNOTATIONS</span>
+                    <pre className="text-xs font-mono bg-slate-900 text-emerald-400 p-2 rounded overflow-x-auto">
                       {JSON.stringify(selectedEvidence.metadata, null, 2)}
                     </pre>
                   </div>
@@ -1092,12 +1092,12 @@ export function EvidenceManagementWorkspace() {
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-card text-xs flex items-center justify-between">
                 <div>
                   <span className="font-bold text-slate-900 block">{selectedEvidence.uploader.name}</span>
-                  <span className="text-[11px] text-gov-muted block">{selectedEvidence.uploader.organization}</span>
-                  <span className="text-[10px] font-mono text-slate-500">
+                  <span className="text-xs text-gov-muted block">{selectedEvidence.uploader.organization}</span>
+                  <span className="text-xs font-mono text-slate-500">
                     Uploaded: {new Date(selectedEvidence.timestamp).toLocaleString("en-IN")}
                   </span>
                 </div>
-                <Badge variant="outline" className="font-mono text-[10px]">
+                <Badge variant="outline" className="font-mono text-xs">
                   {selectedEvidence.uploader.role}
                 </Badge>
               </div>
@@ -1118,7 +1118,7 @@ export function EvidenceManagementWorkspace() {
                     <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-700" />
                     Verified by {selectedEvidence.verifiedBy}
                   </span>
-                  <span className="text-[10px] text-emerald-700 block font-mono">
+                  <span className="text-xs text-emerald-700 block font-mono">
                     Audit Date: {selectedEvidence.verifiedAt ? new Date(selectedEvidence.verifiedAt).toLocaleString("en-IN") : "Recorded"}
                   </span>
                 </div>
@@ -1130,7 +1130,7 @@ export function EvidenceManagementWorkspace() {
                     <XCircle className="w-3.5 h-3.5 mr-1 text-rose-700" />
                     Rejection Finding
                   </span>
-                  <p className="text-[11px] text-rose-800 leading-snug">
+                  <p className="text-xs text-rose-800 leading-snug">
                     {selectedEvidence.rejectionReason}
                   </p>
                 </div>
@@ -1165,7 +1165,7 @@ export function EvidenceManagementWorkspace() {
 
                 {adjudicateStatus === "Rejected" && (
                   <div className="space-y-1">
-                    <span className="text-[11px] font-semibold text-rose-800 block">
+                    <span className="text-xs font-semibold text-rose-800 block">
                       Rejection Reason (Mandatory)
                     </span>
                     <Textarea
@@ -1212,11 +1212,11 @@ export function EvidenceManagementWorkspace() {
                       <ShieldCheck className="w-4 h-4 mr-1 text-emerald-700" />
                       Cryptographic Clearance Granted
                     </span>
-                    <Badge variant="success" className="font-mono text-[9px]">
+                    <Badge variant="success" className="font-mono text-xs">
                       {downloadManifest.tamperEvidentSeal}
                     </Badge>
                   </div>
-                  <p className="text-[10px] text-emerald-800 font-mono">
+                  <p className="text-xs text-emerald-800 font-mono">
                     Token Valid until: {new Date(downloadManifest.expiresAt).toLocaleTimeString()}
                   </p>
                   <a
@@ -1234,7 +1234,7 @@ export function EvidenceManagementWorkspace() {
                     <Download className="w-3.5 h-3.5" />
                     <span>Download {downloadManifest.fileName}</span>
                   </a>
-                  <p className="text-[9px] text-slate-500 italic text-center">
+                  <p className="text-xs text-slate-500 italic text-center">
                     {downloadManifest.statutoryNotice}
                   </p>
                 </div>
@@ -1255,7 +1255,7 @@ export function EvidenceManagementWorkspace() {
                 <h3 className="font-bold text-base text-slate-900">
                   Submit Empirical Evidence Artifact
                 </h3>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Cryptographically hash and deposit primary telemetry into the pilot vault
                 </p>
               </div>
@@ -1374,10 +1374,10 @@ export function EvidenceManagementWorkspace() {
               {/* Mock Upload Zone */}
               <div className="border border-dashed border-slate-300 rounded p-4 text-center bg-slate-50/70 hover:bg-slate-100 transition-colors cursor-pointer">
                 <Cpu className="w-5 h-5 text-slate-400 mx-auto mb-1" />
-                <span className="font-semibold text-slate-700 block text-[11px]">
+                <span className="font-semibold text-slate-700 block text-xs">
                   Attach file artifact (Parquet, GeoJSON, PDF, MP4, JPEG, Syslog)
                 </span>
-                <span className="text-[10px] text-gov-muted block">
+                <span className="text-xs text-gov-muted block">
                   SHA-256 integrity checksum will be generated on commit
                 </span>
               </div>

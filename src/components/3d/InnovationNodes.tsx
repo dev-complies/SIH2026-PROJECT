@@ -118,9 +118,9 @@ function SingleNode({ node, isPaused = false, isSelected = false, onSelect }: Si
               : "bg-slate-950/80 border-slate-700 text-slate-300"
           )}
         >
-          <span className="text-[10px] font-bold tracking-tight">{node.label}</span>
+          <span className="text-xs font-bold tracking-tight">{node.label}</span>
           {node.metric && (
-            <span className="text-[9px] font-mono text-emerald-400 font-semibold">
+            <span className="text-xs font-mono text-emerald-400 font-semibold">
               {node.metric}
             </span>
           )}

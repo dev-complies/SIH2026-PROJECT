@@ -39,9 +39,9 @@ export function ChartContainer({
       </div>
 
       {footerNotes && (
-        <div className="border-t border-slate-100 pt-2 text-[11px] text-gov-muted flex items-center justify-between">
+        <div className="border-t border-slate-100 pt-2 text-xs text-gov-muted flex items-center justify-between">
           <span>{footerNotes}</span>
-          <span className="font-mono text-[10px] text-slate-400">Timescale Real Data</span>
+          <span className="font-mono text-xs text-slate-400">Timescale Real Data</span>
         </div>
       )}
     </div>

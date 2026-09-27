@@ -83,10 +83,10 @@ function AdminDashboardContent() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gov-border pb-5">
         <div>
           <div className="flex items-center space-x-2 mb-1">
-            <Badge variant="default" className="bg-red-800 font-mono text-[10px]">
+            <Badge variant="default" className="bg-red-800 font-mono text-xs">
               SUPER ADMIN PRIVILEGES
             </Badge>
-            <Badge variant="outline" className="text-emerald-700 border-emerald-300 bg-emerald-50 text-[10px]">
+            <Badge variant="outline" className="text-emerald-700 border-emerald-300 bg-emerald-50 text-xs">
               AUDIT HASH CHAIN: TAMPER-FREE
             </Badge>
           </div>
@@ -115,7 +115,7 @@ function AdminDashboardContent() {
               Append-only tamper-evident event stream capturing every critical procurement transition
             </p>
           </div>
-          <Badge variant="success" className="text-[11px]">
+          <Badge variant="success" className="text-xs">
             <CheckCircle2 className="w-3.5 h-3.5 mr-1" /> All Signatures Valid
           </Badge>
         </div>
@@ -139,7 +139,7 @@ function AdminDashboardContent() {
                 </TableCell>
                 <TableCell>
                   <div className="font-semibold text-xs text-slate-900">{log.userId}</div>
-                  <Badge variant="outline" className="text-[9px] font-mono">
+                  <Badge variant="outline" className="text-xs font-mono">
                     {log.userRole}
                   </Badge>
                 </TableCell>
@@ -152,7 +152,7 @@ function AdminDashboardContent() {
                 <TableCell className="font-mono text-xs text-gov-muted">
                   {log.ipAddress}
                 </TableCell>
-                <TableCell className="font-mono text-[10px] text-slate-500 truncate max-w-[200px]">
+                <TableCell className="font-mono text-xs text-slate-500 truncate max-w-[200px]">
                   {log.tamperHash}
                 </TableCell>
               </TableRow>
@@ -191,13 +191,13 @@ function AdminDashboardContent() {
                 </TableCell>
                 <TableCell className="font-mono text-xs text-slate-700">{u.email}</TableCell>
                 <TableCell>
-                  <Badge variant="outline" className="text-[10px] font-mono">
+                  <Badge variant="outline" className="text-xs font-mono">
                     {u.role}
                   </Badge>
                 </TableCell>
                 <TableCell className="text-xs text-gov-muted">{u.designation || "—"}</TableCell>
                 <TableCell>
-                  <Badge variant="success" className="text-[10px]">
+                  <Badge variant="success" className="text-xs">
                     ACTIVE
                   </Badge>
                 </TableCell>

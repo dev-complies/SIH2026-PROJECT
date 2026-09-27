@@ -486,7 +486,7 @@ export function StartupApplicationWizard({
               Applications Dashboard
             </Link>
             <span className="text-slate-300">•</span>
-            <Badge variant="outline" className="font-mono text-[9px] text-gov-accent">
+            <Badge variant="outline" className="font-mono text-xs text-gov-accent">
               CHALLENGE: {challenge.code}
             </Badge>
             <span className="text-slate-300">•</span>
@@ -498,12 +498,12 @@ export function StartupApplicationWizard({
               Startup Proposal Formulation
             </h1>
             {isLocked ? (
-              <Badge variant="warning" className="font-mono text-[10px] flex items-center gap-1">
+              <Badge variant="warning" className="font-mono text-xs flex items-center gap-1">
                 <Lock className="w-3 h-3" />
                 FIELDS LOCKED: EVALUATION IN PROGRESS
               </Badge>
             ) : (
-              <Badge variant="outline" className="font-mono text-[10px] text-blue-700 bg-blue-50 border-blue-200">
+              <Badge variant="outline" className="font-mono text-xs text-blue-700 bg-blue-50 border-blue-200">
                 14-STEP SUBMISSION WIZARD
               </Badge>
             )}
@@ -514,7 +514,7 @@ export function StartupApplicationWizard({
         <div className="flex items-center space-x-2.5 shrink-0 text-xs">
           {!isLocked && (
             <>
-              <span className="text-[11px] text-gov-muted font-mono hidden sm:inline">
+              <span className="text-xs text-gov-muted font-mono hidden sm:inline">
                 Autosaved at {lastSaved}
               </span>
               <Button
@@ -556,7 +556,7 @@ export function StartupApplicationWizard({
         <div className="bg-white border border-gov-border rounded-card p-5 shadow-sm space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+              <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                 APPLICATION DOSSIER: {applicationId}
               </span>
               <h2 className="text-sm font-bold text-gov-primary">
@@ -565,7 +565,7 @@ export function StartupApplicationWizard({
             </div>
             <div className="flex items-center space-x-2 text-xs">
               <span className="text-gov-muted">Current Stage:</span>
-              <Badge variant="default" className="bg-gov-primary font-mono text-[10px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 {status.replace(/_/g, " ")}
               </Badge>
             </div>
@@ -590,7 +590,7 @@ export function StartupApplicationWizard({
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-mono font-bold">
+                    <span className="text-xs font-mono font-bold">
                       STAGE {idx + 1}
                     </span>
                     {isPast && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />}
@@ -609,11 +609,11 @@ export function StartupApplicationWizard({
       <div className="bg-white border border-gov-border rounded-card p-4 shadow-2xs space-y-3">
         <div className="flex items-center justify-between text-xs">
           <div className="flex items-center space-x-2">
-            <span className="font-extrabold text-gov-primary font-mono text-[11px] uppercase">
+            <span className="font-extrabold text-gov-primary font-mono text-xs uppercase">
               STEP {activeStep + 1} OF 14: {steps[activeStep].title.toUpperCase()}
             </span>
             <span className="text-slate-300">•</span>
-            <span className="text-gov-muted text-[11px] font-medium">
+            <span className="text-gov-muted text-xs font-medium">
               Phase: {steps[activeStep].phase}
             </span>
           </div>
@@ -626,7 +626,7 @@ export function StartupApplicationWizard({
         <Progress value={progressPercent} className="h-2 bg-slate-100" />
 
         {/* Horizontal Step Tabs Navigator */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 pt-1 text-[11px] scrollbar-thin">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 pt-1 text-xs scrollbar-thin">
           {steps.map((st, i) => {
             const isCompleted = i < activeStep;
             const isCurrent = i === activeStep;
@@ -664,7 +664,7 @@ export function StartupApplicationWizard({
               <h2 className="text-base font-bold text-gov-primary">
                 1. Organization & Statutory Entity Profile
               </h2>
-              <p className="text-[11px] text-gov-muted">
+              <p className="text-xs text-gov-muted">
                 Official corporate details registered with DPIIT and Ministry of Corporate Affairs (MCA).
               </p>
             </div>
@@ -680,7 +680,7 @@ export function StartupApplicationWizard({
                   onChange={(e) => handleChange("companyName", e.target.value)}
                   className={errors.companyName ? "border-red-500" : ""}
                 />
-                {errors.companyName && <p className="text-[11px] text-red-600">{errors.companyName}</p>}
+                {errors.companyName && <p className="text-xs text-red-600">{errors.companyName}</p>}
               </div>
 
               <div className="space-y-1">
@@ -704,7 +704,7 @@ export function StartupApplicationWizard({
                   onChange={(e) => handleChange("dpiitNumber", e.target.value)}
                   className={errors.dpiitNumber ? "border-red-500" : ""}
                 />
-                {errors.dpiitNumber && <p className="text-[11px] text-red-600">{errors.dpiitNumber}</p>}
+                {errors.dpiitNumber && <p className="text-xs text-red-600">{errors.dpiitNumber}</p>}
               </div>
 
               <div className="space-y-1">
@@ -756,7 +756,7 @@ export function StartupApplicationWizard({
                   onChange={(e) => handleChange("contactEmail", e.target.value)}
                   className={errors.contactEmail ? "border-red-500" : ""}
                 />
-                {errors.contactEmail && <p className="text-[11px] text-red-600">{errors.contactEmail}</p>}
+                {errors.contactEmail && <p className="text-xs text-red-600">{errors.contactEmail}</p>}
               </div>
 
               <div className="space-y-1">
@@ -804,7 +804,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("solutionTitle", e.target.value)}
                 className={errors.solutionTitle ? "border-red-500" : ""}
               />
-              {errors.solutionTitle && <p className="text-[11px] text-red-600">{errors.solutionTitle}</p>}
+              {errors.solutionTitle && <p className="text-xs text-red-600">{errors.solutionTitle}</p>}
             </div>
 
             <div className="space-y-1">
@@ -818,7 +818,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("executiveSummary", e.target.value)}
                 className={errors.executiveSummary ? "border-red-500" : ""}
               />
-              {errors.executiveSummary && <p className="text-[11px] text-red-600">{errors.executiveSummary}</p>}
+              {errors.executiveSummary && <p className="text-xs text-red-600">{errors.executiveSummary}</p>}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -869,7 +869,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("sensorArchitecture", e.target.value)}
                 className={errors.sensorArchitecture ? "border-red-500" : ""}
               />
-              {errors.sensorArchitecture && <p className="text-[11px] text-red-600">{errors.sensorArchitecture}</p>}
+              {errors.sensorArchitecture && <p className="text-xs text-red-600">{errors.sensorArchitecture}</p>}
             </div>
 
             <div className="space-y-1">
@@ -893,7 +893,7 @@ export function StartupApplicationWizard({
                   onChange={(e) => handleChange("telemetryProtocol", e.target.value)}
                   className={errors.telemetryProtocol ? "border-red-500" : ""}
                 />
-                {errors.telemetryProtocol && <p className="text-[11px] text-red-600">{errors.telemetryProtocol}</p>}
+                {errors.telemetryProtocol && <p className="text-xs text-red-600">{errors.telemetryProtocol}</p>}
               </div>
 
               <div className="space-y-1">
@@ -928,7 +928,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("deploymentMethodology", e.target.value)}
                 className={errors.deploymentMethodology ? "border-red-500" : ""}
               />
-              {errors.deploymentMethodology && <p className="text-[11px] text-red-600">{errors.deploymentMethodology}</p>}
+              {errors.deploymentMethodology && <p className="text-xs text-red-600">{errors.deploymentMethodology}</p>}
             </div>
 
             <div className="space-y-1">
@@ -950,7 +950,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("icccIntegrationSchema", e.target.value)}
                 className={errors.icccIntegrationSchema ? "border-red-500" : ""}
               />
-              {errors.icccIntegrationSchema && <p className="text-[11px] text-red-600">{errors.icccIntegrationSchema}</p>}
+              {errors.icccIntegrationSchema && <p className="text-xs text-red-600">{errors.icccIntegrationSchema}</p>}
             </div>
           </div>
         )}
@@ -975,7 +975,7 @@ export function StartupApplicationWizard({
                   onChange={(e) => handleChange("teamLeadName", e.target.value)}
                   className={errors.teamLeadName ? "border-red-500" : ""}
                 />
-                {errors.teamLeadName && <p className="text-[11px] text-red-600">{errors.teamLeadName}</p>}
+                {errors.teamLeadName && <p className="text-xs text-red-600">{errors.teamLeadName}</p>}
               </div>
 
               <div className="space-y-1">
@@ -999,7 +999,7 @@ export function StartupApplicationWizard({
                   onChange={(e) => handleChange("teamLeadExperience", e.target.value)}
                   className={errors.teamLeadExperience ? "border-red-500" : ""}
                 />
-                {errors.teamLeadExperience && <p className="text-[11px] text-red-600">{errors.teamLeadExperience}</p>}
+                {errors.teamLeadExperience && <p className="text-xs text-red-600">{errors.teamLeadExperience}</p>}
               </div>
 
               <div className="space-y-1">
@@ -1052,7 +1052,7 @@ export function StartupApplicationWizard({
                   onChange={(e) => handleChange("pastProjectTitle", e.target.value)}
                   className={errors.pastProjectTitle ? "border-red-500" : ""}
                 />
-                {errors.pastProjectTitle && <p className="text-[11px] text-red-600">{errors.pastProjectTitle}</p>}
+                {errors.pastProjectTitle && <p className="text-xs text-red-600">{errors.pastProjectTitle}</p>}
               </div>
             </div>
 
@@ -1075,7 +1075,7 @@ export function StartupApplicationWizard({
               <h2 className="text-base font-bold text-gov-primary">
                 7. Proposed Pilot Budget & Cost Justification
               </h2>
-              <span className="text-[11px] font-mono text-gov-muted">
+              <span className="text-xs font-mono text-gov-muted">
                 Challenge Ceiling: {challenge.budget}
               </span>
             </div>
@@ -1091,7 +1091,7 @@ export function StartupApplicationWizard({
                   onChange={(e) => handleChange("proposedBudgetInr", e.target.value)}
                   className={errors.proposedBudgetInr ? "border-red-500" : ""}
                 />
-                {errors.proposedBudgetInr && <p className="text-[11px] text-red-600">{errors.proposedBudgetInr}</p>}
+                {errors.proposedBudgetInr && <p className="text-xs text-red-600">{errors.proposedBudgetInr}</p>}
               </div>
 
               <div className="space-y-1">
@@ -1154,7 +1154,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("milestone1", e.target.value)}
                 className={errors.milestone1 ? "border-red-500" : ""}
               />
-              {errors.milestone1 && <p className="text-[11px] text-red-600">{errors.milestone1}</p>}
+              {errors.milestone1 && <p className="text-xs text-red-600">{errors.milestone1}</p>}
             </div>
 
             <div className="space-y-1">
@@ -1167,7 +1167,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("milestone2", e.target.value)}
                 className={errors.milestone2 ? "border-red-500" : ""}
               />
-              {errors.milestone2 && <p className="text-[11px] text-red-600">{errors.milestone2}</p>}
+              {errors.milestone2 && <p className="text-xs text-red-600">{errors.milestone2}</p>}
             </div>
 
             <div className="space-y-1">
@@ -1202,7 +1202,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("kpi1Target", e.target.value)}
                 className={errors.kpi1Target ? "border-red-500" : ""}
               />
-              {errors.kpi1Target && <p className="text-[11px] text-red-600">{errors.kpi1Target}</p>}
+              {errors.kpi1Target && <p className="text-xs text-red-600">{errors.kpi1Target}</p>}
             </div>
 
             <div className="space-y-1">
@@ -1274,7 +1274,7 @@ export function StartupApplicationWizard({
                 onChange={(e) => handleChange("mitigationStrategy", e.target.value)}
                 className={errors.mitigationStrategy ? "border-red-500" : ""}
               />
-              {errors.mitigationStrategy && <p className="text-[11px] text-red-600">{errors.mitigationStrategy}</p>}
+              {errors.mitigationStrategy && <p className="text-xs text-red-600">{errors.mitigationStrategy}</p>}
             </div>
           </div>
         )}
@@ -1369,7 +1369,7 @@ export function StartupApplicationWizard({
 
             {!isLocked && (
               <div className="p-4 bg-slate-50 border border-dashed border-slate-300 rounded-card space-y-2">
-                <span className="font-bold text-slate-900 block text-[11px]">
+                <span className="font-bold text-slate-900 block text-xs">
                   Upload Supporting Proposal File (PDF)
                 </span>
                 <FileUpload
@@ -1395,12 +1395,12 @@ export function StartupApplicationWizard({
             )}
 
             <div className="space-y-2">
-              <span className="font-bold text-slate-800 block text-[11px]">
+              <span className="font-bold text-slate-800 block text-xs">
                 Attached Proposal Documents ({formData.documents.length}):
               </span>
               <div className="border border-gov-border rounded-control overflow-hidden">
                 <table className="w-full text-left border-collapse">
-                  <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+                  <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
                     <tr>
                       <th className="p-2.5">Document Title</th>
                       <th className="p-2.5">Category</th>
@@ -1413,7 +1413,7 @@ export function StartupApplicationWizard({
                       <tr key={doc.id}>
                         <td className="p-2.5 font-semibold text-slate-900">
                           {doc.title}
-                          <span className="block text-[10px] text-gov-muted font-mono">{doc.size} • {doc.date}</span>
+                          <span className="block text-xs text-gov-muted font-mono">{doc.size} • {doc.date}</span>
                         </td>
                         <td className="p-2.5 text-slate-600">{doc.category}</td>
                         <td className="p-2.5 font-mono text-gov-muted">{doc.sha256}</td>
@@ -1448,11 +1448,11 @@ export function StartupApplicationWizard({
                 <h2 className="text-base font-bold text-gov-primary">
                   13. Comprehensive Proposal Dossier Review
                 </h2>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Review all structured parameters before final submission. Click Edit on any section to revise.
                 </p>
               </div>
-              <Badge variant="outline" className="font-mono text-[10px] text-emerald-800 bg-emerald-50">
+              <Badge variant="outline" className="font-mono text-xs text-emerald-800 bg-emerald-50">
                 12 Steps Validated
               </Badge>
             </div>
@@ -1461,7 +1461,7 @@ export function StartupApplicationWizard({
               {/* Review Group 1 */}
               <div className="border border-slate-200 rounded-control p-3.5 bg-slate-50/50 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-gov-primary uppercase tracking-wider text-[11px] font-mono">
+                  <span className="font-bold text-gov-primary uppercase tracking-wider text-xs font-mono">
                     1. COMPANY & ENTITY IDENTIFICATION
                   </span>
                   {!isLocked && (
@@ -1470,7 +1470,7 @@ export function StartupApplicationWizard({
                     </button>
                   )}
                 </div>
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
+                <div className="grid grid-cols-2 gap-2 text-xs">
                   <div><span className="text-gov-muted block">Legal Name:</span> {formData.companyName}</div>
                   <div><span className="text-gov-muted block">DPIIT Number:</span> {formData.dpiitNumber}</div>
                   <div><span className="text-gov-muted block">Contact Officer:</span> {formData.contactPerson} ({formData.contactEmail})</div>
@@ -1481,7 +1481,7 @@ export function StartupApplicationWizard({
               {/* Review Group 2 */}
               <div className="border border-slate-200 rounded-control p-3.5 bg-slate-50/50 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-gov-primary uppercase tracking-wider text-[11px] font-mono">
+                  <span className="font-bold text-gov-primary uppercase tracking-wider text-xs font-mono">
                     2. TECHNICAL SOLUTION & ARCHITECTURE
                   </span>
                   {!isLocked && (
@@ -1490,7 +1490,7 @@ export function StartupApplicationWizard({
                     </button>
                   )}
                 </div>
-                <div className="space-y-1 text-[11px]">
+                <div className="space-y-1 text-xs">
                   <div><span className="text-gov-muted block">Solution Title:</span> {formData.solutionTitle}</div>
                   <div><span className="text-gov-muted block">Sensor Architecture:</span> {formData.sensorArchitecture}</div>
                   <div><span className="text-gov-muted block">Backhaul & Integration:</span> {formData.telemetryProtocol} • {formData.icccIntegrationSchema}</div>
@@ -1500,7 +1500,7 @@ export function StartupApplicationWizard({
               {/* Review Group 3 */}
               <div className="border border-slate-200 rounded-control p-3.5 bg-slate-50/50 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-gov-primary uppercase tracking-wider text-[11px] font-mono">
+                  <span className="font-bold text-gov-primary uppercase tracking-wider text-xs font-mono">
                     3. ECONOMICS, PILOT PLAN & AUDITED KPIS
                   </span>
                   {!isLocked && (
@@ -1509,7 +1509,7 @@ export function StartupApplicationWizard({
                     </button>
                   )}
                 </div>
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
+                <div className="grid grid-cols-2 gap-2 text-xs">
                   <div><span className="text-gov-muted block">Proposed Budget:</span> ₹{Number(formData.proposedBudgetInr).toLocaleString("en-IN")}</div>
                   <div><span className="text-gov-muted block">Duration:</span> {formData.pilotDurationDays}</div>
                   <div className="col-span-2"><span className="text-gov-muted block">Key Target KPI:</span> {formData.kpi1Target}</div>
@@ -1526,7 +1526,7 @@ export function StartupApplicationWizard({
               <h2 className="text-base font-bold text-gov-primary">
                 14. Official Submission Authorization
               </h2>
-              <p className="text-[11px] text-gov-muted">
+              <p className="text-xs text-gov-muted">
                 Final commit under General Financial Rules (GFR 2017) Rule 149.
               </p>
             </div>
@@ -1554,7 +1554,7 @@ export function StartupApplicationWizard({
                   <span className="font-bold text-slate-900 block text-[12px]">
                     Statutory Submission Sign-Off
                   </span>
-                  <p className="text-slate-600 text-[11px] leading-relaxed">
+                  <p className="text-slate-600 text-xs leading-relaxed">
                     By submitting this proposal, the authorized signatory certifies that all technical specifications, pricing figures, and certifications are true and verifiable under Indian law. Once submitted, all proposal fields will be locked to ensure integrity during the double-blind evaluation period.
                   </p>
                 </div>
@@ -1616,7 +1616,7 @@ export function StartupApplicationWizard({
               Are you sure you want to submit your proposal for <span className="font-semibold text-gov-primary">{challenge.code}</span>? Once committed, your proposal will be locked and forwarded for double-blind academic evaluation.
             </p>
 
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded text-[11px] text-gov-muted space-y-1 font-mono">
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded text-xs text-gov-muted space-y-1 font-mono">
               <div>APPLICANT: {formData.companyName}</div>
               <div>PROPOSED COST: ₹{Number(formData.proposedBudgetInr).toLocaleString("en-IN")}</div>
               <div>ATTACHED DOCUMENTS: {formData.documents.length} Files</div>
@@ -1714,7 +1714,7 @@ export function StartupApplicationWizard({
             </div>
 
             <div className="p-3 bg-purple-50/70 border border-purple-200 rounded text-xs space-y-1">
-              <span className="font-bold text-purple-950 block text-[11px]">
+              <span className="font-bold text-purple-950 block text-xs">
                 Query from Expert Evaluation Panel (Received 26 Mar 2026):
               </span>
               <p className="text-purple-900 text-[11.5px] leading-relaxed">

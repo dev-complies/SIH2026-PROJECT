@@ -31,7 +31,7 @@ export function PageHeader({
           {(badgeText || statusPill) && (
             <div className="flex flex-wrap items-center gap-2 mb-1">
               {badgeText && (
-                <Badge variant={badgeVariant} className="font-mono text-[10px] tracking-wide uppercase">
+                <Badge variant={badgeVariant} className="font-mono text-xs tracking-wide uppercase">
                   {badgeText}
                 </Badge>
               )}

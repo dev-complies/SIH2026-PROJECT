@@ -321,11 +321,11 @@ export function ChallengeAiAssistant({
               <h3 className="text-xs font-extrabold text-gov-primary tracking-tight">
                 AI Challenge Assistant
               </h3>
-              <Badge variant="outline" className="text-[9px] py-0 px-1 border-purple-300 text-purple-800 bg-purple-50">
+              <Badge variant="outline" className="text-xs py-0 px-1 border-purple-300 text-purple-800 bg-purple-50">
                 GFR Advisory
               </Badge>
             </div>
-            <p className="text-[10px] text-gov-muted">
+            <p className="text-xs text-gov-muted">
               Contextual problem formulation & compliance copilot
             </p>
           </div>
@@ -343,20 +343,20 @@ export function ChallengeAiAssistant({
       </div>
 
       {/* Strict Statutory Guardrails Notice (PROJECT.md Section 18 Compliance) */}
-      <div className="px-3.5 py-2.5 bg-amber-50/80 border-b border-amber-200/80 text-[10px] text-amber-950 flex items-start space-x-2">
+      <div className="px-3.5 py-2.5 bg-amber-50/80 border-b border-amber-200/80 text-xs text-amber-950 flex items-start space-x-2">
         <ShieldAlert className="w-3.5 h-3.5 text-amber-700 shrink-0 mt-0.5" />
         <div className="space-y-0.5">
           <p className="font-semibold text-amber-900 leading-tight">
             Statutory Guardrails Active (Sec. 18):
           </p>
-          <p className="text-amber-800 text-[9.5px] leading-relaxed">
+          <p className="text-amber-800 text-xs leading-relaxed">
             The AI assistant is strictly advisory and will <span className="font-bold underline">never</span> select a startup, score a proposal, approve procurement, or make a scale-up decision.
           </p>
         </div>
       </div>
 
       {/* Assistant Navigation Tabs */}
-      <div className="grid grid-cols-4 border-b border-gov-border bg-slate-100/70 p-1 text-[11px] font-medium">
+      <div className="grid grid-cols-4 border-b border-gov-border bg-slate-100/70 p-1 text-xs font-medium">
         <button
           onClick={() => setActiveTab("structure")}
           className={`py-1.5 px-1 rounded text-center transition-all ${
@@ -405,7 +405,7 @@ export function ChallengeAiAssistant({
         {activeTab === "structure" && (
           <div className="space-y-4">
             <div>
-              <label className="text-[11px] font-bold text-slate-800 block mb-1">
+              <label className="text-xs font-bold text-slate-800 block mb-1">
                 Enter Civic Need or Rough Problem
               </label>
               <div className="relative">
@@ -419,7 +419,7 @@ export function ChallengeAiAssistant({
                   size="sm"
                   onClick={handleAnalyzeCustom}
                   disabled={isAnalyzing || !customPrompt.trim()}
-                  className="absolute bottom-2 right-2 text-[10px] h-6 px-2.5 bg-gov-primary hover:bg-gov-primary/90 text-white"
+                  className="absolute bottom-2 right-2 text-xs h-8 px-2.5 bg-gov-primary hover:bg-gov-primary/90 text-white"
                 >
                   <Sparkles className="w-2.5 h-2.5 mr-1" />
                   {isAnalyzing ? "Analyzing..." : "Structure Problem"}
@@ -428,12 +428,12 @@ export function ChallengeAiAssistant({
 
               {/* Preset Quick-Pills */}
               <div className="mt-2 flex flex-wrap gap-1.5 items-center">
-                <span className="text-[9.5px] text-gov-muted font-medium">Quick examples:</span>
+                <span className="text-xs text-gov-muted font-medium">Quick examples:</span>
                 {presetPrompts.map((preset) => (
                   <button
                     key={preset.label}
                     onClick={() => handleSelectPreset(preset)}
-                    className="text-[9.5px] bg-slate-100 hover:bg-slate-200 border border-slate-200 px-1.5 py-0.5 rounded text-slate-700 font-mono transition-colors"
+                    className="text-xs bg-slate-100 hover:bg-slate-200 border border-slate-200 px-1.5 py-0.5 rounded text-slate-700 font-mono transition-colors"
                   >
                     {preset.label}
                   </button>
@@ -457,7 +457,7 @@ export function ChallengeAiAssistant({
               {/* Problem */}
               <div className="bg-slate-50 border border-gov-border rounded-md p-3 space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider">
+                  <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider">
                     STRUCTURED PROBLEM
                   </span>
                   <div className="flex items-center space-x-1">
@@ -479,7 +479,7 @@ export function ChallengeAiAssistant({
                           description: "AI-generated suggestion — verify before publishing.",
                         });
                       }}
-                      className="text-[10px] h-5 px-1.5 border-slate-300"
+                      className="text-xs h-8 px-2.5 border-slate-300"
                     >
                       Apply to Step 1
                     </Button>
@@ -493,7 +493,7 @@ export function ChallengeAiAssistant({
               {/* Potential KPI */}
               <div className="bg-slate-50 border border-gov-border rounded-md p-3 space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-blue-700 font-bold uppercase tracking-wider">
+                  <span className="text-xs font-mono text-blue-700 font-bold uppercase tracking-wider">
                     POTENTIAL KPI
                   </span>
                   <div className="flex items-center space-x-1">
@@ -515,7 +515,7 @@ export function ChallengeAiAssistant({
                           description: "AI-generated suggestion — verify before publishing.",
                         });
                       }}
-                      className="text-[10px] h-5 px-1.5 border-slate-300"
+                      className="text-xs h-8 px-2.5 border-slate-300"
                     >
                       Apply to Step 2
                     </Button>
@@ -530,7 +530,7 @@ export function ChallengeAiAssistant({
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-slate-50 border border-gov-border rounded-md p-2.5 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-[9.5px] font-mono text-slate-500 font-bold uppercase">
+                    <span className="text-xs font-mono text-slate-500 font-bold uppercase">
                       BASELINE
                     </span>
                     <button
@@ -542,7 +542,7 @@ export function ChallengeAiAssistant({
                           description: "AI-generated suggestion — verify before publishing.",
                         });
                       }}
-                      className="text-[9px] text-gov-accent hover:underline font-semibold"
+                      className="text-xs text-gov-accent hover:underline font-semibold"
                     >
                       Apply
                     </button>
@@ -554,7 +554,7 @@ export function ChallengeAiAssistant({
 
                 <div className="bg-emerald-50/50 border border-emerald-200 rounded-md p-2.5 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-[9.5px] font-mono text-emerald-700 font-bold uppercase">
+                    <span className="text-xs font-mono text-emerald-700 font-bold uppercase">
                       POTENTIAL TARGET
                     </span>
                     <button
@@ -566,7 +566,7 @@ export function ChallengeAiAssistant({
                           description: "AI-generated suggestion — verify before publishing.",
                         });
                       }}
-                      className="text-[9px] text-emerald-700 hover:underline font-semibold"
+                      className="text-xs text-emerald-700 hover:underline font-semibold"
                     >
                       Apply
                     </button>
@@ -580,7 +580,7 @@ export function ChallengeAiAssistant({
               {/* Potential Risk & Suggested Mitigation */}
               <div className="bg-amber-50/40 border border-amber-200 rounded-md p-3 space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-amber-800 font-bold uppercase tracking-wider flex items-center">
+                  <span className="text-xs font-mono text-amber-800 font-bold uppercase tracking-wider flex items-center">
                     <AlertTriangle className="w-3 h-3 mr-1 text-amber-600" />
                     POTENTIAL RISK
                   </span>
@@ -598,7 +598,7 @@ export function ChallengeAiAssistant({
                         description: "AI-generated suggestion — verify before publishing.",
                       });
                     }}
-                    className="text-[10px] h-5 px-1.5 border-amber-300 text-amber-900 bg-white"
+                    className="text-xs h-8 px-2.5 border-amber-300 text-amber-900 bg-white"
                   >
                     Add Safeguard
                   </Button>
@@ -606,7 +606,7 @@ export function ChallengeAiAssistant({
                 <p className="text-xs font-bold text-amber-950">
                   {structuredResult.risk}
                 </p>
-                <p className="text-[11px] text-amber-900 leading-relaxed">
+                <p className="text-xs text-amber-900 leading-relaxed">
                   <span className="font-semibold text-slate-700">Mitigation:</span> {structuredResult.mitigation}
                 </p>
               </div>
@@ -639,15 +639,15 @@ export function ChallengeAiAssistant({
         {/* TAB 2: MISSING INFORMATION AUDITOR */}
         {activeTab === "missing" && (
           <div className="space-y-3">
-            <div className="bg-slate-50 border border-slate-200 rounded p-2.5 text-[11px] text-slate-700">
+            <div className="bg-slate-50 border border-slate-200 rounded p-2.5 text-xs text-slate-700">
               <p className="font-semibold text-slate-900 mb-0.5">Form Completeness & Policy Audit</p>
-              <p className="text-[10px] text-gov-muted">
+              <p className="text-xs text-gov-muted">
                 The assistant analyzes your 7-step formulation against General Financial Rules (GFR 2017) and pilot validation standards.
               </p>
             </div>
 
             {/* Statutory Label */}
-            <div className="bg-purple-50/70 border border-purple-200/80 rounded-md p-1.5 text-[10px] text-purple-900 font-medium flex items-center">
+            <div className="bg-purple-50/70 border border-purple-200/80 rounded-md p-1.5 text-xs text-purple-900 font-medium flex items-center">
               <Sparkles className="w-3 h-3 text-purple-600 mr-1.5 shrink-0" />
               AI-generated suggestion — verify before publishing.
             </div>
@@ -673,7 +673,7 @@ export function ChallengeAiAssistant({
                     </span>
                     <Badge
                       variant="outline"
-                      className={`text-[9px] py-0 px-1 ${
+                      className={`text-xs py-0 px-1 ${
                         item.status === "pass"
                           ? "bg-emerald-50 text-emerald-700 border-emerald-300"
                           : "bg-amber-50 text-amber-800 border-amber-300"
@@ -682,7 +682,7 @@ export function ChallengeAiAssistant({
                       Step {item.step}
                     </Badge>
                   </div>
-                  <p className="text-[11px] text-slate-600 mb-2 leading-tight">
+                  <p className="text-xs text-slate-600 mb-2 leading-tight">
                     {item.message}
                   </p>
                   {item.status === "warning" && (
@@ -697,7 +697,7 @@ export function ChallengeAiAssistant({
                           description: "AI-generated suggestion — verify before publishing.",
                         });
                       }}
-                      className="text-[10px] h-6 px-2 border-amber-300 text-amber-900 bg-white hover:bg-amber-50"
+                      className="text-xs h-8 px-2.5 border-amber-300 text-amber-900 bg-white hover:bg-amber-50"
                     >
                       <Sparkles className="w-2.5 h-2.5 mr-1 text-amber-600" />
                       {item.action}
@@ -712,21 +712,21 @@ export function ChallengeAiAssistant({
         {/* TAB 3: RISKS & KPIS */}
         {activeTab === "risks" && (
           <div className="space-y-3">
-            <div className="bg-purple-50/70 border border-purple-200/80 rounded-md p-1.5 text-[10px] text-purple-900 font-medium flex items-center">
+            <div className="bg-purple-50/70 border border-purple-200/80 rounded-md p-1.5 text-xs text-purple-900 font-medium flex items-center">
               <Sparkles className="w-3 h-3 text-purple-600 mr-1.5 shrink-0" />
               AI-generated suggestion — verify before publishing.
             </div>
 
             <div className="space-y-3">
               <div className="border border-gov-border rounded-md p-3 bg-white space-y-2">
-                <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                   RECOMMENDED CIVIC KPIS
                 </span>
                 <div className="space-y-2 text-xs">
                   <div className="p-2 bg-slate-50 rounded border border-slate-200 flex items-start justify-between">
                     <div>
                       <p className="font-semibold text-slate-900">Spatial Telemetry Density</p>
-                      <p className="text-[11px] text-gov-muted">
+                      <p className="text-xs text-gov-muted">
                         Target: Minimum 1 active sensor per 2.5 sq km with &gt;95% hourly uptime.
                       </p>
                     </div>
@@ -744,7 +744,7 @@ export function ChallengeAiAssistant({
                           description: "AI-generated suggestion — verify before publishing.",
                         });
                       }}
-                      className="text-[9.5px] h-5 px-1.5"
+                      className="text-xs h-8 px-2.5"
                     >
                       Insert
                     </Button>
@@ -753,7 +753,7 @@ export function ChallengeAiAssistant({
                   <div className="p-2 bg-slate-50 rounded border border-slate-200 flex items-start justify-between">
                     <div>
                       <p className="font-semibold text-slate-900">Reference Analyzer Correlation (R²)</p>
-                      <p className="text-[11px] text-gov-muted">
+                      <p className="text-xs text-gov-muted">
                         Target: R² &gt;= 0.90 against collocated statutory CAAQMS instruments over 60 days.
                       </p>
                     </div>
@@ -768,7 +768,7 @@ export function ChallengeAiAssistant({
                           description: "AI-generated suggestion — verify before publishing.",
                         });
                       }}
-                      className="text-[9.5px] h-5 px-1.5"
+                      className="text-xs h-8 px-2.5"
                     >
                       Insert
                     </Button>
@@ -778,13 +778,13 @@ export function ChallengeAiAssistant({
 
               {/* Technical & Operational Risks */}
               <div className="border border-amber-200 rounded-md p-3 bg-amber-50/30 space-y-2">
-                <span className="text-[10px] font-mono text-amber-800 font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-amber-800 font-bold uppercase tracking-wider block">
                   IDENTIFIED PILOT RISKS & SAFEGUARDS
                 </span>
                 <div className="space-y-2 text-xs">
                   <div className="p-2 bg-white rounded border border-amber-200">
                     <p className="font-bold text-amber-950 text-xs">Risk: Optical Drift & Sensor Fouling</p>
-                    <p className="text-[11px] text-slate-700 mt-0.5">
+                    <p className="text-xs text-slate-700 mt-0.5">
                       High particulate deposition can blind laser scattering optics within 30 days in winter inversion episodes.
                     </p>
                     <p className="text-[10.5px] text-gov-accent font-medium mt-1">
@@ -794,7 +794,7 @@ export function ChallengeAiAssistant({
 
                   <div className="p-2 bg-white rounded border border-amber-200">
                     <p className="font-bold text-amber-950 text-xs">Risk: Vendor Cloud Lock-in</p>
-                    <p className="text-[11px] text-slate-700 mt-0.5">
+                    <p className="text-xs text-slate-700 mt-0.5">
                       Proprietary binary protocols preventing integration with municipal command centers (ICCC).
                     </p>
                     <p className="text-[10.5px] text-gov-accent font-medium mt-1">
@@ -810,14 +810,14 @@ export function ChallengeAiAssistant({
         {/* TAB 4: CHALLENGE SUMMARY */}
         {activeTab === "summary" && (
           <div className="space-y-3">
-            <div className="bg-purple-50/70 border border-purple-200/80 rounded-md p-1.5 text-[10px] text-purple-900 font-medium flex items-center">
+            <div className="bg-purple-50/70 border border-purple-200/80 rounded-md p-1.5 text-xs text-purple-900 font-medium flex items-center">
               <Sparkles className="w-3 h-3 text-purple-600 mr-1.5 shrink-0" />
               AI-generated suggestion — verify before publishing.
             </div>
 
             <div className="bg-slate-50 border border-gov-border rounded-md p-3 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider">
+                <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider">
                   PROCUREMENT EXECUTIVE SUMMARY
                 </span>
                 <button
@@ -839,7 +839,7 @@ export function ChallengeAiAssistant({
               </p>
 
               <div className="pt-1 flex items-center justify-between">
-                <span className="text-[10px] text-gov-muted font-mono">
+                <span className="text-xs text-gov-muted font-mono">
                   Characters: 342 • Gazette Ready
                 </span>
                 <Button
@@ -851,7 +851,7 @@ export function ChallengeAiAssistant({
                       "summary"
                     );
                   }}
-                  className="text-[10px] h-6 px-2 border-slate-300"
+                  className="text-xs h-8 px-2.5 border-slate-300"
                 >
                   <Copy className="w-3 h-3 mr-1" />
                   Copy for Public Notice
@@ -863,7 +863,7 @@ export function ChallengeAiAssistant({
       </div>
 
       {/* Assistant Footer */}
-      <div className="p-3 bg-slate-50 border-t border-gov-border flex items-center justify-between text-[10px] text-gov-muted">
+      <div className="p-3 bg-slate-50 border-t border-gov-border flex items-center justify-between text-xs text-gov-muted">
         <span className="flex items-center">
           <ShieldCheck className="w-3 h-3 text-emerald-600 mr-1" />
           GovInnovate Safe-AI Protocol

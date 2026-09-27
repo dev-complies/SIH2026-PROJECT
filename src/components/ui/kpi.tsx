@@ -48,7 +48,7 @@ export function KPICard({
       <div className="flex items-start justify-between gap-2 mb-3">
         <div>
           {metricCode && (
-            <span className="text-[10px] font-mono text-gov-muted uppercase block">
+            <span className="text-xs font-mono text-gov-muted uppercase block">
               {metricCode}
             </span>
           )}
@@ -58,7 +58,7 @@ export function KPICard({
         {isVerified && (
           <span
             title="Empirically verified by Independent Validator"
-            className="inline-flex items-center text-[10px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0"
+            className="inline-flex items-center text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0"
           >
             <ShieldCheck className="w-3 h-3 mr-1 text-emerald-600" /> Verified
           </span>
@@ -88,7 +88,7 @@ export function KPICard({
 
       {/* Trend Indicator */}
       {(trendLabel || trend) && (
-        <div className="flex items-center space-x-1.5 text-[11px] mb-3">
+        <div className="flex items-center space-x-1.5 text-xs mb-3">
           {trend === "up" && (
             <span className="inline-flex items-center text-emerald-700 font-bold">
               <TrendingUp className="w-3.5 h-3.5 mr-1" />
@@ -124,7 +124,7 @@ export function KPICard({
       )}
 
       {dataSource && (
-        <div className="mt-3 flex items-center text-[10px] text-gov-muted border-t border-slate-100 pt-2 truncate">
+        <div className="mt-3 flex items-center text-xs text-gov-muted border-t border-slate-100 pt-2 truncate">
           <Activity className="w-3 h-3 mr-1 text-slate-400 shrink-0" />
           <span className="truncate">Source: {dataSource}</span>
         </div>

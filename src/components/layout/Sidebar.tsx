@@ -170,7 +170,7 @@ function SidebarInternal({
                 <span className="font-extrabold text-white text-sm tracking-tight block">
                   GovInnovate
                 </span>
-                <span className="text-[10px] uppercase font-mono text-slate-400 block tracking-wider">
+                <span className="text-xs uppercase font-mono text-slate-400 block tracking-wider">
                   {getWorkspaceTitle(currentUser?.role)}
                 </span>
               </div>
@@ -189,13 +189,13 @@ function SidebarInternal({
 
         {/* Role Badge Indicator */}
         {!isCollapsed && (
-          <div className="px-4 py-3 bg-slate-950/40 border-b border-slate-800/60 flex items-center justify-between text-[11px]">
-            <span className="font-mono text-slate-400 uppercase text-[10px]">
+          <div className="px-4 py-3 bg-slate-950/40 border-b border-slate-800/60 flex items-center justify-between text-xs">
+            <span className="font-mono text-slate-400 uppercase text-xs">
               ROLE CONTEXT
             </span>
             <Badge
               variant="outline"
-              className="text-[9px] font-mono border-blue-500/40 text-blue-300 bg-blue-950/40 px-1.5 py-0"
+              className="text-xs font-mono border-blue-500/40 text-blue-300 bg-blue-950/40 px-1.5 py-0"
             >
               {currentUser?.role?.replace("_", " ")}
             </Badge>
@@ -231,7 +231,7 @@ function SidebarInternal({
 
                 {!isCollapsed && item.badge && (
                   <span
-                    className={`text-[10px] font-mono px-1.5 py-0.2 rounded shrink-0 ${
+                    className={`text-xs font-mono px-1.5 py-0.2 rounded shrink-0 ${
                       isActive
                         ? "bg-blue-800 text-blue-100"
                         : "bg-slate-800 text-slate-300 border border-slate-700"
@@ -249,7 +249,7 @@ function SidebarInternal({
       {/* Bottom Information & Collapse Toggle */}
       <div className="p-3 border-t border-slate-800/80 space-y-2">
         {!isCollapsed && (
-          <div className="px-2 py-1.5 rounded bg-slate-950/60 border border-slate-800 text-[10px] text-slate-400 flex items-center justify-between">
+          <div className="px-2 py-1.5 rounded bg-slate-950/60 border border-slate-800 text-xs text-slate-400 flex items-center justify-between">
             <span className="flex items-center">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse" aria-hidden="true" />
               Node UP-01 Online
@@ -269,7 +269,7 @@ function SidebarInternal({
           {isCollapsed ? (
             <ChevronRight className="w-4 h-4" aria-hidden="true" />
           ) : (
-            <div className="flex items-center space-x-2 text-[11px]">
+            <div className="flex items-center space-x-2 text-xs">
               <ChevronLeft className="w-4 h-4" aria-hidden="true" />
               <span>Collapse Sidebar</span>
             </div>

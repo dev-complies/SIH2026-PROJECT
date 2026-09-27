@@ -324,7 +324,7 @@ export default function CreateChallengeWizardPage() {
       {/* Wizard Page Header */}
       <div className="border-b border-gov-border pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center space-x-2 mb-1">
+          <div className="flex items-center space-x-2 mb-1.5">
             <Link
               href="/gov/dashboard"
               className="text-xs text-gov-muted hover:text-gov-primary flex items-center"
@@ -333,7 +333,7 @@ export default function CreateChallengeWizardPage() {
               Return to Government Desk
             </Link>
             <span className="text-slate-300">•</span>
-            <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+            <Badge variant="default" className="bg-gov-primary font-mono text-xs px-2 py-0.5">
               7-STEP PROCUREMENT WIZARD
             </Badge>
           </div>
@@ -347,14 +347,14 @@ export default function CreateChallengeWizardPage() {
 
         {/* Action Header Controls */}
         <div className="flex items-center space-x-2.5 shrink-0 text-xs">
-          <span className="text-[11px] text-gov-muted font-mono hidden sm:inline">
+          <span className="text-xs text-gov-muted font-mono hidden sm:inline">
             Autosaved at {lastSaved}
           </span>
           <Button
             size="sm"
             variant="outline"
             onClick={handleSaveDraft}
-            className="text-xs h-8 border-slate-300"
+            className="text-xs h-8 px-3 border-slate-300 hover:bg-slate-50 font-medium"
           >
             <Save className="w-3.5 h-3.5 mr-1" /> Save Draft
           </Button>
@@ -362,7 +362,7 @@ export default function CreateChallengeWizardPage() {
             size="sm"
             variant="outline"
             onClick={() => setIsPreviewOpen(true)}
-            className="text-xs h-8 border-slate-300"
+            className="text-xs h-8 px-3 border-slate-300 hover:bg-slate-50 font-medium"
           >
             <Eye className="w-3.5 h-3.5 mr-1" /> Preview
           </Button>
@@ -370,7 +370,7 @@ export default function CreateChallengeWizardPage() {
             size="sm"
             variant={isAssistantOpen ? "default" : "outline"}
             onClick={() => setIsAssistantOpen(!isAssistantOpen)}
-            className={`text-xs h-8 ${
+            className={`text-xs h-8 px-3 font-medium ${
               isAssistantOpen
                 ? "bg-purple-700 hover:bg-purple-800 text-white"
                 : "border-purple-300 text-purple-900 bg-purple-50 hover:bg-purple-100"
@@ -404,7 +404,7 @@ export default function CreateChallengeWizardPage() {
             {/* Step Indicator Header */}
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
-                <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                   STEP {activeStep + 1} OF 7: {steps[activeStep].title.toUpperCase()}
                 </span>
                 <h2 className="text-lg font-bold text-gov-primary mt-0.5">
@@ -417,7 +417,7 @@ export default function CreateChallengeWizardPage() {
                 size="sm"
                 variant="outline"
                 onClick={() => setIsAssistantOpen(true)}
-                className="text-xs h-8 border-purple-200 text-purple-900 bg-purple-50 hover:bg-purple-100"
+                className="text-xs h-8 px-3 border-purple-200 text-purple-900 bg-purple-50 hover:bg-purple-100 font-medium"
                 title="Suggest measurable outcomes, KPIs, and missing criteria"
               >
                 <Sparkles className="w-3.5 h-3.5 mr-1.5 text-purple-600" />
@@ -429,17 +429,17 @@ export default function CreateChallengeWizardPage() {
             {activeStep === 0 && (
               <div className="space-y-4 text-xs animate-in fade-in duration-150">
                 {/* Contextual Inline AI Assistant Banner */}
-                <div className="bg-purple-50/70 border border-purple-200 rounded-md p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div className="bg-purple-50/70 border border-purple-200 rounded-md p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   <div className="flex items-start space-x-2">
                     <Sparkles className="w-4 h-4 text-purple-700 shrink-0 mt-0.5" />
                     <div>
                       <div className="flex items-center space-x-2">
                         <p className="text-xs font-bold text-purple-950">AI Problem Structuring Assistant</p>
-                        <span className="text-[9px] font-mono text-purple-700 bg-purple-100 px-1 rounded">
+                        <span className="text-xs font-mono text-purple-700 bg-purple-100 px-1.5 py-0.5 rounded font-medium">
                           Sec. 18 Advisory
                         </span>
                       </div>
-                      <p className="text-[11px] text-purple-900 mt-0.5">
+                      <p className="text-xs text-purple-900 mt-0.5 leading-relaxed">
                         Have an unstructured need like <span className="font-semibold">&ldquo;We need better monitoring of pollution across the city&rdquo;</span>? The AI assistant structures scope, root cause, and affected civic stakeholders.
                       </p>
                     </div>
@@ -448,7 +448,7 @@ export default function CreateChallengeWizardPage() {
                     size="sm"
                     variant="outline"
                     onClick={() => setIsAssistantOpen(true)}
-                    className="text-xs h-7 shrink-0 border-purple-300 text-purple-900 bg-white hover:bg-purple-100 font-semibold"
+                    className="text-xs h-8 shrink-0 border-purple-300 text-purple-900 bg-white hover:bg-purple-100 font-semibold"
                   >
                     <Sparkles className="w-3 h-3 mr-1 text-purple-600" /> Structure in Panel
                   </Button>
@@ -464,7 +464,7 @@ export default function CreateChallengeWizardPage() {
                   placeholder="e.g. Urban Air Quality Hyperlocal Monitoring & Intervention Mesh"
                   className={errors.title ? "border-red-500" : ""}
                 />
-                {errors.title && <p className="text-[11px] text-red-600 font-medium">{errors.title}</p>}
+                {errors.title && <p className="text-xs text-red-600 font-medium">{errors.title}</p>}
               </div>
 
               <div className="space-y-1">
@@ -513,7 +513,7 @@ export default function CreateChallengeWizardPage() {
                   placeholder="e.g. Lucknow Municipal Corporation (Wards 14, 18, 22, 29)"
                   className={errors.geographicScope ? "border-red-500" : ""}
                 />
-                {errors.geographicScope && <p className="text-[11px] text-red-600">{errors.geographicScope}</p>}
+                {errors.geographicScope && <p className="text-xs text-red-600">{errors.geographicScope}</p>}
               </div>
             </div>
 
@@ -528,7 +528,7 @@ export default function CreateChallengeWizardPage() {
                 placeholder="Explain the technical and administrative bottleneck in detail..."
                 className={errors.problemDescription ? "border-red-500" : ""}
               />
-              {errors.problemDescription && <p className="text-[11px] text-red-600">{errors.problemDescription}</p>}
+              {errors.problemDescription && <p className="text-xs text-red-600">{errors.problemDescription}</p>}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -581,11 +581,11 @@ export default function CreateChallengeWizardPage() {
                 <div>
                   <div className="flex items-center space-x-2">
                     <p className="text-xs font-bold text-purple-950">AI Measurable Outcomes & KPIs</p>
-                    <span className="text-[9px] font-mono text-purple-700 bg-purple-100 px-1 rounded">
+                    <span className="text-xs font-mono text-purple-700 bg-purple-100 px-1 rounded">
                       Sec. 18 Advisory
                     </span>
                   </div>
-                  <p className="text-[11px] text-purple-900 mt-0.5">
+                  <p className="text-xs text-purple-900 mt-0.5">
                     Suggests quantifiable baselines (<span className="font-semibold">e.g. 35% spatial coverage</span>) and targets (<span className="font-semibold">85% municipal mesh</span>) with statutory CAAQMS correlation gates.
                   </p>
                 </div>
@@ -594,7 +594,7 @@ export default function CreateChallengeWizardPage() {
                 size="sm"
                 variant="outline"
                 onClick={() => setIsAssistantOpen(true)}
-                className="text-xs h-7 shrink-0 border-purple-300 text-purple-900 bg-white hover:bg-purple-100 font-semibold"
+                className="text-xs h-8 shrink-0 border-purple-300 text-purple-900 bg-white hover:bg-purple-100 font-semibold"
               >
                 <Sparkles className="w-3 h-3 mr-1 text-purple-600" /> Suggest KPIs
               </Button>
@@ -610,13 +610,13 @@ export default function CreateChallengeWizardPage() {
                 onChange={(e) => handleChange("targetOutcome", e.target.value)}
                 placeholder="State the measurable transformation expected from this pilot..."
               />
-              {errors.targetOutcome && <p className="text-[11px] text-red-600">{errors.targetOutcome}</p>}
+              {errors.targetOutcome && <p className="text-xs text-red-600">{errors.targetOutcome}</p>}
             </div>
 
             <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <label className="font-semibold text-slate-800">Expected Improvement & Efficiency Gain</label>
-                <span className="text-[10px] font-mono text-purple-700 bg-purple-50 px-1 rounded">
+                <span className="text-xs font-mono text-purple-700 bg-purple-50 px-1 rounded">
                   AI-assisted suggestion available
                 </span>
               </div>
@@ -646,7 +646,7 @@ export default function CreateChallengeWizardPage() {
                   placeholder="e.g. 35.0% Geographic Coverage"
                   className={errors.baseline ? "border-red-500" : ""}
                 />
-                {errors.baseline && <p className="text-[11px] text-red-600">{errors.baseline}</p>}
+                {errors.baseline && <p className="text-xs text-red-600">{errors.baseline}</p>}
               </div>
 
               <div className="space-y-1">
@@ -659,7 +659,7 @@ export default function CreateChallengeWizardPage() {
                   placeholder="e.g. 92.0% Collocated Correlation"
                   className={errors.target ? "border-red-500" : ""}
                 />
-                {errors.target && <p className="text-[11px] text-red-600">{errors.target}</p>}
+                {errors.target && <p className="text-xs text-red-600">{errors.target}</p>}
               </div>
             </div>
           </div>
@@ -678,7 +678,7 @@ export default function CreateChallengeWizardPage() {
                   onChange={(e) => handleChange("requiredTechnology", e.target.value)}
                   placeholder="e.g. Laser scattering particle sensors, LoRaWAN / 4G"
                 />
-                {errors.requiredTechnology && <p className="text-[11px] text-red-600">{errors.requiredTechnology}</p>}
+                {errors.requiredTechnology && <p className="text-xs text-red-600">{errors.requiredTechnology}</p>}
               </div>
 
               <div className="space-y-1">
@@ -701,7 +701,7 @@ export default function CreateChallengeWizardPage() {
                 onChange={(e) => handleChange("mandatoryRequirements", e.target.value)}
                 placeholder="Hardware certifications, IP65 enclosure, uptime standards..."
               />
-              {errors.mandatoryRequirements && <p className="text-[11px] text-red-600">{errors.mandatoryRequirements}</p>}
+              {errors.mandatoryRequirements && <p className="text-xs text-red-600">{errors.mandatoryRequirements}</p>}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -738,7 +738,7 @@ export default function CreateChallengeWizardPage() {
                   onChange={(e) => handleChange("durationDays", e.target.value)}
                   placeholder="60, 90, or 120"
                 />
-                {errors.durationDays && <p className="text-[11px] text-red-600">{errors.durationDays}</p>}
+                {errors.durationDays && <p className="text-xs text-red-600">{errors.durationDays}</p>}
               </div>
 
               <div className="space-y-1">
@@ -750,7 +750,7 @@ export default function CreateChallengeWizardPage() {
                   onChange={(e) => handleChange("budgetInr", e.target.value)}
                   placeholder="e.g. 2500000"
                 />
-                {errors.budgetInr && <p className="text-[11px] text-red-600">{errors.budgetInr}</p>}
+                {errors.budgetInr && <p className="text-xs text-red-600">{errors.budgetInr}</p>}
               </div>
 
               <div className="space-y-1">
@@ -779,7 +779,7 @@ export default function CreateChallengeWizardPage() {
                   onChange={(e) => handleChange("location", e.target.value)}
                   placeholder="e.g. Lucknow Wards 14, 18, 22, 29"
                 />
-                {errors.location && <p className="text-[11px] text-red-600">{errors.location}</p>}
+                {errors.location && <p className="text-xs text-red-600">{errors.location}</p>}
               </div>
 
               <div className="space-y-1">
@@ -801,7 +801,7 @@ export default function CreateChallengeWizardPage() {
                 onChange={(e) => handleChange("milestones", e.target.value)}
                 placeholder="Break down each milestone deliverable and funding release percentage..."
               />
-              {errors.milestones && <p className="text-[11px] text-red-600">{errors.milestones}</p>}
+              {errors.milestones && <p className="text-xs text-red-600">{errors.milestones}</p>}
             </div>
 
             <div className="space-y-1">
@@ -828,7 +828,7 @@ export default function CreateChallengeWizardPage() {
                   onChange={(e) => handleChange("startupRegistration", e.target.value)}
                   placeholder="DPIIT certificate required..."
                 />
-                {errors.startupRegistration && <p className="text-[11px] text-red-600">{errors.startupRegistration}</p>}
+                {errors.startupRegistration && <p className="text-xs text-red-600">{errors.startupRegistration}</p>}
               </div>
 
               <div className="space-y-1">
@@ -857,7 +857,7 @@ export default function CreateChallengeWizardPage() {
                   value={formData.technicalRequirements}
                   onChange={(e) => handleChange("technicalRequirements", e.target.value)}
                 />
-                {errors.technicalRequirements && <p className="text-[11px] text-red-600">{errors.technicalRequirements}</p>}
+                {errors.technicalRequirements && <p className="text-xs text-red-600">{errors.technicalRequirements}</p>}
               </div>
             </div>
 
@@ -894,7 +894,7 @@ export default function CreateChallengeWizardPage() {
                   value={formData.dataOwnership}
                   onChange={(e) => handleChange("dataOwnership", e.target.value)}
                 />
-                {errors.dataOwnership && <p className="text-[11px] text-red-600">{errors.dataOwnership}</p>}
+                {errors.dataOwnership && <p className="text-xs text-red-600">{errors.dataOwnership}</p>}
               </div>
 
               <div className="space-y-1">
@@ -906,7 +906,7 @@ export default function CreateChallengeWizardPage() {
                   value={formData.ipRights}
                   onChange={(e) => handleChange("ipRights", e.target.value)}
                 />
-                {errors.ipRights && <p className="text-[11px] text-red-600">{errors.ipRights}</p>}
+                {errors.ipRights && <p className="text-xs text-red-600">{errors.ipRights}</p>}
               </div>
             </div>
 
@@ -949,12 +949,12 @@ export default function CreateChallengeWizardPage() {
                   <h4 className="font-bold text-emerald-950 text-sm">
                     Challenge Specification Verified & Ready for Publication
                   </h4>
-                  <p className="text-[11px] text-emerald-800">
+                  <p className="text-xs text-emerald-800">
                     All 6 statutory sections have passed automated schema validation and GFR 2017 checks.
                   </p>
                 </div>
               </div>
-              <Badge variant="success" className="font-mono text-[10px]">
+              <Badge variant="success" className="font-mono text-xs">
                 VALIDATION 100%
               </Badge>
             </div>
@@ -964,28 +964,28 @@ export default function CreateChallengeWizardPage() {
               {/* Section 1 & 2 Summary */}
               <div className="border border-slate-200 rounded-control p-4 bg-slate-50/60 space-y-2">
                 <div className="flex justify-between items-center border-b border-slate-200/60 pb-2">
-                  <h4 className="font-bold text-gov-primary uppercase text-[11px] tracking-wide">
+                  <h4 className="font-bold text-gov-primary uppercase text-xs tracking-wide">
                     1. Problem & Desired Outcome
                   </h4>
-                  <button onClick={() => setActiveStep(0)} className="text-gov-accent hover:underline text-[11px]">
+                  <button onClick={() => setActiveStep(0)} className="text-gov-accent hover:underline text-xs">
                     Edit
                   </button>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">CHALLENGE TITLE</span>
+                    <span className="text-xs text-gov-muted block font-mono">CHALLENGE TITLE</span>
                     <span className="font-bold text-slate-900">{formData.title}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">DEPARTMENT & SCOPE</span>
+                    <span className="text-xs text-gov-muted block font-mono">DEPARTMENT & SCOPE</span>
                     <span className="font-medium text-slate-800">{formData.department} • {formData.geographicScope}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">BASELINE CONDITION</span>
+                    <span className="text-xs text-gov-muted block font-mono">BASELINE CONDITION</span>
                     <span className="text-slate-700">{formData.baseline}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">TARGET OUTCOME</span>
+                    <span className="text-xs text-gov-muted block font-mono">TARGET OUTCOME</span>
                     <span className="text-emerald-800 font-bold">{formData.target}</span>
                   </div>
                 </div>
@@ -994,30 +994,30 @@ export default function CreateChallengeWizardPage() {
               {/* Section 3 & 4 Summary */}
               <div className="border border-slate-200 rounded-control p-4 bg-slate-50/60 space-y-2">
                 <div className="flex justify-between items-center border-b border-slate-200/60 pb-2">
-                  <h4 className="font-bold text-gov-primary uppercase text-[11px] tracking-wide">
+                  <h4 className="font-bold text-gov-primary uppercase text-xs tracking-wide">
                     2. Pilot Implementation & Milestones
                   </h4>
-                  <button onClick={() => setActiveStep(3)} className="text-gov-accent hover:underline text-[11px]">
+                  <button onClick={() => setActiveStep(3)} className="text-gov-accent hover:underline text-xs">
                     Edit
                   </button>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">PILOT DURATION</span>
+                    <span className="text-xs text-gov-muted block font-mono">PILOT DURATION</span>
                     <span className="font-bold text-slate-900">{formData.durationDays} Days</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">ESCROW BUDGET</span>
+                    <span className="text-xs text-gov-muted block font-mono">ESCROW BUDGET</span>
                     <span className="font-bold text-emerald-700 font-mono">₹{Number(formData.budgetInr).toLocaleString("en-IN")}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">LOCATION</span>
+                    <span className="text-xs text-gov-muted block font-mono">LOCATION</span>
                     <span className="text-slate-800">{formData.location}</span>
                   </div>
                 </div>
                 <div className="pt-1">
-                  <span className="text-[10px] text-gov-muted block font-mono">DISBURSEMENT MILESTONES</span>
-                  <p className="text-slate-700 whitespace-pre-line text-[11px] bg-white p-2 rounded border border-slate-200 mt-1">
+                  <span className="text-xs text-gov-muted block font-mono">DISBURSEMENT MILESTONES</span>
+                  <p className="text-slate-700 whitespace-pre-line text-xs bg-white p-2 rounded border border-slate-200 mt-1">
                     {formData.milestones}
                   </p>
                 </div>
@@ -1026,20 +1026,20 @@ export default function CreateChallengeWizardPage() {
               {/* Section 5 & 6 Summary */}
               <div className="border border-slate-200 rounded-control p-4 bg-slate-50/60 space-y-2">
                 <div className="flex justify-between items-center border-b border-slate-200/60 pb-2">
-                  <h4 className="font-bold text-gov-primary uppercase text-[11px] tracking-wide">
+                  <h4 className="font-bold text-gov-primary uppercase text-xs tracking-wide">
                     3. Eligibility & Statutory Governance
                   </h4>
-                  <button onClick={() => setActiveStep(4)} className="text-gov-accent hover:underline text-[11px]">
+                  <button onClick={() => setActiveStep(4)} className="text-gov-accent hover:underline text-xs">
                     Edit
                   </button>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">DPIIT ELIGIBILITY</span>
+                    <span className="text-xs text-gov-muted block font-mono">DPIIT ELIGIBILITY</span>
                     <span className="text-slate-800">{formData.startupRegistration}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-gov-muted block font-mono">DATA & IP FRAMEWORK</span>
+                    <span className="text-xs text-gov-muted block font-mono">DATA & IP FRAMEWORK</span>
                     <span className="text-slate-800">Raw Data: Municipal Corp • IP: Startup Retained</span>
                   </div>
                 </div>
@@ -1049,25 +1049,25 @@ export default function CreateChallengeWizardPage() {
             {/* Publishing Action Matrix */}
             <div className="border-t border-slate-200 pt-6 flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center space-x-2 text-slate-600">
-                <Lock className="w-4 h-4 text-gov-primary" />
-                <span className="text-[11px]">
+                <Lock className="w-4 h-4 text-gov-primary shrink-0" />
+                <span className="text-xs">
                   Official Officer Clearance: <strong>{currentUser?.firstName} {currentUser?.lastName}</strong> ({currentUser?.designation})
                 </span>
               </div>
 
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2.5">
                 <Button
                   variant="outline"
                   onClick={() => setIsScheduleOpen(true)}
-                  className="text-xs h-9"
+                  className="text-xs h-9 px-3.5 border-slate-300 font-medium hover:bg-slate-50"
                 >
-                  <Calendar className="w-3.5 h-3.5 mr-1" /> Schedule Publication
+                  <Calendar className="w-3.5 h-3.5 mr-1.5" /> Schedule Publication
                 </Button>
 
                 <Button
                   variant="default"
                   onClick={handlePublish}
-                  className="bg-emerald-700 hover:bg-emerald-800 text-xs h-9 font-semibold shadow-sm"
+                  className="bg-emerald-700 hover:bg-emerald-800 text-white text-xs h-9 px-4 font-semibold shadow-sm"
                 >
                   <Send className="w-3.5 h-3.5 mr-1.5" /> Publish Challenge Immediately
                 </Button>
@@ -1083,9 +1083,9 @@ export default function CreateChallengeWizardPage() {
             variant="outline"
             onClick={handleBack}
             disabled={activeStep === 0}
-            className="text-xs h-9"
+            className="text-xs h-9 px-4 border-slate-300 font-medium"
           >
-            <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Previous Step
+            <ArrowLeft className="w-3.5 h-3.5 mr-1.5" /> Previous Step
           </Button>
 
           <div className="flex items-center space-x-2">
@@ -1094,9 +1094,9 @@ export default function CreateChallengeWizardPage() {
                 size="sm"
                 variant="default"
                 onClick={handleNext}
-                className="bg-gov-primary text-xs h-9 font-semibold"
+                className="bg-gov-primary hover:bg-gov-primary-hover text-white text-xs h-9 px-4 font-semibold"
               >
-                Next: {steps[activeStep + 1].title} <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                Next: {steps[activeStep + 1].title} <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
               </Button>
             ) : null}
           </div>
@@ -1126,12 +1126,12 @@ export default function CreateChallengeWizardPage() {
           <div className="w-full max-w-3xl rounded-card border border-gov-border bg-white shadow-2xl p-6 space-y-4 max-h-[85vh] overflow-y-auto text-left">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center space-x-2">
-                <Badge variant="outline" className="font-mono text-[10px] text-gov-accent">
+                <Badge variant="outline" className="font-mono text-xs text-gov-accent px-2 py-0.5">
                   PUBLIC PREVIEW
                 </Badge>
-                <span className="text-xs text-gov-muted">How startups will view this challenge</span>
+                <span className="text-xs text-gov-muted font-medium">How startups will view this challenge</span>
               </div>
-              <button onClick={() => setIsPreviewOpen(false)} className="text-slate-400 hover:text-slate-600">
+              <button onClick={() => setIsPreviewOpen(false)} className="text-slate-400 hover:text-slate-600 p-1">
                 ✕
               </button>
             </div>
@@ -1151,8 +1151,8 @@ export default function CreateChallengeWizardPage() {
                 {formData.problemDescription}
               </p>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-control p-3 text-xs space-y-1">
-                <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+              <div className="bg-slate-50 border border-slate-200 rounded-control p-3.5 text-xs space-y-1">
+                <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                   PRIMARY TARGET BENCHMARK
                 </span>
                 <span className="font-semibold text-emerald-800">{formData.target}</span>
@@ -1160,28 +1160,29 @@ export default function CreateChallengeWizardPage() {
 
               <div className="grid grid-cols-3 gap-3 border-t border-slate-100 pt-3 text-xs">
                 <div>
-                  <span className="text-gov-muted block text-[10px]">PILOT BUDGET</span>
-                  <span className="font-bold text-slate-900 font-mono">₹{Number(formData.budgetInr).toLocaleString("en-IN")}</span>
+                  <span className="text-gov-muted block text-xs font-medium">PILOT BUDGET</span>
+                  <span className="font-bold text-slate-900 font-mono text-sm">₹{Number(formData.budgetInr).toLocaleString("en-IN")}</span>
                 </div>
                 <div>
-                  <span className="text-gov-muted block text-[10px]">TESTING PERIOD</span>
-                  <span className="font-medium text-slate-800">{formData.durationDays} Days</span>
+                  <span className="text-gov-muted block text-xs font-medium">TESTING PERIOD</span>
+                  <span className="font-medium text-slate-800 text-sm">{formData.durationDays} Days</span>
                 </div>
                 <div>
-                  <span className="text-gov-muted block text-[10px]">ELIGIBILITY</span>
-                  <span className="font-medium text-slate-800 truncate block">DPIIT Recognized</span>
+                  <span className="text-gov-muted block text-xs font-medium">ELIGIBILITY</span>
+                  <span className="font-medium text-slate-800 text-sm truncate block">DPIIT Recognized</span>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-slate-100 pt-3 flex justify-end">
-              <Button size="sm" variant="default" onClick={() => setIsPreviewOpen(false)} className="text-xs">
+              <Button size="sm" variant="default" onClick={() => setIsPreviewOpen(false)} className="text-xs h-8 px-4">
                 Close Preview
               </Button>
             </div>
           </div>
         </div>
       )}
+
 
       {/* MODAL 2: Schedule Publication Modal */}
       {isScheduleOpen && (

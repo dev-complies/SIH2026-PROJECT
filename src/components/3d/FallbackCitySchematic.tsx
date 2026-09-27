@@ -42,29 +42,29 @@ export function FallbackCitySchematic() {
       {/* Stylized Vector Pipeline Flow */}
       <div className="relative z-10 my-auto grid grid-cols-1 md:grid-cols-5 gap-3 text-center">
         <div className="bg-slate-800/80 border border-slate-700 p-3 rounded-control text-left">
-          <span className="text-[10px] font-mono text-slate-400">STAGE 01</span>
+          <span className="text-xs font-mono text-slate-400">STAGE 01</span>
           <p className="text-xs font-semibold text-white mt-1">Gov Problem</p>
-          <p className="text-[11px] text-slate-300">Urban Air Monitoring</p>
+          <p className="text-xs text-slate-300">Urban Air Monitoring</p>
         </div>
         <div className="bg-slate-800/80 border border-slate-700 p-3 rounded-control text-left">
-          <span className="text-[10px] font-mono text-slate-400">STAGE 02</span>
+          <span className="text-xs font-mono text-slate-400">STAGE 02</span>
           <p className="text-xs font-semibold text-white mt-1">Startup Solution</p>
-          <p className="text-[11px] text-slate-300">AirSense Tech Mesh</p>
+          <p className="text-xs text-slate-300">AirSense Tech Mesh</p>
         </div>
         <div className="bg-blue-950/60 border border-blue-600/80 p-3 rounded-control text-left shadow-sm shadow-blue-500/10">
-          <span className="text-[10px] font-mono text-blue-400 font-semibold">STAGE 03 • ACTIVE</span>
+          <span className="text-xs font-mono text-blue-400 font-semibold">STAGE 03 • ACTIVE</span>
           <p className="text-xs font-semibold text-white mt-1">90-Day Pilot</p>
-          <p className="text-[11px] text-blue-200">Lucknow 4 Wards (40 Nodes)</p>
+          <p className="text-xs text-blue-200">Lucknow 4 Wards (40 Nodes)</p>
         </div>
         <div className="bg-slate-800/80 border border-slate-700 p-3 rounded-control text-left">
-          <span className="text-[10px] font-mono text-slate-400">STAGE 04</span>
+          <span className="text-xs font-mono text-slate-400">STAGE 04</span>
           <p className="text-xs font-semibold text-white mt-1">Validation</p>
-          <p className="text-[11px] text-slate-300">TERI Audit Verified</p>
+          <p className="text-xs text-slate-300">TERI Audit Verified</p>
         </div>
         <div className="bg-emerald-950/60 border border-emerald-600/80 p-3 rounded-control text-left">
-          <span className="text-[10px] font-mono text-emerald-400 font-semibold">STAGE 05</span>
+          <span className="text-xs font-mono text-emerald-400 font-semibold">STAGE 05</span>
           <p className="text-xs font-semibold text-white mt-1">Scale-Up</p>
-          <p className="text-[11px] text-emerald-200">City-Wide Procurement</p>
+          <p className="text-xs text-emerald-200">City-Wide Procurement</p>
         </div>
       </div>
 
@@ -73,7 +73,7 @@ export function FallbackCitySchematic() {
         <span className="flex items-center">
           <MapPin className="w-3.5 h-3.5 mr-1 text-blue-400" /> Lucknow Wards 14, 18, 22, 29
         </span>
-        <span className="font-mono text-slate-300 text-[11px]">
+        <span className="font-mono text-slate-300 text-xs">
           Sensor Fleet Uptime: <strong className="text-emerald-400">94.0%</strong> | Accuracy: <strong className="text-emerald-400">95.0%</strong>
         </span>
       </div>

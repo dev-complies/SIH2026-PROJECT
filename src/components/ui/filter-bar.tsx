@@ -93,9 +93,9 @@ export function FilterBar({
       {/* Active Filter Tags */}
       {activeCount > 0 && (
         <div className="flex flex-wrap items-center gap-1.5 pt-1">
-          <span className="text-[11px] font-medium text-gov-muted mr-1">Active Filters:</span>
+          <span className="text-xs font-medium text-gov-muted mr-1">Active Filters:</span>
           {searchValue && (
-            <Badge variant="secondary" className="text-[10px] pl-2 pr-1 py-0.5 space-x-1">
+            <Badge variant="secondary" className="text-xs pl-2 pr-1 py-0.5 space-x-1">
               <span>Keyword: &quot;{searchValue}&quot;</span>
               <button onClick={() => onSearchChange && onSearchChange("")} className="hover:text-gov-danger">
                 <X className="w-3 h-3" />
@@ -107,7 +107,7 @@ export function FilterBar({
             const filterDef = filters.find((f) => f.key === k);
             const optDef = filterDef?.options.find((o) => o.value === v);
             return (
-              <Badge key={k} variant="secondary" className="text-[10px] pl-2 pr-1 py-0.5 space-x-1">
+              <Badge key={k} variant="secondary" className="text-xs pl-2 pr-1 py-0.5 space-x-1">
                 <span>
                   {filterDef?.label}: <strong>{optDef?.label || v}</strong>
                 </span>

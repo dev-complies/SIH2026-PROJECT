@@ -78,10 +78,10 @@ function ExpertDashboardContent() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gov-border pb-5">
         <div>
           <div className="flex items-center space-x-2 mb-1">
-            <Badge variant="default" className="bg-purple-800 font-mono text-[10px]">
+            <Badge variant="default" className="bg-purple-800 font-mono text-xs">
               EXPERT EVALUATOR CLEARANCE
             </Badge>
-            <Badge variant="outline" className="text-purple-700 border-purple-300 bg-purple-50 text-[10px]">
+            <Badge variant="outline" className="text-purple-700 border-purple-300 bg-purple-50 text-xs">
               BLIND SCORING ACTIVE
             </Badge>
           </div>
@@ -107,7 +107,7 @@ function ExpertDashboardContent() {
         <p className="text-purple-900 leading-relaxed">
           Applicant corporate identities, shareholder names, and commercial client relationships are programmatically masked. You cannot inspect peer evaluator scorecards until your evaluation is locked and submitted.
         </p>
-        <div className="flex items-center space-x-2 pt-1 font-mono text-[11px] text-emerald-800">
+        <div className="flex items-center space-x-2 pt-1 font-mono text-xs text-emerald-800">
           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
           <span>Conflict of Interest Declaration: Signed on 2026-02-20</span>
         </div>
@@ -142,14 +142,14 @@ function ExpertDashboardContent() {
                 <div className="font-semibold text-xs text-slate-900">
                   Hyperlocal AI Sensor Mesh & Automated Anomaly Detection
                 </div>
-                <div className="text-[11px] text-gov-muted">
+                <div className="text-xs text-gov-muted">
                   [Company Identity Masked] • Proposed Duration: 12 Weeks
                 </div>
               </TableCell>
               <TableCell className="text-xs">IoT CleanTech</TableCell>
               <TableCell className="font-bold text-xs text-emerald-700">92.5 / 100</TableCell>
               <TableCell>
-                <Badge variant="success" className="text-[10px]">
+                <Badge variant="success" className="text-xs">
                   SUBMITTED & LOCKED
                 </Badge>
               </TableCell>

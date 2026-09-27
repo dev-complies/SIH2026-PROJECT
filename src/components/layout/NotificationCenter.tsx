@@ -208,7 +208,7 @@ export function NotificationCenter() {
         >
           <Bell className="w-4 h-4" />
           {unreadCount > 0 && (
-            <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white font-mono shadow-xs animate-pulse">
+            <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white font-mono shadow-xs animate-pulse">
               {unreadCount > 9 ? "9+" : unreadCount}
             </span>
           )}
@@ -224,21 +224,21 @@ export function NotificationCenter() {
                   Notifications
                 </h3>
                 {unreadCount > 0 ? (
-                  <Badge variant="warning" className="text-[10px] px-1.5 py-0 font-mono">
+                  <Badge variant="warning" className="text-xs px-1.5 py-0 font-mono">
                     {unreadCount} UNREAD
                   </Badge>
                 ) : (
-                  <Badge variant="outline" className="text-[9px] text-emerald-700 bg-emerald-50 border-emerald-200">
+                  <Badge variant="outline" className="text-xs text-emerald-700 bg-emerald-50 border-emerald-200">
                     ALL CAUGHT UP
                   </Badge>
                 )}
               </div>
 
-              <div className="flex items-center space-x-2 text-[11px]">
+              <div className="flex items-center space-x-2 text-xs">
                 {unreadCount > 0 && (
                   <button
                     onClick={markAllAsRead}
-                    className="text-gov-accent hover:underline font-medium text-[11px]"
+                    className="text-gov-accent hover:underline font-medium text-xs"
                   >
                     Mark all read
                   </button>
@@ -264,7 +264,7 @@ export function NotificationCenter() {
             </div>
 
             {/* Filter Chips */}
-            <div className="px-3 py-2 border-b border-slate-100 flex items-center space-x-1.5 text-[11px] bg-white overflow-x-auto scrollbar-none">
+            <div className="px-3 py-2 border-b border-slate-100 flex items-center space-x-1.5 text-xs bg-white overflow-x-auto scrollbar-none">
               <button
                 onClick={() => setFilter("ALL")}
                 className={`px-2 py-0.5 rounded font-medium shrink-0 transition-colors ${
@@ -373,7 +373,7 @@ export function NotificationCenter() {
                               <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
                             )}
                           </div>
-                          <span className="text-[10px] font-mono text-gov-muted shrink-0 ml-1">
+                          <span className="text-xs font-mono text-gov-muted shrink-0 ml-1">
                             {new Date(item.createdAt).toLocaleDateString([], {
                               month: "short",
                               day: "numeric",
@@ -383,21 +383,21 @@ export function NotificationCenter() {
 
                         {/* Notification Type & Severity Badge */}
                         <div className="flex items-center space-x-1.5 mt-1">
-                          <Badge variant="outline" className="text-[9px] py-0 px-1 font-medium bg-slate-50">
+                          <Badge variant="outline" className="text-xs py-0 px-1 font-medium bg-slate-50">
                             {item.type}
                           </Badge>
                           {item.severity === "CRITICAL" && (
-                            <Badge variant="destructive" className="text-[9px] py-0 px-1 font-mono">
+                            <Badge variant="destructive" className="text-xs py-0 px-1 font-mono">
                               CRITICAL
                             </Badge>
                           )}
-                          <span className="text-[10px] font-mono text-slate-400">
+                          <span className="text-xs font-mono text-slate-400">
                             {item.entityId}
                           </span>
                         </div>
 
                         {/* Description */}
-                        <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
+                        <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
                           {item.message}
                         </p>
 
@@ -409,7 +409,7 @@ export function NotificationCenter() {
                               if (!item.read) markOneAsRead(item.id);
                               setIsOpen(false);
                             }}
-                            className="inline-flex items-center text-[10px] font-bold text-gov-accent hover:underline group-hover:text-blue-800"
+                            className="inline-flex items-center text-xs font-bold text-gov-accent hover:underline group-hover:text-blue-800"
                           >
                             <span>{item.actionLabel}</span>
                             <ExternalLink className="w-2.5 h-2.5 ml-1" />
@@ -419,7 +419,7 @@ export function NotificationCenter() {
                             {item.read ? (
                               <button
                                 onClick={(e) => markOneAsUnread(item.id, e)}
-                                className="text-[10px] text-slate-400 hover:text-slate-700 transition-colors"
+                                className="text-xs text-slate-400 hover:text-slate-700 transition-colors"
                                 title="Mark as unread"
                               >
                                 Mark unread
@@ -427,7 +427,7 @@ export function NotificationCenter() {
                             ) : (
                               <button
                                 onClick={(e) => markOneAsRead(item.id, e)}
-                                className="text-[10px] text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                                className="text-xs text-blue-600 hover:text-blue-800 font-medium transition-colors"
                                 title="Mark as read"
                               >
                                 Mark read
@@ -443,11 +443,11 @@ export function NotificationCenter() {
             </div>
 
             {/* Footer */}
-            <div className="border-t border-slate-100 bg-slate-50 px-4 py-2.5 flex justify-between items-center text-[11px] text-gov-muted">
+            <div className="border-t border-slate-100 bg-slate-50 px-4 py-2.5 flex justify-between items-center text-xs text-gov-muted">
               <Link
                 href="/notifications"
                 onClick={() => setIsOpen(false)}
-                className="text-gov-primary hover:underline font-semibold flex items-center text-[11px]"
+                className="text-gov-primary hover:underline font-semibold flex items-center text-xs"
               >
                 <FolderOpen className="w-3.5 h-3.5 mr-1 text-slate-500" />
                 Open Notification Center
@@ -456,7 +456,7 @@ export function NotificationCenter() {
               {notifications.length > 0 && (
                 <button
                   onClick={clearAll}
-                  className="hover:text-red-700 hover:underline text-[10px]"
+                  className="hover:text-red-700 hover:underline text-xs"
                 >
                   Clear tray
                 </button>

@@ -110,7 +110,7 @@ function CityMarker3D({
         <button
           onClick={onClick}
           className={cn(
-            "px-2 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-tight shadow-md transition-all whitespace-nowrap cursor-pointer",
+            "px-2 py-0.5 rounded-full text-xs font-mono font-bold tracking-tight shadow-md transition-all whitespace-nowrap cursor-pointer",
             isSelected
               ? "bg-amber-500 text-slate-950 ring-2 ring-white scale-110"
               : isHub
@@ -221,7 +221,7 @@ function Topology2DFallback({
             <Layers className="w-3.5 h-3.5 mr-1 text-gov-primary" />
             2D Regional Expansion Schematic
           </span>
-          <Badge variant="outline" className="font-mono text-[9px]">
+          <Badge variant="outline" className="font-mono text-xs">
             6 State Cities • 910 Nodes
           </Badge>
         </div>
@@ -240,11 +240,11 @@ function Topology2DFallback({
             >
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900">{city.name}</span>
-                <span className="font-mono text-[10px] text-gov-primary font-semibold">
+                <span className="font-mono text-xs text-gov-primary font-semibold">
                   {city.plannedNodes} nodes
                 </span>
               </div>
-              <span className="text-[10px] text-slate-500 block truncate">
+              <span className="text-xs text-slate-500 block truncate">
                 {city.category}
               </span>
             </button>
@@ -294,11 +294,11 @@ export function ScaleUpSpatialTopology3D({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 bg-slate-50 border-b border-slate-200 text-xs">
         <div>
           <div className="flex items-center space-x-2">
-            <span className="font-mono font-bold text-gov-primary text-[10px] uppercase tracking-wide">
+            <span className="font-mono font-bold text-gov-primary text-xs uppercase tracking-wide">
               SPATIAL 3D CORRIDOR TOPOLOGY
             </span>
             <span className="text-slate-300">•</span>
-            <span className="text-slate-500 text-[11px]">
+            <span className="text-slate-500 text-xs">
               Subtle Spatial Depth Model
             </span>
           </div>
@@ -309,7 +309,7 @@ export function ScaleUpSpatialTopology3D({
 
         {/* Expansion Phase Filter */}
         <div className="flex items-center space-x-1 self-start sm:self-center">
-          <span className="text-[10px] font-mono text-gov-muted mr-1 hidden sm:inline">
+          <span className="text-xs font-mono text-gov-muted mr-1 hidden sm:inline">
             Scope:
           </span>
           <button
@@ -402,16 +402,16 @@ export function ScaleUpSpatialTopology3D({
                 <span className="font-bold text-sm text-slate-100">
                   {selectedCity.name}
                 </span>
-                <span className="text-[10px] text-slate-400 font-mono">
+                <span className="text-xs text-slate-400 font-mono">
                   [{selectedCity.category}]
                 </span>
               </div>
-              <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/40 text-[9px] font-mono">
+              <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/40 text-xs font-mono">
                 {selectedCity.readinessScore}% READY
               </Badge>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-[11px] pt-0.5">
+            <div className="grid grid-cols-2 gap-2 text-xs pt-0.5">
               <div>
                 <span className="text-slate-400 block text-[9.5px]">Planned Wards:</span>
                 <strong className="text-slate-100 font-mono">
@@ -438,7 +438,7 @@ export function ScaleUpSpatialTopology3D({
               </div>
             </div>
 
-            <p className="text-[10px] text-slate-300 border-t border-slate-800 pt-1 line-clamp-1">
+            <p className="text-xs text-slate-300 border-t border-slate-800 pt-1 line-clamp-1">
               Focus: {selectedCity.primaryAirPollutantFocus}
             </p>
           </div>
@@ -446,7 +446,7 @@ export function ScaleUpSpatialTopology3D({
       </div>
 
       {/* Footer Info Ribbon */}
-      <div className="p-3 bg-white border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-gov-muted">
+      <div className="p-3 bg-white border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gov-muted">
         <span className="flex items-center">
           <Info className="w-3.5 h-3.5 mr-1 text-gov-primary shrink-0" />
           Click any 3D node to inspect city readiness, sensor allocations, and municipal partner.

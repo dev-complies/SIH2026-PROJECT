@@ -97,7 +97,7 @@ export function FileUpload({
           <p className="text-xs font-semibold text-slate-800">
             <span className="text-gov-accent hover:underline">Click to upload</span> or drag and drop
           </p>
-          <p className="text-[11px] text-gov-muted text-center mt-1 max-w-sm">
+          <p className="text-xs text-gov-muted text-center mt-1 max-w-sm">
             {description}
           </p>
         </div>
@@ -111,7 +111,7 @@ export function FileUpload({
               <p className="text-xs font-semibold text-slate-900 truncate">
                 {selectedFile.name}
               </p>
-              <div className="flex items-center space-x-2 text-[10px] text-gov-muted mt-0.5">
+              <div className="flex items-center space-x-2 text-xs text-gov-muted mt-0.5">
                 <span>{formatBytes(selectedFile.size)}</span>
                 <span>•</span>
                 <span className="font-mono text-emerald-700 flex items-center">
@@ -135,7 +135,7 @@ export function FileUpload({
       )}
 
       {error && (
-        <p className="text-[11px] font-medium text-gov-danger flex items-center">
+        <p className="text-xs font-medium text-gov-danger flex items-center">
           <AlertCircle className="w-3.5 h-3.5 mr-1" /> {error}
         </p>
       )}

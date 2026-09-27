@@ -242,7 +242,7 @@ export function PilotManagementWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[9px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 STATE INNOVATION TESTBED #PILOT-UP-UAQ-01
               </Badge>
               <span className="text-slate-300">•</span>
@@ -259,7 +259,7 @@ export function PilotManagementWorkspace() {
           </div>
 
           <div className="flex items-center space-x-2 shrink-0">
-            <span className="inline-flex items-center text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-control font-mono text-[11px]">
+            <span className="inline-flex items-center text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-control font-mono text-xs">
               <span className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse" />
               Live Field Telemetry Active
             </span>
@@ -267,14 +267,14 @@ export function PilotManagementWorkspace() {
               size="sm"
               variant="outline"
               onClick={() => showToast({ type: "info", title: "Audit Dossier Exported", description: "All 10 pilot compliance modules packaged into statutory PDF." })}
-              className="text-xs h-7 border-slate-300"
+              className="text-xs h-8 border-slate-300"
             >
               <Download className="w-3.5 h-3.5 mr-1" /> Export Dossier
             </Button>
             <Link href="/gov/pilots/report">
               <Button
                 size="sm"
-                className="text-xs h-7 bg-gov-primary hover:bg-gov-primary/90 text-white font-semibold shadow-2xs"
+                className="text-xs h-8 bg-gov-primary hover:bg-gov-primary/90 text-white font-semibold shadow-2xs"
               >
                 <FileText className="w-3.5 h-3.5 mr-1" /> Executive Report
               </Button>
@@ -282,7 +282,7 @@ export function PilotManagementWorkspace() {
             <Link href="/gov/pilots/scale-up">
               <Button
                 size="sm"
-                className="text-xs h-7 bg-amber-600 hover:bg-amber-700 text-white font-semibold shadow-2xs"
+                className="text-xs h-8 bg-amber-600 hover:bg-amber-700 text-white font-semibold shadow-2xs"
               >
                 <Rocket className="w-3.5 h-3.5 mr-1" /> Scale-Up Decision
               </Button>
@@ -294,23 +294,23 @@ export function PilotManagementWorkspace() {
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs bg-slate-50 border border-slate-200 rounded-control p-3.5">
           {/* 1. Status */}
           <div className="space-y-1">
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               PILOT STATUS
             </span>
             <Badge variant="success" className="font-mono text-[10.5px]">
               ACTIVE • DAY 68 / 90
             </Badge>
-            <span className="text-[10px] text-slate-500 block">On Track • GFR 149</span>
+            <span className="text-xs text-slate-500 block">On Track • GFR 149</span>
           </div>
 
           {/* 2. Progress */}
           <div className="space-y-1">
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               OVERALL PROGRESS
             </span>
             <div className="flex items-baseline space-x-1.5">
               <span className="text-xl font-extrabold text-gov-primary font-mono">75%</span>
-              <span className="text-[11px] text-gov-muted">Completed</span>
+              <span className="text-xs text-gov-muted">Completed</span>
             </div>
             <div className="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
               <div className="bg-gov-accent h-1.5 rounded-full" style={{ width: "75%" }} />
@@ -319,35 +319,35 @@ export function PilotManagementWorkspace() {
 
           {/* 3. Budget */}
           <div className="space-y-1">
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               TREASURY BUDGET
             </span>
             <div className="text-sm font-extrabold text-slate-900 font-mono">₹24,50,000</div>
-            <span className="text-[10px] text-emerald-700 font-semibold block">
+            <span className="text-xs text-emerald-700 font-semibold block">
               ₹15.5L Disbursed (63%)
             </span>
           </div>
 
           {/* 4. Duration */}
           <div className="space-y-1">
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               PILOT DURATION
             </span>
             <div className="text-xs font-bold text-slate-900 font-mono">90 Days Total</div>
-            <span className="text-[10px] text-amber-800 font-semibold block">
+            <span className="text-xs text-amber-800 font-semibold block">
               22 Days Remaining
             </span>
           </div>
 
           {/* 5. Risk */}
           <div className="space-y-1">
-            <span className="text-[10px] text-gov-muted font-mono uppercase block font-semibold">
+            <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               RISK RATING
             </span>
             <Badge variant="success" className="font-mono text-[10.5px]">
               LOW RISK
             </Badge>
-            <span className="text-[10px] text-slate-500 block">All Covenants Active</span>
+            <span className="text-xs text-slate-500 block">All Covenants Active</span>
           </div>
         </div>
 
@@ -410,11 +410,11 @@ export function PilotManagementWorkspace() {
                   <span className="w-1.5 h-3.5 bg-gov-accent rounded-xs mr-2" />
                   Spatial Infrastructure & Field Telemetry Visualization
                 </h2>
-                <p className="text-[11px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   Interactive city environment visualizing pilot locations, sensor devices, municipal infrastructure, and data nodes
                 </p>
               </div>
-              <Badge variant="outline" className="text-[9px] font-mono border-blue-300 bg-blue-50 text-blue-900">
+              <Badge variant="outline" className="text-xs font-mono border-blue-300 bg-blue-50 text-blue-900">
                 CONTEXTUAL 3D DIGITAL TWIN
               </Badge>
             </div>
@@ -429,7 +429,7 @@ export function PilotManagementWorkspace() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
             {/* Box 1: Pilot Governance Summary */}
             <div className="bg-white border border-gov-border rounded-card p-4 space-y-2.5 shadow-2xs">
-              <span className="text-[10px] font-mono text-gov-primary font-bold uppercase tracking-wider block">
+              <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                 TESTBED GOVERNANCE COVENANT
               </span>
               <h3 className="font-bold text-slate-900 text-sm">
@@ -438,7 +438,7 @@ export function PilotManagementWorkspace() {
               <p className="text-slate-600 text-[11.5px] leading-relaxed">
                 Deployed across 40 strategic municipal streetlight poles in Lucknow. Continuously streams particulate density to guide automated dispatch of municipal dust-suppression misting trucks.
               </p>
-              <div className="pt-2 border-t border-slate-100 space-y-1 text-[11px]">
+              <div className="pt-2 border-t border-slate-100 space-y-1 text-xs">
                 <div className="flex justify-between">
                   <span className="text-gov-muted">Municipal Authority:</span>
                   <span className="font-semibold text-slate-800">Lucknow Municipal Corp</span>
@@ -456,7 +456,7 @@ export function PilotManagementWorkspace() {
 
             {/* Box 2: Telemetry Hardware Health */}
             <div className="bg-white border border-gov-border rounded-card p-4 space-y-2.5 shadow-2xs">
-              <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+              <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                 HARDWARE & SENSOR HEALTH
               </span>
               <div className="space-y-2 text-[11.5px]">
@@ -481,7 +481,7 @@ export function PilotManagementWorkspace() {
 
             {/* Box 3: Empirical Validation Benchmark */}
             <div className="bg-white border border-gov-border rounded-card p-4 space-y-2.5 shadow-2xs">
-              <span className="text-[10px] font-mono text-purple-800 font-bold uppercase tracking-wider block">
+              <span className="text-xs font-mono text-purple-800 font-bold uppercase tracking-wider block">
                 VALIDATION BENCHMARK (CPCB)
               </span>
               <div className="p-3 bg-purple-50/70 border border-purple-200 rounded-control space-y-1.5">
@@ -494,11 +494,11 @@ export function PilotManagementWorkspace() {
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
                 <span className="text-gov-muted">Testing Agency:</span>
                 <span className="font-bold text-slate-800">TERI Environmental Lab</span>
               </div>
-              <div className="flex items-center justify-between text-[11px]">
+              <div className="flex items-center justify-between text-xs">
                 <span className="text-gov-muted">Audit Lead:</span>
                 <span className="text-slate-700">Priya Nair (Accredited Auditor)</span>
               </div>
@@ -592,7 +592,7 @@ export function PilotManagementWorkspace() {
               <h2 className="text-sm font-bold text-gov-primary">
                 Statutory Pilot Event Ledger & Audit Trail
               </h2>
-              <p className="text-[11px] text-gov-muted">
+              <p className="text-xs text-gov-muted">
                 Append-only ledger capturing every telemetry anomaly, deliverable upload, and officer sign-off
               </p>
             </div>
@@ -642,9 +642,9 @@ export function PilotManagementWorkspace() {
               <div key={idx} className="py-3 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
                 <div className="space-y-0.5">
                   <div className="flex items-center space-x-2">
-                    <span className="font-mono text-[10px] text-gov-muted">{ev.time}</span>
+                    <span className="font-mono text-xs text-gov-muted">{ev.time}</span>
                     <span className="text-slate-300">•</span>
-                    <Badge variant="outline" className="text-[9px] font-mono border-slate-300 bg-slate-50 text-slate-800">
+                    <Badge variant="outline" className="text-xs font-mono border-slate-300 bg-slate-50 text-slate-800">
                       {ev.role}
                     </Badge>
                     <span className="font-bold text-slate-900">{ev.actor}</span>
@@ -706,7 +706,7 @@ export function PilotManagementWorkspace() {
                   <h3 id="evidence-preview-title" className="font-bold text-slate-900 text-sm truncate max-w-xs sm:max-w-md">
                     {previewEvidence.title}
                   </h3>
-                  <span className="text-[10px] text-gov-muted font-mono">
+                  <span className="text-xs text-gov-muted font-mono">
                     {previewEvidence.category} • {previewEvidence.size}
                   </span>
                 </div>
@@ -721,7 +721,7 @@ export function PilotManagementWorkspace() {
             </div>
 
             <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1.5">
-              <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+              <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                 DELIVERABLE SUMMARY
               </span>
               <p className="text-slate-700 leading-relaxed text-[11.5px]">{previewEvidence.summary}</p>
@@ -776,7 +776,7 @@ export function PilotManagementWorkspace() {
 
             <div className="space-y-3">
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Issue Summary:
                 </label>
                 <Input
@@ -788,7 +788,7 @@ export function PilotManagementWorkspace() {
               </div>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Severity Level:
                 </label>
                 <select
@@ -803,7 +803,7 @@ export function PilotManagementWorkspace() {
               </div>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Initial Notes / Location Details:
                 </label>
                 <Textarea

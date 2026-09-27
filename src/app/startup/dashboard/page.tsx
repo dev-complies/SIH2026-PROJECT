@@ -31,7 +31,7 @@ function StartupDashboardContent() {
       <div className="space-y-6">
         <div className="bg-white border border-gov-border rounded-card p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
           <div>
-            <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+            <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
               STARTUP PROCUREMENT WORKSPACE
             </span>
             <h2 className="text-lg font-bold text-gov-primary">
@@ -137,10 +137,10 @@ function StartupDashboardContent() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gov-border pb-5">
         <div>
           <div className="flex items-center space-x-2 mb-1">
-            <Badge variant="default" className="bg-blue-600 font-mono text-[10px]">
+            <Badge variant="default" className="bg-blue-600 font-mono text-xs">
               STARTUP INNOVATOR WORKSPACE
             </Badge>
-            <Badge variant="outline" className="text-emerald-700 border-emerald-300 bg-emerald-50 text-[10px]">
+            <Badge variant="outline" className="text-emerald-700 border-emerald-300 bg-emerald-50 text-xs">
               DPIIT RECOGNIZED: {org.dpiitRecognitionNumber}
             </Badge>
           </div>
@@ -196,7 +196,7 @@ function StartupDashboardContent() {
                 <TableCell className="font-mono font-semibold text-xs">#{m.milestoneNumber}</TableCell>
                 <TableCell>
                   <div className="font-semibold text-xs text-slate-900">{m.name}</div>
-                  <div className="text-[11px] text-gov-muted">{m.description}</div>
+                  <div className="text-xs text-gov-muted">{m.description}</div>
                 </TableCell>
                 <TableCell className="text-xs font-mono">{m.deadline}</TableCell>
                 <TableCell className="font-semibold text-xs text-gov-primary">
@@ -205,7 +205,7 @@ function StartupDashboardContent() {
                 <TableCell>
                   <Badge
                     variant={m.status === "APPROVED" ? "success" : "warning"}
-                    className="text-[10px]"
+                    className="text-xs"
                   >
                     {m.status}
                   </Badge>

@@ -144,11 +144,11 @@ function ChallengeDetailContent() {
         </Link>
 
         <div className="flex items-center space-x-2">
-          <span className="text-[11px] font-mono text-gov-muted">
+          <span className="text-xs font-mono text-gov-muted">
             Official GFR Rule 149 Statement
           </span>
           <span className="text-slate-300">•</span>
-          <Badge variant="outline" className="font-mono text-[9px] text-gov-accent">
+          <Badge variant="outline" className="font-mono text-xs text-gov-accent">
             {challenge.code}
           </Badge>
         </div>
@@ -158,10 +158,10 @@ function ChallengeDetailContent() {
       <div className="bg-white border border-gov-border rounded-card p-6 sm:p-8 shadow-sm space-y-6">
         <div className="space-y-3">
           <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="default" className="bg-gov-primary font-mono text-[10px]">
+            <Badge variant="default" className="bg-gov-primary font-mono text-xs">
               {challenge.category.toUpperCase()}
             </Badge>
-            <Badge variant={challenge.statusVariant as any} className="font-mono text-[10px]">
+            <Badge variant={challenge.statusVariant as any} className="font-mono text-xs">
               {challenge.statusLabel}
             </Badge>
             <span className="text-slate-300">•</span>
@@ -188,7 +188,7 @@ function ChallengeDetailContent() {
         {/* Key Operational Parameters Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-50 border border-slate-200/90 rounded-card p-4 text-xs">
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block">
+            <span className="text-xs text-gov-muted font-mono uppercase block">
               TOTAL PILOT BUDGET
             </span>
             <span className="font-black text-slate-900 font-mono text-base">
@@ -198,7 +198,7 @@ function ChallengeDetailContent() {
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block">
+            <span className="text-xs text-gov-muted font-mono uppercase block">
               PILOT TESTING PERIOD
             </span>
             <span className="font-bold text-slate-800 text-sm">
@@ -208,7 +208,7 @@ function ChallengeDetailContent() {
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block">
+            <span className="text-xs text-gov-muted font-mono uppercase block">
               SUBMISSION DEADLINE
             </span>
             <span className="font-bold text-amber-900 text-sm">
@@ -220,7 +220,7 @@ function ChallengeDetailContent() {
           </div>
 
           <div>
-            <span className="text-[10px] text-gov-muted font-mono uppercase block">
+            <span className="text-xs text-gov-muted font-mono uppercase block">
               ELIGIBILITY CRITERIA
             </span>
             <span className="font-bold text-slate-800 text-sm">
@@ -276,7 +276,7 @@ function ChallengeDetailContent() {
               <h2 className="text-base font-bold text-gov-primary uppercase tracking-wide font-mono flex items-center">
                 1. Civic Problem & Administrative Bottleneck
               </h2>
-              <Badge variant="outline" className="text-[9px] font-mono">
+              <Badge variant="outline" className="text-xs font-mono">
                 Mandatory Context
               </Badge>
             </div>
@@ -308,7 +308,7 @@ function ChallengeDetailContent() {
               <h2 className="text-base font-bold text-gov-primary uppercase tracking-wide font-mono flex items-center">
                 2. Desired Outcome & Acceptance Benchmarks (KPIs)
               </h2>
-              <Badge variant="outline" className="text-[9px] font-mono text-emerald-800 bg-emerald-50 border-emerald-200">
+              <Badge variant="outline" className="text-xs font-mono text-emerald-800 bg-emerald-50 border-emerald-200">
                 Audited Gates
               </Badge>
             </div>
@@ -325,12 +325,12 @@ function ChallengeDetailContent() {
 
               {/* KPI Audited Acceptance Table */}
               <div className="space-y-2">
-                <span className="text-[11px] font-mono font-bold text-gov-primary uppercase tracking-wider block">
+                <span className="text-xs font-mono font-bold text-gov-primary uppercase tracking-wider block">
                   STATUTORY ACCEPTANCE SCORECARD
                 </span>
                 <div className="border border-gov-border rounded-control overflow-hidden">
                   <table className="w-full text-left text-xs border-collapse">
-                    <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+                    <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
                       <tr>
                         <th className="p-2.5">Evaluation KPI</th>
                         <th className="p-2.5">Baseline</th>
@@ -351,7 +351,7 @@ function ChallengeDetailContent() {
                           <td className="p-2.5 font-bold text-emerald-800 font-mono">
                             {kpi.target}
                           </td>
-                          <td className="p-2.5 text-slate-600 text-[11px]">
+                          <td className="p-2.5 text-slate-600 text-xs">
                             {kpi.instrument}
                           </td>
                           <td className="p-2.5 font-mono text-right font-bold text-gov-primary">
@@ -406,10 +406,10 @@ function ChallengeDetailContent() {
               )}
 
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                <span className="text-[10px] font-mono text-gov-primary uppercase font-bold block">
+                <span className="text-xs font-mono text-gov-primary uppercase font-bold block">
                   COMMAND CENTER (ICCC) INTEGRATION SCHEMA
                 </span>
-                <p className="text-slate-700 text-[11px] leading-relaxed">
+                <p className="text-slate-700 text-xs leading-relaxed">
                   {challenge.requirements.integration}
                 </p>
               </div>
@@ -422,7 +422,7 @@ function ChallengeDetailContent() {
               <h2 className="text-base font-bold text-gov-primary uppercase tracking-wide font-mono">
                 4. Pilot Structure & Tranche Disbursements
               </h2>
-              <Badge variant="outline" className="text-[9px] font-mono">
+              <Badge variant="outline" className="text-xs font-mono">
                 Performance Escrow
               </Badge>
             </div>
@@ -430,7 +430,7 @@ function ChallengeDetailContent() {
             <div className="space-y-3 text-xs">
               <div className="border border-gov-border rounded-control overflow-hidden">
                 <table className="w-full text-left text-xs border-collapse">
-                  <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+                  <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
                     <tr>
                       <th className="p-2.5">Milestone</th>
                       <th className="p-2.5">Timeline</th>
@@ -443,7 +443,7 @@ function ChallengeDetailContent() {
                       <tr key={idx} className="hover:bg-slate-50/60">
                         <td className="p-2.5 font-bold text-slate-900">{m.milestone}</td>
                         <td className="p-2.5 font-mono text-slate-600">{m.timeline}</td>
-                        <td className="p-2.5 text-slate-700 text-[11px]">{m.deliverable}</td>
+                        <td className="p-2.5 text-slate-700 text-xs">{m.deliverable}</td>
                         <td className="p-2.5 text-right font-bold text-gov-primary font-mono">
                           {m.disbursement}
                         </td>
@@ -469,7 +469,7 @@ function ChallengeDetailContent() {
             <div className="space-y-2 text-xs">
               <div className="border border-gov-border rounded-control overflow-hidden">
                 <table className="w-full text-left text-xs border-collapse">
-                  <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+                  <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
                     <tr>
                       <th className="p-2.5">Cost Category</th>
                       <th className="p-2.5 text-right">Allocated Amount</th>
@@ -512,9 +512,9 @@ function ChallengeDetailContent() {
                   />
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between">
                     <span className="font-bold text-slate-900 text-[13px]">{step.phase}</span>
-                    <span className="text-[11px] font-mono text-gov-muted">{step.date}</span>
+                    <span className="text-xs font-mono text-gov-muted">{step.date}</span>
                   </div>
-                  <p className="text-slate-600 mt-0.5 text-[11px]">{step.description}</p>
+                  <p className="text-slate-600 mt-0.5 text-xs">{step.description}</p>
                 </div>
               ))}
             </div>
@@ -566,14 +566,14 @@ function ChallengeDetailContent() {
           <div className="bg-white border border-gov-border rounded-card p-5 shadow-sm space-y-4 text-xs">
             <div className="flex items-center space-x-2 border-b border-slate-100 pb-2">
               <ShieldCheck className="w-4 h-4 text-gov-primary" />
-              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-[11px]">
+              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-xs">
                 Eligibility Criteria
               </h3>
             </div>
 
             <div className="space-y-3 text-[11.5px]">
               <div>
-                <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                <span className="text-xs font-mono text-gov-muted uppercase block">
                   REGISTRATION REQUIREMENT
                 </span>
                 <p className="text-slate-800 font-medium mt-0.5">
@@ -582,7 +582,7 @@ function ChallengeDetailContent() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                <span className="text-xs font-mono text-gov-muted uppercase block">
                   EXPERIENCE THRESHOLD
                 </span>
                 <p className="text-slate-700 mt-0.5">
@@ -591,7 +591,7 @@ function ChallengeDetailContent() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                <span className="text-xs font-mono text-gov-muted uppercase block">
                   CERTIFICATIONS
                 </span>
                 <p className="text-slate-700 mt-0.5">
@@ -600,7 +600,7 @@ function ChallengeDetailContent() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                <span className="text-xs font-mono text-gov-muted uppercase block">
                   CORE TEAM COMPOSITION
                 </span>
                 <p className="text-slate-700 mt-0.5">
@@ -609,7 +609,7 @@ function ChallengeDetailContent() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono text-gov-muted uppercase block">
+                <span className="text-xs font-mono text-gov-muted uppercase block">
                   SOVEREIGN SECURITY & DATA LOCALIZATION
                 </span>
                 <p className="text-slate-700 mt-0.5">
@@ -623,7 +623,7 @@ function ChallengeDetailContent() {
           <div className="bg-white border border-gov-border rounded-card p-5 shadow-sm space-y-4 text-xs">
             <div className="flex items-center space-x-2 border-b border-slate-100 pb-2">
               <FileText className="w-4 h-4 text-gov-primary" />
-              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-[11px]">
+              <h3 className="font-bold text-gov-primary uppercase tracking-wider font-mono text-xs">
                 Procurement Documents
               </h3>
             </div>
@@ -635,10 +635,10 @@ function ChallengeDetailContent() {
                   className="p-2.5 bg-slate-50 border border-slate-200 rounded-control flex items-center justify-between hover:bg-slate-100 transition-colors"
                 >
                   <div className="min-w-0 pr-2">
-                    <p className="font-semibold text-slate-800 text-[11px] truncate">
+                    <p className="font-semibold text-slate-800 text-xs truncate">
                       {doc.name}
                     </p>
-                    <span className="text-[10px] text-gov-muted font-mono">
+                    <span className="text-xs text-gov-muted font-mono">
                       {doc.size} • {doc.date}
                     </span>
                   </div>
@@ -652,7 +652,7 @@ function ChallengeDetailContent() {
                         description: `Downloading ${doc.name}`,
                       });
                     }}
-                    className="h-7 px-2 text-[10px] border-slate-300 shrink-0"
+                    className="h-8 px-2 text-xs border-slate-300 shrink-0"
                   >
                     <Download className="w-3 h-3 mr-1" />
                     Get
@@ -687,7 +687,7 @@ function ChallengeDetailContent() {
           <div className="w-full max-w-xl rounded-card border border-gov-border bg-white shadow-2xl p-6 space-y-5 max-h-[90vh] overflow-y-auto text-left">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
-                <Badge variant="outline" className="font-mono text-[9px] text-gov-accent">
+                <Badge variant="outline" className="font-mono text-xs text-gov-accent">
                   PILOT PROPOSAL SUBMISSION
                 </Badge>
                 <h3 className="text-base font-extrabold text-gov-primary mt-0.5">
@@ -704,7 +704,7 @@ function ChallengeDetailContent() {
 
             <form onSubmit={handleApplySubmit} className="space-y-4 text-xs">
               <div className="bg-slate-50 p-3 rounded-control border border-slate-200 text-slate-700 space-y-1">
-                <span className="font-bold text-slate-900 block text-[11px]">
+                <span className="font-bold text-slate-900 block text-xs">
                   Pre-Qualification Verification:
                 </span>
                 <p className="text-[10.5px] text-gov-muted">
@@ -753,7 +753,7 @@ function ChallengeDetailContent() {
               </div>
 
               <div className="border-t border-slate-100 pt-4 flex items-center justify-between">
-                <span className="text-[10px] text-gov-muted font-mono flex items-center">
+                <span className="text-xs text-gov-muted font-mono flex items-center">
                   <Lock className="w-3 h-3 text-slate-400 mr-1" />
                   Encrypted SHA-256 submission
                 </span>

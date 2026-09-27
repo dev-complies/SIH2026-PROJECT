@@ -163,42 +163,42 @@ export function MilestonePaymentWorkspace({
     switch (status) {
       case "Paid":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
             <CheckCircle2 className="w-3 h-3 mr-1 text-emerald-600" />
             Paid
           </span>
         );
       case "Approved":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-100 text-purple-800 border border-purple-300">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 border border-purple-300">
             <ShieldCheck className="w-3 h-3 mr-1 text-purple-600" />
             Approved
           </span>
         );
       case "Under Review":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-100 text-amber-800 border border-amber-300">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-300">
             <Clock className="w-3 h-3 mr-1 text-amber-600" />
             Under Review
           </span>
         );
       case "Submitted":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-800 border border-blue-300">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-300">
             <Send className="w-3 h-3 mr-1 text-blue-600" />
             Submitted
           </span>
         );
       case "Delayed":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-orange-100 text-orange-800 border border-orange-300">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-300">
             <AlertTriangle className="w-3 h-3 mr-1 text-orange-600" />
             Delayed
           </span>
         );
       case "Rejected":
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-rose-100 text-rose-800 border border-rose-300">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-300">
             <AlertCircle className="w-3 h-3 mr-1 text-rose-600" />
             Rejected
           </span>
@@ -206,7 +206,7 @@ export function MilestonePaymentWorkspace({
       case "Pending":
       default:
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-700 border border-slate-300">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-300">
             <Clock className="w-3 h-3 mr-1 text-slate-500" />
             Pending
           </span>
@@ -417,7 +417,7 @@ export function MilestonePaymentWorkspace({
             Real banking API rails are simulated with cryptographic authorization vouchers and RBI-NEFT mock UTR references.
           </div>
         </div>
-        <div className="hidden sm:flex items-center space-x-1 shrink-0 font-mono text-[11px] text-amber-800 bg-white/80 px-2 py-0.5 rounded border border-amber-200">
+        <div className="hidden sm:flex items-center space-x-1 shrink-0 font-mono text-xs text-amber-800 bg-white/80 px-2 py-0.5 rounded border border-amber-200">
           <Landmark className="w-3 h-3 text-amber-600" />
           <span>SBI Escrow #UP-SMART-88219</span>
         </div>
@@ -428,7 +428,7 @@ export function MilestonePaymentWorkspace({
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
             <div className="flex items-center space-x-2">
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-gov-light text-gov-primary border border-gov-border">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-bold bg-gov-light text-gov-primary border border-gov-border">
                 {summary.pilotId}
               </span>
               <span className="text-xs text-gov-muted font-medium">Urban Development Directorate</span>
@@ -466,24 +466,24 @@ export function MilestonePaymentWorkspace({
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
           {/* 1. Contract Value */}
           <div className="p-3.5 rounded-lg border border-slate-200 bg-slate-50/60 flex flex-col justify-between">
-            <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
               Contract Value
             </span>
             <div className="mt-2">
               <div className="text-xl font-mono font-bold text-slate-900">
                 {formatINR(summary.contractValue)}
               </div>
-              <div className="text-[10px] text-gov-muted mt-0.5">5 Performance Tranches</div>
+              <div className="text-xs text-gov-muted mt-0.5">5 Performance Tranches</div>
             </div>
           </div>
 
           {/* 2. Paid */}
           <div className="p-3.5 rounded-lg border border-emerald-200 bg-emerald-50/40 flex flex-col justify-between">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-emerald-800 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-emerald-800 uppercase tracking-wider">
                 Paid
               </span>
-              <span className="text-[10px] font-bold font-mono text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded">
+              <span className="text-xs font-bold font-mono text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded">
                 {paidPct}%
               </span>
             </div>
@@ -491,7 +491,7 @@ export function MilestonePaymentWorkspace({
               <div className="text-xl font-mono font-bold text-emerald-700">
                 {formatINR(summary.paid)}
               </div>
-              <div className="text-[10px] text-emerald-800/80 mt-0.5">
+              <div className="text-xs text-emerald-800/80 mt-0.5">
                 {summary.paidMilestonesCount} Tranches Disbursed
               </div>
             </div>
@@ -500,10 +500,10 @@ export function MilestonePaymentWorkspace({
           {/* 3. Approved */}
           <div className="p-3.5 rounded-lg border border-purple-200 bg-purple-50/40 flex flex-col justify-between">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-purple-800 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-purple-800 uppercase tracking-wider">
                 Approved
               </span>
-              <span className="text-[10px] font-bold font-mono text-purple-700 bg-purple-100 px-1.5 py-0.2 rounded">
+              <span className="text-xs font-bold font-mono text-purple-700 bg-purple-100 px-1.5 py-0.2 rounded">
                 {approvedPct}%
               </span>
             </div>
@@ -511,7 +511,7 @@ export function MilestonePaymentWorkspace({
               <div className="text-xl font-mono font-bold text-purple-700">
                 {formatINR(summary.approved)}
               </div>
-              <div className="text-[10px] text-purple-800/80 mt-0.5">
+              <div className="text-xs text-purple-800/80 mt-0.5">
                 {summary.approvedMilestonesCount} Ready for Release
               </div>
             </div>
@@ -520,10 +520,10 @@ export function MilestonePaymentWorkspace({
           {/* 4. Pending */}
           <div className="p-3.5 rounded-lg border border-amber-200 bg-amber-50/40 flex flex-col justify-between">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-amber-800 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-amber-800 uppercase tracking-wider">
                 Pending
               </span>
-              <span className="text-[10px] font-bold font-mono text-amber-700 bg-amber-100 px-1.5 py-0.2 rounded">
+              <span className="text-xs font-bold font-mono text-amber-700 bg-amber-100 px-1.5 py-0.2 rounded">
                 {pendingPct}%
               </span>
             </div>
@@ -531,7 +531,7 @@ export function MilestonePaymentWorkspace({
               <div className="text-xl font-mono font-bold text-amber-700">
                 {formatINR(summary.pending)}
               </div>
-              <div className="text-[10px] text-amber-800/80 mt-0.5">
+              <div className="text-xs text-amber-800/80 mt-0.5">
                 {summary.pendingMilestonesCount} Tranches in Pipeline
               </div>
             </div>
@@ -540,10 +540,10 @@ export function MilestonePaymentWorkspace({
           {/* 5. Remaining */}
           <div className="p-3.5 rounded-lg border border-slate-200 bg-slate-100/70 flex flex-col justify-between col-span-2 sm:col-span-1">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-slate-600 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
                 Remaining
               </span>
-              <span className="text-[10px] font-bold font-mono text-slate-600 bg-slate-200 px-1.5 py-0.2 rounded">
+              <span className="text-xs font-bold font-mono text-slate-600 bg-slate-200 px-1.5 py-0.2 rounded">
                 {remainingPct}%
               </span>
             </div>
@@ -551,7 +551,7 @@ export function MilestonePaymentWorkspace({
               <div className="text-xl font-mono font-bold text-slate-800">
                 {formatINR(summary.remaining)}
               </div>
-              <div className="text-[10px] text-gov-muted mt-0.5">Unallocated Escrow Reserve</div>
+              <div className="text-xs text-gov-muted mt-0.5">Unallocated Escrow Reserve</div>
             </div>
           </div>
         </div>
@@ -647,7 +647,7 @@ export function MilestonePaymentWorkspace({
       <div className="bg-white border border-slate-200 rounded-card overflow-hidden shadow-2xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
-            <thead className="bg-slate-50 border-b border-slate-200 text-[10px] uppercase font-mono text-gov-muted">
+            <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase font-mono text-gov-muted">
               <tr>
                 <th className="p-3.5">Milestone</th>
                 <th className="p-3.5">Amount</th>
@@ -681,7 +681,7 @@ export function MilestonePaymentWorkspace({
                           <div className="font-semibold text-slate-900 line-clamp-1 max-w-[200px]" title={payment.milestoneName}>
                             {payment.milestoneName}
                           </div>
-                          <div className="text-[10px] text-gov-muted">
+                          <div className="text-xs text-gov-muted">
                             Weight: {payment.milestoneWeight}% • {payment.completedDeliverablesCount}/{payment.relatedDeliverablesCount} Deliverables
                           </div>
                         </div>
@@ -693,7 +693,7 @@ export function MilestonePaymentWorkspace({
                       <div className="font-mono font-bold text-slate-900 text-sm">
                         {formatINR(payment.amount)}
                       </div>
-                      <div className="text-[10px] font-mono text-gov-muted">
+                      <div className="text-xs font-mono text-gov-muted">
                         Tranche {payment.milestoneCode.replace("M", "")}
                       </div>
                     </td>
@@ -705,7 +705,7 @@ export function MilestonePaymentWorkspace({
                         <span>{payment.dueDate}</span>
                       </div>
                       {payment.status === "Delayed" && (
-                        <span className="text-[10px] text-orange-600 font-semibold block">Extended Deadline</span>
+                        <span className="text-xs text-orange-600 font-semibold block">Extended Deadline</span>
                       )}
                     </td>
 
@@ -717,7 +717,7 @@ export function MilestonePaymentWorkspace({
                             <FileText className="w-3 h-3 text-gov-primary" />
                             <span>{payment.invoice.invoiceNumber}</span>
                           </div>
-                          <div className="text-[10px] text-gov-muted">
+                          <div className="text-xs text-gov-muted">
                             Dated {payment.invoice.invoiceDate}
                           </div>
                         </div>
@@ -735,10 +735,10 @@ export function MilestonePaymentWorkspace({
                     <td className="p-3.5">
                       {payment.approval?.approvedBy ? (
                         <div className="max-w-[170px]">
-                          <div className="font-medium text-slate-800 line-clamp-1 text-[11px]" title={payment.approval.approvedBy}>
+                          <div className="font-medium text-slate-800 line-clamp-1 text-xs" title={payment.approval.approvedBy}>
                             {payment.approval.approvedBy.split("(")[0]}
                           </div>
-                          <div className="text-[10px] text-emerald-700 font-mono">
+                          <div className="text-xs text-emerald-700 font-mono">
                             {payment.approval.approvedAt
                               ? new Date(payment.approval.approvedAt).toLocaleDateString("en-IN", {
                                   day: "numeric",
@@ -749,8 +749,8 @@ export function MilestonePaymentWorkspace({
                         </div>
                       ) : payment.approval?.rejectedBy ? (
                         <div className="max-w-[170px]">
-                          <span className="text-[11px] font-semibold text-rose-700">Rejected by Officer</span>
-                          <span className="block text-[10px] text-slate-500 line-clamp-1" title={payment.approval.remarks}>
+                          <span className="text-xs font-semibold text-rose-700">Rejected by Officer</span>
+                          <span className="block text-xs text-slate-500 line-clamp-1" title={payment.approval.remarks}>
                             {payment.approval.remarks}
                           </span>
                         </div>
@@ -760,7 +760,7 @@ export function MilestonePaymentWorkspace({
                     </td>
 
                     {/* Reference (UTR) */}
-                    <td className="p-3.5 whitespace-nowrap font-mono text-[11px]">
+                    <td className="p-3.5 whitespace-nowrap font-mono text-xs">
                       {payment.reference ? (
                         <div className="flex items-center space-x-1">
                           <span className="text-slate-700 bg-slate-50 px-1.5 py-0.5 rounded border border-slate-200">
@@ -787,7 +787,7 @@ export function MilestonePaymentWorkspace({
                     </td>
 
                     {/* Timestamp */}
-                    <td className="p-3.5 whitespace-nowrap font-mono text-slate-600 text-[11px]">
+                    <td className="p-3.5 whitespace-nowrap font-mono text-slate-600 text-xs">
                       {payment.timestamp
                         ? new Date(payment.timestamp).toLocaleDateString("en-IN", {
                             day: "2-digit",
@@ -806,7 +806,7 @@ export function MilestonePaymentWorkspace({
                             size="sm"
                             variant="outline"
                             onClick={() => handleOpenInvoiceModal(payment)}
-                            className="h-7 text-[11px] text-gov-primary border-gov-primary/40 hover:bg-gov-light"
+                            className="h-8 text-xs text-gov-primary border-gov-primary/40 hover:bg-gov-light"
                           >
                             <Send className="w-3 h-3 mr-1" />
                             Submit Invoice
@@ -819,7 +819,7 @@ export function MilestonePaymentWorkspace({
                             size="sm"
                             variant="outline"
                             onClick={() => handleMoveToReview(payment)}
-                            className="h-7 text-[11px] text-amber-700 border-amber-300 hover:bg-amber-50"
+                            className="h-8 text-xs text-amber-700 border-amber-300 hover:bg-amber-50"
                           >
                             <Clock className="w-3 h-3 mr-1" />
                             Review
@@ -830,7 +830,7 @@ export function MilestonePaymentWorkspace({
                           <Button
                             size="sm"
                             onClick={() => handleOpenApproveModal(payment)}
-                            className="h-7 text-[11px] bg-purple-700 hover:bg-purple-800 text-white"
+                            className="h-8 text-xs bg-purple-700 hover:bg-purple-800 text-white"
                           >
                             <ShieldCheck className="w-3 h-3 mr-1" />
                             Approve
@@ -841,7 +841,7 @@ export function MilestonePaymentWorkspace({
                           <Button
                             size="sm"
                             onClick={() => handleOpenDisburseModal(payment)}
-                            className="h-7 text-[11px] bg-emerald-700 hover:bg-emerald-800 text-white"
+                            className="h-8 text-xs bg-emerald-700 hover:bg-emerald-800 text-white"
                           >
                             <CreditCard className="w-3 h-3 mr-1" />
                             Disburse
@@ -852,7 +852,7 @@ export function MilestonePaymentWorkspace({
                           size="sm"
                           variant="ghost"
                           onClick={() => setSelectedPayment(payment)}
-                          className="h-7 text-[11px] text-slate-500 hover:text-slate-800 px-2"
+                          className="h-8 text-xs text-slate-500 hover:text-slate-800 px-2"
                         >
                           <ChevronRight className="w-3.5 h-3.5" />
                         </Button>
@@ -899,44 +899,44 @@ export function MilestonePaymentWorkspace({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* Column 1: Financial & Escrow Specs */}
             <div className="space-y-3 bg-slate-50/70 p-3.5 rounded-lg border border-slate-200 text-xs">
-              <div className="font-bold text-slate-800 uppercase tracking-wider text-[11px] flex items-center space-x-1.5 border-b border-slate-200 pb-2">
+              <div className="font-bold text-slate-800 uppercase tracking-wider text-xs flex items-center space-x-1.5 border-b border-slate-200 pb-2">
                 <Landmark className="w-3.5 h-3.5 text-gov-primary" />
                 <span>Treasury Escrow Tranche</span>
               </div>
 
               <div>
-                <span className="text-gov-muted block text-[10px]">Tranche Amount:</span>
+                <span className="text-gov-muted block text-xs">Tranche Amount:</span>
                 <span className="font-mono font-bold text-slate-900 text-base">
                   {formatINR(selectedPayment.amount)}
                 </span>
-                <span className="text-slate-500 ml-1.5 font-mono text-[11px]">
+                <span className="text-slate-500 ml-1.5 font-mono text-xs">
                   ({selectedPayment.milestoneWeight}% of contract)
                 </span>
               </div>
 
               <div>
-                <span className="text-gov-muted block text-[10px]">Statutory Due Date:</span>
+                <span className="text-gov-muted block text-xs">Statutory Due Date:</span>
                 <span className="font-mono font-semibold text-slate-800">
                   {selectedPayment.dueDate}
                 </span>
               </div>
 
               <div>
-                <span className="text-gov-muted block text-[10px]">Public Escrow Reserve:</span>
-                <span className="font-mono text-slate-700 text-[11px]">
+                <span className="text-gov-muted block text-xs">Public Escrow Reserve:</span>
+                <span className="font-mono text-slate-700 text-xs">
                   {selectedPayment.escrowAccount}
                 </span>
               </div>
 
               <div>
-                <span className="text-gov-muted block text-[10px]">Beneficiary Account:</span>
+                <span className="text-gov-muted block text-xs">Beneficiary Account:</span>
                 <span className="font-medium text-slate-800 block">
                   {selectedPayment.beneficiary.startupName}
                 </span>
-                <span className="font-mono text-[11px] text-slate-600 block">
+                <span className="font-mono text-xs text-slate-600 block">
                   {selectedPayment.beneficiary.bankName} • {selectedPayment.beneficiary.accountNumberMasked}
                 </span>
-                <span className="font-mono text-[10px] text-gov-muted block">
+                <span className="font-mono text-xs text-gov-muted block">
                   IFSC: {selectedPayment.beneficiary.ifscCode}
                 </span>
               </div>
@@ -944,7 +944,7 @@ export function MilestonePaymentWorkspace({
 
             {/* Column 2: Invoice & Approval Credentials */}
             <div className="space-y-3 bg-slate-50/70 p-3.5 rounded-lg border border-slate-200 text-xs">
-              <div className="font-bold text-slate-800 uppercase tracking-wider text-[11px] flex items-center space-x-1.5 border-b border-slate-200 pb-2">
+              <div className="font-bold text-slate-800 uppercase tracking-wider text-xs flex items-center space-x-1.5 border-b border-slate-200 pb-2">
                 <FileCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Invoice & Regulatory Clearance</span>
               </div>
@@ -953,7 +953,7 @@ export function MilestonePaymentWorkspace({
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-gov-muted block text-[10px]">Tax Invoice:</span>
+                      <span className="text-gov-muted block text-xs">Tax Invoice:</span>
                       <span className="font-mono font-bold text-gov-primary">
                         {selectedPayment.invoice.invoiceNumber}
                       </span>
@@ -961,7 +961,7 @@ export function MilestonePaymentWorkspace({
                     <Button
                       size="sm"
                       variant="outline"
-                      className="h-6 text-[10px] px-2 text-slate-700"
+                      className="h-6 text-xs px-2 text-slate-700"
                       onClick={() =>
                         showToast({
                           type: "info",
@@ -974,7 +974,7 @@ export function MilestonePaymentWorkspace({
                     </Button>
                   </div>
                   <div>
-                    <span className="text-gov-muted block text-[10px]">Startup GSTIN:</span>
+                    <span className="text-gov-muted block text-xs">Startup GSTIN:</span>
                     <span className="font-mono text-slate-700">{selectedPayment.invoice.gstin}</span>
                   </div>
                 </div>
@@ -985,16 +985,16 @@ export function MilestonePaymentWorkspace({
               )}
 
               <div className="border-t border-slate-200 pt-2 space-y-1.5">
-                <span className="text-gov-muted block text-[10px]">Disbursement Authority:</span>
+                <span className="text-gov-muted block text-xs">Disbursement Authority:</span>
                 {selectedPayment.approval?.approvedBy ? (
                   <div>
                     <span className="font-semibold text-slate-800 block">
                       {selectedPayment.approval.approvedBy}
                     </span>
-                    <span className="text-[10px] text-gov-muted block font-mono">
+                    <span className="text-xs text-gov-muted block font-mono">
                       Timestamp: {new Date(selectedPayment.approval.approvedAt!).toLocaleString("en-IN")}
                     </span>
-                    <span className="text-[10px] text-slate-600 italic block mt-1">
+                    <span className="text-xs text-slate-600 italic block mt-1">
                       "{selectedPayment.approval.remarks}"
                     </span>
                   </div>
@@ -1005,7 +1005,7 @@ export function MilestonePaymentWorkspace({
 
               {selectedPayment.reference && (
                 <div className="border-t border-slate-200 pt-2">
-                  <span className="text-gov-muted block text-[10px]">Disbursement Ref / RBI UTR:</span>
+                  <span className="text-gov-muted block text-xs">Disbursement Ref / RBI UTR:</span>
                   <div className="flex items-center space-x-1 font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-1 rounded border border-emerald-200">
                     <span>{selectedPayment.reference}</span>
                     <button
@@ -1021,30 +1021,30 @@ export function MilestonePaymentWorkspace({
 
             {/* Column 3: Linked Milestone Deliverables & KPI Traceability */}
             <div className="space-y-3 bg-slate-50/70 p-3.5 rounded-lg border border-slate-200 text-xs">
-              <div className="font-bold text-slate-800 uppercase tracking-wider text-[11px] flex items-center space-x-1.5 border-b border-slate-200 pb-2">
+              <div className="font-bold text-slate-800 uppercase tracking-wider text-xs flex items-center space-x-1.5 border-b border-slate-200 pb-2">
                 <Layers className="w-3.5 h-3.5 text-gov-accent" />
                 <span>Linked Milestone & KPI Evidence</span>
               </div>
 
               <div>
-                <span className="text-gov-muted block text-[10px]">Deliverable Completion:</span>
+                <span className="text-gov-muted block text-xs">Deliverable Completion:</span>
                 <div className="flex items-center space-x-2 mt-0.5">
                   <span className="font-mono font-bold text-slate-800">
                     {selectedPayment.completedDeliverablesCount} / {selectedPayment.relatedDeliverablesCount}
                   </span>
-                  <span className="text-[10px] text-slate-500">deliverables satisfied</span>
+                  <span className="text-xs text-slate-500">deliverables satisfied</span>
                 </div>
               </div>
 
               <div>
-                <span className="text-gov-muted block text-[10px]">CPCB Collocation & Empirical KPI:</span>
+                <span className="text-gov-muted block text-xs">CPCB Collocation & Empirical KPI:</span>
                 <span className="font-semibold text-slate-800 bg-white px-2 py-1 rounded border border-slate-200 block mt-0.5">
                   {selectedPayment.kpiSummary}
                 </span>
               </div>
 
               <div>
-                <span className="text-gov-muted block text-[10px]">Evidence Vault Records:</span>
+                <span className="text-gov-muted block text-xs">Evidence Vault Records:</span>
                 <span className="font-mono text-slate-700">
                   {selectedPayment.evidenceCount} verified telemetry & calibration artifacts
                 </span>
@@ -1064,20 +1064,20 @@ export function MilestonePaymentWorkspace({
 
           {/* Audit Trail Ledger */}
           <div className="border-t border-slate-200 pt-3">
-            <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block mb-2">
+            <span className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
               Statutory Disbursement Audit Trail
             </span>
             <div className="space-y-2 max-h-40 overflow-y-auto pr-2">
               {selectedPayment.history.map((entry) => (
                 <div
                   key={entry.id}
-                  className="p-2 rounded bg-slate-50 border border-slate-200 text-[11px] flex items-start justify-between"
+                  className="p-2 rounded bg-slate-50 border border-slate-200 text-xs flex items-start justify-between"
                 >
                   <div>
                     <span className="font-semibold text-slate-800">{entry.action}: </span>
                     <span className="text-slate-600">{entry.note}</span>
                   </div>
-                  <div className="text-right shrink-0 ml-3 font-mono text-[10px] text-gov-muted">
+                  <div className="text-right shrink-0 ml-3 font-mono text-xs text-gov-muted">
                     <div>{entry.actor}</div>
                     <div>{new Date(entry.timestamp).toLocaleString("en-IN", { dateStyle: "short", timeStyle: "short" })}</div>
                   </div>
@@ -1211,7 +1211,7 @@ export function MilestonePaymentWorkspace({
                 <div className="border border-dashed border-slate-300 rounded p-3 text-center bg-slate-50">
                   <FileText className="w-6 h-6 mx-auto text-gov-muted mb-1" />
                   <span className="font-mono text-xs text-slate-700 block">{invoiceForm.fileName}</span>
-                  <span className="text-[10px] text-gov-muted block">Signed digitally under IT Act 2000</span>
+                  <span className="text-xs text-gov-muted block">Signed digitally under IT Act 2000</span>
                 </div>
               </div>
             </div>
@@ -1250,7 +1250,7 @@ export function MilestonePaymentWorkspace({
             <div className="space-y-3 text-xs">
               <div className="bg-purple-50 p-3 rounded border border-purple-200 text-purple-900">
                 <span className="font-semibold block mb-0.5">Disbursement Verification Checklist:</span>
-                <ul className="list-disc list-inside space-y-0.5 text-[11px]">
+                <ul className="list-disc list-inside space-y-0.5 text-xs">
                   <li>All {actionPayment.relatedDeliverablesCount} milestone deliverables verified</li>
                   <li>KPI threshold met: {actionPayment.kpiSummary}</li>
                   <li>Valid Tax Invoice on record ({actionPayment.invoice?.invoiceNumber || "Submitted"})</li>
@@ -1270,7 +1270,7 @@ export function MilestonePaymentWorkspace({
                 />
               </div>
 
-              <div className="text-[10px] text-gov-muted flex items-center space-x-1.5">
+              <div className="text-xs text-gov-muted flex items-center space-x-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-purple-600 shrink-0" />
                 <span>An audit log entry with digital cryptographic signature will be recorded.</span>
               </div>
@@ -1308,14 +1308,14 @@ export function MilestonePaymentWorkspace({
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="bg-slate-50 p-3 rounded border border-slate-200 space-y-1 font-mono text-[11px]">
+              <div className="bg-slate-50 p-3 rounded border border-slate-200 space-y-1 font-mono text-xs">
                 <div className="text-slate-600">Escrow Debit: {actionPayment.escrowAccount}</div>
                 <div className="text-slate-900 font-bold">Credit Beneficiary: {actionPayment.beneficiary.startupName}</div>
                 <div className="text-slate-600">Bank: {actionPayment.beneficiary.bankName} (A/C: {actionPayment.beneficiary.accountNumberMasked})</div>
                 <div className="text-slate-600">IFSC: {actionPayment.beneficiary.ifscCode}</div>
               </div>
 
-              <div className="text-[11px] text-slate-600">
+              <div className="text-xs text-slate-600">
                 Authorizing release triggers simulated RBI-NEFT settlement and records statutory UTR voucher into the immutable ledger.
               </div>
             </div>

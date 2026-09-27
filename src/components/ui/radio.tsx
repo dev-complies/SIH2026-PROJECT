@@ -74,7 +74,7 @@ export function RadioGroup({
                 {opt.label}
               </label>
               {opt.description && (
-                <p className="text-[11px] text-gov-muted">{opt.description}</p>
+                <p className="text-xs text-gov-muted">{opt.description}</p>
               )}
             </div>
           </div>

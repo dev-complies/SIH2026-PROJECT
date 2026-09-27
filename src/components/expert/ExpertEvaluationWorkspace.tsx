@@ -586,7 +586,7 @@ export function ExpertEvaluationWorkspace() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-purple-800 font-mono text-[9px]">
+              <Badge variant="default" className="bg-purple-800 font-mono text-xs">
                 INDEPENDENT EXPERT DESK
               </Badge>
               <span className="text-slate-300">•</span>
@@ -624,36 +624,36 @@ export function ExpertEvaluationWorkspace() {
         {/* Current Active Candidate Meta Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-purple-50/50 border border-purple-200/80 rounded-control p-3">
           <div>
-            <span className="text-[10px] text-purple-900 font-mono uppercase block">
+            <span className="text-xs text-purple-900 font-mono uppercase block">
               ANONYMIZED CANDIDATE
             </span>
             <span className="font-bold text-slate-900 truncate block">
               {candidate.candidateCode}
             </span>
-            <span className="text-[10px] font-mono text-purple-700">{candidate.applicationNumber}</span>
+            <span className="text-xs font-mono text-purple-700">{candidate.applicationNumber}</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-purple-900 font-mono uppercase block">
+            <span className="text-xs text-purple-900 font-mono uppercase block">
               TARGET CHALLENGE
             </span>
             <span className="font-semibold text-slate-800 truncate block">
               {candidate.challengeTitle}
             </span>
-            <span className="text-[10px] text-gov-muted font-mono">{candidate.challengeCode}</span>
+            <span className="text-xs text-gov-muted font-mono">{candidate.challengeCode}</span>
           </div>
 
           <div>
-            <span className="text-[10px] text-purple-900 font-mono uppercase block">
+            <span className="text-xs text-purple-900 font-mono uppercase block">
               WEIGHTED SCORE
             </span>
             <div className="flex items-baseline space-x-1.5">
               <span className="font-extrabold text-slate-900 font-mono text-base">
                 {totalWeightedScore}
               </span>
-              <span className="text-[11px] text-gov-muted">/ 100</span>
+              <span className="text-xs text-gov-muted">/ 100</span>
             </div>
-            <span className="text-[10px] text-emerald-700 font-semibold block">
+            <span className="text-xs text-emerald-700 font-semibold block">
               {totalWeightedScore >= 90
                 ? "Exceptional Alignment"
                 : totalWeightedScore >= 75
@@ -663,15 +663,15 @@ export function ExpertEvaluationWorkspace() {
           </div>
 
           <div>
-            <span className="text-[10px] text-purple-900 font-mono uppercase block">
+            <span className="text-xs text-purple-900 font-mono uppercase block">
               EVALUATION STATE
             </span>
             {isSubmitted ? (
-              <Badge variant="success" className="font-mono text-[10px] mt-0.5">
+              <Badge variant="success" className="font-mono text-xs mt-0.5">
                 <Lock className="w-3 h-3 mr-1" /> EVALUATION SUBMITTED
               </Badge>
             ) : (
-              <Badge variant="warning" className="font-mono text-[10px] mt-0.5">
+              <Badge variant="warning" className="font-mono text-xs mt-0.5">
                 <Unlock className="w-3 h-3 mr-1" /> DRAFT IN PROGRESS
               </Badge>
             )}
@@ -682,14 +682,14 @@ export function ExpertEvaluationWorkspace() {
         <div className="bg-slate-50 border border-slate-200 rounded-control p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
           <div className="flex items-center space-x-2 text-slate-700">
             <EyeOff className="w-4 h-4 text-purple-700 shrink-0" />
-            <p className="text-[11px] leading-relaxed">
+            <p className="text-xs leading-relaxed">
               <strong>Independent Scoring Protocol Enforced:</strong> Peer evaluator scores are
               strictly cryptographically masked and sealed until all assigned specialists have submitted
               their independent determinations.
             </p>
           </div>
           <div className="shrink-0 flex items-center space-x-2">
-            <span className="text-[10px] font-mono text-slate-500">
+            <span className="text-xs font-mono text-slate-500">
               Evaluator: Dr. Alok Gupta (IIT Kanpur)
             </span>
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
@@ -754,32 +754,32 @@ export function ExpertEvaluationWorkspace() {
               {leftTab === "challenge" && (
                 <div className="space-y-4 animate-in fade-in duration-150">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono text-purple-700 font-bold uppercase tracking-wider block">
+                    <span className="text-xs font-mono text-purple-700 font-bold uppercase tracking-wider block">
                       CIVIC PROBLEM STATEMENT
                     </span>
                     <h3 className="text-base font-extrabold text-gov-primary leading-tight">
                       {candidate.challengeTitle}
                     </h3>
-                    <p className="text-[11px] text-gov-muted font-medium">
+                    <p className="text-xs text-gov-muted font-medium">
                       Sponsoring Authority: {candidate.department}
                     </p>
                   </div>
 
                   <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-control space-y-1.5">
-                    <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+                    <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       MUNICIPAL PROBLEM CONTEXT
                     </span>
                     <p className="text-slate-700 leading-relaxed text-[11.5px]">
                       {candidate.challengeInfo.problemStatement}
                     </p>
-                    <div className="pt-1 text-[11px] text-slate-600 font-medium">
+                    <div className="pt-1 text-xs text-slate-600 font-medium">
                       Location Context: {candidate.challengeInfo.civicContext}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 text-[11.5px]">
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                      <span className="text-xs text-gov-muted font-mono uppercase block">
                         PILOT DURATION
                       </span>
                       <span className="font-semibold text-slate-900">
@@ -788,7 +788,7 @@ export function ExpertEvaluationWorkspace() {
                     </div>
 
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                      <span className="text-xs text-gov-muted font-mono uppercase block">
                         BUDGET CEILING
                       </span>
                       <span className="font-semibold text-slate-900 font-mono">
@@ -835,18 +835,18 @@ export function ExpertEvaluationWorkspace() {
                       <h3 className="font-bold text-slate-900 text-sm">
                         {candidate.startupProfile.anonymizedEntity}
                       </h3>
-                      <p className="text-[11px] text-gov-muted">
+                      <p className="text-xs text-gov-muted">
                         Track Record Verified under GFR Rule 149
                       </p>
                     </div>
-                    <Badge variant="outline" className="text-purple-800 bg-purple-50 border-purple-300 font-mono text-[9px]">
+                    <Badge variant="outline" className="text-purple-800 bg-purple-50 border-purple-300 font-mono text-xs">
                       IDENTITY MASKED
                     </Badge>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 text-[11.5px]">
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                      <span className="text-xs text-gov-muted font-mono uppercase block">
                         INCORPORATION STATUS
                       </span>
                       <span className="font-semibold text-slate-900">
@@ -855,7 +855,7 @@ export function ExpertEvaluationWorkspace() {
                     </div>
 
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                      <span className="text-xs text-gov-muted font-mono uppercase block">
                         ENGINEERING TEAM SIZE
                       </span>
                       <span className="font-semibold text-slate-900">
@@ -864,7 +864,7 @@ export function ExpertEvaluationWorkspace() {
                     </div>
 
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                      <span className="text-xs text-gov-muted font-mono uppercase block">
                         PATENTS FILED / GRANTED
                       </span>
                       <span className="font-semibold text-slate-900 font-mono">
@@ -873,7 +873,7 @@ export function ExpertEvaluationWorkspace() {
                     </div>
 
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
-                      <span className="text-[10px] text-gov-muted font-mono uppercase block">
+                      <span className="text-xs text-gov-muted font-mono uppercase block">
                         PAST FIELD DEPLOYMENTS
                       </span>
                       <span className="font-semibold text-emerald-800 font-mono">
@@ -883,7 +883,7 @@ export function ExpertEvaluationWorkspace() {
                   </div>
 
                   <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                    <span className="text-[10px] font-mono text-gov-primary uppercase font-bold block">
+                    <span className="text-xs font-mono text-gov-primary uppercase font-bold block">
                       TRACK RECORD EVIDENCE
                     </span>
                     <p className="text-slate-700 text-[11.5px] leading-relaxed">
@@ -899,7 +899,7 @@ export function ExpertEvaluationWorkspace() {
                       {candidate.startupProfile.coreCompetencies.map((comp, idx) => (
                         <span
                           key={idx}
-                          className="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 text-slate-800 text-[11px] font-medium"
+                          className="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 text-slate-800 text-xs font-medium"
                         >
                           {comp}
                         </span>
@@ -908,10 +908,10 @@ export function ExpertEvaluationWorkspace() {
                   </div>
 
                   <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                    <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+                    <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       SOVEREIGN CLOUD TENANCY
                     </span>
-                    <p className="text-slate-700 text-[11px]">
+                    <p className="text-slate-700 text-xs">
                       {candidate.startupProfile.cloudResidency}
                     </p>
                   </div>
@@ -922,7 +922,7 @@ export function ExpertEvaluationWorkspace() {
               {leftTab === "proposal" && (
                 <div className="space-y-4 animate-in fade-in duration-150">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+                    <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                       APPLICANT TECHNICAL SUBMISSION
                     </span>
                     <h3 className="text-base font-extrabold text-gov-primary leading-tight">
@@ -931,7 +931,7 @@ export function ExpertEvaluationWorkspace() {
                   </div>
 
                   <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                    <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+                    <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       EXECUTIVE SUMMARY
                     </span>
                     <p className="text-slate-700 leading-relaxed text-[11.5px]">
@@ -977,8 +977,8 @@ export function ExpertEvaluationWorkspace() {
                     </div>
 
                     <div className="border border-slate-200 rounded overflow-hidden">
-                      <table className="w-full text-left text-[11px]">
-                        <thead className="bg-slate-100 text-[10px] uppercase text-gov-muted font-mono">
+                      <table className="w-full text-left text-xs">
+                        <thead className="bg-slate-100 text-xs uppercase text-gov-muted font-mono">
                           <tr>
                             <th className="p-2">Item</th>
                             <th className="p-2">Justification</th>
@@ -1005,7 +1005,7 @@ export function ExpertEvaluationWorkspace() {
               {/* TAB 4: TECHNICAL DOCUMENTATION */}
               {leftTab === "docs" && (
                 <div className="space-y-3 animate-in fade-in duration-150">
-                  <span className="text-[10px] font-mono text-gov-muted font-bold uppercase tracking-wider block">
+                  <span className="text-xs font-mono text-gov-muted font-bold uppercase tracking-wider block">
                     SEALED TECHNICAL DOSSIER & TEST LAB EVIDENCE
                   </span>
 
@@ -1020,7 +1020,7 @@ export function ExpertEvaluationWorkspace() {
                             <p className="font-semibold text-slate-900 text-[11.5px] truncate">
                               {doc.title}
                             </p>
-                            <span className="text-[10px] text-gov-muted font-mono">
+                            <span className="text-xs text-gov-muted font-mono">
                               {doc.category} • {doc.size} • {doc.date}
                             </span>
                           </div>
@@ -1029,13 +1029,13 @@ export function ExpertEvaluationWorkspace() {
                             size="sm"
                             variant="outline"
                             onClick={() => setPreviewDoc(doc)}
-                            className="text-[10px] h-6 px-2 border-slate-300 shrink-0"
+                            className="text-xs h-6 px-2 border-slate-300 shrink-0"
                           >
                             <Eye className="w-3 h-3 mr-1" /> Inspect
                           </Button>
                         </div>
 
-                        <p className="text-[11px] text-slate-600 bg-white p-2 rounded border border-slate-200/60 leading-tight">
+                        <p className="text-xs text-slate-600 bg-white p-2 rounded border border-slate-200/60 leading-tight">
                           {doc.summary}
                         </p>
 
@@ -1059,11 +1059,11 @@ export function ExpertEvaluationWorkspace() {
             {/* 1. Conflict of Interest Declaration */}
             <div className="bg-purple-50/70 border border-purple-200 rounded-control p-3.5 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono text-purple-900 font-bold uppercase tracking-wider flex items-center">
+                <span className="text-xs font-mono text-purple-900 font-bold uppercase tracking-wider flex items-center">
                   <ShieldCheck className="w-3.5 h-3.5 mr-1 text-purple-700" />
                   CONFLICT OF INTEREST DECLARATION
                 </span>
-                <span className="text-[10px] font-mono text-slate-500">Section 13 Compliance</span>
+                <span className="text-xs font-mono text-slate-500">Section 13 Compliance</span>
               </div>
 
               <div className="flex items-start space-x-2.5">
@@ -1077,7 +1077,7 @@ export function ExpertEvaluationWorkspace() {
                 />
                 <label
                   htmlFor="coiCheck"
-                  className="text-[11px] text-purple-950 leading-relaxed cursor-pointer"
+                  className="text-xs text-purple-950 leading-relaxed cursor-pointer"
                 >
                   I solemnly declare that I have no direct or indirect personal, commercial, academic, or
                   consulting conflicts of interest with this applicant or its principals. I will evaluate this
@@ -1090,7 +1090,7 @@ export function ExpertEvaluationWorkspace() {
             <div className="space-y-3">
               <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
                 <div>
-                  <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+                  <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                     SCORING RUBRIC (CONFIGURABLE)
                   </span>
                   <h2 className="text-sm font-bold text-gov-primary">
@@ -1111,7 +1111,7 @@ export function ExpertEvaluationWorkspace() {
                       size="sm"
                       variant="outline"
                       onClick={() => setIsConfiguringCriteria(!isConfiguringCriteria)}
-                      className="text-[10px] h-7 px-2 border-slate-300"
+                      className="text-xs h-8 px-2 border-slate-300"
                     >
                       <Sliders className="w-3 h-3 mr-1" />
                       {isConfiguringCriteria ? "Done Configuring" : "Configure Weights"}
@@ -1124,14 +1124,14 @@ export function ExpertEvaluationWorkspace() {
               {isConfiguringCriteria && !isSubmitted && (
                 <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-3 animate-in fade-in duration-150">
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-slate-800 text-[11px]">
+                    <span className="font-bold text-slate-800 text-xs">
                       Customize Rubric & Criteria Weights
                     </span>
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={handleResetCriteria}
-                      className="text-[10px] h-6 px-2 text-gov-muted"
+                      className="text-xs h-6 px-2 text-gov-muted"
                     >
                       <RotateCcw className="w-2.5 h-2.5 mr-1" /> Reset Defaults
                     </Button>
@@ -1149,7 +1149,7 @@ export function ExpertEvaluationWorkspace() {
                         placeholder="New criterion name..."
                         value={newCriterionName}
                         onChange={(e) => setNewCriterionName(e.target.value)}
-                        className="text-xs h-7"
+                        className="text-xs h-8"
                       />
                     </div>
                     <div className="sm:col-span-3">
@@ -1158,14 +1158,14 @@ export function ExpertEvaluationWorkspace() {
                         placeholder="Weight %"
                         value={newCriterionWeight}
                         onChange={(e) => setNewCriterionWeight(parseInt(e.target.value) || 0)}
-                        className="text-xs h-7 font-mono"
+                        className="text-xs h-8 font-mono"
                       />
                     </div>
                     <div className="sm:col-span-3">
                       <Button
                         size="sm"
                         onClick={handleAddCriterion}
-                        className="bg-gov-primary text-[10px] h-7 w-full font-semibold"
+                        className="bg-gov-primary text-xs h-8 w-full font-semibold"
                       >
                         <Plus className="w-3 h-3 mr-1" /> Add
                       </Button>
@@ -1188,7 +1188,7 @@ export function ExpertEvaluationWorkspace() {
                             {index + 1}.
                           </span>
                           <span className="font-bold text-slate-900 text-[12px]">{item.name}</span>
-                          <Badge variant="outline" className="font-mono text-[9px] bg-white">
+                          <Badge variant="outline" className="font-mono text-xs bg-white">
                             Weight: {item.weight}%
                           </Badge>
                         </div>
@@ -1206,7 +1206,7 @@ export function ExpertEvaluationWorkspace() {
                             onChange={(e) => handleWeightChange(item.id, parseInt(e.target.value) || 0)}
                             className="w-12 text-center text-xs font-mono font-bold border border-slate-300 rounded p-0.5"
                           />
-                          <span className="text-[10px] text-slate-500">%</span>
+                          <span className="text-xs text-slate-500">%</span>
                           <button
                             onClick={() => handleRemoveCriterion(item.id)}
                             className="text-red-500 hover:text-red-700 p-1"
@@ -1220,7 +1220,7 @@ export function ExpertEvaluationWorkspace() {
                     {/* Score Slider & Numeric Input */}
                     <div className="space-y-1 bg-white p-2.5 rounded border border-slate-200/70">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-mono text-gov-muted uppercase font-bold">
+                        <span className="text-xs font-mono text-gov-muted uppercase font-bold">
                           NUMERIC SCORE (0 - 100)
                         </span>
                         <div className="flex items-center space-x-2">
@@ -1268,7 +1268,7 @@ export function ExpertEvaluationWorkspace() {
                         disabled={isSubmitted}
                         onChange={(e) => handleCommentsChange(item.id, e.target.value)}
                         placeholder={`Evaluator notes & evidence for ${item.name}...`}
-                        className="text-[11px] bg-white"
+                        className="text-xs bg-white"
                       />
                     </div>
                   </div>
@@ -1278,13 +1278,13 @@ export function ExpertEvaluationWorkspace() {
 
             {/* 3. Risks Assessment Section */}
             <div className="space-y-3 pt-2 border-t border-slate-100">
-              <span className="text-[10px] font-mono text-gov-accent font-bold uppercase tracking-wider block">
+              <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                 SPECIALIST RISK ANALYSIS
               </span>
 
               <div className="space-y-2">
                 <div>
-                  <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                  <label className="font-bold text-slate-800 text-xs block mb-1">
                     Technical & Hardware Failure Risks:
                   </label>
                   <Textarea
@@ -1293,12 +1293,12 @@ export function ExpertEvaluationWorkspace() {
                     disabled={isSubmitted}
                     onChange={(e) => setTechnicalRisks(e.target.value)}
                     placeholder="Identify sensor degradation, calibration drift, or algorithmic weaknesses..."
-                    className="text-[11px]"
+                    className="text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                  <label className="font-bold text-slate-800 text-xs block mb-1">
                     Field Deployment & Municipal Operational Risks:
                   </label>
                   <Textarea
@@ -1307,12 +1307,12 @@ export function ExpertEvaluationWorkspace() {
                     disabled={isSubmitted}
                     onChange={(e) => setDeploymentRisks(e.target.value)}
                     placeholder="Identify grid power stability, utility coordination, or physical vandalism risks..."
-                    className="text-[11px]"
+                    className="text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                  <label className="font-bold text-slate-800 text-xs block mb-1">
                     Mandatory Pilot Covenants & Mitigation Recommendations:
                   </label>
                   <Textarea
@@ -1321,7 +1321,7 @@ export function ExpertEvaluationWorkspace() {
                     disabled={isSubmitted}
                     onChange={(e) => setMitigationMeasures(e.target.value)}
                     placeholder="Stipulations before procurement sign-off..."
-                    className="text-[11px]"
+                    className="text-xs"
                   />
                 </div>
               </div>
@@ -1329,7 +1329,7 @@ export function ExpertEvaluationWorkspace() {
 
             {/* 4. Final Recommendation */}
             <div className="space-y-3 pt-2 border-t border-slate-100">
-              <span className="text-[10px] font-mono text-gov-muted font-bold uppercase tracking-wider block">
+              <span className="text-xs font-mono text-gov-muted font-bold uppercase tracking-wider block">
                 EXPERT RECOMMENDATION DETERMINATION
               </span>
 
@@ -1372,13 +1372,13 @@ export function ExpertEvaluationWorkspace() {
                     }`}
                   >
                     <div className="font-bold text-[11.5px]">{rec.label}</div>
-                    <div className="text-[10px] text-gov-muted leading-tight mt-0.5">{rec.desc}</div>
+                    <div className="text-xs text-gov-muted leading-tight mt-0.5">{rec.desc}</div>
                   </button>
                 ))}
               </div>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Overall Technical Appraisal Summary:
                 </label>
                 <Textarea
@@ -1387,7 +1387,7 @@ export function ExpertEvaluationWorkspace() {
                   disabled={isSubmitted}
                   onChange={(e) => setOverallRemarks(e.target.value)}
                   placeholder="Summarize your expert determination for the steering committee..."
-                  className="text-[11px]"
+                  className="text-xs"
                 />
               </div>
             </div>
@@ -1401,24 +1401,24 @@ export function ExpertEvaluationWorkspace() {
                       <CheckCircle2 className="w-4 h-4 text-emerald-700" />
                       <span>Evaluation Submitted & Cryptographically Sealed</span>
                     </div>
-                    <Badge variant="outline" className="text-[9px] font-mono border-emerald-300 bg-white text-emerald-800">
+                    <Badge variant="outline" className="text-xs font-mono border-emerald-300 bg-white text-emerald-800">
                       LOCKED (SHA-256)
                     </Badge>
                   </div>
-                  <p className="text-[11px] text-emerald-800 leading-normal">
+                  <p className="text-xs text-emerald-800 leading-normal">
                     This evaluation is officially logged under blind evaluation protocols. Inputs are
                     locked to prevent silent modification.
                   </p>
 
                   <div className="pt-1 flex items-center justify-between">
-                    <span className="text-[10px] font-mono text-emerald-900">
+                    <span className="text-xs font-mono text-emerald-900">
                       Score: {totalWeightedScore}/100 • Status: {recommendation.replace(/_/g, " ")}
                     </span>
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={() => setShowAmendmentModal(true)}
-                      className="text-[10px] h-7 border-emerald-300 bg-white hover:bg-emerald-100 text-emerald-950 font-semibold"
+                      className="text-xs h-8 border-emerald-300 bg-white hover:bg-emerald-100 text-emerald-950 font-semibold"
                     >
                       <Lock className="w-3 h-3 mr-1" /> Request Statutory Amendment
                     </Button>
@@ -1439,7 +1439,7 @@ export function ExpertEvaluationWorkspace() {
                   >
                     <Send className="w-3.5 h-3.5 mr-1.5" /> Submit Independent Evaluation
                   </Button>
-                  <p className="text-[10px] text-center text-gov-muted">
+                  <p className="text-xs text-center text-gov-muted">
                     Upon submission, your scorecard will be locked and an append-only audit hash will be
                     generated.
                   </p>
@@ -1468,7 +1468,7 @@ export function ExpertEvaluationWorkspace() {
 
         <div className="border border-gov-border rounded-control overflow-hidden">
           <table className="w-full text-left border-collapse text-xs">
-            <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-gov-border">
+            <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-gov-border">
               <tr>
                 <th className="p-2.5">Revision & Evaluator</th>
                 <th className="p-2.5">Timestamp</th>
@@ -1487,7 +1487,7 @@ export function ExpertEvaluationWorkspace() {
                       {rec.evaluatorName} ({rec.evaluatorInstitution})
                     </span>
                   </td>
-                  <td className="p-2.5 font-mono text-slate-600 text-[11px]">{rec.timestamp}</td>
+                  <td className="p-2.5 font-mono text-slate-600 text-xs">{rec.timestamp}</td>
                   <td className="p-2.5">
                     <span className="font-bold font-mono text-sm text-emerald-800">
                       {rec.totalScore} / 100
@@ -1502,7 +1502,7 @@ export function ExpertEvaluationWorkspace() {
                           ? "destructive"
                           : "default"
                       }
-                      className="font-mono text-[9px]"
+                      className="font-mono text-xs"
                     >
                       {rec.recommendation.replace(/_/g, " ")}
                     </Badge>
@@ -1516,7 +1516,7 @@ export function ExpertEvaluationWorkspace() {
                       ))}
                     </div>
                   </td>
-                  <td className="p-2.5 text-right font-mono text-[10px] text-slate-500">
+                  <td className="p-2.5 text-right font-mono text-xs text-slate-500">
                     {rec.cryptographicSeal.slice(0, 16)}...{rec.cryptographicSeal.slice(-6)}
                   </td>
                 </tr>
@@ -1535,7 +1535,7 @@ export function ExpertEvaluationWorkspace() {
                 <FileText className="w-5 h-5 text-gov-primary" />
                 <div>
                   <h3 className="font-bold text-slate-900 text-sm">{previewDoc.title}</h3>
-                  <span className="text-[10px] text-gov-muted font-mono">
+                  <span className="text-xs text-gov-muted font-mono">
                     {previewDoc.category} • {previewDoc.size}
                   </span>
                 </div>
@@ -1550,7 +1550,7 @@ export function ExpertEvaluationWorkspace() {
 
             <div className="space-y-3 text-xs bg-slate-50 p-4 rounded-control border border-slate-200">
               <div className="space-y-1">
-                <span className="text-[10px] font-mono text-gov-muted uppercase font-bold block">
+                <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                   DOCUMENT SUMMARY & PROBATIVE VALUE
                 </span>
                 <p className="text-slate-700 leading-relaxed">{previewDoc.summary}</p>
@@ -1606,7 +1606,7 @@ export function ExpertEvaluationWorkspace() {
               </p>
 
               <div>
-                <label className="font-bold text-slate-800 text-[11px] block mb-1">
+                <label className="font-bold text-slate-800 text-xs block mb-1">
                   Documented Amendment Justification:
                 </label>
                 <Textarea

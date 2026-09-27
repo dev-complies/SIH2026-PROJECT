@@ -407,8 +407,8 @@ function GovernmentDashboardContent() {
         {/* Header Ribbon */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gov-border pb-4">
           <div>
-            <div className="flex items-center space-x-2 mb-1">
-              <Badge variant="default" className="bg-gov-primary font-mono text-[10px]">
+            <div className="flex items-center space-x-2 mb-1.5">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs px-2 py-0.5">
                 GOVERNMENT OFFICER CLEARANCE
               </Badge>
               <span className="text-xs text-gov-muted font-medium">
@@ -421,65 +421,65 @@ function GovernmentDashboardContent() {
           </div>
 
           <div className="flex items-center space-x-3 text-xs">
-            <span className="inline-flex items-center text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-control font-mono text-[11px]">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse" />
+            <span className="inline-flex items-center text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-control font-mono text-xs font-medium">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse" />
               Oversight Desk Operational
             </span>
-            <Badge variant="outline" className="border-blue-300 text-gov-primary bg-blue-50/50">
+            <Badge variant="outline" className="border-blue-300 text-gov-primary bg-blue-50/60 text-xs px-2.5 py-1">
               {currentUser?.firstName} {currentUser?.lastName} ({currentUser?.designation})
             </Badge>
           </div>
         </div>
 
-        {/* Compact Metrics Bar (Enterprise horizontal strip, fine borders — NOT a floating card grid) */}
+        {/* Compact Metrics Bar (Enterprise horizontal strip, fine borders) */}
         <div className="bg-white border border-gov-border rounded-card divide-y sm:divide-y-0 sm:divide-x divide-slate-200 grid grid-cols-2 sm:grid-cols-5 shadow-2xs">
-          <div className="p-3.5 text-left">
-            <span className="text-[10px] uppercase font-mono tracking-wider text-gov-muted block">
+          <div className="p-4 text-left">
+            <span className="text-xs uppercase font-mono font-semibold tracking-wider text-slate-500 block">
               Active Challenges
             </span>
             <div className="flex items-baseline space-x-2 mt-1">
-              <span className="text-2xl font-extrabold text-gov-primary font-mono">4</span>
-              <span className="text-[11px] text-emerald-700 font-medium">Open for Startups</span>
+              <span className="text-2xl font-bold text-slate-900 font-mono">4</span>
+              <span className="text-xs text-emerald-700 font-medium">Open for Startups</span>
             </div>
           </div>
 
-          <div className="p-3.5 text-left">
-            <span className="text-[10px] uppercase font-mono tracking-wider text-gov-muted block">
+          <div className="p-4 text-left">
+            <span className="text-xs uppercase font-mono font-semibold tracking-wider text-slate-500 block">
               Applications
             </span>
             <div className="flex items-baseline space-x-2 mt-1">
-              <span className="text-2xl font-extrabold text-gov-primary font-mono">48</span>
-              <span className="text-[11px] text-slate-500 font-medium">Screened Proposals</span>
+              <span className="text-2xl font-bold text-slate-900 font-mono">48</span>
+              <span className="text-xs text-slate-500 font-medium">Screened Proposals</span>
             </div>
           </div>
 
-          <div className="p-3.5 text-left">
-            <span className="text-[10px] uppercase font-mono tracking-wider text-gov-muted block">
+          <div className="p-4 text-left">
+            <span className="text-xs uppercase font-mono font-semibold tracking-wider text-slate-500 block">
               Active Pilots
             </span>
             <div className="flex items-baseline space-x-2 mt-1">
-              <span className="text-2xl font-extrabold text-gov-primary font-mono">3</span>
-              <span className="text-[11px] text-gov-accent font-medium">Municipal Testbeds</span>
+              <span className="text-2xl font-bold text-slate-900 font-mono">3</span>
+              <span className="text-xs text-gov-accent font-medium">Municipal Testbeds</span>
             </div>
           </div>
 
-          <div className="p-3.5 text-left">
-            <span className="text-[10px] uppercase font-mono tracking-wider text-gov-muted block">
+          <div className="p-4 text-left">
+            <span className="text-xs uppercase font-mono font-semibold tracking-wider text-slate-500 block">
               Validated Solutions
             </span>
             <div className="flex items-baseline space-x-2 mt-1">
-              <span className="text-2xl font-extrabold text-emerald-700 font-mono">2</span>
-              <span className="text-[11px] text-emerald-600 font-medium">GFR 149 Scaling</span>
+              <span className="text-2xl font-bold text-emerald-700 font-mono">2</span>
+              <span className="text-xs text-emerald-600 font-medium">GFR 149 Scaling</span>
             </div>
           </div>
 
-          <div className="p-3.5 text-left col-span-2 sm:col-span-1 bg-amber-50/50">
-            <span className="text-[10px] uppercase font-mono tracking-wider text-amber-900 block font-semibold">
+          <div className="p-4 text-left col-span-2 sm:col-span-1 bg-amber-50/60">
+            <span className="text-xs uppercase font-mono tracking-wider text-amber-900 block font-semibold">
               Pending Actions
             </span>
             <div className="flex items-baseline space-x-2 mt-1">
-              <span className="text-2xl font-extrabold text-amber-950 font-mono">8</span>
-              <span className="text-[11px] text-amber-800 font-bold">Action Required</span>
+              <span className="text-2xl font-bold text-amber-950 font-mono">8</span>
+              <span className="text-xs text-amber-800 font-bold">Action Required</span>
             </div>
           </div>
         </div>
@@ -497,7 +497,7 @@ function GovernmentDashboardContent() {
               Challenges → Applications → Evaluation → Pilots → Validation → Scale
             </p>
           </div>
-          <Badge variant="outline" className="text-[10px] font-mono border-blue-300 bg-blue-50 text-blue-900">
+          <Badge variant="outline" className="text-xs font-mono border-blue-300 bg-blue-50 text-blue-900 px-2 py-0.5">
             VOLUMETRIC 3D FUNNEL
           </Badge>
         </div>
@@ -514,121 +514,121 @@ function GovernmentDashboardContent() {
               <h2 className="text-sm font-bold text-amber-950">
                 Action Required: Pending Operational Approvals
               </h2>
-              <p className="text-[11px] text-amber-800">
+              <p className="text-xs text-amber-800">
                 Mandatory statutory gates requiring Officer sign-off before downstream execution.
               </p>
             </div>
           </div>
-          <Badge variant="warning" className="font-mono text-[10px] uppercase">
+          <Badge variant="warning" className="font-mono text-xs uppercase px-2 py-0.5">
             8 Items Pending
           </Badge>
         </div>
 
         {/* 4 Concrete Operational Action Items matching user prompt */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs">
           {/* Action 1: 3 applications awaiting eligibility review */}
-          <div className="bg-white border border-amber-200 p-3.5 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
-            <div className="space-y-1">
+          <div className="bg-white border border-amber-200 p-4 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
+            <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-[9px] font-mono border-amber-300 text-amber-900 bg-amber-50">
+                <Badge variant="outline" className="text-xs font-mono border-amber-300 text-amber-900 bg-amber-50 px-2 py-0.5">
                   ELIGIBILITY SCREENING
                 </Badge>
-                <span className="text-[10px] font-mono text-amber-800 font-semibold">3 Submissions</span>
+                <span className="text-xs font-mono text-amber-800 font-semibold">3 Submissions</span>
               </div>
               <h3 className="font-bold text-slate-900 text-xs mt-1">
                 3 Applications Awaiting Eligibility Review
               </h3>
-              <p className="text-[11px] text-gov-muted leading-normal">
+              <p className="text-xs text-gov-muted leading-relaxed">
                 AirSense Technologies, EcoSort Robotics, and HydroScan submitted DPIIT credentials and past deployment shapefiles for Challenge #CHAL-UP-DUD-001.
               </p>
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[10px] text-gov-muted">Statutory SLA: 48h remaining</span>
+            <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs text-gov-muted font-medium">Statutory SLA: 48h remaining</span>
               <Link href="?tab=applications">
-                <Button size="sm" className="bg-gov-primary h-7 text-[11px] font-semibold">
-                  Screen Applications <ArrowRight className="w-3 h-3 ml-1" />
+                <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold">
+                  Screen Applications <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </Button>
               </Link>
             </div>
           </div>
 
           {/* Action 2: 2 milestone approvals pending */}
-          <div className="bg-white border border-amber-200 p-3.5 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
-            <div className="space-y-1">
+          <div className="bg-white border border-amber-200 p-4 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
+            <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-[9px] font-mono border-blue-300 text-blue-900 bg-blue-50">
+                <Badge variant="outline" className="text-xs font-mono border-blue-300 text-blue-900 bg-blue-50 px-2 py-0.5">
                   DELIVERABLE SIGN-OFF
                 </Badge>
-                <span className="text-[10px] font-mono text-blue-800 font-semibold">2 Milestones</span>
+                <span className="text-xs font-mono text-blue-800 font-semibold">2 Milestones</span>
               </div>
               <h3 className="font-bold text-slate-900 text-xs mt-1">
                 2 Milestone Approvals Pending
               </h3>
-              <p className="text-[11px] text-gov-muted leading-normal">
+              <p className="text-xs text-gov-muted leading-relaxed">
                 Milestone 3 (90-day time-series data for Pilot UAQ-LKO) and Milestone 1 (Corridor controller loop calibration) submitted for review.
               </p>
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[10px] text-gov-muted">AirSense Tech & OptiFlow AI</span>
+            <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs text-gov-muted font-medium">AirSense Tech & OptiFlow AI</span>
               <Link href="?tab=pilots">
-                <Button size="sm" variant="default" className="bg-gov-primary h-7 text-[11px] font-semibold">
-                  Review Deliverables <ArrowRight className="w-3 h-3 ml-1" />
+                <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold">
+                  Review Deliverables <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </Button>
               </Link>
             </div>
           </div>
 
           {/* Action 3: 1 validation due */}
-          <div className="bg-white border border-amber-200 p-3.5 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
-            <div className="space-y-1">
+          <div className="bg-white border border-amber-200 p-4 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
+            <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-[9px] font-mono border-purple-300 text-purple-900 bg-purple-50">
+                <Badge variant="outline" className="text-xs font-mono border-purple-300 text-purple-900 bg-purple-50 px-2 py-0.5">
                   INDEPENDENT AUDIT
                 </Badge>
-                <span className="text-[10px] font-mono text-purple-800 font-semibold">1 Audit Due</span>
+                <span className="text-xs font-mono text-purple-800 font-semibold">1 Audit Due</span>
               </div>
               <h3 className="font-bold text-slate-900 text-xs mt-1">
                 1 Third-Party Validation Due
               </h3>
-              <p className="text-[11px] text-gov-muted leading-normal">
+              <p className="text-xs text-gov-muted leading-relaxed">
                 Final 90-day CPCB BAM-1020 collocation regression audit from TERI Environmental Systems is pending official officer sign-off before scale review.
               </p>
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[10px] text-gov-muted">TERI Auditor: Priya Nair</span>
+            <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs text-gov-muted font-medium">TERI Auditor: Priya Nair</span>
               <Link href="?tab=validation">
-                <Button size="sm" variant="outline" className="h-7 text-[11px] font-semibold">
-                  Inspect Audit Report <ArrowRight className="w-3 h-3 ml-1" />
+                <Button size="sm" variant="outline" className="h-8 px-3 text-xs font-semibold border-slate-300 hover:bg-slate-50">
+                  Inspect Audit Report <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </Button>
               </Link>
             </div>
           </div>
 
           {/* Action 4: 2 payments awaiting approval */}
-          <div className="bg-white border border-amber-200 p-3.5 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
-            <div className="space-y-1">
+          <div className="bg-white border border-amber-200 p-4 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
+            <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-[9px] font-mono border-emerald-300 text-emerald-900 bg-emerald-50">
+                <Badge variant="outline" className="text-xs font-mono border-emerald-300 text-emerald-900 bg-emerald-50 px-2 py-0.5">
                   TREASURY ESCROW
                 </Badge>
-                <span className="text-[10px] font-mono text-emerald-800 font-semibold">₹14.0L Pending</span>
+                <span className="text-xs font-mono text-emerald-800 font-semibold">₹14.0L Pending</span>
               </div>
               <h3 className="font-bold text-slate-900 text-xs mt-1">
                 2 Payments Awaiting Approval
               </h3>
-              <p className="text-[11px] text-gov-muted leading-normal">
+              <p className="text-xs text-gov-muted leading-relaxed">
                 Milestone 3 completion invoice (#INV-AS-03, ₹8,00,000) and optical sorter mobilization tranche (#INV-ES-01, ₹6,00,000) cleared for officer sign-off.
               </p>
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[10px] text-gov-muted">Escrow Account: SBI-Treasury-UP</span>
+            <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs text-gov-muted font-medium">Escrow Account: SBI-Treasury-UP</span>
               <Link href="?tab=payments">
-                <Button size="sm" variant="default" className="bg-gov-primary h-7 text-[11px] font-semibold">
-                  Authorize Release <ArrowRight className="w-3 h-3 ml-1" />
+                <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold">
+                  Authorize Release <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </Button>
               </Link>
             </div>
@@ -648,112 +648,128 @@ function GovernmentDashboardContent() {
               Live field deployments monitored across municipal wards and smart corridors
             </p>
           </div>
-          <span className="text-xs text-gov-muted font-mono">
+          <span className="text-xs text-gov-muted font-mono font-medium">
             Showing 3 Active Deployments in Uttar Pradesh
           </span>
         </div>
 
         <div className="border border-gov-border rounded-card bg-white shadow-2xs overflow-hidden">
-          <Table>
-            <TableHeader>
-              <TableRow className="bg-slate-50/80">
-                <TableHead className="font-mono text-xs font-bold">Pilot</TableHead>
-                <TableHead className="text-xs font-bold">Startup</TableHead>
-                <TableHead className="text-xs font-bold">Department</TableHead>
-                <TableHead className="text-xs font-bold">Progress</TableHead>
-                <TableHead className="text-xs font-bold">Key Validated KPI</TableHead>
-                <TableHead className="text-xs font-bold">Risk</TableHead>
-                <TableHead className="text-xs font-bold">Deadline</TableHead>
-                <TableHead className="text-xs font-bold">Status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {ACTIVE_PILOTS_DATA.map((p) => (
-                <TableRow key={p.id} className="hover:bg-slate-50/60 transition-colors">
-                  {/* Pilot Code & Location */}
-                  <TableCell>
-                    <div className="font-mono font-bold text-xs text-gov-primary">
-                      {p.pilotCode}
-                    </div>
-                    <div className="font-semibold text-xs text-slate-900 mt-0.5">
-                      {p.title}
-                    </div>
-                    <div className="text-[11px] text-gov-muted flex items-center mt-0.5">
-                      <MapPin className="w-3 h-3 mr-1 text-slate-400" />
-                      {p.location}
-                    </div>
-                  </TableCell>
-
-                  {/* Startup Partner */}
-                  <TableCell>
-                    <div className="font-semibold text-xs text-slate-900">{p.startup}</div>
-                    <div className="text-[10px] font-mono text-gov-muted mt-0.5">
-                      DPIIT: {p.dpiit}
-                    </div>
-                  </TableCell>
-
-                  {/* Sponsoring Department */}
-                  <TableCell className="text-xs text-slate-700">
-                    {p.department}
-                  </TableCell>
-
-                  {/* Overall Progress */}
-                  <TableCell>
-                    <div className="space-y-1">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-24 bg-slate-200 rounded-full h-2 overflow-hidden">
-                          <div
-                            className="bg-gov-accent h-2 rounded-full transition-all"
-                            style={{ width: `${p.progress}%` }}
-                          />
-                        </div>
-                        <span className="text-xs font-mono font-bold text-slate-800">
-                          {p.progress}%
-                        </span>
-                      </div>
-                    </div>
-                  </TableCell>
-
-                  {/* Validated KPI */}
-                  <TableCell>
-                    <div className="text-xs font-bold text-emerald-800">
-                      {p.kpiLabel}: {p.kpiCurrent}
-                    </div>
-                    <div className="text-[10px] text-gov-muted font-mono">
-                      Target: {p.kpiTarget}
-                    </div>
-                  </TableCell>
-
-                  {/* Risk Rating */}
-                  <TableCell>
-                    <Badge
-                      variant={p.riskLevel === "LOW" ? "success" : "warning"}
-                      className="text-[10px] font-mono"
-                    >
-                      {p.riskLevel}
-                    </Badge>
-                  </TableCell>
-
-                  {/* Deadline */}
-                  <TableCell className="text-xs font-mono text-slate-700">
-                    {p.deadline}
-                  </TableCell>
-
-                  {/* Status Badge */}
-                  <TableCell>
-                    <Badge
-                      variant={p.status === "VALIDATED" ? "success" : "default"}
-                      className={`text-[10px] font-mono ${
-                        p.status === "VALIDATED" ? "bg-emerald-700" : "bg-gov-primary"
-                      }`}
-                    >
-                      {p.status}
-                    </Badge>
-                  </TableCell>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-slate-50/80">
+                  <TableHead className="font-mono text-xs font-bold whitespace-nowrap">Pilot</TableHead>
+                  <TableHead className="text-xs font-bold whitespace-nowrap">Startup</TableHead>
+                  <TableHead className="text-xs font-bold whitespace-nowrap">Department</TableHead>
+                  <TableHead className="text-xs font-bold whitespace-nowrap">Progress</TableHead>
+                  <TableHead className="text-xs font-bold whitespace-nowrap">Key Validated KPI</TableHead>
+                  <TableHead className="text-xs font-bold whitespace-nowrap">Risk</TableHead>
+                  <TableHead className="text-xs font-bold whitespace-nowrap">Deadline</TableHead>
+                  <TableHead className="text-xs font-bold whitespace-nowrap">Status</TableHead>
+                  <TableHead className="text-xs font-bold text-right whitespace-nowrap">Action</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {ACTIVE_PILOTS_DATA.map((p) => (
+                  <TableRow key={p.id} className="hover:bg-slate-50/60 transition-colors">
+                    {/* Pilot Code & Location */}
+                    <TableCell>
+                      <div className="font-mono font-bold text-xs text-gov-primary">
+                        {p.pilotCode}
+                      </div>
+                      <div className="font-semibold text-xs text-slate-900 mt-0.5">
+                        {p.title}
+                      </div>
+                      <div className="text-xs text-gov-muted flex items-center mt-0.5">
+                        <MapPin className="w-3.5 h-3.5 mr-1 text-slate-400 shrink-0" />
+                        {p.location}
+                      </div>
+                    </TableCell>
+
+                    {/* Startup Partner */}
+                    <TableCell>
+                      <div className="font-semibold text-xs text-slate-900">{p.startup}</div>
+                      <div className="text-xs font-mono text-gov-muted mt-0.5">
+                        DPIIT: {p.dpiit}
+                      </div>
+                    </TableCell>
+
+                    {/* Sponsoring Department */}
+                    <TableCell className="text-xs text-slate-700 whitespace-nowrap">
+                      {p.department}
+                    </TableCell>
+
+                    {/* Overall Progress */}
+                    <TableCell>
+                      <div className="space-y-1">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-20 bg-slate-200 rounded-full h-2 overflow-hidden">
+                            <div
+                              className="bg-gov-accent h-2 rounded-full transition-all"
+                              style={{ width: `${p.progress}%` }}
+                            />
+                          </div>
+                          <span className="text-xs font-mono font-bold text-slate-800">
+                            {p.progress}%
+                          </span>
+                        </div>
+                      </div>
+                    </TableCell>
+
+                    {/* Validated KPI */}
+                    <TableCell>
+                      <div className="text-xs font-bold text-emerald-800">
+                        {p.kpiLabel}: {p.kpiCurrent}
+                      </div>
+                      <div className="text-xs text-gov-muted font-mono">
+                        Target: {p.kpiTarget}
+                      </div>
+                    </TableCell>
+
+                    {/* Risk Rating */}
+                    <TableCell>
+                      <Badge
+                        variant={p.riskLevel === "LOW" ? "success" : "warning"}
+                        className="text-xs font-mono px-2 py-0.5"
+                      >
+                        {p.riskLevel}
+                      </Badge>
+                    </TableCell>
+
+                    {/* Deadline */}
+                    <TableCell className="text-xs font-mono text-slate-700 whitespace-nowrap">
+                      {p.deadline}
+                    </TableCell>
+
+                    {/* Status Badge */}
+                    <TableCell>
+                      <Badge
+                        variant={p.status === "VALIDATED" ? "success" : "default"}
+                        className={`text-xs font-mono px-2 py-0.5 ${
+                          p.status === "VALIDATED" ? "bg-emerald-700" : "bg-gov-primary"
+                        }`}
+                      >
+                        {p.status}
+                      </Badge>
+                    </TableCell>
+
+                    {/* Action Column */}
+                    <TableCell className="text-right">
+                      <Link href={`/gov/pilots/${p.id}`}>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="h-8 px-2.5 text-xs font-medium border-slate-300 hover:bg-slate-50 text-slate-700"
+                        >
+                          Workspace <ExternalLink className="w-3 h-3 ml-1" />
+                        </Button>
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </div>
       </section>
 
@@ -769,7 +785,7 @@ function GovernmentDashboardContent() {
               Interactive state-level terrain visualizing pilot deployment clusters across Lucknow, Kanpur, and Noida
             </p>
           </div>
-          <Badge variant="outline" className="text-[10px] font-mono border-blue-300 text-blue-900 bg-blue-50">
+          <Badge variant="outline" className="text-xs font-mono border-blue-300 text-blue-900 bg-blue-50 px-2 py-0.5">
             GEOSPATIAL TERRAIN 3D
           </Badge>
         </div>
@@ -789,7 +805,7 @@ function GovernmentDashboardContent() {
               Append-only statutory ledger capturing every state change, score submission, and payment authorization
             </p>
           </div>
-          <span className="text-[11px] font-mono text-emerald-700 flex items-center">
+          <span className="text-xs font-mono text-emerald-700 font-medium flex items-center">
             <CheckCircle2 className="w-3.5 h-3.5 mr-1" />
             100% SHA-256 Chained
           </span>
@@ -800,11 +816,11 @@ function GovernmentDashboardContent() {
             <div key={ev.id} className="py-3 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
-                  <span className="font-mono text-[10px] text-gov-muted">
+                  <span className="font-mono text-xs text-gov-muted">
                     {ev.timestamp}
                   </span>
                   <span className="text-slate-300">•</span>
-                  <Badge variant="outline" className="text-[9px] font-mono border-slate-300 bg-slate-50 text-slate-800">
+                  <Badge variant="outline" className="text-xs font-mono border-slate-300 bg-slate-50 text-slate-800 px-2 py-0.5">
                     {ev.role}
                   </Badge>
                   <span className="font-semibold text-slate-900 text-xs">
@@ -816,7 +832,7 @@ function GovernmentDashboardContent() {
                   {ev.summary}
                 </p>
 
-                <div className="flex items-center space-x-2 pt-0.5 text-[10px] font-mono text-gov-muted">
+                <div className="flex items-center space-x-2 pt-0.5 text-xs font-mono text-gov-muted">
                   <span>Entity: <strong className="text-slate-800">{ev.entity}</strong></span>
                   <span>•</span>
                   <span className="truncate max-w-xs text-slate-500">
@@ -826,7 +842,7 @@ function GovernmentDashboardContent() {
               </div>
 
               <div className="shrink-0 self-start sm:self-center">
-                <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono text-[10px]">
+                <span className="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs font-medium">
                   VERIFIED
                 </span>
               </div>
@@ -841,23 +857,23 @@ function GovernmentDashboardContent() {
           <Lock className="w-4 h-4 text-gov-primary" />
           <span>RBAC Enforcement Verification (Test Unauthorized Route Traversal):</span>
         </div>
-        <p className="text-[11px] text-gov-muted leading-relaxed">
+        <p className="text-xs text-gov-muted leading-relaxed">
           Click any of the protected route buttons below. The Next.js middleware and access rules will inspect your role (GOVERNMENT_OFFICER) and automatically redirect unauthorized attempts to the 403 Forbidden page:
         </p>
 
         <div className="flex flex-wrap gap-2 pt-1 text-xs">
           <Link href="/procurement/dashboard">
-            <Button size="sm" variant="outline" className="border-red-200 text-gov-danger hover:bg-red-50 text-xs h-7">
+            <Button size="sm" variant="outline" className="border-red-200 text-gov-danger hover:bg-red-50 text-xs h-8 px-3 font-medium">
               Attempt /procurement/dashboard (Should 403)
             </Button>
           </Link>
           <Link href="/startup/dashboard">
-            <Button size="sm" variant="outline" className="border-red-200 text-gov-danger hover:bg-red-50 text-xs h-7">
+            <Button size="sm" variant="outline" className="border-red-200 text-gov-danger hover:bg-red-50 text-xs h-8 px-3 font-medium">
               Attempt /startup/dashboard (Should 403)
             </Button>
           </Link>
           <Link href="/admin/dashboard">
-            <Button size="sm" variant="outline" className="border-red-200 text-gov-danger hover:bg-red-50 text-xs h-7">
+            <Button size="sm" variant="outline" className="border-red-200 text-gov-danger hover:bg-red-50 text-xs h-8 px-3 font-medium">
               Attempt /admin/dashboard (Should 403)
             </Button>
           </Link>

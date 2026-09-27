@@ -91,7 +91,7 @@ export function ScaleUpLifecycleTracker({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
         <div>
           <div className="flex items-center space-x-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-gov-primary bg-gov-secondary/10 px-2 py-0.5 rounded-xs border border-gov-secondary/20">
+            <span className="text-xs font-mono uppercase tracking-wider font-bold text-gov-primary bg-gov-secondary/10 px-2 py-0.5 rounded-xs border border-gov-secondary/20">
               STATUTORY SCALE-UP LIFECYCLE
             </span>
             <span className="text-slate-300">•</span>
@@ -105,8 +105,8 @@ export function ScaleUpLifecycleTracker({
         </div>
 
         <div className="flex items-center space-x-2 text-xs">
-          <span className="text-slate-500 font-mono text-[11px]">Current Stage:</span>
-          <span className="font-bold text-gov-primary bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-control text-[11px] font-mono inline-flex items-center">
+          <span className="text-slate-500 font-mono text-xs">Current Stage:</span>
+          <span className="font-bold text-gov-primary bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-control text-xs font-mono inline-flex items-center">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5 animate-pulse" />
             {STAGES[currentIdx]?.label}
           </span>
@@ -162,16 +162,16 @@ export function ScaleUpLifecycleTracker({
 
                 <div className="min-w-0">
                   <div className="flex items-center space-x-1 md:justify-center">
-                    <span className="text-[10px] font-mono text-gov-muted uppercase">
+                    <span className="text-xs font-mono text-gov-muted uppercase">
                       Stage 0{idx + 1}
                     </span>
                     {isCompleted && (
-                      <span className="text-[9px] font-mono text-emerald-700 bg-emerald-100 px-1 rounded-2xs font-semibold">
+                      <span className="text-xs font-mono text-emerald-700 bg-emerald-100 px-1 rounded-2xs font-semibold">
                         DONE
                       </span>
                     )}
                     {isCurrent && (
-                      <span className="text-[9px] font-mono text-blue-700 bg-blue-100 px-1 rounded-2xs font-semibold animate-pulse">
+                      <span className="text-xs font-mono text-blue-700 bg-blue-100 px-1 rounded-2xs font-semibold animate-pulse">
                         CURRENT
                       </span>
                     )}

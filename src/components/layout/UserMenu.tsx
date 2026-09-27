@@ -91,7 +91,7 @@ export function UserMenu() {
           <div className="text-xs font-bold text-slate-900 truncate max-w-[130px]">
             {currentUser?.firstName} {currentUser?.lastName}
           </div>
-          <div className="text-[10px] text-gov-muted truncate max-w-[130px]">
+          <div className="text-xs text-gov-muted truncate max-w-[130px]">
             {currentUser?.role?.replace("_", " ")}
           </div>
         </div>
@@ -107,17 +107,17 @@ export function UserMenu() {
               <span className="font-bold text-xs text-slate-900">
                 {currentUser?.firstName} {currentUser?.lastName}
               </span>
-              <Badge variant={getRoleBadgeVariant(currentUser?.role) as any} className="text-[9px] font-mono">
+              <Badge variant={getRoleBadgeVariant(currentUser?.role) as any} className="text-xs font-mono">
                 {currentUser?.role}
               </Badge>
             </div>
-            <p className="text-[11px] text-slate-600 font-medium">{currentUser?.designation}</p>
-            <p className="text-[10px] text-gov-muted font-mono mt-0.5">{currentUser?.email}</p>
+            <p className="text-xs text-slate-600 font-medium">{currentUser?.designation}</p>
+            <p className="text-xs text-gov-muted font-mono mt-0.5">{currentUser?.email}</p>
           </div>
 
           {/* Quick Role Switcher */}
           <div className="p-2 space-y-1">
-            <div className="flex items-center space-x-1.5 px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gov-muted font-bold">
+            <div className="flex items-center space-x-1.5 px-2 py-1 text-xs font-mono uppercase tracking-wider text-gov-muted font-bold">
               <ArrowRightLeft className="w-3 h-3 text-gov-accent" />
               <span>Simulate Role (RBAC Testing)</span>
             </div>
@@ -137,7 +137,7 @@ export function UserMenu() {
                   >
                     <div>
                       <span className="block leading-tight">{opt.name}</span>
-                      <span className="text-[10px] text-gov-muted block leading-tight">
+                      <span className="text-xs text-gov-muted block leading-tight">
                         {opt.title}
                       </span>
                     </div>

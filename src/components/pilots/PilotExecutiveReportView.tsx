@@ -245,7 +245,7 @@ export function PilotExecutiveReportView({
 
       {/* QUICK SECTION ANCHORS (Hidden in Print) */}
       <div className="bg-slate-50 border border-slate-200 rounded-control p-2 text-xs flex items-center overflow-x-auto space-x-1.5 font-medium text-slate-600 print:hidden scrollbar-none">
-        <span className="text-[10px] uppercase font-mono text-gov-muted px-2 shrink-0 font-bold">
+        <span className="text-xs uppercase font-mono text-gov-muted px-2 shrink-0 font-bold">
           Jump to Section:
         </span>
         {[
@@ -280,7 +280,7 @@ export function PilotExecutiveReportView({
       <div className="bg-white border-2 border-slate-300 rounded-card shadow-sm p-6 sm:p-10 space-y-8 text-slate-800 font-sans print:border-none print:shadow-none print:p-0">
         {/* STATUTORY DOCUMENT HEADER */}
         <div className="border-b-2 border-slate-900 pb-6 text-center space-y-2">
-          <div className="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-slate-500 font-bold">
+          <div className="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-slate-500 font-bold">
             <Landmark className="w-3.5 h-3.5 text-slate-700" />
             <span>Government of Uttar Pradesh • Department of Urban Development</span>
           </div>
@@ -306,7 +306,7 @@ export function PilotExecutiveReportView({
           </div>
 
           <div className="pt-2">
-            <span className="inline-block bg-teal-50 text-teal-900 border border-teal-300 text-[10px] font-mono font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
+            <span className="inline-block bg-teal-50 text-teal-900 border border-teal-300 text-xs font-mono font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
               Statutory Classification: Official Use • State Procurement Committee (GFR 149)
             </span>
           </div>
@@ -328,7 +328,7 @@ export function PilotExecutiveReportView({
           </p>
 
           <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-2 text-xs">
-            <span className="font-bold text-slate-900 block uppercase tracking-wider text-[11px]">
+            <span className="font-bold text-slate-900 block uppercase tracking-wider text-xs">
               Key Statutory Findings & Milestones:
             </span>
             <ul className="list-disc list-inside space-y-1 text-slate-700">
@@ -342,25 +342,25 @@ export function PilotExecutiveReportView({
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs pt-1 font-mono">
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted block uppercase">Contract Value</span>
+              <span className="text-xs text-gov-muted block uppercase">Contract Value</span>
               <span className="text-base font-bold text-slate-900 mt-0.5 block">
                 {formatINR(report.executiveSummary.contractValue)}
               </span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted block uppercase">Disbursed to Date</span>
+              <span className="text-xs text-gov-muted block uppercase">Disbursed to Date</span>
               <span className="text-base font-bold text-emerald-700 mt-0.5 block">
                 {formatINR(report.executiveSummary.disbursedTotal)}
               </span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted block uppercase">Target Attainment</span>
+              <span className="text-xs text-gov-muted block uppercase">Target Attainment</span>
               <span className="text-base font-bold text-purple-700 mt-0.5 block">
                 {report.executiveSummary.overallAttainment}%
               </span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted block uppercase">Independent Audit</span>
+              <span className="text-xs text-gov-muted block uppercase">Independent Audit</span>
               <span className="text-base font-bold text-teal-800 mt-0.5 block">
                 TERI VALIDATED
               </span>
@@ -422,7 +422,7 @@ export function PilotExecutiveReportView({
             </div>
           </div>
 
-          <div className="text-[11px] font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded border border-slate-200">
+          <div className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded border border-slate-200">
             Intellectual Property: {report.solution.intellectualProperty} • Vendor: {report.solution.vendorCredentials}
           </div>
         </section>
@@ -445,15 +445,15 @@ export function PilotExecutiveReportView({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
               <span className="font-bold text-slate-900 block mb-1">CPCB Collocation</span>
-              <p className="text-slate-600 text-[11px] leading-relaxed">{report.pilotMethodology.collocationProtocol}</p>
+              <p className="text-slate-600 text-xs leading-relaxed">{report.pilotMethodology.collocationProtocol}</p>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
               <span className="font-bold text-slate-900 block mb-1">Ward Selection</span>
-              <p className="text-slate-600 text-[11px] leading-relaxed">{report.pilotMethodology.geographicalSampling}</p>
+              <p className="text-slate-600 text-xs leading-relaxed">{report.pilotMethodology.geographicalSampling}</p>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
               <span className="font-bold text-slate-900 block mb-1">QA / QC Calibration</span>
-              <p className="text-slate-600 text-[11px] leading-relaxed">{report.pilotMethodology.qaQcProcedures}</p>
+              <p className="text-slate-600 text-xs leading-relaxed">{report.pilotMethodology.qaQcProcedures}</p>
             </div>
           </div>
         </section>
@@ -475,19 +475,19 @@ export function PilotExecutiveReportView({
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Coverage Baseline</span>
+              <span className="text-xs text-gov-muted uppercase block">Coverage Baseline</span>
               <span className="text-lg font-bold text-slate-800 mt-0.5 block">{report.baseline.coverageBaseline}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Sensor Accuracy</span>
+              <span className="text-xs text-gov-muted uppercase block">Sensor Accuracy</span>
               <span className="text-lg font-bold text-slate-800 mt-0.5 block">{report.baseline.accuracyBaseline}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Historic Availability</span>
+              <span className="text-xs text-gov-muted uppercase block">Historic Availability</span>
               <span className="text-lg font-bold text-slate-800 mt-0.5 block">{report.baseline.uptimeBaseline}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Response Latency</span>
+              <span className="text-xs text-gov-muted uppercase block">Response Latency</span>
               <span className="text-lg font-bold text-slate-800 mt-0.5 block">{report.baseline.responseLatencyBaseline}</span>
             </div>
           </div>
@@ -504,7 +504,7 @@ export function PilotExecutiveReportView({
                 Key Performance Indicators (KPIs)
               </h2>
             </div>
-            <span className="font-mono text-[10px] uppercase text-gov-muted font-bold">
+            <span className="font-mono text-xs uppercase text-gov-muted font-bold">
               Baseline → Target → Actual
             </span>
           </div>
@@ -516,7 +516,7 @@ export function PilotExecutiveReportView({
 
           <div className="overflow-x-auto border border-slate-200 rounded-lg">
             <table className="w-full text-left text-xs border-collapse">
-              <thead className="bg-slate-50 text-[10px] uppercase font-mono text-gov-muted border-b border-slate-200">
+              <thead className="bg-slate-50 text-xs uppercase font-mono text-gov-muted border-b border-slate-200">
                 <tr>
                   <th className="p-3">Performance Metric</th>
                   <th className="p-3 font-semibold text-slate-700">1. Baseline</th>
@@ -531,7 +531,7 @@ export function PilotExecutiveReportView({
                   <tr key={kpi.id} className="hover:bg-slate-50/70">
                     <td className="p-3">
                       <div className="font-semibold text-slate-900">{kpi.metricName}</div>
-                      <div className="text-[10px] text-gov-muted">{kpi.category}</div>
+                      <div className="text-xs text-gov-muted">{kpi.category}</div>
                     </td>
                     <td className="p-3 font-mono text-slate-600 bg-slate-50/50">
                       {kpi.baseline}
@@ -546,11 +546,11 @@ export function PilotExecutiveReportView({
                       </div>
                     </td>
                     <td className="p-3">
-                      <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-50 text-purple-700 border border-purple-200">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-bold bg-purple-50 text-purple-700 border border-purple-200">
                         {kpi.attainmentPercentage}%
                       </span>
                     </td>
-                    <td className="p-3 text-[11px] text-slate-600">
+                    <td className="p-3 text-xs text-slate-600">
                       {kpi.significance}
                     </td>
                   </tr>
@@ -577,32 +577,32 @@ export function PilotExecutiveReportView({
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Correlation R²</span>
+              <span className="text-xs text-gov-muted uppercase block">Correlation R²</span>
               <span className="text-xl font-bold text-emerald-700 mt-0.5 block">
                 {report.results.regressionCorrelationR2}
               </span>
-              <span className="text-[10px] text-emerald-800">Target ≥ 0.90 Met</span>
+              <span className="text-xs text-emerald-800">Target ≥ 0.90 Met</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Error (MAPE)</span>
+              <span className="text-xs text-gov-muted uppercase block">Error (MAPE)</span>
               <span className="text-xl font-bold text-slate-900 mt-0.5 block">
                 {report.results.meanAbsolutePercentageError}%
               </span>
-              <span className="text-[10px] text-slate-500">Allowable ≤ 5.0%</span>
+              <span className="text-xs text-slate-500">Allowable ≤ 5.0%</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Misting Dispatches</span>
+              <span className="text-xs text-gov-muted uppercase block">Misting Dispatches</span>
               <span className="text-xl font-bold text-slate-900 mt-0.5 block">
                 {report.results.interventionsTriggeredCount} Verified
               </span>
-              <span className="text-[10px] text-slate-500">ICCC Automated Trigger</span>
+              <span className="text-xs text-slate-500">ICCC Automated Trigger</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Confidence</span>
+              <span className="text-xs text-gov-muted uppercase block">Confidence</span>
               <span className="text-xl font-bold text-purple-700 mt-0.5 block">
                 p &lt; 0.001
               </span>
-              <span className="text-[10px] text-purple-800">Robust Dataset</span>
+              <span className="text-xs text-purple-800">Robust Dataset</span>
             </div>
           </div>
         </section>
@@ -631,16 +631,16 @@ export function PilotExecutiveReportView({
               >
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="font-mono text-[10px] font-bold text-gov-primary bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                    <span className="font-mono text-xs font-bold text-gov-primary bg-white px-1.5 py-0.5 rounded border border-slate-200">
                       {ev.id}
                     </span>
                     <span className="font-semibold text-slate-900">{ev.title}</span>
                   </div>
-                  <span className="font-mono text-[10px] text-gov-muted block mt-0.5">
+                  <span className="font-mono text-xs text-gov-muted block mt-0.5">
                     Category: {ev.category} • Size: {ev.size} • Verified by {ev.verifiedBy}
                   </span>
                 </div>
-                <div className="font-mono text-[10px] text-slate-500 bg-white px-2 py-1 rounded border border-slate-200 truncate max-w-xs">
+                <div className="font-mono text-xs text-slate-500 bg-white px-2 py-1 rounded border border-slate-200 truncate max-w-xs">
                   SHA-256: {ev.sha256.slice(0, 24)}...
                 </div>
               </div>
@@ -661,19 +661,19 @@ export function PilotExecutiveReportView({
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Total Contract</span>
+              <span className="text-xs text-gov-muted uppercase block">Total Contract</span>
               <span className="text-base font-bold text-slate-900 mt-0.5 block">{formatINR(report.costs.totalContractValue)}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Disbursed (Paid)</span>
+              <span className="text-xs text-gov-muted uppercase block">Disbursed (Paid)</span>
               <span className="text-base font-bold text-emerald-700 mt-0.5 block">{formatINR(report.costs.paidAmount)}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Approved Pending</span>
+              <span className="text-xs text-gov-muted uppercase block">Approved Pending</span>
               <span className="text-base font-bold text-purple-700 mt-0.5 block">{formatINR(report.costs.approvedAmount)}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded border border-slate-200">
-              <span className="text-[10px] text-gov-muted uppercase block">Per Sensor Node</span>
+              <span className="text-xs text-gov-muted uppercase block">Per Sensor Node</span>
               <span className="text-base font-bold text-slate-800 mt-0.5 block">{formatINR(report.costs.perUnitCostInr)}</span>
             </div>
           </div>
@@ -708,12 +708,12 @@ export function PilotExecutiveReportView({
               >
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="font-mono text-[10px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                    <span className="font-mono text-xs font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
                       {risk.area}
                     </span>
                     <span className="font-semibold text-slate-900">{risk.riskTitle}</span>
                   </div>
-                  <p className="text-[11px] text-slate-600 mt-0.5">{risk.mitigation}</p>
+                  <p className="text-xs text-slate-600 mt-0.5">{risk.mitigation}</p>
                 </div>
                 <Badge
                   variant={risk.currentStatus === "MITIGATED" ? "success" : "warning"}
@@ -745,10 +745,10 @@ export function PilotExecutiveReportView({
               >
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="font-mono text-[10px] font-bold text-gov-primary">{iss.id}</span>
+                    <span className="font-mono text-xs font-bold text-gov-primary">{iss.id}</span>
                     <span className="font-semibold text-slate-900">{iss.title}</span>
                   </div>
-                  <p className="text-[11px] text-emerald-800 font-medium mt-0.5">
+                  <p className="text-xs text-emerald-800 font-medium mt-0.5">
                     <strong>Resolution: </strong> {iss.resolution}
                   </p>
                 </div>
@@ -782,16 +782,16 @@ export function PilotExecutiveReportView({
                 <strong className="block text-sm font-bold text-teal-950">
                   {report.validation.accreditedAgency}
                 </strong>
-                <span className="text-[11px] text-teal-800 font-mono">
+                <span className="text-xs text-teal-800 font-mono">
                   Lead Auditor: {report.validation.leadAuditor} • Standard: {report.validation.auditStandard}
                 </span>
               </div>
-              <span className="font-mono text-[10px] text-teal-800">
+              <span className="font-mono text-xs text-teal-800">
                 Certified: {report.validation.certificationDate}
               </span>
             </div>
             <p className="leading-relaxed text-teal-900">{report.validation.auditorSummary}</p>
-            <span className="text-[10px] font-mono text-teal-800 block">
+            <span className="text-xs font-mono text-teal-800 block">
               Cryptographic Audit Seal: {report.validation.certificateHash}
             </span>
           </div>
@@ -829,7 +829,7 @@ export function PilotExecutiveReportView({
           </div>
 
           <div className="p-3.5 bg-purple-50/70 border border-purple-200 rounded text-xs space-y-1.5 text-purple-950">
-            <strong className="block text-purple-950 font-bold uppercase tracking-wider text-[11px]">
+            <strong className="block text-purple-950 font-bold uppercase tracking-wider text-xs">
               Tender Specifications for Statewide Scale (GFR Rule 149):
             </strong>
             <ul className="list-disc list-inside space-y-1 text-purple-900">
@@ -871,7 +871,7 @@ export function PilotExecutiveReportView({
             <div className="bg-slate-50 border-2 border-gov-primary/30 rounded-card p-5 space-y-4 text-xs shadow-2xs">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
                 <div>
-                  <span className="text-[10px] uppercase font-mono text-gov-muted block font-bold">
+                  <span className="text-xs uppercase font-mono text-gov-muted block font-bold">
                     Official Statutory Determination:
                   </span>
                   <span className="text-xl font-extrabold text-slate-900 block mt-0.5">
@@ -879,10 +879,10 @@ export function PilotExecutiveReportView({
                   </span>
                 </div>
 
-                <div className="text-right font-mono text-[11px]">
+                <div className="text-right font-mono text-xs">
                   <span className="text-slate-700 font-semibold block">{report.recommendation.enteredBy}</span>
                   <span className="text-slate-500 block">{report.recommendation.designation}</span>
-                  <span className="text-[10px] text-gov-muted block">
+                  <span className="text-xs text-gov-muted block">
                     {new Date(report.recommendation.enteredAt).toLocaleString("en-IN", {
                       dateStyle: "medium",
                       timeStyle: "short",
@@ -901,12 +901,12 @@ export function PilotExecutiveReportView({
               {report.recommendation.targetScaleScope && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono">
                   <div className="bg-white p-2.5 rounded border border-slate-200">
-                    <span className="text-[10px] text-gov-muted uppercase block">Authorized Geographic Scope:</span>
+                    <span className="text-xs text-gov-muted uppercase block">Authorized Geographic Scope:</span>
                     <span className="font-semibold text-slate-900 mt-0.5 block">{report.recommendation.targetScaleScope}</span>
                   </div>
                   {report.recommendation.authorizedBudgetInr && (
                     <div className="bg-white p-2.5 rounded border border-slate-200">
-                      <span className="text-[10px] text-gov-muted uppercase block">Estimated Scale Budget:</span>
+                      <span className="text-xs text-gov-muted uppercase block">Estimated Scale Budget:</span>
                       <span className="font-bold text-emerald-700 mt-0.5 block text-sm">
                         {formatINR(report.recommendation.authorizedBudgetInr)}
                       </span>
@@ -915,7 +915,7 @@ export function PilotExecutiveReportView({
                 </div>
               )}
 
-              <div className="pt-2 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[10px] font-mono text-slate-500">
+              <div className="pt-2 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono text-slate-500">
                 <span>Cryptographic Digest: {report.recommendation.digitalSignatureDigest}</span>
                 <span className="text-emerald-700 font-bold">
                   ✓ Confirmed Human Decision (Section 14 & 33 Compliance)
@@ -941,15 +941,15 @@ export function PilotExecutiveReportView({
         {/* REPORT FOOTER SIGNATURE BLOCK */}
         <div className="pt-8 border-t-2 border-slate-900 flex flex-col sm:flex-row justify-between gap-6 text-xs text-slate-700">
           <div>
-            <span className="font-mono text-[10px] text-gov-muted uppercase block">Report Prepared For:</span>
+            <span className="font-mono text-xs text-gov-muted uppercase block">Report Prepared For:</span>
             <span className="font-bold text-slate-900 block mt-0.5">State Procurement Evaluation Committee</span>
             <span className="text-slate-500 block">Department of Urban Development, Govt of UP</span>
           </div>
 
           <div className="sm:text-right">
-            <span className="font-mono text-[10px] text-gov-muted uppercase block">Certified & Issued Under:</span>
+            <span className="font-mono text-xs text-gov-muted uppercase block">Certified & Issued Under:</span>
             <span className="font-bold text-slate-900 block mt-0.5">GFR 2017 Rule 149 / UP Innovation Policy</span>
-            <span className="text-slate-500 font-mono text-[10px] block">Document Hash: SHA256:4f53cda18c2baa0c0354bb5f9a3ecbe5</span>
+            <span className="text-slate-500 font-mono text-xs block">Document Hash: SHA256:4f53cda18c2baa0c0354bb5f9a3ecbe5</span>
           </div>
         </div>
       </div>
@@ -1020,7 +1020,7 @@ export function PilotExecutiveReportView({
                         }`}
                       >
                         <div className="font-bold text-sm">{opt.label}</div>
-                        <div className="text-[11px] mt-1 text-slate-600 font-normal leading-tight">
+                        <div className="text-xs mt-1 text-slate-600 font-normal leading-tight">
                           {opt.desc}
                         </div>
                       </button>
@@ -1041,7 +1041,7 @@ export function PilotExecutiveReportView({
                   placeholder="Detail empirical justification based on R² correlation, uptime, and municipal economic impact..."
                   className="text-xs"
                 />
-                <span className="text-[10px] text-gov-muted mt-0.5 block">
+                <span className="text-xs text-gov-muted mt-0.5 block">
                   Minimum 25 characters required.
                 </span>
               </div>
@@ -1080,7 +1080,7 @@ export function PilotExecutiveReportView({
                   <ShieldCheck className="w-4 h-4 text-amber-700 shrink-0" />
                   <span>Statutory Human Decision-Making Rule (Section 14 & 33):</span>
                 </div>
-                <p className="text-[11px] text-amber-900 leading-relaxed">
+                <p className="text-xs text-amber-900 leading-relaxed">
                   Procurement determinations cannot be delegated to artificial intelligence or automated ranking algorithms. The decision-maker must personally review empirical evidence and assume statutory responsibility.
                 </p>
                 <label className="flex items-start space-x-2.5 pt-1 cursor-pointer">
@@ -1090,7 +1090,7 @@ export function PilotExecutiveReportView({
                     onChange={(e) => setHumanConfirmed(e.target.checked)}
                     className="mt-0.5 rounded text-gov-primary focus:ring-gov-primary"
                   />
-                  <span className="font-semibold text-slate-900 text-[11px] leading-snug">
+                  <span className="font-semibold text-slate-900 text-xs leading-snug">
                     I confirm as an authorized public officer that this decision is explicitly entered by me based on empirical review, and has not been automated by AI.
                   </span>
                 </label>

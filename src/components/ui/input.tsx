@@ -88,13 +88,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </div>
 
         {error && (
-          <p id={`${inputId}-error`} role="alert" aria-live="polite" className="text-[11px] font-medium text-gov-danger flex items-center">
+          <p id={`${inputId}-error`} role="alert" aria-live="polite" className="text-xs font-medium text-gov-danger flex items-center">
             <span className="sr-only">Error: </span>
             {error}
           </p>
         )}
         {!error && helperText && (
-          <p id={`${inputId}-helper`} className="text-[11px] text-gov-muted">{helperText}</p>
+          <p id={`${inputId}-helper`} className="text-xs text-gov-muted">{helperText}</p>
         )}
       </div>
     );

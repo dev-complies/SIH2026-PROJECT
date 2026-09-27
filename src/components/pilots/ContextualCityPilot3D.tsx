@@ -299,7 +299,7 @@ function FallbackPilotCitySchematic({
             Lucknow Ward Testbed Schematic (2D Accessible Grid)
           </span>
         </div>
-        <span className="text-[10px] font-mono text-slate-400">
+        <span className="text-xs font-mono text-slate-400">
           5 Monitored Telemetry Nodes
         </span>
       </div>
@@ -319,12 +319,12 @@ function FallbackPilotCitySchematic({
               )}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[10px] font-mono font-semibold text-slate-400">
+                <span className="text-xs font-mono font-semibold text-slate-400">
                   {node.ward}
                 </span>
                 <span
                   className={cn(
-                    "text-[9px] font-mono px-1.5 py-0.2 rounded font-bold",
+                    "text-xs font-mono px-1.5 py-0.2 rounded font-bold",
                     node.status === "ALERT"
                       ? "bg-rose-950 text-rose-300 border border-rose-800"
                       : "bg-emerald-950 text-emerald-300 border border-emerald-800"
@@ -334,7 +334,7 @@ function FallbackPilotCitySchematic({
                 </span>
               </div>
               <p className="text-xs font-bold text-white truncate">{node.name}</p>
-              <div className="mt-2 flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-slate-800/80 pt-1.5">
+              <div className="mt-2 flex items-center justify-between text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-1.5">
                 <span>PM2.5: {node.pm25 !== undefined ? `${node.pm25} µg/m³` : "Ref BAM"}</span>
                 <span className="text-cyan-400">{node.uptime}</span>
               </div>
@@ -343,7 +343,7 @@ function FallbackPilotCitySchematic({
         })}
       </div>
 
-      <div className="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400">
+      <div className="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
         <span>Click any node card to load live telemetry into the inspector below</span>
         <span className="text-emerald-400">● 40 Municipal Streetlight Poles Linked</span>
       </div>
@@ -407,7 +407,7 @@ export function ContextualCityPilot3D({
             </Canvas>
 
             {/* Legend Overlay Strip */}
-            <div className="absolute bottom-2 left-2 right-2 pointer-events-none flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono px-2 py-1 bg-slate-900/80 backdrop-blur-xs border border-slate-800 rounded">
+            <div className="absolute bottom-2 left-2 right-2 pointer-events-none flex flex-wrap items-center justify-between gap-1 text-xs font-mono px-2 py-1 bg-slate-900/80 backdrop-blur-xs border border-slate-800 rounded">
               <div className="flex items-center space-x-3 text-slate-300">
                 <span className="flex items-center">
                   <span className="w-2 h-2 rounded-full bg-sky-500 mr-1" /> Locations
@@ -435,7 +435,7 @@ export function ContextualCityPilot3D({
             <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
             <div>
               <span className="font-bold text-white text-xs">{selectedNode.name}</span>
-              <span className="text-[10px] text-slate-400 font-mono ml-2">
+              <span className="text-xs text-slate-400 font-mono ml-2">
                 ({selectedNode.ward})
               </span>
             </div>
@@ -450,41 +450,41 @@ export function ContextualCityPilot3D({
                   ? "success"
                   : "warning"
               }
-              className="text-[9px] font-mono"
+              className="text-xs font-mono"
             >
               STATUS: {selectedNode.status}
             </Badge>
-            <span className="text-[10px] font-mono text-cyan-400">{selectedNode.protocol}</span>
+            <span className="text-xs font-mono text-cyan-400">{selectedNode.protocol}</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] mb-2 font-mono">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs mb-2 font-mono">
           <div className="bg-slate-950 p-2 rounded border border-slate-800">
-            <span className="text-[9px] text-slate-400 block uppercase">PM2.5 CONCENTRATION</span>
+            <span className="text-xs text-slate-400 block uppercase">PM2.5 CONCENTRATION</span>
             <span className="text-sm font-bold text-cyan-300">
               {selectedNode.pm25 !== undefined ? `${selectedNode.pm25} µg/m³` : "N/A"}
             </span>
           </div>
 
           <div className="bg-slate-950 p-2 rounded border border-slate-800">
-            <span className="text-[9px] text-slate-400 block uppercase">PM10 CONCENTRATION</span>
+            <span className="text-xs text-slate-400 block uppercase">PM10 CONCENTRATION</span>
             <span className="text-sm font-bold text-cyan-300">
               {selectedNode.pm10 !== undefined ? `${selectedNode.pm10} µg/m³` : "N/A"}
             </span>
           </div>
 
           <div className="bg-slate-950 p-2 rounded border border-slate-800">
-            <span className="text-[9px] text-slate-400 block uppercase">HARDWARE UPTIME</span>
+            <span className="text-xs text-slate-400 block uppercase">HARDWARE UPTIME</span>
             <span className="text-sm font-bold text-emerald-400">{selectedNode.uptime || "100%"}</span>
           </div>
 
           <div className="bg-slate-950 p-2 rounded border border-slate-800">
-            <span className="text-[9px] text-slate-400 block uppercase">POWER RESERVE</span>
+            <span className="text-xs text-slate-400 block uppercase">POWER RESERVE</span>
             <span className="text-sm font-bold text-amber-300">{selectedNode.battery || "Nominal"}</span>
           </div>
         </div>
 
-        <p className="text-[11px] text-slate-300 leading-relaxed">{selectedNode.description}</p>
+        <p className="text-xs text-slate-300 leading-relaxed">{selectedNode.description}</p>
       </div>
     </div>
   );

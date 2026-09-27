@@ -231,7 +231,7 @@ export default function HomePage() {
       {/* 1. HERO SECTION */}
       <section className="pt-2">
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <Badge variant="default" className="bg-gov-primary font-mono text-[11px] tracking-wide">
+          <Badge variant="default" className="bg-gov-primary font-mono text-xs tracking-wide px-2.5 py-0.5">
             REPUBLIC OF INDIA • GOVTECH OPERATING SYSTEM
           </Badge>
           <span className="text-gov-muted text-xs hidden sm:inline">•</span>
@@ -246,43 +246,43 @@ export default function HomePage() {
               Turn Government Challenges Into Tested, Scalable Solutions.
             </h1>
 
-            <p className="text-base sm:text-lg text-gov-muted leading-relaxed max-w-2xl font-normal">
-              Discover startups, run controlled pilots, measure outcomes, and move proven innovations toward procurement.
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
+              Discover verified startups, execute controlled municipal pilots, measure empirical outcomes, and accelerate proven innovations toward public procurement contracts.
             </p>
 
-            {/* Required Buttons */}
+            {/* Primary Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link href="/challenges">
-                <Button size="lg" className="bg-gov-primary hover:bg-gov-primary-hover shadow-sm font-semibold text-sm">
+                <Button size="lg" className="h-11 px-5 bg-gov-primary hover:bg-gov-primary-hover shadow-sm font-semibold text-sm">
                   Explore Challenges <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
 
               <Link href="/auth/login?role=STARTUP&action=register">
-                <Button size="lg" variant="outline" className="border-gov-border text-slate-800 hover:bg-slate-100 font-semibold text-sm">
+                <Button size="lg" variant="outline" className="h-11 px-5 border-slate-300 text-slate-800 hover:bg-slate-50 font-semibold text-sm">
                   Register as a Startup
                 </Button>
               </Link>
 
               <Link href="/auth/login?role=GOVERNMENT_OFFICER">
-                <Button size="lg" variant="ghost" className="text-gov-accent hover:text-blue-800 hover:bg-blue-50 font-semibold text-sm">
+                <Button size="lg" variant="ghost" className="h-11 px-4 text-gov-accent hover:text-blue-800 hover:bg-blue-50 font-semibold text-sm">
                   Government Login
                 </Button>
               </Link>
             </div>
 
             {/* Institutional Credentials Strip */}
-            <div className="pt-4 border-t border-gov-border/60 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-gov-muted">
+            <div className="pt-4 border-t border-slate-200/80 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-500 font-medium">
               <span className="flex items-center">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 mr-1.5" />
+                <ShieldCheck className="w-4 h-4 text-emerald-600 mr-1.5 shrink-0" />
                 GFR 2017 Rule 149 Compliant
               </span>
               <span className="flex items-center">
-                <Lock className="w-3.5 h-3.5 text-blue-600 mr-1.5" />
+                <Lock className="w-4 h-4 text-blue-600 mr-1.5 shrink-0" />
                 Blind Technical Scoring
               </span>
               <span className="flex items-center">
-                <Activity className="w-3.5 h-3.5 text-gov-accent mr-1.5" />
+                <Activity className="w-4 h-4 text-gov-accent mr-1.5 shrink-0" />
                 Independent NABL/CPCB Verification
               </span>
             </div>
@@ -290,19 +290,21 @@ export default function HomePage() {
 
           {/* Hero Visual: InnovationCity 3D Component */}
           <div className="lg:col-span-5">
-            <div className="border border-gov-border rounded-card bg-white p-2 shadow-sm">
+            <div className="border border-slate-200 rounded-xl bg-white p-2 shadow-sm">
               <InnovationCity height="h-96" />
             </div>
-            <div className="flex justify-between items-center px-2 pt-2 text-[11px] text-gov-muted">
+            <div className="flex justify-between items-center px-2 pt-2 text-xs text-slate-500">
               <span>Architectural Digital Twin: Secretariat & Pilot Mesh</span>
-              <span className="font-mono text-emerald-700 font-semibold">● Live Telemetry Nodes</span>
+              <span className="font-mono text-emerald-700 font-semibold flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block" /> Live Telemetry Nodes
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. IMPACT METRICS (Structured strip, whitespace, fine lines — NOT floating cards) */}
-      <section className="border-y border-gov-border py-8 bg-white/70">
+      {/* 2. IMPACT METRICS (Structured strip, whitespace, fine lines) */}
+      <section className="border-y border-slate-200 py-8 bg-white/70">
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b border-slate-100 gap-2">
           <div>
             <h2 className="text-xs font-mono uppercase tracking-widest text-gov-accent font-bold">
@@ -312,7 +314,7 @@ export default function HomePage() {
               Cumulative Innovation Procurement Metrics Across State Missions
             </p>
           </div>
-          <div className="flex items-center space-x-2 text-xs text-gov-muted">
+          <div className="flex items-center space-x-2 text-xs text-slate-500">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>Audited against Central Vigilance Commission Transparency Directives</span>
           </div>
@@ -324,10 +326,10 @@ export default function HomePage() {
               <div className="text-2xl sm:text-3xl font-extrabold text-gov-primary tracking-tight font-mono">
                 {item.value}
               </div>
-              <div className="text-xs font-bold text-slate-800 mt-1 leading-tight">
+              <div className="text-xs font-bold text-slate-900 mt-1 leading-tight">
                 {item.label}
               </div>
-              <p className="text-[11px] text-gov-muted mt-1 leading-normal">
+              <p className="text-xs text-slate-500 mt-1 leading-normal">
                 {item.subtext}
               </p>
             </div>
@@ -346,31 +348,31 @@ export default function HomePage() {
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gov-primary tracking-tight">
             How It Works: The 7-Stage Innovation Lifecycle
           </h2>
-          <p className="text-sm text-gov-muted mt-2 leading-relaxed">
+          <p className="text-sm text-slate-600 mt-2 leading-relaxed">
             Unlike commercial innovation portals, GovInnovate enforces statutory segregation of duties, anonymized expert appraisals, collocated physical measurements, and escrow disbursement gates.
           </p>
         </div>
 
-        {/* 7-Stage Process Sequence */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
-          {howItWorksStages.map((st, index) => (
+        {/* 7-Stage Process Sequence - Responsive Grid avoiding cramped columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+          {howItWorksStages.map((st) => (
             <div
               key={st.step}
-              className="bg-white border border-gov-border rounded-card p-4 flex flex-col justify-between hover:border-gov-accent transition-all shadow-2xs relative"
+              className="bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between hover:border-gov-accent hover:shadow-sm transition-all relative"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                   <span className="font-mono text-base font-extrabold text-gov-primary">
                     {st.step}
                   </span>
-                  <span className="text-[10px] font-bold tracking-wider uppercase text-gov-muted">
+                  <span className="text-xs font-bold tracking-wider uppercase text-slate-500">
                     {st.name}
                   </span>
                 </div>
 
                 <Badge
                   variant="outline"
-                  className={`text-[9px] font-semibold uppercase px-1.5 py-0.5 border ${st.roleBadge}`}
+                  className={`text-xs font-semibold uppercase px-2 py-0.5 border ${st.roleBadge}`}
                 >
                   {st.role}
                 </Badge>
@@ -379,13 +381,13 @@ export default function HomePage() {
                   {st.headline}
                 </h3>
 
-                <p className="text-[11px] text-gov-muted leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {st.description}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100 text-[10px] text-slate-600">
-                <span className="text-[9px] uppercase font-mono text-gov-muted block mb-0.5">
+              <div className="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-600">
+                <span className="text-xs uppercase font-mono text-slate-400 block mb-0.5 font-semibold">
                   VERIFIABLE GATE:
                 </span>
                 <span className="font-semibold text-gov-primary block leading-tight">
@@ -428,12 +430,12 @@ export default function HomePage() {
           {featuredChallenges.map((ch) => (
             <div
               key={ch.id}
-              className="bg-white border border-gov-border rounded-card p-5 hover:border-gov-accent transition-all shadow-2xs flex flex-col justify-between"
+              className="bg-white border border-slate-200 rounded-xl p-5 hover:border-gov-accent hover:shadow-sm transition-all flex flex-col justify-between"
             >
               <div className="space-y-3">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <span className="font-mono text-[10px] text-gov-muted block font-semibold">
+                    <span className="font-mono text-xs text-gov-accent block font-semibold">
                       {ch.code}
                     </span>
                     <h3 className="text-base font-bold text-gov-primary leading-tight mt-0.5">
@@ -442,22 +444,22 @@ export default function HomePage() {
                   </div>
                   <Badge
                     variant={ch.statusVariant as any}
-                    className="shrink-0 text-[10px] font-mono uppercase"
+                    className="shrink-0 text-xs font-mono uppercase px-2 py-0.5"
                   >
                     {ch.status}
                   </Badge>
                 </div>
 
                 <div className="text-xs text-slate-600 font-medium">
-                  {ch.department} • <span className="text-gov-muted">{ch.ministry}</span>
+                  {ch.department} • <span className="text-slate-500">{ch.ministry}</span>
                 </div>
 
-                <p className="text-xs text-gov-muted leading-relaxed line-clamp-2">
+                <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
                   {ch.description}
                 </p>
 
-                <div className="bg-slate-50 border border-slate-200/80 rounded-control p-2.5 text-xs">
-                  <span className="text-[10px] font-mono text-gov-muted uppercase block font-semibold">
+                <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 text-xs">
+                  <span className="text-xs font-mono text-slate-500 uppercase block font-semibold mb-0.5">
                     PRIMARY VERIFIABLE OUTCOME TARGET
                   </span>
                   <span className="font-semibold text-emerald-800 text-xs">
@@ -466,8 +468,8 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                <div className="flex items-center space-x-4 text-[11px] text-slate-600">
+              <div className="mt-5 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-600">
                   <span>
                     Pilot Grant: <strong className="text-slate-900 font-bold">{ch.budget}</strong>
                   </span>
@@ -482,7 +484,7 @@ export default function HomePage() {
                 </div>
 
                 <Link href={`/challenges`}>
-                  <Button size="sm" variant="default" className="bg-gov-primary h-8 text-xs font-semibold">
+                  <Button size="sm" variant="outline" className="h-8.5 px-3 border-slate-300 text-slate-800 hover:bg-slate-50 text-xs font-semibold">
                     View Specs
                   </Button>
                 </Link>
@@ -522,10 +524,10 @@ export default function HomePage() {
           {provenSolutions.map((sol) => (
             <div
               key={sol.id}
-              className="bg-white border border-gov-border rounded-card p-6 shadow-sm flex flex-col justify-between relative overflow-hidden"
+              className="bg-white border border-slate-200 rounded-xl p-6 shadow-xs flex flex-col justify-between relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 bg-emerald-50 border-l border-b border-emerald-200 px-3 py-1 text-[10px] font-mono font-bold text-emerald-800 flex items-center">
-                <CheckCircle2 className="w-3 h-3 mr-1 text-emerald-600" />
+              <div className="absolute top-0 right-0 bg-emerald-50 border-l border-b border-emerald-200 px-3 py-1 text-xs font-mono font-bold text-emerald-800 flex items-center">
+                <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" />
                 THIRD-PARTY CERTIFIED
               </div>
 
@@ -534,7 +536,7 @@ export default function HomePage() {
                   <h3 className="text-lg font-bold text-gov-primary leading-snug">
                     {sol.title}
                   </h3>
-                  <div className="text-xs text-gov-muted mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <div className="text-xs text-slate-500 mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
                     <span>
                       Startup: <strong className="text-slate-800">{sol.startup}</strong> ({sol.dpiit})
                     </span>
@@ -544,20 +546,20 @@ export default function HomePage() {
                 </div>
 
                 {/* Empirical Metrics Comparison Table */}
-                <div className="border border-slate-200 rounded-control overflow-hidden">
-                  <div className="bg-slate-50 px-3 py-2 text-[10px] font-mono uppercase font-bold text-slate-700 border-b border-slate-200 flex justify-between">
+                <div className="border border-slate-200 rounded-lg overflow-hidden">
+                  <div className="bg-slate-50 px-3 py-2 text-xs font-mono uppercase font-bold text-slate-600 border-b border-slate-200 flex justify-between">
                     <span>AUDITED METRIC</span>
                     <span>BASELINE → ACHIEVED (TARGET)</span>
                   </div>
                   <div className="divide-y divide-slate-100 text-xs">
                     {sol.metrics.map((m, idx) => (
-                      <div key={idx} className="px-3 py-2 flex items-center justify-between">
+                      <div key={idx} className="px-3 py-2.5 flex items-center justify-between">
                         <span className="text-slate-700 font-medium">{m.label}</span>
-                        <div className="flex items-center space-x-2 font-mono">
-                          <span className="text-slate-400 line-through text-[11px]">{m.baseline}</span>
+                        <div className="flex items-center space-x-2 font-mono text-xs">
+                          <span className="text-slate-400 line-through">{m.baseline}</span>
                           <span className="text-slate-400">→</span>
                           <span className="font-bold text-emerald-700">{m.achieved}</span>
-                          <span className="text-slate-500 text-[10px]">({m.target})</span>
+                          <span className="text-slate-500">({m.target})</span>
                         </div>
                       </div>
                     ))}
@@ -574,13 +576,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <Badge variant="outline" className="text-[10px] font-mono border-blue-200 text-blue-900 bg-blue-50/50">
+              <div className="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                <Badge variant="outline" className="text-xs font-mono border-blue-200 text-blue-900 bg-blue-50/50 px-2.5 py-0.5">
                   {sol.geMStatus}
                 </Badge>
 
                 <Link href="/proven-solutions">
-                  <Button size="sm" variant="default" className="bg-gov-primary h-8 text-xs font-semibold">
+                  <Button size="sm" variant="outline" className="h-8.5 px-3 border-slate-300 text-slate-800 hover:bg-slate-50 text-xs font-semibold">
                     View Verification Audit
                   </Button>
                 </Link>
@@ -607,57 +609,57 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          <div className="bg-white border border-gov-border rounded-card p-4 space-y-2 text-left">
+          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
             <Building2 className="w-5 h-5 text-gov-primary" />
             <h4 className="text-xs font-bold text-slate-900">Government Departments</h4>
-            <p className="text-[11px] text-gov-muted leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               Formulate real municipal problems, define baseline conditions, supervise testbeds, and authorize public scale-up.
             </p>
-            <span className="text-[10px] font-mono text-gov-accent block pt-1">
+            <span className="text-xs font-mono text-gov-accent block pt-1 font-semibold">
               ROLE: GOVERNMENT_OFFICER
             </span>
           </div>
 
-          <div className="bg-white border border-gov-border rounded-card p-4 space-y-2 text-left">
+          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
             <Cpu className="w-5 h-5 text-blue-600" />
             <h4 className="text-xs font-bold text-slate-900">DeepTech Startups & MSMEs</h4>
-            <p className="text-[11px] text-gov-muted leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               Deploy proprietary hardware and algorithms in live municipal zones; retain all background intellectual property.
             </p>
-            <span className="text-[10px] font-mono text-blue-600 block pt-1">
+            <span className="text-xs font-mono text-blue-600 block pt-1 font-semibold">
               ROLE: STARTUP
             </span>
           </div>
 
-          <div className="bg-white border border-gov-border rounded-card p-4 space-y-2 text-left">
+          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
             <Users2 className="w-5 h-5 text-amber-600" />
             <h4 className="text-xs font-bold text-slate-900">Academic & Domain Experts</h4>
-            <p className="text-[11px] text-gov-muted leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               Faculty from IITs and CSIR perform blind technical scoring under strict conflict-of-interest legal covenants.
             </p>
-            <span className="text-[10px] font-mono text-amber-700 block pt-1">
+            <span className="text-xs font-mono text-amber-700 block pt-1 font-semibold">
               ROLE: EXPERT_EVALUATOR
             </span>
           </div>
 
-          <div className="bg-white border border-gov-border rounded-card p-4 space-y-2 text-left">
+          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
             <ShieldCheck className="w-5 h-5 text-purple-600" />
             <h4 className="text-xs font-bold text-slate-900">Independent Validators</h4>
-            <p className="text-[11px] text-gov-muted leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               NABL accredited laboratories conduct on-site physical audits and collocated sensor calibration checks.
             </p>
-            <span className="text-[10px] font-mono text-purple-700 block pt-1">
+            <span className="text-xs font-mono text-purple-700 block pt-1 font-semibold">
               ROLE: INDEPENDENT_VALIDATOR
             </span>
           </div>
 
-          <div className="bg-white border border-gov-border rounded-card p-4 space-y-2 text-left">
+          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
             <Scale className="w-5 h-5 text-emerald-600" />
             <h4 className="text-xs font-bold text-slate-900">Procurement & Treasury</h4>
-            <p className="text-[11px] text-gov-muted leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               Release milestone disbursements against verified deliverables; structure GFR 149 public scale tenders.
             </p>
-            <span className="text-[10px] font-mono text-emerald-700 block pt-1">
+            <span className="text-xs font-mono text-emerald-700 block pt-1 font-semibold">
               ROLE: PROCUREMENT_OFFICER
             </span>
           </div>
@@ -665,9 +667,9 @@ export default function HomePage() {
       </section>
 
       {/* 7. TRANSPARENCY & ACCOUNTABILITY */}
-      <section className="bg-slate-900 text-white rounded-card p-8 space-y-8">
+      <section className="bg-slate-900 text-white rounded-xl p-8 md:p-10 space-y-8">
         <div className="max-w-3xl space-y-2">
-          <Badge variant="outline" className="border-blue-400 text-blue-300 font-mono text-[10px]">
+          <Badge variant="outline" className="border-blue-400 text-blue-300 font-mono text-xs px-2.5 py-0.5">
             PUBLIC SECTOR TRUST ARCHITECTURE
           </Badge>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
@@ -684,7 +686,7 @@ export default function HomePage() {
               <Lock className="w-4 h-4" />
               <span>Blind Evaluation Matrix</span>
             </div>
-            <p className="text-slate-400 text-[11px] leading-relaxed">
+            <p className="text-slate-400 text-xs leading-relaxed">
               Evaluators review technical methodologies with startup identity, corporate names, and founders masked. Reviewers must certify zero pecuniary interest under CVC regulations.
             </p>
           </div>
@@ -694,7 +696,7 @@ export default function HomePage() {
               <Activity className="w-4 h-4" />
               <span>Collocated Reference Audits</span>
             </div>
-            <p className="text-slate-400 text-[11px] leading-relaxed">
+            <p className="text-slate-400 text-xs leading-relaxed">
               Self-reported startup claims are never accepted. Telemetry is collocated with continuous reference equipment (e.g. CPCB BAM-1020) and audited by independent testing bodies.
             </p>
           </div>
@@ -704,7 +706,7 @@ export default function HomePage() {
               <FileCheck2 className="w-4 h-4" />
               <span>Cryptographic SHA-256 Hashes</span>
             </div>
-            <p className="text-slate-400 text-[11px] leading-relaxed">
+            <p className="text-slate-400 text-xs leading-relaxed">
               Every field photo, telemetry batch, sensor firmware log, and audit document is cryptographically anchored. Tampering with evidence files voids the verification audit.
             </p>
           </div>
@@ -714,7 +716,7 @@ export default function HomePage() {
               <Scale className="w-4 h-4" />
               <span>Immutable Event Ledger</span>
             </div>
-            <p className="text-slate-400 text-[11px] leading-relaxed">
+            <p className="text-slate-400 text-xs leading-relaxed">
               Every score submission, milestone approval, fund disbursement, and scale-up vote is appended to an append-only audit trail accessible by the state vigilance directorate.
             </p>
           </div>
@@ -722,7 +724,7 @@ export default function HomePage() {
       </section>
 
       {/* 8. CALL TO ACTION (CTA) */}
-      <section className="bg-gradient-to-r from-slate-100 via-white to-slate-100 border border-gov-border rounded-card p-8 md:p-10 text-center space-y-6">
+      <section className="bg-gradient-to-r from-slate-100 via-white to-slate-100 border border-slate-200 rounded-xl p-8 md:p-10 text-center space-y-6">
         <div className="max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-mono font-bold text-gov-accent uppercase tracking-wider">
             GET STARTED WITH GOVINNOVATE
@@ -730,59 +732,59 @@ export default function HomePage() {
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gov-primary tracking-tight">
             Accelerate Public Innovation Procurement Today
           </h2>
-          <p className="text-xs sm:text-sm text-gov-muted leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Join municipal corporations, state departments, high-growth deeptech startups, and independent evaluation experts bridging the gap between civic problems and audited scale.
           </p>
         </div>
 
         {/* 3 Clear Pathways */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto pt-2 text-left">
-          <div className="bg-white border border-slate-200 rounded-control p-4 flex flex-col justify-between shadow-2xs">
+          <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col justify-between shadow-2xs hover:border-slate-300 transition-colors">
             <div>
-              <span className="text-[10px] font-mono font-bold text-blue-900 block mb-1">
+              <span className="text-xs font-mono font-bold text-blue-900 block mb-1">
                 FOR GOVERNMENT OFFICERS
               </span>
               <h4 className="text-xs font-bold text-slate-900">Publish a Civic Challenge</h4>
-              <p className="text-[11px] text-gov-muted mt-1 leading-normal">
+              <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Formulate an urban infrastructure problem and access competitive deeptech solutions.
               </p>
             </div>
-            <Link href="/auth/login?role=GOVERNMENT_OFFICER" className="mt-4">
-              <Button size="sm" className="w-full bg-gov-primary text-xs h-8">
+            <Link href="/auth/login?role=GOVERNMENT_OFFICER" className="mt-5">
+              <Button size="sm" className="w-full bg-gov-primary hover:bg-gov-primary-hover text-xs h-9 font-semibold">
                 Officer Login
               </Button>
             </Link>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-control p-4 flex flex-col justify-between shadow-2xs">
+          <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col justify-between shadow-2xs hover:border-slate-300 transition-colors">
             <div>
-              <span className="text-[10px] font-mono font-bold text-emerald-800 block mb-1">
+              <span className="text-xs font-mono font-bold text-emerald-800 block mb-1">
                 FOR DPIIT STARTUPS
               </span>
               <h4 className="text-xs font-bold text-slate-900">Deploy in Controlled Pilots</h4>
-              <p className="text-[11px] text-gov-muted mt-1 leading-normal">
+              <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Win funded pilot deployments, validate your technology, and unlock direct procurement.
               </p>
             </div>
-            <Link href="/auth/login?role=STARTUP&action=register" className="mt-4">
-              <Button size="sm" variant="default" className="w-full bg-blue-600 hover:bg-blue-700 text-xs h-8">
+            <Link href="/auth/login?role=STARTUP&action=register" className="mt-5">
+              <Button size="sm" variant="default" className="w-full bg-blue-600 hover:bg-blue-700 text-xs h-9 font-semibold">
                 Register Startup
               </Button>
             </Link>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-control p-4 flex flex-col justify-between shadow-2xs">
+          <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col justify-between shadow-2xs hover:border-slate-300 transition-colors">
             <div>
-              <span className="text-[10px] font-mono font-bold text-amber-800 block mb-1">
+              <span className="text-xs font-mono font-bold text-amber-800 block mb-1">
                 FOR EXPERTS & AUDITORS
               </span>
               <h4 className="text-xs font-bold text-slate-900">Join the Technical Panel</h4>
-              <p className="text-[11px] text-gov-muted mt-1 leading-normal">
+              <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Conduct blind technical evaluations and empirical testing for public interest tech.
               </p>
             </div>
-            <Link href="/auth/login?role=EXPERT" className="mt-4">
-              <Button size="sm" variant="outline" className="w-full text-xs h-8">
+            <Link href="/auth/login?role=EXPERT" className="mt-5">
+              <Button size="sm" variant="outline" className="w-full text-xs h-9 font-semibold border-slate-300 text-slate-800 hover:bg-slate-50">
                 Evaluator Portal
               </Button>
             </Link>

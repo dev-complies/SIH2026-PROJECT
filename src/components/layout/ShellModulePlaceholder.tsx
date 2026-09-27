@@ -49,11 +49,11 @@ export function ShellModulePlaceholder({
       <div className="bg-white border border-gov-border rounded-card p-6 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="flex items-center space-x-2 mb-1">
-            <Badge variant="outline" className="font-mono text-[10px] text-gov-accent border-blue-300 bg-blue-50/60">
+            <Badge variant="outline" className="font-mono text-xs text-gov-accent border-blue-300 bg-blue-50/60">
               {role} WORKSPACE MODULE
             </Badge>
             {itemCount && (
-              <Badge variant="default" className="bg-gov-primary font-mono text-[10px]">
+              <Badge variant="default" className="bg-gov-primary font-mono text-xs">
                 {itemCount}
               </Badge>
             )}
