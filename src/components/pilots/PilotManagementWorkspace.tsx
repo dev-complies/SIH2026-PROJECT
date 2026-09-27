@@ -21,6 +21,7 @@ import { DocumentContractManagementWorkspace } from "@/components/documents/Docu
 import { MilestonePaymentWorkspace } from "@/components/payments/MilestonePaymentWorkspace";
 import { ValidatorWorkspace } from "@/components/validator/ValidatorWorkspace";
 import { PilotExecutiveReportView } from "./PilotExecutiveReportView";
+import { ScaleUpDecisionView } from "@/components/scale-up/ScaleUpDecisionView";
 import {
   Building2,
   CheckCircle2,
@@ -54,6 +55,7 @@ import {
   MapPin,
   ExternalLink,
   Plus,
+  Rocket,
 } from "lucide-react";
 
 export type PilotTab =
@@ -67,7 +69,8 @@ export type PilotTab =
   | "payments"
   | "validation"
   | "activity"
-  | "report";
+  | "report"
+  | "scale-up";
 
 export interface PilotIssue {
   id: string;
@@ -276,6 +279,14 @@ export function PilotManagementWorkspace() {
                 <FileText className="w-3.5 h-3.5 mr-1" /> Executive Report
               </Button>
             </Link>
+            <Link href="/gov/pilots/scale-up">
+              <Button
+                size="sm"
+                className="text-xs h-7 bg-amber-600 hover:bg-amber-700 text-white font-semibold shadow-2xs"
+              >
+                <Rocket className="w-3.5 h-3.5 mr-1" /> Scale-Up Decision
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -356,6 +367,7 @@ export function PilotManagementWorkspace() {
             { id: "validation", label: "Validation", count: "TERI Certified" },
             { id: "activity", label: "Activity", count: "142 Events" },
             { id: "report", label: "Executive Report", count: "14 Secs" },
+            { id: "scale-up", label: "Scale-Up Decision", count: "Statewide" },
           ].map((t) => (
             <button
               key={t.id}
@@ -656,6 +668,18 @@ export function PilotManagementWorkspace() {
       {activeTab === "report" && (
         <div className="space-y-4 animate-in fade-in duration-150">
           <PilotExecutiveReportView
+            pilotId="PILOT-UP-UAQ-01"
+            onBack={() => setActiveTab("overview")}
+          />
+        </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* TAB 12: SCALE-UP WORKFLOW & MULTI-CITY DECISION          */}
+      {/* ======================================================== */}
+      {activeTab === "scale-up" && (
+        <div className="space-y-4 animate-in fade-in duration-150">
+          <ScaleUpDecisionView
             pilotId="PILOT-UP-UAQ-01"
             onBack={() => setActiveTab("overview")}
           />

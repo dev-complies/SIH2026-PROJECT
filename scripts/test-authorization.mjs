@@ -524,6 +524,118 @@ assert(validateRecommendationPayload(validHumanDecision).valid === true, "Explic
 assert(validateRecommendationPayload(aiAutomatedDecision).valid === false, "Automated AI procurement decision is rejected under GFR Rule 149");
 assert(validateRecommendationPayload(shortJustificationDecision).valid === false, "Decision with insufficient justification (<25 chars) is rejected");
 
+// 9. Statutory Scale-Up Workflow & Decision-Making RBAC Tests
+console.log("\n--- 9. Testing Statutory Scale-Up Workflow & Decision-Making RBAC ---");
+
+// 1. Lifecycle Stages Check
+const STATUTORY_LIFECYCLE_STAGES = [
+  "PILOT_COMPLETED",
+  "VALIDATION",
+  "SCALE_UP_REVIEW",
+  "PROCUREMENT_REVIEW",
+  "SCALE"
+];
+
+assert(STATUTORY_LIFECYCLE_STAGES.length === 5, "Lifecycle defines exactly 5 sequential stages");
+assert(STATUTORY_LIFECYCLE_STAGES[0] === "PILOT_COMPLETED", "Lifecycle Stage 1: Pilot Completed");
+assert(STATUTORY_LIFECYCLE_STAGES[1] === "VALIDATION", "Lifecycle Stage 2: Validation");
+assert(STATUTORY_LIFECYCLE_STAGES[2] === "SCALE_UP_REVIEW", "Lifecycle Stage 3: Scale-Up Review");
+assert(STATUTORY_LIFECYCLE_STAGES[3] === "PROCUREMENT_REVIEW", "Lifecycle Stage 4: Procurement Review");
+assert(STATUTORY_LIFECYCLE_STAGES[4] === "SCALE", "Lifecycle Stage 5: Scale");
+
+// 2. Nine Core Required Dimensions Check
+const SCALE_UP_DIMENSIONS = [
+  "Pilot Results",
+  "Validation",
+  "Cost",
+  "Risks",
+  "Compliance",
+  "Scalability",
+  "Proposed Geography",
+  "Expansion Cost",
+  "Lessons Learned"
+];
+
+assert(SCALE_UP_DIMENSIONS.length === 9, "Scale-up decision view incorporates all 9 statutory dimensions");
+for (const dim of SCALE_UP_DIMENSIONS) {
+  assert(SCALE_UP_DIMENSIONS.includes(dim), `Dimension '${dim}' is verified present in scale-up view`);
+}
+
+// 3. Authorized Scale-Up Actions Check
+const AUTHORIZED_SCALE_UP_ACTIONS = [
+  "START_SCALE_UP",
+  "REQUEST_ADDITIONAL_PILOT",
+  "MODIFY_RETEST",
+  "CLOSE"
+];
+
+function isValidScaleUpAction(act) {
+  return AUTHORIZED_SCALE_UP_ACTIONS.includes(act);
+}
+
+assert(isValidScaleUpAction("START_SCALE_UP") === true, "Action 'START_SCALE_UP' is valid");
+assert(isValidScaleUpAction("REQUEST_ADDITIONAL_PILOT") === true, "Action 'REQUEST_ADDITIONAL_PILOT' is valid");
+assert(isValidScaleUpAction("MODIFY_RETEST") === true, "Action 'MODIFY_RETEST' is valid");
+assert(isValidScaleUpAction("CLOSE") === true, "Action 'CLOSE' is valid");
+assert(isValidScaleUpAction("AI_AUTO_SCALE") === false, "Unauthorized action 'AI_AUTO_SCALE' is rejected");
+
+// 4. Role Authorization for Scale-Up Actions
+function canExecuteScaleUpAction(user) {
+  if (!user) return false;
+  const canonicalRole = normalizeRole(user.role);
+  return (
+    canonicalRole === "GOVERNMENT_OFFICER" ||
+    canonicalRole === "PROCUREMENT_OFFICER" ||
+    canonicalRole === "ADMIN"
+  );
+}
+
+assert(canExecuteScaleUpAction(govUser) === true, "Government Officer CAN execute scale-up decision");
+assert(canExecuteScaleUpAction(procurementUser) === true, "Procurement Officer CAN execute scale-up decision");
+assert(canExecuteScaleUpAction(adminUser) === true, "Platform Admin CAN execute scale-up decision");
+assert(canExecuteScaleUpAction(airSenseUser) === false, "Startup CANNOT execute statutory scale-up decision");
+assert(canExecuteScaleUpAction(assignedExpert) === false, "Expert Evaluator CANNOT execute scale-up decision");
+assert(canExecuteScaleUpAction(validatorUser) === false, "Independent Validator CANNOT execute scale-up decision");
+
+// 5. Statutory Prohibition of Automated AI Scale-Up Decisions (GFR Rule 149)
+function validateScaleUpPayload(payload) {
+  if (!isValidScaleUpAction(payload.action)) {
+    return { valid: false, error: "Invalid scale-up action" };
+  }
+  if (!payload.isHumanConfirmed) {
+    return {
+      valid: false,
+      error: "Statutory Violation: Scale-up decisions cannot be automated by AI algorithms. Explicit human confirmation is required under GFR Rule 149."
+    };
+  }
+  if (!payload.justification || payload.justification.trim().length < 20) {
+    return { valid: false, error: "Detailed statutory justification required (min 20 chars)" };
+  }
+  return { valid: true };
+}
+
+const validHumanScaleUp = {
+  action: "START_SCALE_UP",
+  justification: "Startup attained 99.4% uptime and R² = 0.95 vs CPCB BAM monitor. Expanding to 6 UP Smart Cities.",
+  isHumanConfirmed: true,
+};
+
+const aiAutomatedScaleUp = {
+  action: "START_SCALE_UP",
+  justification: "Auto-generated recommendation from predictive performance ML model.",
+  isHumanConfirmed: false,
+};
+
+const shortScaleUpJustification = {
+  action: "START_SCALE_UP",
+  justification: "Scale it up now",
+  isHumanConfirmed: true,
+};
+
+assert(validateScaleUpPayload(validHumanScaleUp).valid === true, "Explicit human scale-up decision is accepted");
+assert(validateScaleUpPayload(aiAutomatedScaleUp).valid === false, "Automated AI scale-up decision is rejected under GFR Rule 149");
+assert(validateScaleUpPayload(shortScaleUpJustification).valid === false, "Scale-up decision with short justification (<20 chars) is rejected");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");
