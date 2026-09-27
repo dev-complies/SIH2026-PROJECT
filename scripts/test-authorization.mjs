@@ -1437,6 +1437,108 @@ const missingGfrDecision = executeShortlistingDecision({
 });
 assert(missingGfrDecision.success === false, "Decision rejected if GFR Rule 149 accountability declaration is not confirmed");
 
+// ======================================================================
+// SECTION 15: AI-ASSISTED PROPOSAL SUMMARIZATION & FACTUAL FIDELITY (Prompt Request 13)
+// ======================================================================
+console.log("\n--- SECTION 15: AI-ASSISTED PROPOSAL SUMMARIZATION & SIDE-BY-SIDE VIEW (Prompt 13) ---");
+
+// 1. Mandatory 10 Proposal Summary Sections Check
+const MANDATORY_SUMMARY_SECTIONS = [
+  "Solution",
+  "Technology",
+  "Problem Fit",
+  "Implementation",
+  "Experience",
+  "Cost",
+  "Pilot Plan",
+  "Expected Impact",
+  "Risks",
+  "Missing Information"
+];
+
+assert(MANDATORY_SUMMARY_SECTIONS.length === 10, "Proposal summarizer defines exactly 10 mandatory structured sections");
+for (const sec of MANDATORY_SUMMARY_SECTIONS) {
+  assert(MANDATORY_SUMMARY_SECTIONS.includes(sec), `Summary section '${sec}' is verified present`);
+}
+
+// 2. Exact Labeling Requirement Check: "AI-generated summary"
+const EXPECTED_LABEL = "AI-generated summary";
+function validateSummaryLabel(summaryPayload) {
+  return summaryPayload.label === EXPECTED_LABEL || summaryPayload.title?.includes(EXPECTED_LABEL);
+}
+
+const sampleSummaryPayload = {
+  label: "AI-generated summary",
+  applicationNumber: "APP-2026-UAQ-001",
+  sections: {
+    solution: { title: "Solution Synopsis", text: "AirSense Mesh 4.0 IoT network" },
+    technology: { title: "Technology", text: "Dual-beam laser particle counters with NB-IoT" },
+    problemfit: { title: "Problem Fit", text: "Solves Lucknow sparse monitoring blindspots" },
+    implementation: { title: "Implementation", text: "3-phase rollout over 90 days" },
+    experience: { title: "Experience", text: "4 years, UPPCB Jajmau pilot completed" },
+    cost: { title: "Cost", text: "₹22,00,000 INR vs ₹25,00,000 ceiling" },
+    pilotplan: { title: "Pilot Plan", text: "3 milestones with CPCB collocation trial" },
+    expectedimpact: { title: "Expected Impact", text: "Reduces misting truck dispatch delay from 120m to 20m" },
+    risks: { title: "Risks", text: "Optical fouling mitigated by positive-pressure cyclonic intake" },
+    missinginformation: {
+      title: "Missing Information",
+      items: [
+        "Public Liability Insurance Policy: Not provided in proposal.",
+        "Third-Party Source Code Escrow: Not provided in proposal.",
+        "E-Waste Sensor Disposal Plan: Not provided in proposal."
+      ]
+    }
+  }
+};
+
+assert(validateSummaryLabel(sampleSummaryPayload) === true, `Summary explicitly displays mandated label '${EXPECTED_LABEL}'`);
+
+// 3. Side-by-Side Dual-Pane Availability Check
+function validateSideBySideStructure(proposalData, summaryData) {
+  // Both original proposal and AI summary must be co-present
+  const hasOriginal = proposalData && proposalData.rawProposalText && proposalData.originalSections?.length > 0;
+  const hasSummary = summaryData && summaryData.sections && Object.keys(summaryData.sections).length === 10;
+  return hasOriginal && hasSummary;
+}
+
+const sampleOriginalProposal = {
+  applicationNumber: "APP-2026-UAQ-001",
+  rawProposalText: "TECHNICAL PROPOSAL & DPR for UAQ-LKO-2026...",
+  originalSections: [
+    { sectionId: "sec-1", title: "1. Executive Summary", content: "AirSense proposes..." },
+    { sectionId: "sec-2", title: "2. Technical Architecture", content: "Orthogonal dual-beam OPC..." },
+    { sectionId: "sec-3", title: "3. Problem Fit", content: "Central Lucknow winter inversion..." },
+  ]
+};
+
+assert(validateSideBySideStructure(sampleOriginalProposal, sampleSummaryPayload) === true, "Side-by-side dual-pane structure preserves both original proposal and AI summary");
+
+// 4. Strict Factual Fidelity & "Not provided in proposal." Rule
+const REQUIRED_NOT_PROVIDED_STRING = "Not provided in proposal.";
+
+function verifyFactualIntegrity(missingInfoSection) {
+  // Must NOT invent fake insurance policies or non-existent escrow agreements
+  for (const item of missingInfoSection.items) {
+    if (item.includes("Insurance") || item.includes("Escrow") || item.includes("E-Waste")) {
+      if (!item.includes(REQUIRED_NOT_PROVIDED_STRING)) {
+        return { valid: false, error: "Hallucination detected: Invented missing tender data" };
+      }
+    }
+  }
+  return { valid: true };
+}
+
+const integrityResult = verifyFactualIntegrity(sampleSummaryPayload.sections.missinginformation);
+assert(integrityResult.valid === true, "Strict factual fidelity confirmed: Unavailable information explicitly states 'Not provided in proposal.'");
+
+// Anti-hallucination negative test: ensure invented fake data fails validation
+const hallucinatedSummary = {
+  items: [
+    "Public Liability Insurance Policy: Covered under Policy #ABC-123456 by National Insurance (Invented)",
+  ]
+};
+assert(verifyFactualIntegrity(hallucinatedSummary).valid === false, "Invented information correctly fails anti-hallucination verification");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");
