@@ -547,36 +547,36 @@ export function EligibilityReviewWorkspace() {
                     <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       EXECUTIVE SUMMARY
                     </span>
-                    <p className="text-slate-700 leading-relaxed text-[11.5px]">
+                    <p className="text-slate-700 leading-relaxed text-xs">
                       {app.executiveSummary}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       Sensor & Hardware Specifications:
                     </span>
-                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-[11.5px]">
+                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-xs">
                       {app.sensorSpecs}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       Telemetry & Backhaul Integration:
                     </span>
-                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-[11.5px]">
+                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-xs">
                       {app.telemetryProtocol}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       Committed Target Validation Benchmarks (KPIs):
                     </span>
                     <ul className="space-y-1.5">
                       {app.targetKpis.map((kpi, idx) => (
-                        <li key={idx} className="flex items-center text-slate-800 text-[11.5px]">
+                        <li key={idx} className="flex items-center text-slate-800 text-xs">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-2 shrink-0" />
                           <span>{kpi}</span>
                         </li>
@@ -594,12 +594,12 @@ export function EligibilityReviewWorkspace() {
                       <h3 className="font-bold text-slate-900 text-sm">{app.startupName}</h3>
                       <p className="text-xs text-gov-muted">Incorporated on {app.incorporationDate}</p>
                     </div>
-                    <Badge variant="outline" className="text-emerald-800 bg-emerald-50 border-emerald-300 font-mono text-[9.5px]">
+                    <Badge variant="outline" className="text-emerald-800 bg-emerald-50 border-emerald-300 font-mono text-xs">
                       DPIIT VERIFIED
                     </Badge>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 text-[11.5px]">
+                  <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
                       <span className="text-xs text-gov-muted font-mono uppercase block">DPIIT NUMBER</span>
                       <span className="font-semibold text-slate-900 font-mono">{app.dpiitNumber}</span>
@@ -656,7 +656,7 @@ export function EligibilityReviewWorkspace() {
                         className="p-3 bg-slate-50 border border-slate-200 rounded-control flex items-center justify-between hover:bg-slate-100 transition-colors"
                       >
                         <div className="min-w-0 pr-2">
-                          <p className="font-semibold text-slate-900 text-[11.5px] truncate">
+                          <p className="font-semibold text-slate-900 text-xs truncate">
                             {doc.name}
                           </p>
                           <span className="text-xs text-gov-muted font-mono">
@@ -695,7 +695,7 @@ export function EligibilityReviewWorkspace() {
                   Official Eligibility Checklist (7 Checks)
                 </h2>
               </div>
-              <Badge variant="outline" className="text-[9.5px] font-mono">
+              <Badge variant="outline" className="text-xs font-mono">
                 {checklist.filter((c) => c.status === "PASS").length} of 7 Passed
               </Badge>
             </div>
@@ -718,12 +718,12 @@ export function EligibilityReviewWorkspace() {
                   <div className="flex items-start justify-between gap-2 mb-1.5">
                     <div>
                       <div className="flex items-center space-x-1.5">
-                        <span className="font-mono text-slate-400 font-bold text-[10.5px]">
+                        <span className="font-mono text-slate-400 font-bold text-xs">
                           {index + 1}.
                         </span>
-                        <span className="font-bold text-slate-900 text-[12px]">{item.name}</span>
+                        <span className="font-bold text-slate-900 text-xs">{item.name}</span>
                       </div>
-                      <p className="text-[10.5px] text-slate-600 mt-0.5 leading-tight">
+                      <p className="text-xs text-slate-600 mt-0.5 leading-tight">
                         {item.description}
                       </p>
                     </div>
@@ -808,7 +808,7 @@ export function EligibilityReviewWorkspace() {
                   className={`text-xs ${showReasonError ? "border-red-500 ring-1 ring-red-300" : ""}`}
                 />
                 {showReasonError && (
-                  <p className="text-[10.5px] text-red-600 font-semibold flex items-center">
+                  <p className="text-xs text-red-600 font-semibold flex items-center">
                     <AlertCircle className="w-3 h-3 mr-1" />
                     Statutory Reason is strictly required for this decision.
                   </p>
@@ -824,7 +824,7 @@ export function EligibilityReviewWorkspace() {
                   onChange={(e) => setIsPublicToStartup(e.target.checked)}
                   className="w-4 h-4 rounded text-gov-primary mt-0.5"
                 />
-                <label htmlFor="shareNotes" className="text-[10.5px] text-amber-950 leading-tight cursor-pointer">
+                <label htmlFor="shareNotes" className="text-xs text-amber-950 leading-tight cursor-pointer">
                   <strong>Allow startup to view notes:</strong> Keep unchecked to protect double-blind internal government deliberations. Only check if issuing a formal public clarification request.
                 </label>
               </div>
@@ -882,7 +882,7 @@ export function EligibilityReviewWorkspace() {
               Recorded Eligibility Audit Trail (GFR 2017 Audit Ledger)
             </h3>
           </div>
-          <Badge variant="outline" className="text-[9.5px] font-mono">
+          <Badge variant="outline" className="text-xs font-mono">
             {auditLog.length} Recorded Events
           </Badge>
         </div>

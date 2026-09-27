@@ -460,7 +460,7 @@ export function GovernmentShortlistingWorkspace() {
               </p>
             </div>
           </div>
-          <Badge variant="warning" className="shrink-0 font-mono text-[9.5px] uppercase">
+          <Badge variant="warning" className="shrink-0 font-mono text-xs uppercase">
             Human Discretion Active
           </Badge>
         </div>
@@ -535,7 +535,7 @@ export function GovernmentShortlistingWorkspace() {
                         <div className="text-xs text-gov-muted truncate mt-0.5">
                           {cand.solutionTitle}
                         </div>
-                        <div className="flex items-center space-x-1.5 mt-1 font-mono text-[9.5px] text-gov-accent">
+                        <div className="flex items-center space-x-1.5 mt-1 font-mono text-xs text-gov-accent">
                           <span>{cand.dpiitNumber}</span>
                           <span>•</span>
                           <span className="text-slate-600 font-bold">
@@ -595,7 +595,7 @@ export function GovernmentShortlistingWorkspace() {
                         <div className="font-mono font-bold text-slate-900 text-xs">
                           {cand.cost.proposed}
                         </div>
-                        <div className="text-[9.5px] text-gov-muted">Max: {cand.cost.ceiling}</div>
+                        <div className="text-xs text-gov-muted">Max: {cand.cost.ceiling}</div>
                       </td>
 
                       {/* 8. Risk */}
@@ -665,10 +665,10 @@ export function GovernmentShortlistingWorkspace() {
                                 <span className="text-xs font-mono text-purple-800 font-bold uppercase tracking-wider block">
                                   INDEPENDENT EXPERT APPRAISAL
                                 </span>
-                                <p className="text-slate-700 leading-relaxed text-[11.5px]">
+                                <p className="text-slate-700 leading-relaxed text-xs">
                                   {cand.expertNotes}
                                 </p>
-                                <div className="text-[10.5px] font-semibold text-purple-900 pt-1 border-t border-slate-100">
+                                <div className="text-xs font-semibold text-purple-900 pt-1 border-t border-slate-100">
                                   Recommendation: {cand.expertRecommendation}
                                 </div>
                               </div>
@@ -705,7 +705,7 @@ export function GovernmentShortlistingWorkspace() {
                                   <p className="text-slate-700 leading-snug">
                                     {cand.eligibilityNotes}
                                   </p>
-                                  <p className="text-slate-600 text-[10.5px] pt-1 border-t border-slate-100">
+                                  <p className="text-slate-600 text-xs pt-1 border-t border-slate-100">
                                     <strong>Track Record:</strong> {cand.teamTrackRecord}
                                   </p>
                                   <p className="text-gov-muted text-xs font-mono">
@@ -818,7 +818,7 @@ export function GovernmentShortlistingWorkspace() {
               Statutory Shortlisting Audit Ledger (Append-Only)
             </h3>
           </div>
-          <Badge variant="outline" className="text-[9.5px] font-mono">
+          <Badge variant="outline" className="text-xs font-mono">
             {auditLog.length} Recorded Action(s)
           </Badge>
         </div>
@@ -944,7 +944,7 @@ export function GovernmentShortlistingWorkspace() {
                   className={`text-xs ${reasonError ? "border-red-500 ring-1 ring-red-300" : ""}`}
                 />
                 {reasonError && (
-                  <p className="text-[10.5px] text-red-600 font-semibold flex items-center mt-1">
+                  <p className="text-xs text-red-600 font-semibold flex items-center mt-1">
                     <AlertCircle className="w-3 h-3 mr-1" />
                     Statutory Reason is strictly required by procurement audit regulations.
                   </p>

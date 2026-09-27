@@ -198,19 +198,19 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
   return (
     <div className="space-y-6">
       {/* Prominent Statutory AI-Generated Risk Advisory Banner */}
-      <div className="rounded-xl border-2 border-indigo-200 bg-gradient-to-r from-indigo-50/90 via-blue-50/80 to-purple-50/70 p-5 shadow-xs">
+      <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-2xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1.5">
             <div className="flex items-center space-x-2 flex-wrap gap-y-1">
-              <Badge variant="default" className="bg-indigo-700 text-white font-mono text-xs tracking-wider flex items-center">
-                <Sparkles className="w-3 h-3 mr-1" /> {AI_SUGGESTION_LABEL}
+              <Badge variant="default" className="bg-slate-900 text-white font-mono text-xs tracking-wider flex items-center px-2 py-0.5">
+                <Sparkles className="w-3 h-3 mr-1 text-blue-400" /> {AI_SUGGESTION_LABEL}
               </Badge>
-              <Badge variant="outline" className="border-indigo-300 text-indigo-900 bg-white font-mono text-xs">
-                GROUNDED IN CHALLENGE, STARTUP, PILOT & EVIDENCE DATA
+              <Badge variant="outline" className="border-slate-300 text-slate-800 bg-slate-50 font-mono text-xs px-2 py-0.5">
+                GROUNDED IN CHALLENGE, STARTUP, PILOT &amp; EVIDENCE DATA
               </Badge>
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-gov-primary tracking-tight">
-              AI-Assisted Risk Analysis & Pre-Emptive Advisory
+              AI-Assisted Risk Analysis &amp; Pre-Emptive Advisory
             </h1>
             <p className="text-xs text-slate-700 max-w-3xl leading-relaxed">
               Synthesizes latent vulnerabilities across <strong>6 mandatory operational categories</strong>.
@@ -220,7 +220,7 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
 
           <div className="flex items-center space-x-2 shrink-0">
             <Link href="/risks-issues">
-              <Button size="sm" variant="outline" className="text-xs bg-white">
+              <Button size="sm" variant="outline" className="text-xs h-8 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-medium">
                 View Official Risk Register
               </Button>
             </Link>
@@ -228,8 +228,8 @@ export function AIRiskAnalysisWorkspace({ pilotId = "PILOT-UP-UAQ-01" }: { pilot
         </div>
 
         {/* Legal Mandate Box */}
-        <div className="mt-4 pt-3 border-t border-indigo-200/80 flex items-start space-x-2 text-xs text-indigo-950">
-          <ShieldAlert className="w-4 h-4 text-indigo-700 shrink-0 mt-0.5" />
+        <div className="mt-4 pt-3 border-t border-slate-200 flex items-start space-x-2 text-xs text-slate-800">
+          <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
           <span>
             <strong>Statutory Governance Mandate:</strong> AI recommendations are strictly advisory and{" "}
             <strong>must not automatically change risk status or make procurement decisions</strong>.

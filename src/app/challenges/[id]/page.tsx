@@ -194,7 +194,7 @@ function ChallengeDetailContent() {
             <span className="font-black text-slate-900 font-mono text-base">
               {challenge.budget}
             </span>
-            <span className="text-[9.5px] text-gov-muted block">100% Grant Escrow Backed</span>
+            <span className="text-xs text-gov-muted block">100% Grant Escrow Backed</span>
           </div>
 
           <div>
@@ -204,7 +204,7 @@ function ChallengeDetailContent() {
             <span className="font-bold text-slate-800 text-sm">
               {challenge.pilotDuration}
             </span>
-            <span className="text-[9.5px] text-gov-muted block">Controlled Municipal Testbed</span>
+            <span className="text-xs text-gov-muted block">Controlled Municipal Testbed</span>
           </div>
 
           <div>
@@ -214,7 +214,7 @@ function ChallengeDetailContent() {
             <span className="font-bold text-amber-900 text-sm">
               {challenge.deadline}
             </span>
-            <span className="text-[9.5px] text-amber-700 block font-mono">
+            <span className="text-xs text-amber-700 block font-mono">
               {challenge.daysRemaining > 0 ? `${challenge.daysRemaining} days remaining` : "Bidding closed"}
             </span>
           </div>
@@ -226,7 +226,7 @@ function ChallengeDetailContent() {
             <span className="font-bold text-slate-800 text-sm">
               DPIIT Recognized
             </span>
-            <span className="text-[9.5px] text-emerald-700 block font-medium">
+            <span className="text-xs text-emerald-700 block font-medium">
               Hardware/Software Startups
             </span>
           </div>
@@ -283,7 +283,7 @@ function ChallengeDetailContent() {
 
             <div className="space-y-3 text-xs leading-relaxed text-slate-800">
               <div>
-                <h3 className="font-bold text-slate-900 mb-1 text-[13px]">
+                <h3 className="font-bold text-slate-900 mb-1 text-sm">
                   The Core Public Challenge:
                 </h3>
                 <p className="bg-slate-50 border border-slate-200/70 p-3 rounded-control text-slate-700 leading-relaxed">
@@ -292,7 +292,7 @@ function ChallengeDetailContent() {
               </div>
 
               <div>
-                <h3 className="font-bold text-slate-900 mb-1 text-[13px]">
+                <h3 className="font-bold text-slate-900 mb-1 text-sm">
                   Ground-Level Context & Why Existing Solutions Fail:
                 </h3>
                 <p className="text-slate-600 leading-relaxed">
@@ -315,7 +315,7 @@ function ChallengeDetailContent() {
 
             <div className="space-y-4 text-xs">
               <div>
-                <h3 className="font-bold text-slate-900 mb-1 text-[13px]">
+                <h3 className="font-bold text-slate-900 mb-1 text-sm">
                   Target Civic Transformation:
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
@@ -376,7 +376,7 @@ function ChallengeDetailContent() {
 
             <div className="space-y-4 text-xs">
               <div className="space-y-2">
-                <span className="font-bold text-slate-900 text-[12px] block">
+                <span className="font-bold text-slate-900 text-xs block">
                   Mandatory Specifications:
                 </span>
                 <ul className="space-y-1.5">
@@ -391,7 +391,7 @@ function ChallengeDetailContent() {
 
               {challenge.requirements.preferred.length > 0 && (
                 <div className="space-y-2">
-                  <span className="font-bold text-slate-900 text-[12px] block">
+                  <span className="font-bold text-slate-900 text-xs block">
                     Preferred Architecture & Extensions:
                   </span>
                   <ul className="space-y-1.5">
@@ -511,7 +511,7 @@ function ChallengeDetailContent() {
                     }`}
                   />
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between">
-                    <span className="font-bold text-slate-900 text-[13px]">{step.phase}</span>
+                    <span className="font-bold text-slate-900 text-sm">{step.phase}</span>
                     <span className="text-xs font-mono text-gov-muted">{step.date}</span>
                   </div>
                   <p className="text-slate-600 mt-0.5 text-xs">{step.description}</p>
@@ -549,7 +549,7 @@ function ChallengeDetailContent() {
                       )}
                     </button>
                     {isOpen && (
-                      <div className="p-3 bg-white border-t border-slate-100 text-slate-700 leading-relaxed text-[11.5px]">
+                      <div className="p-3 bg-white border-t border-slate-100 text-slate-700 leading-relaxed text-xs">
                         {item.answer}
                       </div>
                     )}
@@ -571,7 +571,7 @@ function ChallengeDetailContent() {
               </h3>
             </div>
 
-            <div className="space-y-3 text-[11.5px]">
+            <div className="space-y-3 text-xs">
               <div>
                 <span className="text-xs font-mono text-gov-muted uppercase block">
                   REGISTRATION REQUIREMENT
@@ -668,7 +668,7 @@ function ChallengeDetailContent() {
               <Sparkles className="w-4 h-4 text-gov-accent" />
               <span>Ready to Pilot Your Solution?</span>
             </div>
-            <p className="text-slate-700 leading-relaxed text-[11.5px]">
+            <p className="text-slate-700 leading-relaxed text-xs">
               Submit your technical architecture and deployment plan before <strong>{challenge.deadline}</strong>. Shortlisted startups receive direct site access and 100% milestone grant escrow.
             </p>
             <Button
@@ -707,7 +707,7 @@ function ChallengeDetailContent() {
                 <span className="font-bold text-slate-900 block text-xs">
                   Pre-Qualification Verification:
                 </span>
-                <p className="text-[10.5px] text-gov-muted">
+                <p className="text-xs text-gov-muted">
                   By submitting, you certify that your organization possesses active DPIIT Recognition, retains sovereign Indian server tenancy, and agrees to the GFR 2017 Tripartite Covenant.
                 </p>
               </div>

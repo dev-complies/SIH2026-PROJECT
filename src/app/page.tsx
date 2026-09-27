@@ -5,6 +5,7 @@ import Link from "next/link";
 import { InnovationCity } from "@/components/3d";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import {
   ArrowRight,
   ShieldCheck,
@@ -592,84 +593,159 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. INNOVATION ECOSYSTEM (Multi-Stakeholder Collaboration Model) */}
+      {/* 6. INNOVATION ECOSYSTEM: Structured Split Statutory Framework */}
       <section className="space-y-6">
-        <div>
-          <div className="flex items-center space-x-2 mb-1">
-            <span className="text-xs font-mono font-bold text-gov-accent uppercase tracking-wider">
-              ECOSYSTEM STAKEHOLDERS
-            </span>
-          </div>
+        <div className="border-b border-gov-border pb-4">
+          <span className="text-xs font-mono font-bold text-gov-accent uppercase tracking-wider block mb-1">
+            STATUTORY GOVERNANCE ARCHITECTURE
+          </span>
           <h2 className="text-2xl font-bold text-gov-primary tracking-tight">
-            Institutional Multi-Stakeholder Governance
+            Institutional Role Segregation under General Financial Rules (GFR 2017)
           </h2>
-          <p className="text-xs text-gov-muted mt-1 max-w-2xl leading-relaxed">
-            GovInnovate guarantees absolute integrity by enforcing statutory role separation between problem creators, innovators, evaluators, and auditors.
+          <p className="text-xs text-gov-muted mt-1 max-w-3xl leading-relaxed">
+            Public sector innovation requires strict constitutional separation of duties. GovInnovate enforces non-overlapping legal roles between problem creators, technical evaluators, independent validators, and fiscal sanction authorities.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
-            <Building2 className="w-5 h-5 text-gov-primary" />
-            <h4 className="text-xs font-bold text-slate-900">Government Departments</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Formulate real municipal problems, define baseline conditions, supervise testbeds, and authorize public scale-up.
-            </p>
-            <span className="text-xs font-mono text-gov-accent block pt-1 font-semibold">
-              ROLE: GOVERNMENT_OFFICER
-            </span>
+        {/* Intentional Split Layout: Left Briefing + Right Structured Statutory Matrix */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Left Column: Institutional Principle Briefing */}
+          <div className="lg:col-span-4 bg-slate-50 border border-slate-200 rounded-lg p-5 space-y-4 text-left">
+            <div className="space-y-2">
+              <span className="text-xs font-mono font-bold text-gov-primary uppercase tracking-wider block">
+                LEGAL COMPLIANCE PRINCIPLE
+              </span>
+              <h3 className="text-base font-bold text-slate-900 leading-snug">
+                Zero Conflict of Interest by Architectural Design
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Traditional public procurement often suffers when the formulating department also evaluates solutions or self-audits pilot outcomes.
+              </p>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Under GovInnovate, an officer who posts a challenge cannot submit technical scores. Independent evaluators are blind to startup identity. Independent validators have zero financial stake in pilot adoption.
+              </p>
+            </div>
+
+            <div className="pt-3 border-t border-slate-200 space-y-2 text-xs">
+              <div className="flex items-center space-x-2 text-emerald-800 font-medium">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Central Vigilance Commission (CVC) Aligned</span>
+              </div>
+              <div className="flex items-center space-x-2 text-blue-800 font-medium">
+                <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>GFR 2017 Rule 149 Innovation Window</span>
+              </div>
+            </div>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
-            <Cpu className="w-5 h-5 text-blue-600" />
-            <h4 className="text-xs font-bold text-slate-900">DeepTech Startups & MSMEs</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Deploy proprietary hardware and algorithms in live municipal zones; retain all background intellectual property.
-            </p>
-            <span className="text-xs font-mono text-blue-600 block pt-1 font-semibold">
-              ROLE: STARTUP
-            </span>
-          </div>
+          {/* Right Column: High-Density Statutory Role Matrix Table */}
+          <div className="lg:col-span-8 border border-slate-200 rounded-lg bg-white overflow-hidden shadow-2xs">
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-slate-50/90 border-b border-slate-200">
+                    <TableHead className="font-mono text-xs font-bold text-slate-700 whitespace-nowrap">Constitutional Stakeholder</TableHead>
+                    <TableHead className="text-xs font-bold text-slate-700 whitespace-nowrap">Core Statutory Mandate</TableHead>
+                    <TableHead className="text-xs font-bold text-slate-700 whitespace-nowrap">Verifiable Gate</TableHead>
+                    <TableHead className="font-mono text-xs font-bold text-slate-700 text-right whitespace-nowrap">System RBAC Role</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody className="divide-y divide-slate-100 text-xs">
+                  <TableRow className="hover:bg-slate-50/50">
+                    <TableCell className="font-semibold text-slate-900 whitespace-nowrap">
+                      Municipal & State Departments
+                    </TableCell>
+                    <TableCell className="text-slate-600">
+                      Formulate civic problems, provide field testbeds, host physical telemetry nodes.
+                    </TableCell>
+                    <TableCell className="font-mono text-xs text-slate-700">
+                      Challenge Specification & Ward Access Pass
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <span className="font-mono text-xs font-semibold text-gov-primary bg-slate-100 px-2 py-0.5 rounded">
+                        GOVERNMENT_OFFICER
+                      </span>
+                    </TableCell>
+                  </TableRow>
 
-          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
-            <Users2 className="w-5 h-5 text-amber-600" />
-            <h4 className="text-xs font-bold text-slate-900">Academic & Domain Experts</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Faculty from IITs and CSIR perform blind technical scoring under strict conflict-of-interest legal covenants.
-            </p>
-            <span className="text-xs font-mono text-amber-700 block pt-1 font-semibold">
-              ROLE: EXPERT_EVALUATOR
-            </span>
-          </div>
+                  <TableRow className="hover:bg-slate-50/50">
+                    <TableCell className="font-semibold text-slate-900 whitespace-nowrap">
+                      DPIIT DeepTech Startups
+                    </TableCell>
+                    <TableCell className="text-slate-600">
+                      Deploy proprietary edge IoT, optics, and algorithms; maintain 100% background IP.
+                    </TableCell>
+                    <TableCell className="font-mono text-xs text-slate-700">
+                      Daily Time-Series Telemetry & Hash Receipt
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <span className="font-mono text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">
+                        STARTUP
+                      </span>
+                    </TableCell>
+                  </TableRow>
 
-          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
-            <ShieldCheck className="w-5 h-5 text-purple-600" />
-            <h4 className="text-xs font-bold text-slate-900">Independent Validators</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              NABL accredited laboratories conduct on-site physical audits and collocated sensor calibration checks.
-            </p>
-            <span className="text-xs font-mono text-purple-700 block pt-1 font-semibold">
-              ROLE: INDEPENDENT_VALIDATOR
-            </span>
-          </div>
+                  <TableRow className="hover:bg-slate-50/50">
+                    <TableCell className="font-semibold text-slate-900 whitespace-nowrap">
+                      IIT & CSIR Academic Specialists
+                    </TableCell>
+                    <TableCell className="text-slate-600">
+                      Perform blind technical methodology scoring under non-pecuniary legal oath.
+                    </TableCell>
+                    <TableCell className="font-mono text-xs text-slate-700">
+                      Anonymized Consensus Rubric & COI Clearance
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <span className="font-mono text-xs font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded">
+                        EXPERT_EVALUATOR
+                      </span>
+                    </TableCell>
+                  </TableRow>
 
-          <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-2 text-left shadow-2xs">
-            <Scale className="w-5 h-5 text-emerald-600" />
-            <h4 className="text-xs font-bold text-slate-900">Procurement & Treasury</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Release milestone disbursements against verified deliverables; structure GFR 149 public scale tenders.
-            </p>
-            <span className="text-xs font-mono text-emerald-700 block pt-1 font-semibold">
-              ROLE: PROCUREMENT_OFFICER
-            </span>
+                  <TableRow className="hover:bg-slate-50/50">
+                    <TableCell className="font-semibold text-slate-900 whitespace-nowrap">
+                      NABL / CPCB Accredited Labs
+                    </TableCell>
+                    <TableCell className="text-slate-600">
+                      Conduct on-site collocated regression audits comparing pilot data to reference standards.
+                    </TableCell>
+                    <TableCell className="font-mono text-xs text-slate-700">
+                      Certified Empirical Audit Log (R2 &gt;= 0.90)
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <span className="font-mono text-xs font-semibold text-purple-800 bg-purple-50 px-2 py-0.5 rounded">
+                        INDEPENDENT_VALIDATOR
+                      </span>
+                    </TableCell>
+                  </TableRow>
+
+                  <TableRow className="hover:bg-slate-50/50">
+                    <TableCell className="font-semibold text-slate-900 whitespace-nowrap">
+                      Public Treasury & GeM Cell
+                    </TableCell>
+                    <TableCell className="text-slate-600">
+                      Disburse milestone escrow tranches; authorize GFR 149 city-wide scale procurement.
+                    </TableCell>
+                    <TableCell className="font-mono text-xs text-slate-700">
+                      Direct Treasury Release & Scale Tender Award
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <span className="font-mono text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">
+                        PROCUREMENT_OFFICER
+                      </span>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 7. TRANSPARENCY & ACCOUNTABILITY */}
-      <section className="bg-slate-900 text-white rounded-xl p-8 md:p-10 space-y-8">
+      {/* 7. TRANSPARENCY & ACCOUNTABILITY: Editorial Numbered Dossier */}
+      <section className="bg-slate-900 text-white rounded-lg p-8 sm:p-10 space-y-8">
         <div className="max-w-3xl space-y-2">
-          <Badge variant="outline" className="border-blue-400 text-blue-300 font-mono text-xs px-2.5 py-0.5">
+          <Badge variant="outline" className="border-slate-700 text-blue-300 font-mono text-xs px-2.5 py-0.5 bg-slate-800/60">
             PUBLIC SECTOR TRUST ARCHITECTURE
           </Badge>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
@@ -680,42 +756,51 @@ export default function HomePage() {
           </p>
         </div>
 
+        {/* 4 Editorial Pillars with top rules instead of generic icon cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
-          <div className="space-y-2">
-            <div className="flex items-center space-x-2 text-blue-400 font-bold">
-              <Lock className="w-4 h-4" />
-              <span>Blind Evaluation Matrix</span>
-            </div>
+          <div className="border-t border-slate-700/80 pt-4 space-y-2">
+            <span className="font-mono text-xs font-bold text-blue-400 block">
+              01 / BLIND REVIEW
+            </span>
+            <h3 className="font-bold text-white text-sm">
+              Anonymized Technical Scoring
+            </h3>
             <p className="text-slate-400 text-xs leading-relaxed">
               Evaluators review technical methodologies with startup identity, corporate names, and founders masked. Reviewers must certify zero pecuniary interest under CVC regulations.
             </p>
           </div>
 
-          <div className="space-y-2">
-            <div className="flex items-center space-x-2 text-emerald-400 font-bold">
-              <Activity className="w-4 h-4" />
-              <span>Collocated Reference Audits</span>
-            </div>
+          <div className="border-t border-slate-700/80 pt-4 space-y-2">
+            <span className="font-mono text-xs font-bold text-emerald-400 block">
+              02 / PHYSICAL AUDITS
+            </span>
+            <h3 className="font-bold text-white text-sm">
+              Collocated Reference Measurements
+            </h3>
             <p className="text-slate-400 text-xs leading-relaxed">
               Self-reported startup claims are never accepted. Telemetry is collocated with continuous reference equipment (e.g. CPCB BAM-1020) and audited by independent testing bodies.
             </p>
           </div>
 
-          <div className="space-y-2">
-            <div className="flex items-center space-x-2 text-amber-400 font-bold">
-              <FileCheck2 className="w-4 h-4" />
-              <span>Cryptographic SHA-256 Hashes</span>
-            </div>
+          <div className="border-t border-slate-700/80 pt-4 space-y-2">
+            <span className="font-mono text-xs font-bold text-amber-400 block">
+              03 / CRYPTOGRAPHIC TRUST
+            </span>
+            <h3 className="font-bold text-white text-sm">
+              Cryptographic SHA-256 Hashes
+            </h3>
             <p className="text-slate-400 text-xs leading-relaxed">
               Every field photo, telemetry batch, sensor firmware log, and audit document is cryptographically anchored. Tampering with evidence files voids the verification audit.
             </p>
           </div>
 
-          <div className="space-y-2">
-            <div className="flex items-center space-x-2 text-purple-400 font-bold">
-              <Scale className="w-4 h-4" />
-              <span>Immutable Event Ledger</span>
-            </div>
+          <div className="border-t border-slate-700/80 pt-4 space-y-2">
+            <span className="font-mono text-xs font-bold text-purple-400 block">
+              04 / VIGILANCE INTEGRITY
+            </span>
+            <h3 className="font-bold text-white text-sm">
+              Immutable Event Ledger
+            </h3>
             <p className="text-slate-400 text-xs leading-relaxed">
               Every score submission, milestone approval, fund disbursement, and scale-up vote is appended to an append-only audit trail accessible by the state vigilance directorate.
             </p>
@@ -723,10 +808,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. CALL TO ACTION (CTA) */}
-      <section className="bg-gradient-to-r from-slate-100 via-white to-slate-100 border border-slate-200 rounded-xl p-8 md:p-10 text-center space-y-6">
-        <div className="max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-mono font-bold text-gov-accent uppercase tracking-wider">
+      {/* 8. CALL TO ACTION: Clean Solid Panel (No decorative gradients) */}
+      <section className="bg-slate-50 border border-slate-200 rounded-lg p-8 sm:p-10 space-y-6">
+        <div className="max-w-2xl mx-auto text-center space-y-2">
+          <span className="text-xs font-mono font-bold text-gov-accent uppercase tracking-wider block">
             GET STARTED WITH GOVINNOVATE
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gov-primary tracking-tight">
@@ -737,14 +822,14 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 3 Clear Pathways */}
+        {/* 3 Clear Pathways with solid cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto pt-2 text-left">
           <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col justify-between shadow-2xs hover:border-slate-300 transition-colors">
             <div>
               <span className="text-xs font-mono font-bold text-blue-900 block mb-1">
                 FOR GOVERNMENT OFFICERS
               </span>
-              <h4 className="text-xs font-bold text-slate-900">Publish a Civic Challenge</h4>
+              <h4 className="text-sm font-bold text-slate-900">Publish a Civic Challenge</h4>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Formulate an urban infrastructure problem and access competitive deeptech solutions.
               </p>
@@ -761,13 +846,13 @@ export default function HomePage() {
               <span className="text-xs font-mono font-bold text-emerald-800 block mb-1">
                 FOR DPIIT STARTUPS
               </span>
-              <h4 className="text-xs font-bold text-slate-900">Deploy in Controlled Pilots</h4>
+              <h4 className="text-sm font-bold text-slate-900">Deploy in Controlled Pilots</h4>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Win funded pilot deployments, validate your technology, and unlock direct procurement.
               </p>
             </div>
             <Link href="/auth/login?role=STARTUP&action=register" className="mt-5">
-              <Button size="sm" variant="default" className="w-full bg-blue-600 hover:bg-blue-700 text-xs h-9 font-semibold">
+              <Button size="sm" className="w-full bg-gov-primary hover:bg-gov-primary-hover text-white text-xs h-9 font-semibold">
                 Register Startup
               </Button>
             </Link>
@@ -778,7 +863,7 @@ export default function HomePage() {
               <span className="text-xs font-mono font-bold text-amber-800 block mb-1">
                 FOR EXPERTS & AUDITORS
               </span>
-              <h4 className="text-xs font-bold text-slate-900">Join the Technical Panel</h4>
+              <h4 className="text-sm font-bold text-slate-900">Join the Technical Panel</h4>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Conduct blind technical evaluations and empirical testing for public interest tech.
               </p>

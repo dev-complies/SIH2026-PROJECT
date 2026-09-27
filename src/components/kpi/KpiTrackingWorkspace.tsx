@@ -278,7 +278,7 @@ export function KpiTrackingWorkspace() {
           </div>
 
           <div className="flex items-center space-x-2 shrink-0">
-            <span className="inline-flex items-center text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-control font-mono text-[10.5px]">
+            <span className="inline-flex items-center text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-control font-mono text-xs">
               <Database className="w-3.5 h-3.5 mr-1 text-emerald-600" />
               {isQueryingDb ? "Querying Database..." : databaseMeta}
             </span>
@@ -337,7 +337,7 @@ export function KpiTrackingWorkspace() {
                 </div>
 
                 <div
-                  className={`text-[9.5px] font-mono mt-1 ${
+                  className={`text-xs font-mono mt-1 ${
                     isSelected ? "text-slate-300" : "text-slate-500"
                   }`}
                 >
@@ -411,7 +411,7 @@ export function KpiTrackingWorkspace() {
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-200 text-[10.5px] font-mono text-slate-500 flex justify-between">
+                <div className="pt-2 border-t border-slate-200 text-xs font-mono text-slate-500 flex justify-between">
                   <span>Starting Baseline: {selectedKpi.baseline}{selectedKpi.unit}</span>
                   <span className="font-semibold text-gov-primary">
                     Target: {selectedKpi.target}{selectedKpi.unit}
@@ -479,7 +479,7 @@ export function KpiTrackingWorkspace() {
                   />
                 </div>
 
-                <div className="flex justify-between items-center text-[10.5px] pt-1">
+                <div className="flex justify-between items-center text-xs pt-1">
                   <span className="font-semibold text-slate-700">
                     Target Attainment: <strong className="font-mono text-emerald-700">{attainmentPercent}%</strong>
                   </span>
@@ -489,7 +489,7 @@ export function KpiTrackingWorkspace() {
                 </div>
               </div>
 
-              <div className="text-[10.5px] text-slate-500 pt-1 border-t border-slate-100 flex items-center justify-between">
+              <div className="text-xs text-slate-500 pt-1 border-t border-slate-100 flex items-center justify-between">
                 <span>Frequency: {selectedKpi.frequency}</span>
                 <span className="font-mono">Direction: {selectedKpi.direction.replace(/_/g, " ")}</span>
               </div>
@@ -519,27 +519,27 @@ export function KpiTrackingWorkspace() {
                 </div>
 
                 {/* 3 Zone Strip */}
-                <div className="grid grid-cols-3 gap-1 text-center font-mono text-[9.5px] py-1">
+                <div className="grid grid-cols-3 gap-1 text-center font-mono text-xs py-1">
                   <div className="bg-red-100 text-red-900 border border-red-200 rounded p-1">
                     &lt; {selectedKpi.criticalThreshold}{selectedKpi.unit}
-                    <span className="block text-[8px] text-red-700">Critical Breach</span>
+                    <span className="block text-xs text-red-700">Critical Breach</span>
                   </div>
                   <div className="bg-amber-100 text-amber-900 border border-amber-200 rounded p-1">
                     {selectedKpi.warningThreshold} - {selectedKpi.target}{selectedKpi.unit}
-                    <span className="block text-[8px] text-amber-700">Monitoring Zone</span>
+                    <span className="block text-xs text-amber-700">Monitoring Zone</span>
                   </div>
                   <div className="bg-emerald-100 text-emerald-900 border border-emerald-200 rounded p-1 font-bold">
                     &ge; {selectedKpi.target}{selectedKpi.unit}
-                    <span className="block text-[8px] text-emerald-700">Target Compliant</span>
+                    <span className="block text-xs text-emerald-700">Target Compliant</span>
                   </div>
                 </div>
 
-                <div className="text-[10.5px] text-slate-600 leading-tight pt-1">
+                <div className="text-xs text-slate-600 leading-tight pt-1">
                   Current measurement of <strong>{selectedKpi.currentValue}{selectedKpi.unit}</strong> operates safely above the warning threshold of {selectedKpi.warningThreshold}{selectedKpi.unit}.
                 </div>
               </div>
 
-              <div className="text-[10.5px] text-slate-500 pt-1 border-t border-slate-100 flex items-center justify-between">
+              <div className="text-xs text-slate-500 pt-1 border-t border-slate-100 flex items-center justify-between">
                 <span>Critical Threshold: {selectedKpi.criticalThreshold}{selectedKpi.unit}</span>
                 <span className="text-emerald-700 font-semibold font-mono">Status: Secure</span>
               </div>
@@ -716,7 +716,7 @@ export function KpiTrackingWorkspace() {
                   Historical Telemetry Measurements (Database Audit Log)
                 </h3>
               </div>
-              <Badge variant="outline" className="text-[9.5px] font-mono">
+              <Badge variant="outline" className="text-xs font-mono">
                 {measurements.length} Verified Entries
               </Badge>
             </div>

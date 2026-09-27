@@ -448,31 +448,31 @@ export function RiskIssueManagementWorkspace({
     switch (status) {
       case "Mitigating":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] bg-slate-50 text-slate-800 border-slate-300">
+          <Badge variant="outline" className="font-mono text-xs bg-slate-50 text-slate-800 border-slate-300">
             MITIGATING
           </Badge>
         );
       case "Identified":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] bg-amber-50/60 text-amber-900 border-amber-200">
+          <Badge variant="outline" className="font-mono text-xs bg-amber-50/60 text-amber-900 border-amber-200">
             IDENTIFIED
           </Badge>
         );
       case "Accepted":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] bg-blue-50 text-blue-800 border-blue-200">
+          <Badge variant="outline" className="font-mono text-xs bg-blue-50 text-blue-800 border-blue-200">
             ACCEPTED
           </Badge>
         );
       case "Closed":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] bg-emerald-50 text-emerald-800 border-emerald-200">
+          <Badge variant="outline" className="font-mono text-xs bg-emerald-50 text-emerald-800 border-emerald-200">
             CLOSED
           </Badge>
         );
       case "Escalated":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] bg-rose-50 text-rose-800 border-rose-300">
+          <Badge variant="outline" className="font-mono text-xs bg-rose-50 text-rose-800 border-rose-300">
             ESCALATED
           </Badge>
         );
@@ -512,31 +512,31 @@ export function RiskIssueManagementWorkspace({
     switch (status) {
       case "Open":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] bg-blue-50 text-blue-800 border-blue-200">
+          <Badge variant="outline" className="font-mono text-xs bg-blue-50 text-blue-800 border-blue-200">
             OPEN
           </Badge>
         );
       case "In Progress":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] bg-amber-50/80 text-amber-800 border-amber-200">
+          <Badge variant="outline" className="font-mono text-xs bg-amber-50/80 text-amber-800 border-amber-200">
             IN PROGRESS
           </Badge>
         );
       case "Blocked":
         return (
-          <Badge variant="destructive" className="font-mono text-[9.5px] bg-rose-50 text-rose-800 border-rose-200">
+          <Badge variant="destructive" className="font-mono text-xs bg-rose-50 text-rose-800 border-rose-200">
             BLOCKED
           </Badge>
         );
       case "Resolved":
         return (
-          <Badge variant="success" className="font-mono text-[9.5px]">
+          <Badge variant="success" className="font-mono text-xs">
             RESOLVED
           </Badge>
         );
       case "Closed":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] bg-slate-100 text-slate-600 border-slate-300">
+          <Badge variant="outline" className="font-mono text-xs bg-slate-100 text-slate-600 border-slate-300">
             CLOSED
           </Badge>
         );
@@ -1124,7 +1124,7 @@ export function RiskIssueManagementWorkspace({
                     <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       RESOLUTION AUDIT / REMEDIATION PLAN
                     </span>
-                    <p className="text-slate-800 text-[11.5px] leading-relaxed mt-0.5">
+                    <p className="text-slate-800 text-xs leading-relaxed mt-0.5">
                       {issue.resolution}
                     </p>
                   </div>

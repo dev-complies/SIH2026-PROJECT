@@ -596,8 +596,8 @@ export function StartupApplicationWizard({
                     {isPast && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />}
                     {isCurrent && <Clock className="w-3.5 h-3.5 text-blue-600 animate-pulse" />}
                   </div>
-                  <p className="font-bold text-[12px] leading-tight mb-1">{stage.label}</p>
-                  <p className="text-[10.5px] leading-tight text-slate-600">{stage.desc}</p>
+                  <p className="font-bold text-xs leading-tight mb-1">{stage.label}</p>
+                  <p className="text-xs leading-tight text-slate-600">{stage.desc}</p>
                 </div>
               );
             })}
@@ -1551,7 +1551,7 @@ export function StartupApplicationWizard({
             ) : (
               <div className="space-y-4">
                 <div className="p-4 bg-slate-50 border border-slate-200 rounded-control space-y-2">
-                  <span className="font-bold text-slate-900 block text-[12px]">
+                  <span className="font-bold text-slate-900 block text-xs">
                     Statutory Submission Sign-Off
                   </span>
                   <p className="text-slate-600 text-xs leading-relaxed">
@@ -1717,7 +1717,7 @@ export function StartupApplicationWizard({
               <span className="font-bold text-purple-950 block text-xs">
                 Query from Expert Evaluation Panel (Received 26 Mar 2026):
               </span>
-              <p className="text-purple-900 text-[11.5px] leading-relaxed">
+              <p className="text-purple-900 text-xs leading-relaxed">
                 &ldquo;Please furnish collocated CPCB calibration regression test certificates for the optical particulate counters proposed for Lucknow municipal wards 14 and 18.&rdquo;
               </p>
             </div>

@@ -259,14 +259,14 @@ export function StartupCapabilityProfile({
 
       {/* OPTIONAL: "WHY THIS STARTUP MATCHES" SECTION */}
       {showMatchSection && matchedChallenge && (
-        <div className="bg-gradient-to-r from-purple-50 via-indigo-50/40 to-blue-50 border border-purple-200 rounded-card p-6 shadow-sm space-y-4 animate-in fade-in duration-200">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-purple-200/80 pb-3">
+        <div className="bg-slate-50 border border-slate-200 rounded-lg p-5 space-y-4 animate-in fade-in duration-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
             <div className="flex items-center space-x-2">
-              <div className="w-7 h-7 rounded-md bg-purple-600 text-white flex items-center justify-center shrink-0">
-                <Sparkles className="w-4 h-4" />
+              <div className="w-7 h-7 rounded-md bg-slate-900 text-white flex items-center justify-center shrink-0">
+                <Sparkles className="w-4 h-4 text-blue-400" />
               </div>
               <div>
-                <span className="text-xs font-mono text-purple-800 font-bold uppercase tracking-wider block">
+                <span className="text-xs font-mono text-slate-500 font-bold uppercase tracking-wider block">
                   STATUTORY COMPATIBILITY AUDIT
                 </span>
                 <h3 className="text-sm font-extrabold text-gov-primary">
@@ -276,8 +276,8 @@ export function StartupCapabilityProfile({
             </div>
 
             <div className="flex items-center space-x-2 shrink-0">
-              <Badge variant="outline" className="bg-white border-purple-300 text-purple-900 font-mono text-xs px-2.5 py-1">
-                96% Technical & Regulatory Match
+              <Badge variant="outline" className="bg-white border-slate-300 text-slate-800 font-mono text-xs px-2.5 py-1">
+                96% Technical &amp; Regulatory Match
               </Badge>
             </div>
           </div>
@@ -287,9 +287,9 @@ export function StartupCapabilityProfile({
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-            <div className="bg-white/80 border border-purple-200 rounded-control p-3 space-y-1">
+            <div className="bg-white border border-slate-200 rounded-md p-3 space-y-1">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-900 text-[11.5px]">Technology Alignment</span>
+                <span className="font-bold text-slate-900 text-xs">Technology Alignment</span>
                 <span className="text-xs font-mono font-bold text-emerald-700">100% Match</span>
               </div>
               <p className="text-xs text-slate-600 leading-tight">
@@ -297,9 +297,9 @@ export function StartupCapabilityProfile({
               </p>
             </div>
 
-            <div className="bg-white/80 border border-purple-200 rounded-control p-3 space-y-1">
+            <div className="bg-white border border-slate-200 rounded-md p-3 space-y-1">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-900 text-[11.5px]">Calibration Accuracy</span>
+                <span className="font-bold text-slate-900 text-xs">Calibration Accuracy</span>
                 <span className="text-xs font-mono font-bold text-emerald-700">R² = 0.94 (&ge; 0.92 Target)</span>
               </div>
               <p className="text-xs text-slate-600 leading-tight">
@@ -309,7 +309,7 @@ export function StartupCapabilityProfile({
 
             <div className="bg-white/80 border border-purple-200 rounded-control p-3 space-y-1">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-900 text-[11.5px]">Geographic & Field Readiness</span>
+                <span className="font-bold text-slate-900 text-xs">Geographic & Field Readiness</span>
                 <span className="text-xs font-mono font-bold text-emerald-700">15-Day Mobilization</span>
               </div>
               <p className="text-xs text-slate-600 leading-tight">
@@ -385,7 +385,7 @@ export function StartupCapabilityProfile({
             <div className="space-y-3 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                  <span className="font-bold text-slate-900 block text-[12px]">
+                  <span className="font-bold text-slate-900 block text-xs">
                     Dual-Beam Optical Particulate Counter
                   </span>
                   <p className="text-xs text-slate-600 leading-tight">
@@ -394,7 +394,7 @@ export function StartupCapabilityProfile({
                 </div>
 
                 <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                  <span className="font-bold text-slate-900 block text-[12px]">
+                  <span className="font-bold text-slate-900 block text-xs">
                     Automated Anti-Fouling Optical Purge
                   </span>
                   <p className="text-xs text-slate-600 leading-tight">
@@ -403,7 +403,7 @@ export function StartupCapabilityProfile({
                 </div>
 
                 <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                  <span className="font-bold text-slate-900 block text-[12px]">
+                  <span className="font-bold text-slate-900 block text-xs">
                     Edge Machine Learning Drift Compensation
                   </span>
                   <p className="text-xs text-slate-600 leading-tight">
@@ -412,7 +412,7 @@ export function StartupCapabilityProfile({
                 </div>
 
                 <div className="p-3 bg-slate-50 border border-slate-200 rounded-control space-y-1">
-                  <span className="font-bold text-slate-900 block text-[12px]">
+                  <span className="font-bold text-slate-900 block text-xs">
                     Dual-Carrier LoRaWAN & NB-IoT Backhaul
                   </span>
                   <p className="text-xs text-slate-600 leading-tight">
@@ -439,14 +439,14 @@ export function StartupCapabilityProfile({
                   <span className="font-bold text-slate-900 text-sm">
                     Kanpur Industrial Cluster Environmental Mesh
                   </span>
-                  <Badge variant="outline" className="text-[9.5px] font-mono">
+                  <Badge variant="outline" className="text-xs font-mono">
                     25 Nodes • 18 Months Operational
                   </Badge>
                 </div>
-                <p className="text-slate-600 text-[11.5px] leading-relaxed">
+                <p className="text-slate-600 text-xs leading-relaxed">
                   Deployed 25 continuous monitoring stations across Panki and Fazalganj industrial estates. Maintained 96.4% hourly uptime through two severe winter inversion episodes with zero sensor fouling.
                 </p>
-                <div className="flex items-center space-x-3 text-[10.5px] text-gov-muted pt-1">
+                <div className="flex items-center space-x-3 text-xs text-gov-muted pt-1">
                   <span>Client: UP State Industrial Development Authority</span>
                   <span>•</span>
                   <span className="text-emerald-700 font-semibold">100% Deliverables Accepted</span>
@@ -458,14 +458,14 @@ export function StartupCapabilityProfile({
                   <span className="font-bold text-slate-900 text-sm">
                     Delhi NCR Construction Dust Optical Fence
                   </span>
-                  <Badge variant="outline" className="text-[9.5px] font-mono">
+                  <Badge variant="outline" className="text-xs font-mono">
                     15 Nodes • 6 Months Pilot
                   </Badge>
                 </div>
-                <p className="text-slate-600 text-[11.5px] leading-relaxed">
+                <p className="text-slate-600 text-xs leading-relaxed">
                   Real-time boundary particulate fence installed at a 40-acre transit development site. Automated webhook triggered localized anti-smog mist cannons within 90 seconds of threshold breach.
                 </p>
-                <div className="flex items-center space-x-3 text-[10.5px] text-gov-muted pt-1">
+                <div className="flex items-center space-x-3 text-xs text-gov-muted pt-1">
                   <span>Client: National Capital Region Transport Corp (NCRTC)</span>
                   <span>•</span>
                   <span className="text-emerald-700 font-semibold">Zero Environmental Penalties</span>
@@ -486,7 +486,7 @@ export function StartupCapabilityProfile({
             <div className="space-y-4 text-xs">
               <div className="border border-slate-200 rounded-control p-4 bg-white space-y-3">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <span className="font-bold text-gov-primary text-[13px]">
+                  <span className="font-bold text-gov-primary text-sm">
                     Municipal Tactical Intervention Optimization (Lucknow Ward 14)
                   </span>
                   <span className="text-xs font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
@@ -496,20 +496,20 @@ export function StartupCapabilityProfile({
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
                   <div className="p-2 bg-slate-50 rounded border border-slate-100">
-                    <span className="text-[9.5px] font-mono text-gov-muted uppercase block">BASELINE STATE</span>
+                    <span className="text-xs font-mono text-gov-muted uppercase block">BASELINE STATE</span>
                     <p className="text-slate-700 font-semibold mt-0.5">Uniform truck dispatch; 4.5h delay</p>
                   </div>
                   <div className="p-2 bg-slate-50 rounded border border-slate-100">
-                    <span className="text-[9.5px] font-mono text-gov-muted uppercase block">DEPLOYED SOLUTION</span>
+                    <span className="text-xs font-mono text-gov-muted uppercase block">DEPLOYED SOLUTION</span>
                     <p className="text-slate-700 font-semibold mt-0.5">12 Mesh nodes with 15m GIS push</p>
                   </div>
                   <div className="p-2 bg-emerald-50/60 rounded border border-emerald-200">
-                    <span className="text-[9.5px] font-mono text-emerald-800 uppercase block">MEASURED OUTCOME</span>
+                    <span className="text-xs font-mono text-emerald-800 uppercase block">MEASURED OUTCOME</span>
                     <p className="text-emerald-950 font-bold mt-0.5">38% faster dispatch • R² = 0.94</p>
                   </div>
                 </div>
 
-                <p className="text-[11.5px] text-slate-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Independent statistical audit conducted by the Department of Civil Engineering, IIT Kanpur confirmed R² = 0.942 collocated correlation with statutory BAM-1020 instrumentation over 90 days, enabling municipal officers to reduce localized particulate exposure spikes by 22%.
                 </p>
               </div>
@@ -560,7 +560,7 @@ export function StartupCapabilityProfile({
                           <span className="text-xs text-gov-muted font-mono">{doc.size} • {doc.date}</span>
                         </td>
                         <td className="p-2.5 text-slate-600 text-xs">{doc.category}</td>
-                        <td className="p-2.5 font-mono text-gov-muted text-[10.5px]">{doc.sha256}</td>
+                        <td className="p-2.5 font-mono text-gov-muted text-xs">{doc.sha256}</td>
                         <td className="p-2.5 text-right">
                           <Button
                             size="sm"
@@ -599,49 +599,49 @@ export function StartupCapabilityProfile({
 
             <div className="space-y-3.5">
               <div className="space-y-0.5">
-                <span className="font-bold text-slate-900 block text-[12px]">
+                <span className="font-bold text-slate-900 block text-xs">
                   Dr. Vikramaditya Sen, PhD
                 </span>
                 <span className="text-xs text-gov-accent font-semibold block">
                   CEO & Co-founder
                 </span>
-                <p className="text-[10.5px] text-slate-600 leading-tight">
+                <p className="text-xs text-slate-600 leading-tight">
                   Ex-IIT Kanpur Environmental Sciences; 14 peer-reviewed atmospheric sensing publications.
                 </p>
               </div>
 
               <div className="space-y-0.5 border-t border-slate-100 pt-2.5">
-                <span className="font-bold text-slate-900 block text-[12px]">
+                <span className="font-bold text-slate-900 block text-xs">
                   Ananya Singhal
                 </span>
                 <span className="text-xs text-gov-accent font-semibold block">
                   CTO & Hardware Lead
                 </span>
-                <p className="text-[10.5px] text-slate-600 leading-tight">
+                <p className="text-xs text-slate-600 leading-tight">
                   12+ years embedded systems & edge telemetry; ex-ISRO contractor for sensor telemetry payloads.
                 </p>
               </div>
 
               <div className="space-y-0.5 border-t border-slate-100 pt-2.5">
-                <span className="font-bold text-slate-900 block text-[12px]">
+                <span className="font-bold text-slate-900 block text-xs">
                   Rajesh Murthy, M.Tech
                 </span>
                 <span className="text-xs text-gov-accent font-semibold block">
                   Head of Atmospheric Calibration
                 </span>
-                <p className="text-[10.5px] text-slate-600 leading-tight">
+                <p className="text-xs text-slate-600 leading-tight">
                   Specialist in collocated regression with CAAQMS reference analyzers (BAM-1020 & Teledyne).
                 </p>
               </div>
 
               <div className="space-y-0.5 border-t border-slate-100 pt-2.5">
-                <span className="font-bold text-slate-900 block text-[12px]">
+                <span className="font-bold text-slate-900 block text-xs">
                   Meenakshi Nair
                 </span>
                 <span className="text-xs text-gov-accent font-semibold block">
                   Public Procurement & Legal
                 </span>
-                <p className="text-[10.5px] text-slate-600 leading-tight">
+                <p className="text-xs text-slate-600 leading-tight">
                   GFR 2017 Rule 149 and GeM vendor compliance lead.
                 </p>
               </div>
@@ -661,32 +661,32 @@ export function StartupCapabilityProfile({
               <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-control flex items-start space-x-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="min-w-0">
-                  <p className="font-bold text-slate-900 text-[11.5px]">DPIIT Startup Recognition</p>
-                  <p className="text-[10.5px] text-slate-600">Certificate DIPP-94812 • Active</p>
+                  <p className="font-bold text-slate-900 text-xs">DPIIT Startup Recognition</p>
+                  <p className="text-xs text-slate-600">Certificate DIPP-94812 • Active</p>
                 </div>
               </div>
 
               <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-control flex items-start space-x-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="min-w-0">
-                  <p className="font-bold text-slate-900 text-[11.5px]">CERT-In Level 2 VAPT Audit</p>
-                  <p className="text-[10.5px] text-slate-600">Firmware & cloud TLS 1.3 cleared</p>
+                  <p className="font-bold text-slate-900 text-xs">CERT-In Level 2 VAPT Audit</p>
+                  <p className="text-xs text-slate-600">Firmware & cloud TLS 1.3 cleared</p>
                 </div>
               </div>
 
               <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-control flex items-start space-x-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="min-w-0">
-                  <p className="font-bold text-slate-900 text-[11.5px]">NABL IP65 & RoHS Testing</p>
-                  <p className="text-[10.5px] text-slate-600">Lead-free & weatherproof verified</p>
+                  <p className="font-bold text-slate-900 text-xs">NABL IP65 & RoHS Testing</p>
+                  <p className="text-xs text-slate-600">Lead-free & weatherproof verified</p>
                 </div>
               </div>
 
               <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-control flex items-start space-x-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="min-w-0">
-                  <p className="font-bold text-slate-900 text-[11.5px]">ISO 9001:2015 Quality</p>
-                  <p className="text-[10.5px] text-slate-600">Hardware manufacturing standard</p>
+                  <p className="font-bold text-slate-900 text-xs">ISO 9001:2015 Quality</p>
+                  <p className="text-xs text-slate-600">Hardware manufacturing standard</p>
                 </div>
               </div>
             </div>
@@ -725,7 +725,7 @@ export function StartupCapabilityProfile({
             <span className="text-xs font-mono text-gov-primary uppercase font-bold block">
               PUBLIC PROCUREMENT CREDENTIALS
             </span>
-            <div className="space-y-2 text-[11.5px] text-slate-700">
+            <div className="space-y-2 text-xs text-slate-700">
               <div className="flex items-center justify-between">
                 <span>GeM Vendor Rating:</span>
                 <span className="font-bold text-slate-900">4.9 / 5.0 (98.2%)</span>

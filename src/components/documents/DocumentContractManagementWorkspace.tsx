@@ -274,35 +274,35 @@ export function DocumentContractManagementWorkspace({
     switch (status) {
       case "Signed":
         return (
-          <Badge variant="success" className="font-mono text-[9.5px] flex items-center space-x-1">
+          <Badge variant="success" className="font-mono text-xs flex items-center space-x-1">
             <CheckCircle2 className="w-3 h-3 mr-0.5" />
             <span>SIGNED & EXECUTED</span>
           </Badge>
         );
       case "Approved":
         return (
-          <Badge variant="default" className="font-mono text-[9.5px] bg-slate-900 text-white flex items-center space-x-1">
+          <Badge variant="default" className="font-mono text-xs bg-slate-900 text-white flex items-center space-x-1">
             <Check className="w-3 h-3 mr-0.5" />
             <span>APPROVED</span>
           </Badge>
         );
       case "Under Review":
         return (
-          <Badge variant="warning" className="font-mono text-[9.5px] bg-amber-50 text-amber-800 border-amber-300 flex items-center space-x-1">
+          <Badge variant="warning" className="font-mono text-xs bg-amber-50 text-amber-800 border-amber-300 flex items-center space-x-1">
             <Clock className="w-3 h-3 mr-0.5" />
             <span>UNDER REVIEW</span>
           </Badge>
         );
       case "Draft":
         return (
-          <Badge variant="outline" className="font-mono text-[9.5px] text-slate-600 border-slate-300 flex items-center space-x-1">
+          <Badge variant="outline" className="font-mono text-xs text-slate-600 border-slate-300 flex items-center space-x-1">
             <Clock className="w-3 h-3 mr-0.5" />
             <span>DRAFT</span>
           </Badge>
         );
       case "Expired":
         return (
-          <Badge variant="destructive" className="font-mono text-[9.5px] bg-rose-50 text-rose-800 border-rose-300 flex items-center space-x-1">
+          <Badge variant="destructive" className="font-mono text-xs bg-rose-50 text-rose-800 border-rose-300 flex items-center space-x-1">
             <XCircle className="w-3 h-3 mr-0.5" />
             <span>EXPIRED</span>
           </Badge>
@@ -464,7 +464,7 @@ export function DocumentContractManagementWorkspace({
               <AlertTriangle className="w-4 h-4 text-amber-700 shrink-0" />
               <span>LEGAL TEMPLATE ADVISORY NOTICE</span>
             </div>
-            <p className="text-[11.5px] leading-relaxed text-amber-900/90">
+            <p className="text-xs leading-relaxed text-amber-900/90">
               {LEGAL_TEMPLATE_DISCLAIMER} Standard legal clauses must be approved by departmental legal officers before executing binding pilot deeds.
             </p>
           </div>
@@ -706,7 +706,7 @@ export function DocumentContractManagementWorkspace({
                   <AlertTriangle className="w-4 h-4 text-amber-700 shrink-0" />
                   <span>LEGAL TEMPLATE — COUNSEL REVIEW REQUIRED</span>
                 </div>
-                <p className="text-[11.5px] leading-relaxed text-amber-900/90">
+                <p className="text-xs leading-relaxed text-amber-900/90">
                   {selectedDoc.templateDisclaimer || LEGAL_TEMPLATE_DISCLAIMER}
                 </p>
               </div>
@@ -742,7 +742,7 @@ export function DocumentContractManagementWorkspace({
               </div>
               <div className="col-span-2 pt-2 border-t border-slate-100">
                 <span className="text-xs text-gov-muted block uppercase">SHA-256 CHECKSUM</span>
-                <span className="font-mono text-[10.5px] text-slate-700 break-all bg-slate-50 p-1.5 rounded block mt-0.5 border border-slate-200">
+                <span className="font-mono text-xs text-slate-700 break-all bg-slate-50 p-1.5 rounded block mt-0.5 border border-slate-200">
                   {selectedDoc.sha256Hash}
                 </span>
               </div>
@@ -774,7 +774,7 @@ export function DocumentContractManagementWorkspace({
                           {sig.status}
                         </Badge>
                         {sig.signedAt && (
-                          <span className="text-[9.5px] text-slate-400 block mt-0.5">
+                          <span className="text-xs text-slate-400 block mt-0.5">
                             {new Date(sig.signedAt).toLocaleDateString("en-IN")}
                           </span>
                         )}
@@ -825,7 +825,7 @@ export function DocumentContractManagementWorkspace({
                       </span>
                     </div>
 
-                    <p className="text-[11.5px] text-slate-700 bg-slate-50 p-2 rounded border border-slate-200/80">
+                    <p className="text-xs text-slate-700 bg-slate-50 p-2 rounded border border-slate-200/80">
                       {ver.summaryOfChanges}
                     </p>
 
@@ -938,7 +938,7 @@ export function DocumentContractManagementWorkspace({
                 <span className="text-xs text-slate-600 font-semibold block">
                   Attach revised PDF / DOCX instrument
                 </span>
-                <span className="text-[9.5px] text-slate-400 font-mono block">
+                <span className="text-xs text-slate-400 font-mono block">
                   Cryptographic checksum will be calculated on commit
                 </span>
               </div>

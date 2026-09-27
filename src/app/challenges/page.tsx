@@ -758,7 +758,7 @@ export default function StartupChallengeDiscoveryPage() {
                           {item.deadline}
                         </span>
                         {item.daysRemaining > 0 && (
-                          <span className="text-[9.5px] text-amber-700 block font-mono">
+                          <span className="text-xs text-amber-700 block font-mono">
                             {item.daysRemaining} days left
                           </span>
                         )}

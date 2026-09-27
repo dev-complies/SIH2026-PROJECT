@@ -202,14 +202,14 @@ export function AIMatchingWorkspace() {
   return (
     <div className="space-y-6">
       {/* Prominent Statutory AI-Assisted Notice Header */}
-      <div className="rounded-xl border-2 border-indigo-200 bg-gradient-to-r from-indigo-50/90 via-blue-50/80 to-purple-50/70 p-5 shadow-xs">
+      <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-2xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1.5">
             <div className="flex items-center space-x-2">
-              <Badge variant="default" className="bg-indigo-700 text-white font-mono text-xs tracking-wider flex items-center">
-                <Sparkles className="w-3 h-3 mr-1" /> AI-ASSISTED MATCHING ADVISORY
+              <Badge variant="default" className="bg-slate-900 text-white font-mono text-xs tracking-wider flex items-center px-2 py-0.5">
+                <Sparkles className="w-3 h-3 mr-1 text-blue-400" /> AI-ASSISTED MATCHING ADVISORY
               </Badge>
-              <Badge variant="outline" className="border-indigo-300 text-indigo-800 bg-white font-mono text-xs">
+              <Badge variant="outline" className="border-slate-300 text-slate-800 bg-slate-50 font-mono text-xs px-2 py-0.5">
                 NON-DECISIONAL RECOMMENDATIONS
               </Badge>
             </div>
@@ -228,10 +228,10 @@ export function AIMatchingWorkspace() {
               variant="outline"
               size="sm"
               onClick={handleTestAutoAISelection}
-              className="text-xs border-indigo-200 text-indigo-900 bg-white hover:bg-indigo-50"
+              className="text-xs h-8 border-slate-300 text-slate-800 bg-white hover:bg-slate-50"
               title="Demonstrates that AI cannot autonomously make decisions"
             >
-              <Lock className="w-3.5 h-3.5 mr-1 text-indigo-700" />
+              <Lock className="w-3.5 h-3.5 mr-1 text-slate-600" />
               Verify AI Decision Block
             </Button>
             <Link href="/gov/shortlisting">

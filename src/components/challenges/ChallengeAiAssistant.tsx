@@ -442,12 +442,12 @@ export function ChallengeAiAssistant({
             </div>
 
             {/* Statutory Disclaimer Banner on Output */}
-            <div className="bg-purple-50/70 border border-purple-200/80 rounded-md p-2 flex items-center justify-between text-[10.5px] text-purple-900 font-medium">
+            <div className="bg-purple-50/70 border border-purple-200/80 rounded-md p-2 flex items-center justify-between text-xs text-purple-900 font-medium">
               <span className="flex items-center">
                 <Sparkles className="w-3 h-3 text-purple-600 mr-1.5 shrink-0" />
                 AI-generated suggestion — verify before publishing.
               </span>
-              <Badge variant="outline" className="text-[8.5px] bg-white border-purple-200 text-purple-700 py-0">
+              <Badge variant="outline" className="text-xs bg-white border-purple-200 text-purple-700 py-0">
                 Verified
               </Badge>
             </div>
@@ -787,7 +787,7 @@ export function ChallengeAiAssistant({
                     <p className="text-xs text-slate-700 mt-0.5">
                       High particulate deposition can blind laser scattering optics within 30 days in winter inversion episodes.
                     </p>
-                    <p className="text-[10.5px] text-gov-accent font-medium mt-1">
+                    <p className="text-xs text-gov-accent font-medium mt-1">
                       Safeguard: Mandate cyclonic pre-filter and daily self-cleaning purge cycles in Step 3 specs.
                     </p>
                   </div>
@@ -797,7 +797,7 @@ export function ChallengeAiAssistant({
                     <p className="text-xs text-slate-700 mt-0.5">
                       Proprietary binary protocols preventing integration with municipal command centers (ICCC).
                     </p>
-                    <p className="text-[10.5px] text-gov-accent font-medium mt-1">
+                    <p className="text-xs text-gov-accent font-medium mt-1">
                       Safeguard: Enforce open OpenAPI 3.0 REST & MQTT schema under GFR Rule 149 in Step 6 terms.
                     </p>
                   </div>

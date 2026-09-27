@@ -223,7 +223,7 @@ function InteractiveCityNode({
       <Html position={[0, 1.35, 0]} center distanceFactor={14} className="pointer-events-none">
         <div
           className={cn(
-            "px-1.5 py-0.5 rounded text-[9.5px] font-mono font-bold shadow-xs whitespace-nowrap transition-all border backdrop-blur-xs",
+            "px-1.5 py-0.5 rounded text-xs font-mono font-bold shadow-xs whitespace-nowrap transition-all border backdrop-blur-xs",
             isAlert
               ? "bg-red-950/90 text-red-200 border-red-500 animate-pulse"
               : isSelectedOrHovered

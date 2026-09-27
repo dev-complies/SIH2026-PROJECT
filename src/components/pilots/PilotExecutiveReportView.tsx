@@ -717,7 +717,7 @@ export function PilotExecutiveReportView({
                 </div>
                 <Badge
                   variant={risk.currentStatus === "MITIGATED" ? "success" : "warning"}
-                  className="self-start sm:self-auto text-[9.5px] font-mono shrink-0"
+                  className="self-start sm:self-auto text-xs font-mono shrink-0"
                 >
                   {risk.currentStatus}
                 </Badge>
@@ -752,7 +752,7 @@ export function PilotExecutiveReportView({
                     <strong>Resolution: </strong> {iss.resolution}
                   </p>
                 </div>
-                <Badge variant="outline" className="self-start sm:self-auto text-[9.5px] text-emerald-700 border-emerald-300 bg-emerald-50 shrink-0">
+                <Badge variant="outline" className="self-start sm:self-auto text-xs text-emerald-700 border-emerald-300 bg-emerald-50 shrink-0">
                   {iss.status}
                 </Badge>
               </div>

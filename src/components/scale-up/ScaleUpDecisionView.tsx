@@ -422,7 +422,7 @@ export function ScaleUpDecisionView({
                 Advance directly to Procurement Review under GFR 149 for 6 cities and 380 wards.
               </p>
             </div>
-            <div className="flex items-center text-[10.5px] font-semibold text-emerald-400 mt-3 pt-2 border-t border-emerald-500/20">
+            <div className="flex items-center text-xs font-semibold text-emerald-400 mt-3 pt-2 border-t border-emerald-500/20">
               Trigger GeM Clearance <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
             </div>
           </button>
@@ -454,7 +454,7 @@ export function ScaleUpDecisionView({
                 Order secondary stress-test under severe North Indian winter fog or industrial emissions.
               </p>
             </div>
-            <div className="flex items-center text-[10.5px] font-semibold text-amber-400 mt-3 pt-2 border-t border-amber-500/20">
+            <div className="flex items-center text-xs font-semibold text-amber-400 mt-3 pt-2 border-t border-amber-500/20">
               Specify Secondary Testbed <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
             </div>
           </button>
@@ -486,7 +486,7 @@ export function ScaleUpDecisionView({
                 Require startup to implement hardware heated inlets & LoRa repeaters before scaling.
               </p>
             </div>
-            <div className="flex items-center text-[10.5px] font-semibold text-indigo-400 mt-3 pt-2 border-t border-indigo-500/20">
+            <div className="flex items-center text-xs font-semibold text-indigo-400 mt-3 pt-2 border-t border-indigo-500/20">
               List Engineering Changes <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
             </div>
           </button>
@@ -518,7 +518,7 @@ export function ScaleUpDecisionView({
                 Conclude pilot without scaling. Archive dataset and empirical lessons into state library.
               </p>
             </div>
-            <div className="flex items-center text-[10.5px] font-semibold text-rose-400 mt-3 pt-2 border-t border-rose-500/20">
+            <div className="flex items-center text-xs font-semibold text-rose-400 mt-3 pt-2 border-t border-rose-500/20">
               Conclude & Archive <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
             </div>
           </button>
@@ -556,73 +556,73 @@ export function ScaleUpDecisionView({
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
             <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono font-semibold">
+              <span className="text-xs text-gov-muted uppercase block font-mono font-semibold">
                 NODE UPTIME
               </span>
               <strong className="text-base font-extrabold text-emerald-800 font-mono">
                 {dossier.pilotResults.uptimeActual}%
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">
+              <span className="text-xs text-slate-500 block">
                 Target: {dossier.pilotResults.uptimeTarget}%
               </span>
             </div>
 
             <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono font-semibold">
+              <span className="text-xs text-gov-muted uppercase block font-mono font-semibold">
                 CORRELATION (R²)
               </span>
               <strong className="text-base font-extrabold text-emerald-800 font-mono">
                 {dossier.pilotResults.accuracyR2Actual}
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">
+              <span className="text-xs text-slate-500 block">
                 Target: {dossier.pilotResults.accuracyR2Target}
               </span>
             </div>
 
             <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono font-semibold">
+              <span className="text-xs text-gov-muted uppercase block font-mono font-semibold">
                 COVERAGE DENSITY
               </span>
               <strong className="text-base font-extrabold text-gov-primary font-mono">
                 {dossier.pilotResults.coverageActualSqKm} km²
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">
+              <span className="text-xs text-slate-500 block">
                 Target: {dossier.pilotResults.coverageTargetSqKm} km²
               </span>
             </div>
 
             <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono font-semibold">
+              <span className="text-xs text-gov-muted uppercase block font-mono font-semibold">
                 TELEMETRY LATENCY
               </span>
               <strong className="text-base font-extrabold text-gov-primary font-mono">
                 {dossier.pilotResults.latencyActualSec}s
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">
+              <span className="text-xs text-slate-500 block">
                 Target: &lt; {dossier.pilotResults.latencyTargetSec}s
               </span>
             </div>
 
             <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono font-semibold">
+              <span className="text-xs text-gov-muted uppercase block font-mono font-semibold">
                 CITIZEN ADVISORY
               </span>
               <strong className="text-base font-extrabold text-gov-primary font-mono">
                 {dossier.pilotResults.alertSpeedMins}m
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">
+              <span className="text-xs text-slate-500 block">
                 Target: &lt; 5m
               </span>
             </div>
 
             <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono font-semibold">
+              <span className="text-xs text-gov-muted uppercase block font-mono font-semibold">
                 TOTAL PACKETS
               </span>
               <strong className="text-base font-extrabold text-slate-900 font-mono">
                 {(dossier.pilotResults.packetsProcessed / 1000000).toFixed(2)}M
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">
+              <span className="text-xs text-slate-500 block">
                 0 Packet Loss
               </span>
             </div>
@@ -649,7 +649,7 @@ export function ScaleUpDecisionView({
           </div>
 
           <div className="space-y-2">
-            <span className="text-[10.5px] font-mono text-gov-muted uppercase font-semibold block">
+            <span className="text-xs font-mono text-gov-muted uppercase font-semibold block">
               CERTIFIED AUDIT FINDINGS:
             </span>
             <ul className="space-y-1.5 text-xs text-slate-700">
@@ -704,33 +704,33 @@ export function ScaleUpDecisionView({
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
             <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono font-semibold">
+              <span className="text-xs text-gov-muted uppercase block font-mono font-semibold">
                 PER WARD PILOT COST
               </span>
               <strong className="text-sm font-bold text-slate-900 font-mono">
                 ₹{(dossier.cost.costPerWardPilotInr / 1000).toFixed(0)}k
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">12 pilot wards</span>
+              <span className="text-xs text-slate-500 block">12 pilot wards</span>
             </div>
 
             <div className="p-2.5 rounded-control bg-emerald-50 border border-emerald-200">
-              <span className="text-[9.5px] text-emerald-800 uppercase block font-mono font-semibold">
+              <span className="text-xs text-emerald-800 uppercase block font-mono font-semibold">
                 PER WARD SCALE COST
               </span>
               <strong className="text-sm font-bold text-emerald-900 font-mono">
                 ₹{(dossier.cost.costPerWardScaleInr / 1000).toFixed(0)}k
               </strong>
-              <span className="text-[9.5px] text-emerald-700 block">76.4% unit savings</span>
+              <span className="text-xs text-emerald-700 block">76.4% unit savings</span>
             </div>
 
             <div className="p-2.5 rounded-control bg-slate-50 border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono font-semibold">
+              <span className="text-xs text-gov-muted uppercase block font-mono font-semibold">
                 LEGACY CAAQMS COST
               </span>
               <strong className="text-sm font-bold text-slate-700 font-mono">
                 ₹1.20 Cr
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">Per single station</span>
+              <span className="text-xs text-slate-500 block">Per single station</span>
             </div>
           </div>
 
@@ -792,7 +792,7 @@ export function ScaleUpDecisionView({
                     {risk.category}
                   </Badge>
                 </div>
-                <p className="text-[11.5px] text-slate-700 leading-tight">
+                <p className="text-xs text-slate-700 leading-tight">
                   <strong className="text-slate-900">Mitigation:</strong> {risk.mitigation}
                 </p>
               </div>
@@ -896,27 +896,27 @@ export function ScaleUpDecisionView({
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
             <div className="p-2.5 bg-slate-50 rounded-control border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono">PEAK THROUGHPUT</span>
+              <span className="text-xs text-gov-muted uppercase block font-mono">PEAK THROUGHPUT</span>
               <strong className="text-sm font-mono text-slate-900">
                 {dossier.scalability.peakPacketThroughputPerSec.toLocaleString()} /s
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">Telemetry Packets</span>
+              <span className="text-xs text-slate-500 block">Telemetry Packets</span>
             </div>
 
             <div className="p-2.5 bg-slate-50 rounded-control border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono">EDGE BUFFER</span>
+              <span className="text-xs text-gov-muted uppercase block font-mono">EDGE BUFFER</span>
               <strong className="text-sm font-mono text-emerald-800">
                 {dossier.scalability.edgeFailoverBufferHours} Hours
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">Local Flash Store</span>
+              <span className="text-xs text-slate-500 block">Local Flash Store</span>
             </div>
 
             <div className="p-2.5 bg-slate-50 rounded-control border border-slate-200">
-              <span className="text-[9.5px] text-gov-muted uppercase block font-mono">GIS RENDERING</span>
+              <span className="text-xs text-gov-muted uppercase block font-mono">GIS RENDERING</span>
               <strong className="text-sm font-mono text-slate-900">
                 {dossier.scalability.gisLayerLatencyMs}ms
               </strong>
-              <span className="text-[9.5px] text-slate-500 block">Sub-Second Raster</span>
+              <span className="text-xs text-slate-500 block">Sub-Second Raster</span>
             </div>
           </div>
 
@@ -986,7 +986,7 @@ export function ScaleUpDecisionView({
                   ))}
                 </div>
               </div>
-              <div className="text-[10.5px] font-mono text-slate-500 pt-1 border-t border-slate-100">
+              <div className="text-xs font-mono text-slate-500 pt-1 border-t border-slate-100">
                 Sensor Pods: <strong className="text-slate-900">{phase.nodes} Nodes</strong>
               </div>
             </div>
@@ -1048,7 +1048,7 @@ export function ScaleUpDecisionView({
                   <td className="p-2.5 text-gov-muted font-semibold">{item.statutoryCode}</td>
                   <td className="p-2.5 font-sans font-medium text-slate-900">
                     <div>{item.category}</div>
-                    <span className="text-[10.5px] text-slate-500 font-normal">
+                    <span className="text-xs text-slate-500 font-normal">
                       {item.description}
                     </span>
                   </td>
@@ -1057,7 +1057,7 @@ export function ScaleUpDecisionView({
                   <td className="p-2.5 text-right font-bold text-gov-primary">
                     ₹{item.totalInr.toLocaleString()}
                   </td>
-                  <td className="p-2.5 font-sans text-slate-600 text-[10.5px]">
+                  <td className="p-2.5 font-sans text-slate-600 text-xs">
                     {item.procurementMethod}
                   </td>
                 </tr>
@@ -1069,7 +1069,7 @@ export function ScaleUpDecisionView({
                 <td className="p-2.5 text-right text-amber-800 text-sm font-mono">
                   ₹{dossier.expansionCost.totalEstimatedBudgetInr.toLocaleString()}
                 </td>
-                <td className="p-2.5 text-[10.5px] font-sans text-gov-muted">
+                <td className="p-2.5 text-xs font-sans text-gov-muted">
                   GFR 149 / State Sanction
                 </td>
               </tr>
@@ -1118,10 +1118,10 @@ export function ScaleUpDecisionView({
                   {lesson.priority}
                 </Badge>
               </div>
-              <p className="text-[11.5px] text-slate-700">
+              <p className="text-xs text-slate-700">
                 <strong className="text-slate-900">Observation:</strong> {lesson.observation}
               </p>
-              <p className="text-[11.5px] text-gov-primary bg-blue-50/60 p-2 rounded-2xs border border-blue-100">
+              <p className="text-xs text-gov-primary bg-blue-50/60 p-2 rounded-2xs border border-blue-100">
                 <strong>Directive for Scale:</strong> {lesson.recommendationForScale}
               </p>
             </div>
@@ -1159,7 +1159,7 @@ export function ScaleUpDecisionView({
                 </div>
                 <span className="text-xs font-mono text-gov-muted">{dec.timestamp}</span>
               </div>
-              <p className="text-slate-800 text-[11.5px] bg-slate-50 p-2 rounded-control border border-slate-200">
+              <p className="text-slate-800 text-xs bg-slate-50 p-2 rounded-control border border-slate-200">
                 &ldquo;{dec.justification}&rdquo;
               </p>
               <div className="flex flex-wrap items-center gap-2 pt-0.5 text-xs font-mono text-slate-500">
@@ -1275,7 +1275,7 @@ export function ScaleUpDecisionView({
                     onChange={(e) => setIsHumanConfirmed(e.target.checked)}
                     className="mt-0.5 rounded text-gov-primary focus:ring-gov-primary"
                   />
-                  <div className="text-[11.5px] leading-tight text-amber-950">
+                  <div className="text-xs leading-tight text-amber-950">
                     <strong className="block font-bold">
                       Mandatory Human Decision-Maker Confirmation (GFR Rule 149)
                     </strong>

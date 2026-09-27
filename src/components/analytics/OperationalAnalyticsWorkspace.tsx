@@ -128,14 +128,14 @@ export function OperationalAnalyticsWorkspace() {
         {/* ======================================================== */}
         <div className="bg-slate-50 border border-slate-200 rounded-control p-3.5 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[10.5px] uppercase font-bold text-gov-muted flex items-center">
+            <span className="font-mono text-xs uppercase font-bold text-gov-muted flex items-center">
               <SlidersHorizontal className="w-3.5 h-3.5 mr-1.5 text-gov-primary" />
               PORTFOLIO FILTERS ({activeFiltersCount} ACTIVE)
             </span>
             {activeFiltersCount > 0 && (
               <button
                 onClick={resetFilters}
-                className="text-[10.5px] font-mono text-rose-700 hover:underline font-semibold"
+                className="text-xs font-mono text-rose-700 hover:underline font-semibold"
               >
                 Reset All Filters
               </button>
@@ -258,7 +258,7 @@ export function OperationalAnalyticsWorkspace() {
           <strong className="text-xl font-extrabold text-slate-900 font-mono block">
             {m.challengesCount}
           </strong>
-          <span className="text-[10.5px] text-slate-500 block">Civic Problem Briefs</span>
+          <span className="text-xs text-slate-500 block">Civic Problem Briefs</span>
         </div>
 
         {/* Metric 2: Applications */}
@@ -272,7 +272,7 @@ export function OperationalAnalyticsWorkspace() {
           <strong className="text-xl font-extrabold text-gov-primary font-mono block">
             {m.applicationsCount}
           </strong>
-          <span className="text-[10.5px] text-slate-500 block">Startup Submissions</span>
+          <span className="text-xs text-slate-500 block">Startup Submissions</span>
         </div>
 
         {/* Metric 3: Active Pilots */}
@@ -286,7 +286,7 @@ export function OperationalAnalyticsWorkspace() {
           <strong className="text-xl font-extrabold text-slate-900 font-mono block">
             {m.pilotsCount}
           </strong>
-          <span className="text-[10.5px] text-slate-500 block">Controlled Deployments</span>
+          <span className="text-xs text-slate-500 block">Controlled Deployments</span>
         </div>
 
         {/* Metric 4: Validated Solutions */}
@@ -298,7 +298,7 @@ export function OperationalAnalyticsWorkspace() {
           <strong className="text-xl font-extrabold text-emerald-800 font-mono block">
             {m.validatedSolutionsCount}
           </strong>
-          <span className="text-[10.5px] text-emerald-700 block font-semibold">
+          <span className="text-xs text-emerald-700 block font-semibold">
             Certified Third-Party
           </span>
         </div>
@@ -314,7 +314,7 @@ export function OperationalAnalyticsWorkspace() {
           <strong className="text-xl font-extrabold text-amber-800 font-mono block">
             {m.scaledSolutionsCount}
           </strong>
-          <span className="text-[10.5px] text-slate-500 block">Multi-City Procured</span>
+          <span className="text-xs text-slate-500 block">Multi-City Procured</span>
         </div>
 
         {/* Metric 6: Average Pilot Duration */}
@@ -326,7 +326,7 @@ export function OperationalAnalyticsWorkspace() {
           <strong className="text-xl font-extrabold text-slate-900 font-mono block">
             {m.averagePilotDurationDays} <span className="text-xs font-normal">Days</span>
           </strong>
-          <span className="text-[10.5px] text-emerald-700 block font-semibold">
+          <span className="text-xs text-emerald-700 block font-semibold">
             On Target (-1.6d)
           </span>
         </div>
@@ -345,7 +345,7 @@ export function OperationalAnalyticsWorkspace() {
           >
             {m.averagePaymentTimeDays} <span className="text-xs font-normal">Days</span>
           </strong>
-          <span className="text-[10.5px] text-slate-500 block">Invoice to Treasury</span>
+          <span className="text-xs text-slate-500 block">Invoice to Treasury</span>
         </div>
 
         {/* Metric 8: KPI Achievement Rate */}
@@ -357,7 +357,7 @@ export function OperationalAnalyticsWorkspace() {
           <strong className="text-xl font-extrabold text-emerald-800 font-mono block">
             {m.kpiAchievementRatePercent}%
           </strong>
-          <span className="text-[10.5px] text-slate-500 block">Baseline Exceeded</span>
+          <span className="text-xs text-slate-500 block">Baseline Exceeded</span>
         </div>
 
         {/* Metric 9: Budget Utilization */}
@@ -369,7 +369,7 @@ export function OperationalAnalyticsWorkspace() {
           <strong className="text-xl font-extrabold text-gov-primary font-mono block">
             {m.budgetUtilizationPercent}%
           </strong>
-          <span className="text-[10.5px] text-slate-500 block font-mono">
+          <span className="text-xs text-slate-500 block font-mono">
             ₹{(m.budgetTotalDisbursedInr / 100000).toFixed(1)}L / ₹{(m.budgetTotalCommittedInr / 100000).toFixed(1)}L
           </span>
         </div>
@@ -393,7 +393,7 @@ export function OperationalAnalyticsWorkspace() {
               {m.riskDistribution.highPercent}% Hi
             </span>
           </div>
-          <span className="text-[10.5px] text-slate-500 block">All Covenants Active</span>
+          <span className="text-xs text-slate-500 block">All Covenants Active</span>
         </div>
       </div>
 
@@ -623,7 +623,7 @@ export function OperationalAnalyticsWorkspace() {
                 Systemic Bottleneck Diagnosis for Executive Action
               </h3>
             </div>
-            <p className="text-[11.5px] text-amber-900 leading-relaxed">
+            <p className="text-xs text-amber-900 leading-relaxed">
               The engine automatically flags municipal departments where statutory review or disbursement
               benchmarks lag behind state innovation mandates. Interventions below are pre-drafted for
               department secretaries.
@@ -666,7 +666,7 @@ export function OperationalAnalyticsWorkspace() {
                   </div>
 
                   <div>
-                    <span className="text-[10.5px] font-semibold text-slate-700 block">Delay Impact:</span>
+                    <span className="text-xs font-semibold text-slate-700 block">Delay Impact:</span>
                     <p className="text-xs text-slate-600 mt-0.5">{bot.delayImpact}</p>
                   </div>
                 </div>
@@ -723,7 +723,7 @@ export function OperationalAnalyticsWorkspace() {
                       </span>
                     </div>
 
-                    <div className="flex items-center space-x-3 font-mono text-[10.5px]">
+                    <div className="flex items-center space-x-3 font-mono text-xs">
                       <span>Duration: <strong>{dept.avgDurationDays}d</strong></span>
                       <span>Payment: <strong className={dept.avgPaymentDays > 15 ? "text-rose-700" : "text-emerald-700"}>{dept.avgPaymentDays}d</strong></span>
                       <span>Attainment: <strong className="text-emerald-800">{dept.kpiAchievementPercent}%</strong></span>
@@ -779,7 +779,7 @@ export function OperationalAnalyticsWorkspace() {
                   <div key={idx} className="space-y-1 text-xs">
                     <div className="flex justify-between text-xs">
                       <span className="font-medium text-slate-800">{dept.departmentShort}</span>
-                      <span className="font-mono text-[10.5px]">
+                      <span className="font-mono text-xs">
                         ₹{(dept.budgetDisbursedInr / 100000).toFixed(1)}L / ₹{(dept.budgetCommittedInr / 100000).toFixed(1)}L ({dept.utilizationPercent}%)
                       </span>
                     </div>

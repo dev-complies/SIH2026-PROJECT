@@ -769,7 +769,7 @@ export function ExpertEvaluationWorkspace() {
                     <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       MUNICIPAL PROBLEM CONTEXT
                     </span>
-                    <p className="text-slate-700 leading-relaxed text-[11.5px]">
+                    <p className="text-slate-700 leading-relaxed text-xs">
                       {candidate.challengeInfo.problemStatement}
                     </p>
                     <div className="pt-1 text-xs text-slate-600 font-medium">
@@ -777,7 +777,7 @@ export function ExpertEvaluationWorkspace() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 text-[11.5px]">
+                  <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
                       <span className="text-xs text-gov-muted font-mono uppercase block">
                         PILOT DURATION
@@ -798,12 +798,12 @@ export function ExpertEvaluationWorkspace() {
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       Target KPIs & Evaluation Benchmarks:
                     </span>
                     <ul className="space-y-1.5">
                       {candidate.challengeInfo.desiredKPIs.map((kpi, idx) => (
-                        <li key={idx} className="flex items-start text-slate-800 text-[11.5px]">
+                        <li key={idx} className="flex items-start text-slate-800 text-xs">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-2 shrink-0 mt-0.5" />
                           <span>{kpi}</span>
                         </li>
@@ -812,12 +812,12 @@ export function ExpertEvaluationWorkspace() {
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       Mandatory Procurement Constraints:
                     </span>
                     <ul className="space-y-1.5">
                       {candidate.challengeInfo.constraints.map((c, idx) => (
-                        <li key={idx} className="flex items-start text-slate-700 text-[11.5px]">
+                        <li key={idx} className="flex items-start text-slate-700 text-xs">
                           <ShieldCheck className="w-3.5 h-3.5 text-blue-600 mr-2 shrink-0 mt-0.5" />
                           <span>{c}</span>
                         </li>
@@ -844,7 +844,7 @@ export function ExpertEvaluationWorkspace() {
                     </Badge>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 text-[11.5px]">
+                  <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className="p-2.5 bg-slate-50 rounded border border-slate-200/80">
                       <span className="text-xs text-gov-muted font-mono uppercase block">
                         INCORPORATION STATUS
@@ -886,13 +886,13 @@ export function ExpertEvaluationWorkspace() {
                     <span className="text-xs font-mono text-gov-primary uppercase font-bold block">
                       TRACK RECORD EVIDENCE
                     </span>
-                    <p className="text-slate-700 text-[11.5px] leading-relaxed">
+                    <p className="text-slate-700 text-xs leading-relaxed">
                       {candidate.startupProfile.trackRecordSummary}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       Core Technical Competencies:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -934,44 +934,44 @@ export function ExpertEvaluationWorkspace() {
                     <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                       EXECUTIVE SUMMARY
                     </span>
-                    <p className="text-slate-700 leading-relaxed text-[11.5px]">
+                    <p className="text-slate-700 leading-relaxed text-xs">
                       {candidate.proposal.executiveSummary}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       Technical Architecture & Sensor Mechanics:
                     </span>
-                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-[11.5px]">
+                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-xs">
                       {candidate.proposal.technicalArchitecture}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       Telemetry & Network Backhaul:
                     </span>
-                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-[11.5px]">
+                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-xs">
                       {candidate.proposal.telemetryAndBackhaul}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="font-bold text-slate-900 text-[12px] block">
+                    <span className="font-bold text-slate-900 text-xs block">
                       12-Week Pilot Execution Roadmap:
                     </span>
-                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-[11.5px]">
+                    <p className="text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200/80 leading-relaxed text-xs">
                       {candidate.proposal.workBreakdownTimeline}
                     </p>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-slate-900 text-[12px]">
+                      <span className="font-bold text-slate-900 text-xs">
                         Itemized Financial Cost Breakdown:
                       </span>
-                      <span className="font-mono font-bold text-gov-primary text-[12px]">
+                      <span className="font-mono font-bold text-gov-primary text-xs">
                         Total: {candidate.proposal.proposedBudget}
                       </span>
                     </div>
@@ -1017,7 +1017,7 @@ export function ExpertEvaluationWorkspace() {
                       >
                         <div className="flex items-start justify-between gap-2">
                           <div className="min-w-0">
-                            <p className="font-semibold text-slate-900 text-[11.5px] truncate">
+                            <p className="font-semibold text-slate-900 text-xs truncate">
                               {doc.title}
                             </p>
                             <span className="text-xs text-gov-muted font-mono">
@@ -1039,7 +1039,7 @@ export function ExpertEvaluationWorkspace() {
                           {doc.summary}
                         </p>
 
-                        <div className="text-[9.5px] font-mono text-slate-400 truncate">
+                        <div className="text-xs font-mono text-slate-400 truncate">
                           SHA-256: {doc.sha256}
                         </div>
                       </div>
@@ -1101,7 +1101,7 @@ export function ExpertEvaluationWorkspace() {
                 <div className="flex items-center space-x-2">
                   <Badge
                     variant={totalWeight === 100 ? "success" : "destructive"}
-                    className="text-[9.5px] font-mono"
+                    className="text-xs font-mono"
                   >
                     Weight Sum: {totalWeight}%
                   </Badge>
@@ -1137,7 +1137,7 @@ export function ExpertEvaluationWorkspace() {
                     </Button>
                   </div>
 
-                  <p className="text-[10.5px] text-gov-muted">
+                  <p className="text-xs text-gov-muted">
                     Adjust criterion percentage weights so their sum equals exactly 100%. You can also add
                     specialized deep-tech criteria.
                   </p>
@@ -1184,15 +1184,15 @@ export function ExpertEvaluationWorkspace() {
                     <div className="flex items-start justify-between gap-2">
                       <div className="space-y-0.5">
                         <div className="flex items-center space-x-2">
-                          <span className="font-mono text-slate-400 font-bold text-[10.5px]">
+                          <span className="font-mono text-slate-400 font-bold text-xs">
                             {index + 1}.
                           </span>
-                          <span className="font-bold text-slate-900 text-[12px]">{item.name}</span>
+                          <span className="font-bold text-slate-900 text-xs">{item.name}</span>
                           <Badge variant="outline" className="font-mono text-xs bg-white">
                             Weight: {item.weight}%
                           </Badge>
                         </div>
-                        <p className="text-[10.5px] text-slate-600 leading-tight">
+                        <p className="text-xs text-slate-600 leading-tight">
                           {item.description}
                         </p>
                       </div>
@@ -1371,7 +1371,7 @@ export function ExpertEvaluationWorkspace() {
                         : "border-slate-200 bg-white hover:bg-slate-50 text-slate-700"
                     }`}
                   >
-                    <div className="font-bold text-[11.5px]">{rec.label}</div>
+                    <div className="font-bold text-xs">{rec.label}</div>
                     <div className="text-xs text-gov-muted leading-tight mt-0.5">{rec.desc}</div>
                   </button>
                 ))}
@@ -1461,7 +1461,7 @@ export function ExpertEvaluationWorkspace() {
               Evaluation History & Revision Ledger (Append-Only)
             </h3>
           </div>
-          <Badge variant="outline" className="text-[9.5px] font-mono">
+          <Badge variant="outline" className="text-xs font-mono">
             {evaluationHistory.length} Recorded Appraisal(s)
           </Badge>
         </div>
@@ -1483,7 +1483,7 @@ export function ExpertEvaluationWorkspace() {
                 <tr key={rec.id} className="hover:bg-slate-50/60 transition-colors">
                   <td className="p-2.5">
                     <span className="font-bold text-slate-900 block">{rec.revision}</span>
-                    <span className="text-[10.5px] text-slate-600">
+                    <span className="text-xs text-slate-600">
                       {rec.evaluatorName} ({rec.evaluatorInstitution})
                     </span>
                   </td>
@@ -1507,10 +1507,10 @@ export function ExpertEvaluationWorkspace() {
                       {rec.recommendation.replace(/_/g, " ")}
                     </Badge>
                   </td>
-                  <td className="p-2.5 text-[10.5px] text-slate-600">
+                  <td className="p-2.5 text-xs text-slate-600">
                     <div className="flex flex-wrap gap-1 max-w-xs">
                       {rec.criteriaSnapshot.map((c, i) => (
-                        <span key={i} className="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-[9.5px]">
+                        <span key={i} className="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-xs">
                           {c.name.split(" ")[0]}: {c.score}
                         </span>
                       ))}
@@ -1556,7 +1556,7 @@ export function ExpertEvaluationWorkspace() {
                 <p className="text-slate-700 leading-relaxed">{previewDoc.summary}</p>
               </div>
 
-              <div className="p-3 bg-white border border-slate-200 rounded font-mono text-[10.5px] text-slate-600 space-y-1">
+              <div className="p-3 bg-white border border-slate-200 rounded font-mono text-xs text-slate-600 space-y-1">
                 <div>Cryptographic SHA-256 Digest:</div>
                 <div className="text-gov-primary font-bold">{previewDoc.sha256}</div>
                 <div className="text-emerald-700 font-semibold pt-1">

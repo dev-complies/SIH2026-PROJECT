@@ -297,7 +297,7 @@ export function PilotManagementWorkspace() {
             <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               PILOT STATUS
             </span>
-            <Badge variant="success" className="font-mono text-[10.5px]">
+            <Badge variant="success" className="font-mono text-xs">
               ACTIVE • DAY 68 / 90
             </Badge>
             <span className="text-xs text-slate-500 block">On Track • GFR 149</span>
@@ -344,7 +344,7 @@ export function PilotManagementWorkspace() {
             <span className="text-xs text-gov-muted font-mono uppercase block font-semibold">
               RISK RATING
             </span>
-            <Badge variant="success" className="font-mono text-[10.5px]">
+            <Badge variant="success" className="font-mono text-xs">
               LOW RISK
             </Badge>
             <span className="text-xs text-slate-500 block">All Covenants Active</span>
@@ -383,7 +383,7 @@ export function PilotManagementWorkspace() {
               <span>{t.label}</span>
               {t.count && (
                 <span
-                  className={`text-[9.5px] px-1.5 py-0.2 rounded font-mono ${
+                  className={`text-xs px-1.5 py-0.2 rounded font-mono ${
                     activeTab === t.id
                       ? "bg-gov-primary text-white"
                       : "bg-slate-200 text-slate-700"
@@ -435,7 +435,7 @@ export function PilotManagementWorkspace() {
               <h3 className="font-bold text-slate-900 text-sm">
                 Lucknow Urban Particulate Intervention Testbed
               </h3>
-              <p className="text-slate-600 text-[11.5px] leading-relaxed">
+              <p className="text-slate-600 text-xs leading-relaxed">
                 Deployed across 40 strategic municipal streetlight poles in Lucknow. Continuously streams particulate density to guide automated dispatch of municipal dust-suppression misting trucks.
               </p>
               <div className="pt-2 border-t border-slate-100 space-y-1 text-xs">
@@ -459,7 +459,7 @@ export function PilotManagementWorkspace() {
               <span className="text-xs font-mono text-gov-accent font-bold uppercase tracking-wider block">
                 HARDWARE & SENSOR HEALTH
               </span>
-              <div className="space-y-2 text-[11.5px]">
+              <div className="space-y-2 text-xs">
                 <div className="flex justify-between items-center p-2 bg-slate-50 rounded border border-slate-200">
                   <span className="font-medium text-slate-800">Active Sensor Nodes:</span>
                   <span className="font-mono font-bold text-slate-900">40 / 40 Online</span>
@@ -489,7 +489,7 @@ export function PilotManagementWorkspace() {
                   <span className="font-bold text-purple-950 text-xs">CPCB BAM-1020 Correlation:</span>
                   <span className="text-base font-mono font-extrabold text-purple-900">R² = 0.95</span>
                 </div>
-                <p className="text-[10.5px] text-purple-900 leading-tight">
+                <p className="text-xs text-purple-900 leading-tight">
                   Collocated reference station at Lalbagh confirms sensor laser optical curve resolves within 2.8% of federal grade reference analyzer.
                 </p>
               </div>
@@ -649,13 +649,13 @@ export function PilotManagementWorkspace() {
                     </Badge>
                     <span className="font-bold text-slate-900">{ev.actor}</span>
                   </div>
-                  <p className="text-slate-700 text-[11.5px] leading-tight">{ev.summary}</p>
-                  <span className="font-mono text-[9.5px] text-slate-400 block">
+                  <p className="text-slate-700 text-xs leading-tight">{ev.summary}</p>
+                  <span className="font-mono text-xs text-slate-400 block">
                     SHA-256: {ev.hash}
                   </span>
                 </div>
 
-                <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono text-[9.5px] self-start sm:self-center shrink-0">
+                <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs self-start sm:self-center shrink-0">
                   VERIFIED
                 </span>
               </div>
@@ -724,10 +724,10 @@ export function PilotManagementWorkspace() {
               <span className="text-xs font-mono text-gov-muted uppercase font-bold block">
                 DELIVERABLE SUMMARY
               </span>
-              <p className="text-slate-700 leading-relaxed text-[11.5px]">{previewEvidence.summary}</p>
+              <p className="text-slate-700 leading-relaxed text-xs">{previewEvidence.summary}</p>
             </div>
 
-            <div className="p-3 bg-white border border-slate-200 rounded font-mono text-[10.5px] space-y-1">
+            <div className="p-3 bg-white border border-slate-200 rounded font-mono text-xs space-y-1">
               <span className="text-slate-500 block">Cryptographic Digest:</span>
               <span className="font-bold text-gov-primary block truncate">{previewEvidence.sha256}</span>
               <span className="text-emerald-700 font-semibold block pt-0.5">

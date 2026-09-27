@@ -329,7 +329,7 @@ export function AuditLogInterface() {
                   key={r}
                   onClick={() => setDateRange(r)}
                   className={cn(
-                    "px-2.5 py-1 rounded-control text-[10.5px] font-semibold font-mono transition-all",
+                    "px-2.5 py-1 rounded-control text-xs font-semibold font-mono transition-all",
                     dateRange === r
                       ? "bg-gov-primary text-white shadow-xs"
                       : "bg-slate-100 hover:bg-slate-200 text-slate-700"
@@ -457,7 +457,7 @@ export function AuditLogInterface() {
             )}
             <button
               onClick={resetFilters}
-              className="text-[10.5px] font-mono text-rose-700 hover:underline ml-auto font-semibold"
+              className="text-xs font-mono text-rose-700 hover:underline ml-auto font-semibold"
             >
               Reset All Filters
             </button>
@@ -557,7 +557,7 @@ export function AuditLogInterface() {
                         {log.entityId}
                       </span>
                       {log.entityName && (
-                        <span className="text-[10.5px] text-slate-500 block truncate max-w-xs">
+                        <span className="text-xs text-slate-500 block truncate max-w-xs">
                           {log.entityName}
                         </span>
                       )}
@@ -570,11 +570,11 @@ export function AuditLogInterface() {
                           {prevStr}
                         </span>
                         <ArrowRight className="w-3 h-3 text-slate-400 shrink-0" />
-                        <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-900 font-bold text-[10.5px]">
+                        <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-900 font-bold text-xs">
                           {newStr}
                         </span>
                       </div>
-                      <span className="text-[9.5px] text-slate-400 block truncate max-w-[200px] mt-1">
+                      <span className="text-xs text-slate-400 block truncate max-w-[200px] mt-1">
                         Hash: {log.currentHash.slice(0, 16)}...
                       </span>
                     </td>
@@ -647,7 +647,7 @@ export function AuditLogInterface() {
                 <strong className="text-slate-900 block mt-0.5 font-bold">
                   {inspectedEntry.user.name}
                 </strong>
-                <span className="text-[10.5px] text-slate-600 block">
+                <span className="text-xs text-slate-600 block">
                   {inspectedEntry.user.email}
                 </span>
                 <Badge variant="outline" className="font-mono text-xs mt-1 bg-white">
@@ -662,7 +662,7 @@ export function AuditLogInterface() {
                 <strong className="text-slate-900 block mt-0.5 font-mono">
                   {inspectedEntry.entityId}
                 </strong>
-                <span className="text-[10.5px] text-slate-600 block truncate">
+                <span className="text-xs text-slate-600 block truncate">
                   {inspectedEntry.entityName || inspectedEntry.entity}
                 </span>
                 <span className="font-mono text-xs text-gov-primary block mt-1">
@@ -673,7 +673,7 @@ export function AuditLogInterface() {
 
             {/* SIDE-BY-SIDE STATE TRANSITION DIFF */}
             <div className="space-y-1.5">
-              <span className="font-mono text-[10.5px] font-bold uppercase text-gov-muted block">
+              <span className="font-mono text-xs font-bold uppercase text-gov-muted block">
                 STATE TRANSITION COMPARISON (PREVIOUS STATE → NEW STATE):
               </span>
 
@@ -683,7 +683,7 @@ export function AuditLogInterface() {
                   <span className="text-xs font-mono font-bold text-red-900 uppercase block">
                     PREVIOUS STATE (BEFORE ACTION):
                   </span>
-                  <pre className="font-mono text-[10.5px] text-red-950 bg-white p-2.5 rounded-2xs border border-red-200 overflow-x-auto whitespace-pre-wrap">
+                  <pre className="font-mono text-xs text-red-950 bg-white p-2.5 rounded-2xs border border-red-200 overflow-x-auto whitespace-pre-wrap">
                     {typeof inspectedEntry.previousState === "object"
                       ? JSON.stringify(inspectedEntry.previousState, null, 2)
                       : String(inspectedEntry.previousState)}
@@ -695,7 +695,7 @@ export function AuditLogInterface() {
                   <span className="text-xs font-mono font-bold text-emerald-900 uppercase block">
                     NEW STATE (AFTER ACTION):
                   </span>
-                  <pre className="font-mono text-[10.5px] text-emerald-950 bg-white p-2.5 rounded-2xs border border-emerald-200 overflow-x-auto whitespace-pre-wrap">
+                  <pre className="font-mono text-xs text-emerald-950 bg-white p-2.5 rounded-2xs border border-emerald-200 overflow-x-auto whitespace-pre-wrap">
                     {typeof inspectedEntry.newState === "object"
                       ? JSON.stringify(inspectedEntry.newState, null, 2)
                       : String(inspectedEntry.newState)}
@@ -705,7 +705,7 @@ export function AuditLogInterface() {
             </div>
 
             {/* Cryptographic Chain Integrity Details */}
-            <div className="p-3 bg-slate-900 text-slate-100 rounded-control space-y-1.5 font-mono text-[10.5px]">
+            <div className="p-3 bg-slate-900 text-slate-100 rounded-control space-y-1.5 font-mono text-xs">
               <div className="flex items-center justify-between text-amber-400 font-bold border-b border-slate-800 pb-1">
                 <span>CRYPTOGRAPHIC AUDIT SEAL</span>
                 <span className="text-emerald-400 flex items-center">

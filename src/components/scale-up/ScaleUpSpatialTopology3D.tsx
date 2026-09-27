@@ -315,7 +315,7 @@ export function ScaleUpSpatialTopology3D({
           <button
             onClick={() => setExpansionFilter("ALL")}
             className={cn(
-              "px-2 py-1 rounded-control text-[10.5px] font-semibold transition-all",
+              "px-2 py-1 rounded-control text-xs font-semibold transition-all",
               expansionFilter === "ALL"
                 ? "bg-gov-primary text-white shadow-2xs"
                 : "bg-white border border-slate-300 text-slate-700 hover:bg-slate-100"
@@ -326,7 +326,7 @@ export function ScaleUpSpatialTopology3D({
           <button
             onClick={() => setExpansionFilter("PHASE_1")}
             className={cn(
-              "px-2 py-1 rounded-control text-[10.5px] font-semibold transition-all",
+              "px-2 py-1 rounded-control text-xs font-semibold transition-all",
               expansionFilter === "PHASE_1"
                 ? "bg-gov-primary text-white shadow-2xs"
                 : "bg-white border border-slate-300 text-slate-700 hover:bg-slate-100"
@@ -338,7 +338,7 @@ export function ScaleUpSpatialTopology3D({
       </div>
 
       {/* 3D Canvas / Spatial Visualizer Container */}
-      <div className="relative h-[380px] bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+      <div className="relative h-[380px] bg-slate-950">
         <SceneWrapper
           title="UP Regional Expansion Network"
           badgeText="INTERACTIVE 3D SPATIAL TOPOLOGY"
@@ -413,25 +413,25 @@ export function ScaleUpSpatialTopology3D({
 
             <div className="grid grid-cols-2 gap-2 text-xs pt-0.5">
               <div>
-                <span className="text-slate-400 block text-[9.5px]">Planned Wards:</span>
+                <span className="text-slate-400 block text-xs">Planned Wards:</span>
                 <strong className="text-slate-100 font-mono">
                   {selectedCity.targetWards} Wards
                 </strong>
               </div>
               <div>
-                <span className="text-slate-400 block text-[9.5px]">Sensor Density:</span>
+                <span className="text-slate-400 block text-xs">Sensor Density:</span>
                 <strong className="text-slate-100 font-mono">
                   {selectedCity.plannedNodes} Nodes
                 </strong>
               </div>
               <div>
-                <span className="text-slate-400 block text-[9.5px]">Budget Allocated:</span>
+                <span className="text-slate-400 block text-xs">Budget Allocated:</span>
                 <strong className="text-amber-400 font-mono">
                   ₹{(selectedCity.estimatedCostInr / 100000).toFixed(1)} Lakh
                 </strong>
               </div>
               <div>
-                <span className="text-slate-400 block text-[9.5px]">Timeline:</span>
+                <span className="text-slate-400 block text-xs">Timeline:</span>
                 <strong className="text-slate-100 font-mono">
                   {selectedCity.targetTimelineMonths} Months
                 </strong>

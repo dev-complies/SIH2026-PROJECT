@@ -505,134 +505,159 @@ function GovernmentDashboardContent() {
         <InnovationPipeline height="h-72" />
       </section>
 
-      {/* 3. ACTION REQUIRED: Real Government Operations Queue */}
-      <section className="bg-amber-50/60 border border-amber-200/90 rounded-card p-5 space-y-4">
-        <div className="flex items-center justify-between border-b border-amber-200/60 pb-3">
-          <div className="flex items-center space-x-2">
-            <AlertCircle className="w-5 h-5 text-amber-700 shrink-0" />
+      {/* 3. ACTION REQUIRED: Dense Operational Action Queue */}
+      <section className="bg-white border border-gov-border rounded-lg shadow-2xs overflow-hidden">
+        <div className="bg-amber-50/70 border-b border-amber-200/80 px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex items-center space-x-2.5">
+            <AlertCircle className="w-4 h-4 text-amber-700 shrink-0" />
             <div>
               <h2 className="text-sm font-bold text-amber-950">
-                Action Required: Pending Operational Approvals
+                Statutory Action Queue: Pending Officer Sign-Offs
               </h2>
-              <p className="text-xs text-amber-800">
-                Mandatory statutory gates requiring Officer sign-off before downstream execution.
+              <p className="text-xs text-amber-900">
+                Mandatory legal compliance gates requiring Government Officer authorization prior to downstream execution.
               </p>
             </div>
           </div>
-          <Badge variant="warning" className="font-mono text-xs uppercase px-2 py-0.5">
-            8 Items Pending
-          </Badge>
+          <span className="font-mono text-xs font-bold text-amber-900 bg-amber-100/80 border border-amber-300 px-2.5 py-0.5 rounded shrink-0">
+            4 STATUTORY GATES PENDING
+          </span>
         </div>
 
-        {/* 4 Concrete Operational Action Items matching user prompt */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs">
-          {/* Action 1: 3 applications awaiting eligibility review */}
-          <div className="bg-white border border-amber-200 p-4 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-xs font-mono border-amber-300 text-amber-900 bg-amber-50 px-2 py-0.5">
-                  ELIGIBILITY SCREENING
-                </Badge>
-                <span className="text-xs font-mono text-amber-800 font-semibold">3 Submissions</span>
-              </div>
-              <h3 className="font-bold text-slate-900 text-xs mt-1">
-                3 Applications Awaiting Eligibility Review
-              </h3>
-              <p className="text-xs text-gov-muted leading-relaxed">
-                AirSense Technologies, EcoSort Robotics, and HydroScan submitted DPIIT credentials and past deployment shapefiles for Challenge #CHAL-UP-DUD-001.
-              </p>
-            </div>
+        {/* High-Density Action Table */}
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-slate-50/90 border-b border-slate-200">
+                <TableHead className="font-mono text-xs font-bold text-slate-700 whitespace-nowrap">Gate &amp; Stage</TableHead>
+                <TableHead className="text-xs font-bold text-slate-700 whitespace-nowrap">Subject Entity &amp; Core Submission</TableHead>
+                <TableHead className="text-xs font-bold text-slate-700 whitespace-nowrap">Statutory SLA</TableHead>
+                <TableHead className="text-xs font-bold text-slate-700 whitespace-nowrap">Fiscal / Scale Impact</TableHead>
+                <TableHead className="text-xs font-bold text-slate-700 text-right whitespace-nowrap">Action</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody className="divide-y divide-slate-100 text-xs">
+              <TableRow className="hover:bg-amber-50/30 transition-colors">
+                <TableCell>
+                  <span className="font-mono text-xs font-bold text-amber-900 bg-amber-100/70 px-2 py-0.5 rounded block w-fit">
+                    ELIGIBILITY SCREENING
+                  </span>
+                  <span className="text-xs text-slate-500 mt-0.5 block font-mono">CHAL-UP-DUD-001</span>
+                </TableCell>
+                <TableCell>
+                  <div className="font-semibold text-slate-900">3 Startup Submissions Awaiting Review</div>
+                  <div className="text-xs text-slate-600 mt-0.5">
+                    AirSense Technologies, EcoSort Robotics, and HydroScan submitted DPIIT credentials and past deployment shapefiles.
+                  </div>
+                </TableCell>
+                <TableCell className="whitespace-nowrap">
+                  <span className="font-mono text-xs font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                    48h SLA Remaining
+                  </span>
+                </TableCell>
+                <TableCell className="font-mono text-xs text-slate-700 whitespace-nowrap">
+                  3 Candidates
+                </TableCell>
+                <TableCell className="text-right whitespace-nowrap">
+                  <Link href="?tab=applications">
+                    <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold shadow-xs">
+                      Screen Applications <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                    </Button>
+                  </Link>
+                </TableCell>
+              </TableRow>
 
-            <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs text-gov-muted font-medium">Statutory SLA: 48h remaining</span>
-              <Link href="?tab=applications">
-                <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold">
-                  Screen Applications <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </Button>
-              </Link>
-            </div>
-          </div>
+              <TableRow className="hover:bg-blue-50/30 transition-colors">
+                <TableCell>
+                  <span className="font-mono text-xs font-bold text-blue-900 bg-blue-100/70 px-2 py-0.5 rounded block w-fit">
+                    DELIVERABLE SIGN-OFF
+                  </span>
+                  <span className="text-xs text-slate-500 mt-0.5 block font-mono">PILOT-UP-UAQ-01 / TRAFFIC-02</span>
+                </TableCell>
+                <TableCell>
+                  <div className="font-semibold text-slate-900">2 Milestone Deliverables Submitted</div>
+                  <div className="text-xs text-slate-600 mt-0.5">
+                    Milestone 3 (90-day time-series telemetry) and Milestone 1 (Corridor controller loop calibration) submitted.
+                  </div>
+                </TableCell>
+                <TableCell className="whitespace-nowrap">
+                  <span className="font-mono text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                    Standard 5-day cycle
+                  </span>
+                </TableCell>
+                <TableCell className="font-mono text-xs text-slate-700 whitespace-nowrap">
+                  2 Pilots Active
+                </TableCell>
+                <TableCell className="text-right whitespace-nowrap">
+                  <Link href="?tab=pilots">
+                    <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold shadow-xs">
+                      Review Deliverables <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                    </Button>
+                  </Link>
+                </TableCell>
+              </TableRow>
 
-          {/* Action 2: 2 milestone approvals pending */}
-          <div className="bg-white border border-amber-200 p-4 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-xs font-mono border-blue-300 text-blue-900 bg-blue-50 px-2 py-0.5">
-                  DELIVERABLE SIGN-OFF
-                </Badge>
-                <span className="text-xs font-mono text-blue-800 font-semibold">2 Milestones</span>
-              </div>
-              <h3 className="font-bold text-slate-900 text-xs mt-1">
-                2 Milestone Approvals Pending
-              </h3>
-              <p className="text-xs text-gov-muted leading-relaxed">
-                Milestone 3 (90-day time-series data for Pilot UAQ-LKO) and Milestone 1 (Corridor controller loop calibration) submitted for review.
-              </p>
-            </div>
+              <TableRow className="hover:bg-purple-50/30 transition-colors">
+                <TableCell>
+                  <span className="font-mono text-xs font-bold text-purple-900 bg-purple-100/70 px-2 py-0.5 rounded block w-fit">
+                    INDEPENDENT AUDIT
+                  </span>
+                  <span className="text-xs text-slate-500 mt-0.5 block font-mono">VAL-REP-001 (TERI)</span>
+                </TableCell>
+                <TableCell>
+                  <div className="font-semibold text-slate-900">Third-Party Regression Audit Certified</div>
+                  <div className="text-xs text-slate-600 mt-0.5">
+                    CPCB BAM-1020 collocation regression audit from TERI Environmental Systems awaiting officer sign-off.
+                  </div>
+                </TableCell>
+                <TableCell className="whitespace-nowrap">
+                  <span className="font-mono text-xs font-semibold text-purple-800 bg-purple-50 px-2 py-0.5 rounded border border-purple-200">
+                    Auditor: Priya Nair
+                  </span>
+                </TableCell>
+                <TableCell className="font-mono text-xs font-bold text-emerald-700 whitespace-nowrap">
+                  R2 = 0.95 Validated
+                </TableCell>
+                <TableCell className="text-right whitespace-nowrap">
+                  <Link href="?tab=validation">
+                    <Button size="sm" variant="outline" className="h-8 px-3 text-xs font-semibold border-slate-300 hover:bg-slate-50 text-slate-800">
+                      Inspect Audit Report <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                    </Button>
+                  </Link>
+                </TableCell>
+              </TableRow>
 
-            <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs text-gov-muted font-medium">AirSense Tech & OptiFlow AI</span>
-              <Link href="?tab=pilots">
-                <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold">
-                  Review Deliverables <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-          {/* Action 3: 1 validation due */}
-          <div className="bg-white border border-amber-200 p-4 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-xs font-mono border-purple-300 text-purple-900 bg-purple-50 px-2 py-0.5">
-                  INDEPENDENT AUDIT
-                </Badge>
-                <span className="text-xs font-mono text-purple-800 font-semibold">1 Audit Due</span>
-              </div>
-              <h3 className="font-bold text-slate-900 text-xs mt-1">
-                1 Third-Party Validation Due
-              </h3>
-              <p className="text-xs text-gov-muted leading-relaxed">
-                Final 90-day CPCB BAM-1020 collocation regression audit from TERI Environmental Systems is pending official officer sign-off before scale review.
-              </p>
-            </div>
-
-            <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs text-gov-muted font-medium">TERI Auditor: Priya Nair</span>
-              <Link href="?tab=validation">
-                <Button size="sm" variant="outline" className="h-8 px-3 text-xs font-semibold border-slate-300 hover:bg-slate-50">
-                  Inspect Audit Report <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-          {/* Action 4: 2 payments awaiting approval */}
-          <div className="bg-white border border-amber-200 p-4 rounded-control flex flex-col justify-between shadow-2xs hover:border-amber-400 transition-colors">
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-xs font-mono border-emerald-300 text-emerald-900 bg-emerald-50 px-2 py-0.5">
-                  TREASURY ESCROW
-                </Badge>
-                <span className="text-xs font-mono text-emerald-800 font-semibold">₹14.0L Pending</span>
-              </div>
-              <h3 className="font-bold text-slate-900 text-xs mt-1">
-                2 Payments Awaiting Approval
-              </h3>
-              <p className="text-xs text-gov-muted leading-relaxed">
-                Milestone 3 completion invoice (#INV-AS-03, ₹8,00,000) and optical sorter mobilization tranche (#INV-ES-01, ₹6,00,000) cleared for officer sign-off.
-              </p>
-            </div>
-
-            <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs text-gov-muted font-medium">Escrow Account: SBI-Treasury-UP</span>
-              <Link href="?tab=payments">
-                <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold">
-                  Authorize Release <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </Button>
-              </Link>
-            </div>
-          </div>
+              <TableRow className="hover:bg-emerald-50/30 transition-colors">
+                <TableCell>
+                  <span className="font-mono text-xs font-bold text-emerald-900 bg-emerald-100/70 px-2 py-0.5 rounded block w-fit">
+                    TREASURY ESCROW
+                  </span>
+                  <span className="text-xs text-slate-500 mt-0.5 block font-mono">PAY-002 / INV-ES-01</span>
+                </TableCell>
+                <TableCell>
+                  <div className="font-semibold text-slate-900">2 Performance Payments Cleared for Release</div>
+                  <div className="text-xs text-slate-600 mt-0.5">
+                    Milestone 3 completion invoice (₹8,00,000) and optical sorter mobilization tranche (₹6,00,000) ready.
+                  </div>
+                </TableCell>
+                <TableCell className="whitespace-nowrap">
+                  <span className="font-mono text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    SBI-Treasury-UP
+                  </span>
+                </TableCell>
+                <TableCell className="font-mono text-xs font-bold text-slate-900 whitespace-nowrap">
+                  ₹14,00,000 Total
+                </TableCell>
+                <TableCell className="text-right whitespace-nowrap">
+                  <Link href="?tab=payments">
+                    <Button size="sm" className="bg-gov-primary hover:bg-gov-primary-hover text-white h-8 px-3 text-xs font-semibold shadow-xs">
+                      Authorize Release <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                    </Button>
+                  </Link>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </div>
       </section>
 

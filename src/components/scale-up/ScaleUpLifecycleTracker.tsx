@@ -187,7 +187,7 @@ export function ScaleUpLifecycleTracker({
                   >
                     {step.label}
                   </h3>
-                  <span className="text-[10.5px] text-slate-500 block truncate">
+                  <span className="text-xs text-slate-500 block truncate">
                     {step.sublabel}
                   </span>
                 </div>

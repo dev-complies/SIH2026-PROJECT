@@ -644,7 +644,7 @@ export function MilestoneManagementWorkspace() {
                 style={{ width: `${overallProgress}%` }}
               />
             </div>
-            <span className="text-[10.5px] text-slate-500 block">
+            <span className="text-xs text-slate-500 block">
               Calculated automatically from {approvedCount} of 5 approved milestone tranches
             </span>
           </div>
@@ -657,7 +657,7 @@ export function MilestoneManagementWorkspace() {
             <div className="font-mono text-base font-extrabold text-emerald-700">
               ₹{totalBudgetDisbursed.toLocaleString("en-IN")}
             </div>
-            <span className="text-[10.5px] text-slate-500 block">
+            <span className="text-xs text-slate-500 block">
               Total Budget: ₹24,50,000 (100%)
             </span>
           </div>
@@ -670,7 +670,7 @@ export function MilestoneManagementWorkspace() {
             <div className="font-mono text-xs font-bold text-amber-900">
               Milestone 3 (Under Review)
             </div>
-            <span className="text-[10.5px] text-gov-muted block">
+            <span className="text-xs text-gov-muted block">
               SLA: 22 Days Remaining
             </span>
           </div>
@@ -692,7 +692,7 @@ export function MilestoneManagementWorkspace() {
               Click any milestone node to open its slide-over inspection drawer
             </p>
           </div>
-          <span className="text-[10.5px] text-slate-500 font-mono">
+          <span className="text-xs text-slate-500 font-mono">
             Interactive Drawer Trigger Active
           </span>
         </div>
@@ -833,7 +833,7 @@ export function MilestoneManagementWorkspace() {
                         ? "default"
                         : "secondary"
                     }
-                    className="font-mono text-[9.5px]"
+                    className="font-mono text-xs"
                   >
                     {m.status.replace(/_/g, " ")}
                   </Badge>
@@ -848,7 +848,7 @@ export function MilestoneManagementWorkspace() {
               {/* KPI and Evidence Pills */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs bg-slate-50 p-2.5 rounded border border-slate-200/80">
                 <div>
-                  <span className="text-[9.5px] uppercase font-mono text-gov-muted block">
+                  <span className="text-xs uppercase font-mono text-gov-muted block">
                     KEY PERFORMANCE INDICATOR (KPI)
                   </span>
                   <span className="font-semibold text-slate-800 text-xs">
@@ -857,7 +857,7 @@ export function MilestoneManagementWorkspace() {
                 </div>
 
                 <div>
-                  <span className="text-[9.5px] uppercase font-mono text-gov-muted block">
+                  <span className="text-xs uppercase font-mono text-gov-muted block">
                     EVIDENCE ATTACHMENTS
                   </span>
                   <span className="font-semibold text-slate-800 text-xs">
@@ -866,7 +866,7 @@ export function MilestoneManagementWorkspace() {
                 </div>
 
                 <div>
-                  <span className="text-[9.5px] uppercase font-mono text-gov-muted block">
+                  <span className="text-xs uppercase font-mono text-gov-muted block">
                     APPROVAL STATUS
                   </span>
                   <span className="font-semibold text-slate-800 text-xs">
@@ -902,7 +902,7 @@ export function MilestoneManagementWorkspace() {
                 <h2 className="text-base font-extrabold text-gov-primary leading-tight">
                   {selectedMilestone.name}
                 </h2>
-                <div className="flex items-center space-x-2 font-mono text-[10.5px] text-gov-muted">
+                <div className="flex items-center space-x-2 font-mono text-xs text-gov-muted">
                   <span>Contractual Deadline: <strong className="text-slate-900">{selectedMilestone.deadline}</strong></span>
                   <span>•</span>
                   <span>Tranche: <strong className="text-emerald-700">{selectedMilestone.payment.amount}</strong></span>
@@ -942,13 +942,13 @@ export function MilestoneManagementWorkspace() {
                 <span className="text-xs font-mono text-gov-primary font-bold uppercase tracking-wider block">
                   1. WORK PACKAGE SCOPE & DESCRIPTION
                 </span>
-                <p className="text-slate-700 leading-relaxed text-[11.5px] bg-slate-50 p-3 rounded border border-slate-200">
+                <p className="text-slate-700 leading-relaxed text-xs bg-slate-50 p-3 rounded border border-slate-200">
                   {selectedMilestone.description}
                 </p>
               </div>
 
               {/* Field 2: Deadline & SLA */}
-              <div className="grid grid-cols-2 gap-3 text-[11.5px]">
+              <div className="grid grid-cols-2 gap-3 text-xs">
                 <div className="p-3 bg-slate-50 rounded border border-slate-200">
                   <span className="text-xs font-mono text-gov-muted uppercase block">
                     CONTRACTUAL DEADLINE
@@ -1054,7 +1054,7 @@ export function MilestoneManagementWorkspace() {
 
                     <div className="space-y-2">
                       <div>
-                        <label className="font-bold text-slate-800 text-[10.5px] block mb-0.5">
+                        <label className="font-bold text-slate-800 text-xs block mb-0.5">
                           Evidence Title / File Name:
                         </label>
                         <Input
@@ -1067,7 +1067,7 @@ export function MilestoneManagementWorkspace() {
 
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <label className="font-bold text-slate-800 text-[10.5px] block mb-0.5">
+                          <label className="font-bold text-slate-800 text-xs block mb-0.5">
                             Category:
                           </label>
                           <select
@@ -1083,7 +1083,7 @@ export function MilestoneManagementWorkspace() {
                         </div>
 
                         <div>
-                          <label className="font-bold text-slate-800 text-[10.5px] block mb-0.5">
+                          <label className="font-bold text-slate-800 text-xs block mb-0.5">
                             Simulated Cryptographic Digest:
                           </label>
                           <span className="text-xs font-mono text-slate-500 block pt-1">
@@ -1130,7 +1130,7 @@ export function MilestoneManagementWorkspace() {
                           <span className="text-xs text-gov-muted font-mono block">
                             {ev.category} • {ev.size} • Uploaded {ev.uploadDate} by {ev.uploadedBy}
                           </span>
-                          <span className="text-[9.5px] text-slate-400 font-mono block">
+                          <span className="text-xs text-slate-400 font-mono block">
                             SHA-256: {ev.sha256}
                           </span>
                         </div>
@@ -1234,7 +1234,7 @@ export function MilestoneManagementWorkspace() {
 
             {/* Drawer Footer with Official Action Buttons */}
             <div className="p-4 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <span className="text-[10.5px] text-gov-muted">
+              <span className="text-xs text-gov-muted">
                 Role Clearance: <strong>{currentPersona === "GOVERNMENT" ? "Government Officer" : "Startup Partner"}</strong>
               </span>
 
@@ -1312,7 +1312,7 @@ export function MilestoneManagementWorkspace() {
             </div>
 
             <div className="space-y-3">
-              <p className="text-slate-700 leading-normal text-[11.5px]">
+              <p className="text-slate-700 leading-normal text-xs">
                 Under GFR Rule 149 procurement protocols, rejecting a submitted milestone requires
                 documenting explicit technical deficiencies or deliverable gaps.
               </p>
@@ -1332,7 +1332,7 @@ export function MilestoneManagementWorkspace() {
                   className={`text-xs ${rejectionError ? "border-red-500 ring-1 ring-red-300" : ""}`}
                 />
                 {rejectionError && (
-                  <p className="text-[10.5px] text-red-600 font-semibold flex items-center mt-1">
+                  <p className="text-xs text-red-600 font-semibold flex items-center mt-1">
                     <AlertCircle className="w-3 h-3 mr-1" />
                     Rejection comments are mandatory by procurement audit regulations.
                   </p>
