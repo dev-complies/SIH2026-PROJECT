@@ -73,7 +73,7 @@ export const DEMO_STEPS: DemoStep[] = [
     id: 3,
     title: "3. Create / Open Challenge",
     shortTitle: "Open Challenge",
-    path: "/challenges/CHAL-UP-UAQ-2026",
+    path: "/challenges/chal-air-001",
     role: "GOVERNMENT_OFFICER",
     userId: "user-gov-001",
     userName: "Rajesh Verma",
