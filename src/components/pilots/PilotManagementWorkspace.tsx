@@ -20,6 +20,7 @@ import { RiskIssueManagementWorkspace } from "@/components/risks/RiskIssueManage
 import { DocumentContractManagementWorkspace } from "@/components/documents/DocumentContractManagementWorkspace";
 import { MilestonePaymentWorkspace } from "@/components/payments/MilestonePaymentWorkspace";
 import { ValidatorWorkspace } from "@/components/validator/ValidatorWorkspace";
+import { PilotExecutiveReportView } from "./PilotExecutiveReportView";
 import {
   Building2,
   CheckCircle2,
@@ -65,7 +66,8 @@ export type PilotTab =
   | "documents"
   | "payments"
   | "validation"
-  | "activity";
+  | "activity"
+  | "report";
 
 export interface PilotIssue {
   id: string;
@@ -266,6 +268,14 @@ export function PilotManagementWorkspace() {
             >
               <Download className="w-3.5 h-3.5 mr-1" /> Export Dossier
             </Button>
+            <Link href="/gov/pilots/report">
+              <Button
+                size="sm"
+                className="text-xs h-7 bg-gov-primary hover:bg-gov-primary/90 text-white font-semibold shadow-2xs"
+              >
+                <FileText className="w-3.5 h-3.5 mr-1" /> Executive Report
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -331,9 +341,7 @@ export function PilotManagementWorkspace() {
         </div>
 
         {/* ======================================================== */}
-        {/* 2. NAVIGATION TABS (ALL 10 EXACT TABS FROM USER PROMPT)  */}
-        {/* Overview, Milestones, KPIs, Evidence, Issues, Risks,     */}
-        {/* Documents, Payments, Validation, Activity                */}
+        {/* 2. NAVIGATION TABS                                       */}
         {/* ======================================================== */}
         <div className="flex items-center overflow-x-auto space-x-1 border-b border-slate-200 pt-1 text-xs font-semibold scrollbar-none">
           {[
@@ -347,6 +355,7 @@ export function PilotManagementWorkspace() {
             { id: "payments", label: "Payments", count: "₹15.5L" },
             { id: "validation", label: "Validation", count: "TERI Certified" },
             { id: "activity", label: "Activity", count: "142 Events" },
+            { id: "report", label: "Executive Report", count: "14 Secs" },
           ].map((t) => (
             <button
               key={t.id}
@@ -638,6 +647,18 @@ export function PilotManagementWorkspace() {
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* TAB 11: EXECUTIVE PILOT REPORT (14 STATUTORY SECTIONS)   */}
+      {/* ======================================================== */}
+      {activeTab === "report" && (
+        <div className="space-y-4 animate-in fade-in duration-150">
+          <PilotExecutiveReportView
+            pilotId="PILOT-UP-UAQ-01"
+            onBack={() => setActiveTab("overview")}
+          />
         </div>
       )}
 

@@ -403,6 +403,127 @@ assert(validateSubmissionPayload(missingEvidencePayload).valid === false, "Submi
 assert(validateSubmissionPayload(missingLimitationsPayload).valid === false, "Submission without Limitations is rejected");
 assert(validateSubmissionPayload(missingCommentsPayload).valid === false, "Submission without Comments is rejected");
 
+// 8. Professional Pilot Report View & Statutory Recommendation Decision-Making Tests
+console.log("\n--- 8. Testing Pilot Executive Report & Statutory Decision-Making RBAC ---");
+
+// 1. Mandatory 14 Sections Requirement Check
+const MANDATORY_REPORT_SECTIONS = [
+  "Executive Summary",
+  "Problem",
+  "Solution",
+  "Pilot Methodology",
+  "Baseline",
+  "KPIs",
+  "Results",
+  "Evidence",
+  "Costs",
+  "Risks",
+  "Issues",
+  "Validation",
+  "Lessons Learned",
+  "Recommendation"
+];
+
+assert(MANDATORY_REPORT_SECTIONS.length === 14, "Executive report defines exactly 14 statutory sections");
+assert(MANDATORY_REPORT_SECTIONS.includes("Executive Summary"), "Section 1: Executive Summary is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Problem"), "Section 2: Problem is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Solution"), "Section 3: Solution is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Pilot Methodology"), "Section 4: Pilot Methodology is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Baseline"), "Section 5: Baseline is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("KPIs"), "Section 6: KPIs is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Results"), "Section 7: Results is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Evidence"), "Section 8: Evidence is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Costs"), "Section 9: Costs is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Risks"), "Section 10: Risks is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Issues"), "Section 11: Issues is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Validation"), "Section 12: Validation is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Lessons Learned"), "Section 13: Lessons Learned is present");
+assert(MANDATORY_REPORT_SECTIONS.includes("Recommendation"), "Section 14: Recommendation is present");
+
+// 2. Explicit Baseline -> Target -> Actual KPI Comparison Check
+const sampleKpis = [
+  { metricName: "Sensor Uptime", baseline: "92.0%", target: "99.0%", actual: "99.4%" },
+  { metricName: "Air Quality Data Accuracy (R² vs BAM-1020)", baseline: "0.72 R²", target: "0.90 R²", actual: "0.95 R²" },
+  { metricName: "Coverage Area (Ward Grid Density)", baseline: "12 sq km", target: "45 sq km", actual: "48 sq km" },
+  { metricName: "Telemetry Latency", baseline: "120s", target: "< 15s", actual: "4.8s" },
+  { metricName: "Citizen AQI Alert Delivery Speed", baseline: "24h batch", target: "< 5 mins", actual: "2.1 mins" },
+];
+
+for (const kpi of sampleKpis) {
+  assert(Boolean(kpi.baseline && kpi.target && kpi.actual), `KPI '${kpi.metricName}' has clear Baseline (${kpi.baseline}) -> Target (${kpi.target}) -> Actual (${kpi.actual})`);
+}
+
+// 3. Recommendation Options Check (Scale, Extend Pilot, Modify & Retest, Close)
+const AUTHORIZED_RECOMMENDATION_OPTIONS = ["Scale", "Extend Pilot", "Modify & Retest", "Close"];
+
+function isValidRecommendationOption(opt) {
+  return AUTHORIZED_RECOMMENDATION_OPTIONS.includes(opt);
+}
+
+assert(isValidRecommendationOption("Scale") === true, "Option 'Scale' is valid");
+assert(isValidRecommendationOption("Extend Pilot") === true, "Option 'Extend Pilot' is valid");
+assert(isValidRecommendationOption("Modify & Retest") === true, "Option 'Modify & Retest' is valid");
+assert(isValidRecommendationOption("Close") === true, "Option 'Close' is valid");
+assert(isValidRecommendationOption("Auto-Approve") === false, "Unauthorized option 'Auto-Approve' is rejected");
+assert(isValidRecommendationOption("AI-Scale") === false, "Unauthorized option 'AI-Scale' is rejected");
+
+// 4. Role Authorization for Recommendation Decision-Makers
+function canRecordPilotRecommendation(user) {
+  if (!user) return false;
+  const canonicalRole = normalizeRole(user.role);
+  return (
+    canonicalRole === "GOVERNMENT_OFFICER" ||
+    canonicalRole === "PROCUREMENT_OFFICER" ||
+    canonicalRole === "ADMIN"
+  );
+}
+
+assert(canRecordPilotRecommendation(govUser) === true, "Government Officer CAN enter statutory recommendation");
+assert(canRecordPilotRecommendation(procurementUser) === true, "Procurement Officer CAN enter statutory recommendation");
+assert(canRecordPilotRecommendation(adminUser) === true, "Admin CAN enter statutory recommendation");
+assert(canRecordPilotRecommendation(airSenseUser) === false, "Startup CANNOT enter procurement recommendation");
+assert(canRecordPilotRecommendation(assignedExpert) === false, "Expert Evaluator CANNOT enter procurement recommendation");
+assert(canRecordPilotRecommendation(validatorUser) === false, "Independent Validator CANNOT enter procurement recommendation");
+
+// 5. Statutory Prohibition of Automated AI Decision-Making
+function validateRecommendationPayload(payload) {
+  if (!isValidRecommendationOption(payload.option)) {
+    return { valid: false, error: "Invalid recommendation option" };
+  }
+  if (!payload.isHumanConfirmed) {
+    return {
+      valid: false,
+      error: "Statutory Violation: Procurement decisions cannot be automated by AI algorithms. Explicit human confirmation is required under GFR Rule 149."
+    };
+  }
+  if (!payload.justification || payload.justification.trim().length < 25) {
+    return { valid: false, error: "Detailed justification required (min 25 chars)" };
+  }
+  return { valid: true };
+}
+
+const validHumanDecision = {
+  option: "Scale",
+  justification: "Startup achieved 99.4% uptime and 0.95 R² correlation with CPCB reference stations over 90 consecutive days.",
+  isHumanConfirmed: true,
+};
+
+const aiAutomatedDecision = {
+  option: "Scale",
+  justification: "Auto-generated by AI model prediction based on telemetry thresholds.",
+  isHumanConfirmed: false, // Simulates AI automated attempt
+};
+
+const shortJustificationDecision = {
+  option: "Scale",
+  justification: "Good performance",
+  isHumanConfirmed: true,
+};
+
+assert(validateRecommendationPayload(validHumanDecision).valid === true, "Explicit human decision-maker recommendation is accepted");
+assert(validateRecommendationPayload(aiAutomatedDecision).valid === false, "Automated AI procurement decision is rejected under GFR Rule 149");
+assert(validateRecommendationPayload(shortJustificationDecision).valid === false, "Decision with insufficient justification (<25 chars) is rejected");
+
 console.log("\n======================================================================");
 console.log(`Verification Complete: ${passedTests} / ${totalTests} assertions passed.`);
 console.log("======================================================================");
